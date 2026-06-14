@@ -42,7 +42,7 @@
         "C": "list->head->next = list->tail; list->tail->next = list->head;",
         "D": "list->head->next = list->tail; list->tail->next = nullptr;"
       },
-      "correct_answer": "C",
+      "correct_answer": "B",
       "score": 2,
       "explanation": ""
     },
