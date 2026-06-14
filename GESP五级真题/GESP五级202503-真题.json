@@ -1,0 +1,356 @@
+{
+  "title": "C++等级考试 2025年03月 真题",
+  "description": "GESP C++五级真题",
+  "time_limit": 90,
+  "pass_score": 60,
+  "questions": [
+    {
+      "title": "第 1 题",
+      "content": "链表不具备的特点是( )。",
+      "question_type": "single",
+      "options": {
+        "A": "可随机访问任何一个元素",
+        "B": "插入、删除操作不需要移动元素",
+        "C": "无需事先估计存储空间大小",
+        "D": "所需存储空间与存储元素个数成正比"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 2 题",
+      "content": "双向链表中每个结点有两个指针域 prev 和 next，分别指向该结点的前驱及后继结点。设 p 指向链表中的一个结点，它的前驱结点和后继结点均非空。要删除结点 p，则下述语句中错误的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "p->next->prev = p->next; p->prev->next = p->prev; delete p;",
+        "B": "p->prev->next = p->next; p->next->prev = p->prev; delete p;",
+        "C": "p->next->prev = p->prev; p->next->prev->next = p->next; delete p;",
+        "D": "p->prev->next = p->next; p->prev->next->prev = p->prev; delete p;"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 3 题",
+      "content": "假设双向循环链表包含头尾哨兵结点(不存储实际内容)，分别为 head 和 tail，链表中每个结点有两个指针域 prev 和 next，分别指向该结点的前驱及后继结点。下面代码实现了一个空的双向循环链表，横线上应填的最佳代码是( )。\n```cpp\n// 链表结点\ntemplate <typename T>\nstruct ListNode {\n    T data;\n    ListNode* prev;\n    ListNode* next;\n\n    // 构造函数\n    explicit ListNode(const T& val = T())\n        : data(val), prev(nullptr), next(nullptr) {}\n};\n\nstruct LinkedList {\n    ListNode<T>* head;\n    ListNode<T>* tail;\n};\n\nvoid InitLinkedList(LinkedList* list) {\n    list->head = new ListNode<T>;\n    list->tail = new ListNode<T>;\n    ________________________________    // 在此处填入代码\n};\n```",
+      "question_type": "single",
+      "options": {
+        "A": "list->head->prev = list->head; list->tail->prev = list->head;",
+        "B": "list->head->next = list->tail; list->tail->prev = list->head;",
+        "C": "list->head->next = list->tail; list->tail->next = list->head;",
+        "D": "list->head->next = list->tail; list->tail->next = nullptr;"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 4 题",
+      "content": "用以下辗转相除法（欧几里得算法）求gcd(84, 60)的步骤中，第二步计算的数是（ ）。\n```cpp\nint gcd(int a, int b) {\n    int big = a > b ? a : b;\n    int small = a < b ? a : b;\n    if (big % small == 0) {\n        return small;\n    }\n    return gcd(small, big % small);\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "84和60",
+        "B": "60和24",
+        "C": "24和12",
+        "D": "12和0"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 5 题",
+      "content": "根据唯一分解定理，下面整数的唯一分解是正确的（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "18 = 3 × 6",
+        "B": "28 = 4 × 7",
+        "C": "36 = 2 × 3 × 6",
+        "D": "30 = 2 × 3 × 5"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 6 题",
+      "content": "下述代码实现素数表的线性筛法，筛选出所有小于等于 n 的素数，横线上应填的最佳代码是( )。\n```cpp\nvector<int> sieve_linear(int n) {\n    vector<bool> is_prime(n + 1, true);\n    vector<int> primes;\n\n    if (n < 2) return primes;\n\n    is_prime[0] = is_prime[1] = false;\n    for (int i = 2; i <= n/2; i++) {\n        if (is_prime[i])\n            primes.push_back(i);\n\n        for (int j = 0; ________________________________ ; j++) {   // 在此处填入代码\n            is_prime[ i * primes[j] ] = false;\n            if (i % primes[j] == 0)\n                break;\n        }\n    }\n\n    for (int i = n/2 + 1; i <= n; i++) {\n        if (is_prime[i])\n            primes.push_back(i);\n    }\n\n    return primes;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "j < primes.size()",
+        "B": "i * primes[j] <= n",
+        "C": "j < primes.size() && i * primes[j] <= n",
+        "D": "j <= n"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 7 题",
+      "content": "在程序运行过程中，如果递归调用的层数过多，会因为（ ）引发错误。",
+      "question_type": "single",
+      "options": {
+        "A": "系统分配的栈空间溢出",
+        "B": "系统分配的堆空间溢出",
+        "C": "系统分配的队列空间溢出",
+        "D": "系统分配的链表空间溢出"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 8 题",
+      "content": "对下面两个函数，说法错误的是（ ）。\n```cpp\nint factorialA(int n) {\n    if (n <= 1) return 1;\n    return n * factorialA(n-1);\n}\nint factorialB(int n) {\n    if (n <= 1) return 1;\n    int res = 1;\n    for(int i=2; i<=n; i++)\n        res *= i;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "两个函数的实现的功能相同。",
+        "B": "两个函数的时间复杂度均为 O(n)。",
+        "C": "factorialA采用递归方式。",
+        "D": "factorialB采用递归方式。"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 9 题",
+      "content": "下列算法中，（ ）是不稳定的排序。",
+      "question_type": "single",
+      "options": {
+        "A": "选择排序",
+        "B": "插入排序",
+        "C": "归并排序",
+        "D": "冒泡排序"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 10 题",
+      "content": "考虑以下C++代码实现的快速排序算法，将数据从小到大排序，则横线上应填的最佳代码是( )。\n```cpp\nint partition(vector<int>& arr, int low, int high) {\n    int pivot = arr[high]; // 基准值\n    int i = low - 1;\n\n    for (int j = low; j < high; j++) {\n        ________________________________           // 在此处填入代码\n    }\n    swap(arr[i + 1], arr[high]);\n    return i + 1;\n}\n\n// 快速排序\nvoid quickSort(vector<int>& arr, int low, int high) {\n    if (low < high) {\n        int pi = partition(arr, low, high);\n        quickSort(arr, low, pi - 1);\n        quickSort(arr, pi + 1, high);\n    }\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "if (arr[j] > pivot) { i++; swap(arr[i], arr[j]); }",
+        "B": "if (arr[j] < pivot) { i++; swap(arr[i], arr[j]); }",
+        "C": "if (arr[j] < pivot) { swap(arr[i], arr[j]); i++; }",
+        "D": "if (arr[j] == pivot) { i++; swap(arr[i], arr[j]); }"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 11 题",
+      "content": "若用二分法在[1, 100]内猜数，最多需要猜（ ）次。",
+      "question_type": "single",
+      "options": {
+        "A": "100",
+        "B": "10",
+        "C": "7",
+        "D": "5"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 12 题",
+      "content": "下面代码实现了二分查找算法，在数组 arr 找到目标元素 target 的位置，则横线上能填写的最佳代码是（ ）。\n```cpp\nint binarySearch(int arr[], int left, int right, int target) {\n    while (left <= right) {\n        ________________________________       // 在此处填入代码\n\n        if (arr[mid] == target)\n            return mid;\n        else if (arr[mid] < target)\n            left = mid + 1;\n        else\n            right = mid - 1;\n    }\n    return -1;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "int mid = left + (right - left) / 2;",
+        "B": "int mid = left;",
+        "C": "int mid = (left + right) / 2;",
+        "D": "int mid = right;"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 13 题",
+      "content": "贪心算法的核心特征是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "总是选择当前最优解",
+        "B": "回溯尝试所有可能",
+        "C": "分阶段解决子问题",
+        "D": "总能找到最优解"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 14 题",
+      "content": "函数 int findMax(int arr[], int low, int high) 计算数组中最大元素，其中数组 arr 从索引 low 到 high，（ ）正确实现了分治逻辑。",
+      "question_type": "single",
+      "options": {
+        "A": "if (low == high) return arr[low]; int mid = (low + high) / 2; return arr[mid];",
+        "B": "if (low >= high) return arr[low]; int mid = (low + high) / 2; int leftMax = findMax(arr, low, mid - 1); int rightMax = findMax(arr, mid, high); return leftMax + rightMax;",
+        "C": "if (low > high) return 0; int mid = low + (high - low) / 2; int leftMax = findMax(arr, low, mid); int rightMax = findMax(arr, mid + 1, high); return leftMax * rightMax;",
+        "D": "if (low == high) return arr[low]; int mid = low + (high - low) / 2; int leftMax = findMax(arr, low, mid); int rightMax = findMax(arr, mid + 1, high); return (leftMax > rightMax) ? leftMax : rightMax;"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 15 题",
+      "content": "小杨编写了一个如下的高精度乘法函数，则横线上应填写的代码为（ ）。\n```cpp\nvector<int> multiply(vector<int>& a, vector<int>& b) {\n    int m = a.size(), n = b.size();\n    vector<int> c(m + n, 0);\n\n    // 逐位相乘，逆序存储\n    for (int i = 0; i < m; i++) {\n        for (int j = 0; j < n; j++) {\n            c[i + j] += a[i] * b[j];\n        }\n    }\n\n    // 处理进位\n    int carry = 0;\n    for (int k = 0; k < c.size(); ++k) {\n        ________________________________     // 在此处填入代码\n        c[k] = temp % 10;\n        carry = temp / 10;\n    }\n\n    while (c.size() > 1 && c.back() == 0)\n        c.pop_back();\n    return c;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "int temp = c[k];",
+        "B": "int temp = c[k] + carry;",
+        "C": "int temp = c[k] - carry;",
+        "D": "int temp = c[k] * carry;"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 1 题",
+      "content": "要删除单链表中某个结点`p`（非尾结点），但不知道头结点，可行的操作是将`p->next`的数据拷贝到`p`的数据部分，将`p->next`设置为`p->next->next`，然后删除`p->next`。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 2 题",
+      "content": "链表存储线性表时要求内存中可用存储单元地址是连续的。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 3 题",
+      "content": "线性筛相对于埃拉托斯特尼筛法，每个合数只会被它的最小质因数筛去一次，因此效率更高。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 4 题",
+      "content": "贪心算法通过每一步选择当前最优解，从而一定能获得全局最优解。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 5 题",
+      "content": "递归函数必须具有一个终止条件，以防无限递归。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 6 题",
+      "content": "快速排序算法的时间复杂度与输入是否有序无关，始终稳定为 O(n log n)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 7 题",
+      "content": "归并排序算法的时间复杂度与输入是否有序无关，始终稳定为 O(n log n)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 8 题",
+      "content": "二分查找适用于对无序数组和有序数组的查找。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 9 题",
+      "content": "小杨有100元去超市买东西，每个商品有各自的价格，每种商品只能买1个，小杨的目标是买到最多数量的商品。小杨采用的策略是每次挑价格最低的商品买，这体现了分治思想。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 10 题",
+      "content": "归并排序算法体现了分治算法，每次将大的待排序数组分成大小大致相等的两个子数组，然后分别对两个子数组进行排序，最后对排好序的两个子数组合并成有序数组。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "平均分配",
+      "content": "A有 n 件物品，B和C想从A手上买走这些物品。对于第 i 件物品，B会以 b_i 的价格购买，C会以 c_i 的价格购买。为了平均分配这件物品，A决定B和C各只能买恰好 n 件物品。你能帮A求出他卖出这件物品所能获得的最大收入吗？",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/P7033",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": ""
+    },
+    {
+      "title": "原根判断",
+      "content": "小 A 知道，对于质数 p 而言，g 的原根是满足以下条件的正整数：\n1. 1 ≤ g < p；\n2. g^(p-1) ≡ 1 (mod p)；\n3. 对于任意 1 ≤ k < p-1，均有 g^k ≢ 1 (mod p)。\n\n小 A 现在有一个整数 g，请你帮他判断 g 是不是 p 的原根。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/P7026",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": ""
+    }
+  ]
+}

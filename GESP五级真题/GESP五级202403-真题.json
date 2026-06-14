@@ -1,0 +1,356 @@
+{
+  "title": "C++等级考试 2024年03月 真题",
+  "description": "GESP C++五级真题",
+  "time_limit": 90,
+  "pass_score": 60,
+  "questions": [
+    {
+      "title": "第 1 题",
+      "content": "唯一分解定理描述的内容是（ ）？",
+      "question_type": "single",
+      "options": {
+        "A": "任意整数都可以分解为素数的乘积",
+        "B": "每个合数都可以唯一分解为一系列素数的乘积",
+        "C": "两个不同的整数可以分解为相同的素数乘积",
+        "D": "以上都不对"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 2 题",
+      "content": "贪心算法的核心思想是（ ）？",
+      "question_type": "single",
+      "options": {
+        "A": "在每一步选择中都做当前状态下的最优选择",
+        "B": "在每一步选择中都选择局部最优解",
+        "C": "在每一步选择中都选择全局最优解",
+        "D": "以上都对"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 3 题",
+      "content": "下面的 C++ 代码片段用于计算阶乘。请在横线处填入（ ），实现正确的阶乘计算。\n```cpp\nint factorial(int n) {\n    if (n == 0 || n == 1) {\n        return 1;\n    } else {\n        _________________________________   // 在此处填入代码\n    }\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "return n * factorial(n - 1);",
+        "B": "return factorial(n - 1) / n;",
+        "C": "return n * factorial(n);",
+        "D": "return factorial(n / 2) * factorial(n / 2);"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 4 题",
+      "content": "下面的代码片段用于在双向链表中删除一个节点。请在横线处填入（ ），使其能正确实现相应功能。\n```cpp\nvoid deleteNode(DoublyListNode*& head, int value) {\n    DoublyListNode* current = head;\n    while (current != nullptr && current->val != value) {\n        current = current->next;\n    }\n    if (current != nullptr) {\n        if (current->prev != nullptr) {\n            ____________________________________ // 在此处填入代码\n        } else {\n            head = current->next;\n        }\n        if (current->next != nullptr) {\n            current->next->prev = current->prev;\n        }\n        delete current;\n    }\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "if (current->next != nullptr) current->next->prev = current->prev;",
+        "B": "current->prev->next = current->next;",
+        "C": "delete current->next;",
+        "D": "current->prev = current->next;"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 5 题",
+      "content": "辗转相除法也被称为（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "高斯消元法",
+        "B": "费马定理",
+        "C": "欧几里德算法",
+        "D": "牛顿迭代法"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 6 题",
+      "content": "下面的代码片段用于计算斐波那契数列。该代码的时间复杂度是（ ）？\n```cpp\nint fibonacci(int n) {\n    if (n <= 1) {\n        return n;\n    } else {\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "O(2^n)",
+        "B": "O(n^2)",
+        "C": "O(n)",
+        "D": "O(log n)"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 7 题",
+      "content": "下面的代码片段用于将两个高精度整数进行相加。请在横线处填入（ ），使其能正确实现相应功能。\n```cpp\nstring add(string num1, string num2) {\n    string result;\n    int carry = 0;\n    int i = num1.size() - 1, j = num2.size() - 1;\n    while (i >= 0 || j >= 0 || carry) {\n        int x = (i >= 0) ? num1[i--] - '0' : 0;\n        int y = (j >= 0) ? num2[j--] - '0' : 0;\n        int sum = x + y + carry;\n        carry = sum / 10;\n        _______________________________________\n    }\n    return result;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "result = to_string(sum % 10) + result;",
+        "B": "result = to_string(carry % 10) + result;",
+        "C": "result = to_string(sum / 10) + result;",
+        "D": "result = to_string(sum % 10 + carry) + result;"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 8 题",
+      "content": "给定序列：1，3，6，9，17，31，39，52，61，79，81，90，96。使用以下代码进行二分查找查找元素 82 时，需要循环多少次，即最后输出的 times 值为（ ）。\n```cpp\nint binarySearch(const std::vector<int>& arr, int target) {\n    int left = 0;\n    int right = arr.size() - 1;\n    int times = 0;\n    while (left <= right) {\n        times++;\n        int mid = left + (right - left) / 2;\n        if (arr[mid] == target) {\n            cout << times << endl;\n            return mid;\n        } else if (arr[mid] < target) {\n            left = mid + 1;\n        } else {\n            right = mid - 1;\n        }\n    }\n    cout << times << endl;\n    return -1;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "2",
+        "B": "5",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 9 题",
+      "content": "下面的代码片段用于判断一个正整数是否为素数。请对以下代码进行修改，使其能正确实现相应功能。（ ）\n```cpp\nbool isPrime(int num) {\n    if (num < 2) {\n        return false;\n    }\n    for (int i = 2; i * i < num; ++i) {\n        if (num % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "num < 2 应该改为 num <= 2",
+        "B": "循环条件 i * i < num 应该改为 i * i <= num",
+        "C": "循环条件应该是 i <= num",
+        "D": "循环体中应该是 if (num % i != 0)"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 10 题",
+      "content": "在埃拉托斯特尼筛法中，要筛选出不大于 n 的所有素数，最外层循环应该遍历什么范围（ ）？\n```cpp\nvector<int> sieveOfEratosthenes(int n) {\n    std::vector<bool> isPrime(n + 1, true);\n    std::vector<int> primes;\n    _______________________ {\n        if (isPrime[i]) {\n            primes.push_back(i);\n            for (int j = i * i; j <= n; j += i) {\n                isPrime[j] = false;\n            }\n        }\n    }\n    for (int i = sqrt(n) + 1; i <= n; ++i) {\n        if (isPrime[i]) {\n            primes.push_back(i);\n        }\n    }\n    return primes;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "for (int i = 2; i <= n; ++i)",
+        "B": "for (int i = 1; i < n; ++i)",
+        "C": "for (int i = 2; i <= sqrt(n); ++i)",
+        "D": "for (int i = 1; i <= sqrt(n); ++i)"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 11 题",
+      "content": "素数的线性筛法时间复杂度为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "O(n)",
+        "B": "O(n log n)",
+        "C": "O(n^2)",
+        "D": "O(n log log n)"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 12 题",
+      "content": "归并排序的基本思想是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "动态规划",
+        "B": "分治",
+        "C": "贪心算法",
+        "D": "回溯算法"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 13 题",
+      "content": "在快速排序中，选择的主元素（pivot）会影响算法的（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "不影响",
+        "B": "时间复杂度",
+        "C": "空间复杂度",
+        "D": "时间复杂度和空间复杂度"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 14 题",
+      "content": "递归函数在调用自身时，必须满足（ ），以避免无限递归？",
+      "question_type": "single",
+      "options": {
+        "A": "有终止条件",
+        "B": "函数参数递减（或递增）",
+        "C": "函数返回值固定",
+        "D": "以上都对"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 15 题",
+      "content": "假设给定链表为: 1→2→3→4→5，若调用 searchValue(head, 5)，函数返回值为（ ）。\n```cpp\nint searchValue(ListNode* head, int target) {\n    while (head != nullptr) {\n        if (head->val == target) {\n            return 1;\n        }\n        head = head->next;\n    }\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "返回 1",
+        "B": "返回 0",
+        "C": "死循环，无法返回",
+        "D": "返回 -1"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 1 题",
+      "content": "辗转相除法用于求两个整数的最大公约数。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 2 题",
+      "content": "插入排序的时间复杂度是 O(n^2)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 3 题",
+      "content": "二分查找要求被搜索的序列是有序的，否则无法保证正确性。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 4 题",
+      "content": "使用贪心算法解决问题时，每一步的局部最优解一定会导致全局最优解。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 5 题",
+      "content": "分治算法的核心思想是将一个大问题分解成多个相同或相似的子问题进行解决，最后合并得到原问题的解。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 6 题",
+      "content": "分治算法的典型应用之一是归并排序，其时间复杂度为 O(n log n)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 7 题",
+      "content": "素数表的埃氏筛法和线性筛法的时间复杂度都是 O(n log log n)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 8 题",
+      "content": "贪心算法是一种可以应用于所有问题的通用解决方案。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 9 题",
+      "content": "单链表和双链表都可以在常数时间内实现在链表头部插入或删除节点的操作。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 10 题",
+      "content": "在C语言中，递归的实现方式通常会占用更多的栈空间，可能导致栈溢出。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "成绩排序",
+      "content": "小杨有 n 个同学的成绩，他想按照成绩从高到低排序，如果成绩相同，则按照学号从小到大排序。\n\n**输入格式**\n第一行包含一个正整数 n，表示同学的数量。\n接下来 n 行，每行包含两个正整数 s_i, id_i，分别表示第 i 个同学的成绩和学号。\n\n**输出格式**\n输出 n 行，每行包含两个正整数，表示排序后的成绩和学号。\n\n**样例输入1**\n```\n5\n95 1\n95 3\n88 2\n95 2\n88 5\n```\n\n**样例输出1**\n```\n95 1\n95 2\n95 3\n88 2\n88 5\n```\n\n**数据范围**\n对于 30% 的测试点，保证 n ≤ 10^3；\n对于所有测试点，保证 1 ≤ n ≤ 10^5，1 ≤ s_i ≤ 10^9，1 ≤ id_i ≤ 10^9。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/4461",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": ""
+    },
+    {
+      "title": "B-smooth 数",
+      "content": "小杨有一个正整数 n，他想找到一个最大的正整数 m（m ≤ n），使得 m 是 B-smooth 数。\n\n一个正整数被称为 B-smooth 数，当且仅当它的所有质因子都不超过 B。\n\n**输入格式**\n输入一行两个正整数 n 和 B。\n\n**输出格式**\n输出一行一个正整数 m。\n\n**样例输入1**\n```\n10 3\n```\n\n**样例输出1**\n```\n9\n```\n\n**样例解释**\n9 的质因子只有 3，不超过 3，所以 9 是 3-smooth 数。而 10 的质因子有 2 和 5，5 超过了 3，所以 10 不是 3-smooth 数。\n\n**样例输入2**\n```\n1 10\n```\n\n**样例输出2**\n```\n1\n```\n\n**数据范围**\n对于 30% 的测试点，保证 n ≤ 10^3，B ≤ 10^3；\n对于所有测试点，保证 1 ≤ n ≤ 10^{18}，1 ≤ B ≤ 10^{18}。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/4462",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": ""
+    }
+  ]
+}
