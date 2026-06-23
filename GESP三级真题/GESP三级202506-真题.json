@@ -1,0 +1,356 @@
+{
+  "title": "【GESP】C++等级考试3级 2025年6月 真题",
+  "description": "GESP C++三级真题",
+  "time_limit": 40,
+  "pass_score": 60,
+  "questions": [
+    {
+      "title": "第 1 题",
+      "content": "8位二进制原码能表示的最小整数是：（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "-127",
+        "B": "-128",
+        "C": "-255",
+        "D": "-256"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "原码最高位为符号位，8位原码范围-127~127。最小负数为11111111，即-127。"
+    },
+    {
+      "title": "第 2 题",
+      "content": "反码表示中，零的表示形式有：",
+      "question_type": "single",
+      "options": {
+        "A": "1种",
+        "B": "2种",
+        "C": "8种",
+        "D": "16种"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "反码中+0表示为00000000，-0表示为11111111，故零有2种表示形式。"
+    },
+    {
+      "title": "第 3 题",
+      "content": "补码 1011 1011 对应的真值是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "-69",
+        "B": "-59",
+        "C": "-68",
+        "D": "-58"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "补码10111011，减1得反码10111010，取反得原码11000101，即-69。"
+    },
+    {
+      "title": "第 4 题",
+      "content": "若X的8位补码为 0000 1010，则 X/2 的补码是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "0000 0101",
+        "B": "1000 0101",
+        "C": "0000 0101 或 1000 0101",
+        "D": "算术右移后结果取决于符号位"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "X=10，X/2=5，正数补码即原码00000101。正数算术右移高位补0。"
+    },
+    {
+      "title": "第 5 题",
+      "content": "二进制数 1101.101 对应的十进制数是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "13.625",
+        "B": "12.75",
+        "C": "11.875",
+        "D": "14.5"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "1101.101₂ = 8+4+0+1 + 0.5+0+0.125 = 13.625。"
+    },
+    {
+      "title": "第 6 题",
+      "content": "补码加法中，若符号位无进位而次高位有进位，则说明（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "结果正确",
+        "B": "发生上溢",
+        "C": "发生下溢",
+        "D": "结果符号位错误"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "符号位无进位而次高位有进位，说明两正数相加结果符号位变为1（负），产生上溢。"
+    },
+    {
+      "title": "第 7 题",
+      "content": "八进制数 35.6 对应的十进制数是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "29.75",
+        "B": "28.5",
+        "C": "27.625",
+        "D": "30.25"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "35.6₈ = 3×8+5 + 6/8 = 24+5+0.75 = 29.75。"
+    },
+    {
+      "title": "第 8 题",
+      "content": "二进制数 1010 | 1100 的结果是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "1000",
+        "B": "1110",
+        "C": "1010",
+        "D": "1100"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "按位或运算：1010|1100=1110，逐位相或，有1则1。"
+    },
+    {
+      "title": "第 9 题",
+      "content": "以下哪个位运算可以交换两个变量的值（无需临时变量）（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "a = a ^ b; b = a ^ b; a = a ^ b;",
+        "B": "a = a & b; b = a | b; a = a & b;",
+        "C": "a = a | b; b = a ^ b; a = a ^ b;",
+        "D": "a = ~a; b = ~b; a = ~a;"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "经典异或交换法：a^=b; b^=a; a^=b，三步即交换a、b值，无需临时变量。"
+    },
+    {
+      "title": "第 10 题",
+      "content": "如何正确定义一个长度为5的整型数组（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "int array = new int[5];",
+        "B": "array int[5];",
+        "C": "int[] array = {1,2,3,4,5};",
+        "D": "int array[5];"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "C++中定义数组的正确语法为 int array[5];，选项A用new需配合指针，选项C为Java语法。"
+    },
+    {
+      "title": "第 11 题",
+      "content": "以下程序使用枚举法（穷举法）求解满足条件的三位数，横线处应该填入的是（ ）\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int count = 0;\n    for (int i = 100; i <= 999; i++) {\n        int a = i / 100;\n        ————————————————————\n        int c = i % 10;\n        if (a * a + b * b == c * c) {\n            count++;\n        }\n    }\n    cout << count << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "int b = (i / 10) / 10;",
+        "B": "int b = (i / 10) % 10;",
+        "C": "int b = (i % 10) / 10;",
+        "D": "int b = (i % 10) % 10;"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "取三位数百位a=i/100，个位c=i%10，十位b=(i/10)%10，即先除以10去掉个位，再取个位。"
+    },
+    {
+      "title": "第 12 题",
+      "content": "以下程序模拟了一个简单的小球反弹过程，横线处应该填入的是（ ）\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int height = 10;\n    int distance = 0;\n    for (int i = 1; i <= 5; i++) { // 模拟5次落地\n        ——————————————————————\n        height /= 2;\n        distance += height;\n    }\n    cout << distance << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "distance += height/2;",
+        "B": "distance += height;",
+        "C": "distance += height*2;",
+        "D": "distance += height+1;"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "每次落地前距离为当前height，应先累加再减半：distance+=height累加下落距离。"
+    },
+    {
+      "title": "第 13 题",
+      "content": "C++代码 string s = \"GESP考试\"; ，s占据的字节数是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "10",
+        "B": "8",
+        "C": "8或10",
+        "D": "取决于计算机采用什么编码"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "中文字符在UTF-8下占3字节、GBK下占2字节，故\"GESP考试\"字节数取决于编译器采用的编码。"
+    },
+    {
+      "title": "第 14 题",
+      "content": "C++语句 string s=\"Gesp Test\"; 执行s.rfind(\"e\")以后,输出的是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "6",
+        "D": "3"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "\"Gesp Test\"中字母e出现在索引1和6，rfind从右向左查找，返回最右侧的6。"
+    },
+    {
+      "title": "第 15 题",
+      "content": "字符串\"Gesp考试\",字符数是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "10",
+        "B": "8",
+        "C": "6",
+        "D": "字符数多少取决于编码"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "\"Gesp考试\"共6个字符：G、e、s、p、考、试，字符数不计编码方式，按逻辑字符计。"
+    },
+    {
+      "title": "第 1 题",
+      "content": "C++中 string 的 == 运算符比较的是字符串的内存地址，而非内容。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "string的==比较的是字符串内容（重载了operator==），而非内存地址"
+    },
+    {
+      "title": "第 2 题",
+      "content": "string 的 substr(1, 3) 返回从下标1开始的3个字符的子串。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "substr(pos, count)功能正确"
+    },
+    {
+      "title": "第 3 题",
+      "content": "x 是浮点数，(x >> 1) 等价于 x / 2。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ">> 是位右移运算符，不能用于浮点数"
+    },
+    {
+      "title": "第 4 题",
+      "content": "string(\"hello\") == \"hello\" 的比较结果为 true。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "比较内容，两者都是\"hello\"，结果为true"
+    },
+    {
+      "title": "第 5 题",
+      "content": "sort 可以直接用于排序 set 中的元素。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "set本身有序（红黑树），且迭代器为双向迭代器，不满足sort需要的随机访问迭代器"
+    },
+    {
+      "title": "第 6 题",
+      "content": "(x & 1) == 0 可以判断整数 x 是否为偶数。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "偶数的二进制最低位为0，x&1得0即为偶数"
+    },
+    {
+      "title": "第 7 题",
+      "content": "string 的 substr(2, 10) 在字符串长度不足时会抛出异常。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "substr不会抛出异常，返回从pos到末尾的子串"
+    },
+    {
+      "title": "第 8 题",
+      "content": "在数学纸面计算中，pow(2, 3) 的计算结果一定是8，但是在C++中，如果遇到数据类型是浮点数，那就不一定正确。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "浮点运算可能有精度误差，pow返回double类型"
+    },
+    {
+      "title": "第 9 题",
+      "content": "在 C++ 中，枚举的底层类型可以是非整型（如 float 或 double）。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "C++要求枚举的底层类型必须是整型（int/char等），不能是浮点型"
+    },
+    {
+      "title": "第 10 题",
+      "content": "函数声明 double f(); 返回 int 时，会自动转换为 double。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "int到double存在隐式类型转换"
+    },
+    {
+      "title": "奇偶校验",
+      "content": "**试题名称：** 奇偶校验\n**时间限制：** 1.0 s\n**内存限制：** 512.0 MB\n\n### 题目描述\n数据在传输过程中可能出错，因此接收方收到数据后通常会校验传输的数据是否正确，奇偶校验是经典的校验方式之一。\n给定 n 个非负整数代表所传输的数据，它们的校验码取决于这些整数在二进制下 1 的数量之和的奇偶性。如果这些整数在二进制下共有奇数个 1，那么校验码为 1；否则校验码为 0。你能求出这些整数的校验码吗？\n\n### 输入格式\n第一行，一个正整数 n，表示所传输的数据量。\n第二行，n 个非负整数，表示所传输的数据。\n\n### 输出格式\n输出一行，两个整数，以一个空格分隔：\n第一个整数表示所有整数在二进制下的 1 的总数量；\n第二个整数表示校验码（0或1）。\n\n### 样例\n\n**输入样例 1**\n```\n4\n71 69 83 80\n```\n**输出样例 1**\n```\n13 1\n```\n\n**输入样例 2**\n```\n6\n1 2 4 8 16 32\n```\n**输出样例 2**\n```\n6 0\n```\n\n### 数据范围\n对于所有测试点，保证 1 ≤ n ≤ 1000，0 ≤ 数据值 ≤ 10^9。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/GESP202506-3-T1",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": "逐数统计二进制下1的个数（while循环逐位检测或内置__builtin_popcount），累加后判断奇偶性输出校验码。"
+    },
+    {
+      "title": "分糖果",
+      "content": "**试题名称：** 分糖果\n**时间限制：** 1.0 s\n**内存限制：** 512.0 MB\n\n### 题目描述\n有 n 位小朋友排成一队等待老师分糖果。第 i 位小朋友想要至少 a_i 颗糖果，并且分给他的糖果数量必须比分给前一位小朋友的糖果数量更多，不然他就会不开心。\n老师想知道至少需要准备多少颗糖果才能让所有小朋友都开心。你能帮帮老师吗？\n\n### 输入格式\n第一行，一个正整数 n，表示小朋友的人数。\n第二行，n 个正整数 a_1, a_2, ..., a_n，依次表示每位小朋友至少需要的糖果数量。\n\n### 输出格式\n输出一行，一个整数，表示最少需要准备的糖果数量。\n\n### 样例\n\n**输入样例 1**\n```\n4\n1 4 3 3\n```\n**输出样例 1**\n```\n16\n```\n\n**输入样例 2**\n```\n15\n314 15926 53589793 238462643 383279502 8 8 4 1 9 7 1 6 9 3\n```\n**输出样例 2**\n```\n4508143253\n```\n\n### 数据范围\n对于所有测试点，保证 1 ≤ n ≤ 1000，1 ≤ a_i ≤ 10^9。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/GESP202506-3-T2",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": "贪心：从前向后遍历，保证每位小朋友实际所得不少于a[i]且大于前一位，ans累加每位实际所得。a[i]=max(a[i-1]+1,a[i])。"
+    }
+  ]
+}

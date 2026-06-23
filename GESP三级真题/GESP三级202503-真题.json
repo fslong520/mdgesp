@@ -1,0 +1,356 @@
+{
+  "title": "【GESP】C++等级考试3级 2025年3月 真题",
+  "description": "GESP C++三级真题",
+  "time_limit": 40,
+  "pass_score": 60,
+  "questions": [
+    {
+      "title": "第 1 题",
+      "content": "Base64 编码将每3字节的输入数据编码为 4 字节的输出数据。如果输入数据长度不是 3 的倍数，会用 = 号填充。在Base64编码中，如果输入字符串的长度为10字节，编码后的字符串长度是多少（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "12 字节",
+        "B": "13 字节",
+        "C": "14 字节",
+        "D": "16 字节"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "10字节输入分3组（3×3=9字节）余1字节，余数补=号至整组。共产生4组，每组4字符，得16字节。"
+    },
+    {
+      "title": "第 2 题",
+      "content": "UTF-8 编码规则如下：\n1 字节：0xxxxxxx\n2 字节：110xxxxx 10xxxxxx\n3 字节：1110xxxx 10xxxxxx 10xxxxxx\n4 字节：11110xxx 10xxxxxx 10xxxxxx 10xxxxxx\n\n以下哪个字节序列是合法的 UTF-8 编码（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "0xC0 0x80",
+        "B": "0xF0 0x90 0x80 0x80",
+        "C": "0x80 0x80 0x80",
+        "D": "0xFF 0xFE 0xFD"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "0xF0(11110xxx)为4字节前缀，后三字节均为10xxxxxx格式，符合UTF-8编码规则。其他选项均有格式错误或无有效前缀。"
+    },
+    {
+      "title": "第 3 题",
+      "content": "在 8 位二进制原码表示中，八进制数 -5 的二进制形式是什么（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "10000101",
+        "B": "11111010",
+        "C": "11111011",
+        "D": "00000101"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "|-5|=5，八进制5转为二进制101，原码8位为00000101，负号使最高位为1，得10000101。"
+    },
+    {
+      "title": "第 4 题",
+      "content": "十进制数 111.111 的二进制表示可以是下面的（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "1101111.0001110001",
+        "B": "1101110.1001110001",
+        "C": "1101111.1001110001",
+        "D": "1101111.0011110001"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "整数部分111÷2得1101111；小数部分0.111×2取整法得0001110001。组合得1101111.0001110001。"
+    },
+    {
+      "title": "第 5 题",
+      "content": "在C++中，补码的主要作用是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "提高浮点数的精度",
+        "B": "简化整数的加减法运算",
+        "C": "增加整数的表示范围",
+        "D": "优化内存分配"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "补码将减法转为加法（a-b=a+(-b)），统一加减法电路，不必单独设计减法器。"
+    },
+    {
+      "title": "第 6 题",
+      "content": "在C++中，一个8位有符号整数（使用补码表示）的范围是（ ）",
+      "question_type": "single",
+      "options": {
+        "A": "-128 到 127",
+        "B": "-127 到 128",
+        "C": "-256 到 255",
+        "D": "0 到 255"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "补码表示下，正数0~127（00000000~01111111），负数-128~-1（10000000~11111111）。"
+    },
+    {
+      "title": "第 7 题",
+      "content": "在C++中，以下代码的输出是什么（ ）\n```cpp\nint a = -5;\nunsigned int b = a;\ncout << b;\n```",
+      "question_type": "single",
+      "options": {
+        "A": "-5",
+        "B": "5",
+        "C": "4294967291",
+        "D": "编译错误"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "-5的补码为0xFFFFFFFB，赋值给unsigned int后按无符号解释得2^32-5=4294967291。"
+    },
+    {
+      "title": "第 8 题",
+      "content": "下列程序的作用是（ ）\n```cpp\nint main() {\n    int decimal = 25;\n    cout << oct << decimal;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "将十进制数转换成八进制数",
+        "B": "将八进制数转换成十进制数",
+        "C": "将二进制数转换成八进制数",
+        "D": "将八进制数转换成16进制数"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "oct操纵符使后续整数以八进制形式输出，25(10)=31(8)。"
+    },
+    {
+      "title": "第 9 题",
+      "content": "下面程序是将十进制转十六进制，横线处应该填入的是（ ）\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int decimal = 255;\n    ——————————————————\n        return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "cout << oct << decimal;",
+        "B": "cout << decimal << decimal;",
+        "C": "cout << hex << decimal;",
+        "D": "不能正确执行"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "hex操纵符使后续整数以十六进制输出，255(10)=FF(16)。"
+    },
+    {
+      "title": "第 10 题",
+      "content": "以下代码的说法正确的是什么（ ）\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int a = 0b1101;\n    int b = 0b1011;\n    cout << (a ^ b);\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "进行的是整体异或运算",
+        "B": "进行的是按位同或运算",
+        "C": "进行的是按位与运算",
+        "D": "进行的是按位异或运算"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "0b1101^0b1011逐位异或得0b0110。选项D正确描述该运算符。"
+    },
+    {
+      "title": "第 11 题",
+      "content": "下面枚举法查找最大值索引程序中，横线处应该填写的是（ ）\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[] = {3, 7, 2, 9, 5};\n    int maxIndex = 0;\n    for (int i = 1; i < 5; i++) {\n        ————————————————————————————————\n        {\n            maxIndex = i;\n        }\n    }\n    cout << maxIndex;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "if (arr[maxIndex] > arr[i])",
+        "B": "if (arr[i]-1 > arr[maxIndex])",
+        "C": "if (arr[i]+1 > arr[maxIndex])",
+        "D": "if (arr[i] > arr[maxIndex])"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "遍历数组，当发现更大值时更新索引。arr[i]>arr[maxIndex]时记录新最大值位置。"
+    },
+    {
+      "title": "第 12 题",
+      "content": "以下代码的功能是将数组中的奇数和偶数分别放在数组的前半部分和后半部分，横线处应该填入的是（ ）\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    int left = 0, right = 4;\n    while (left < right) {\n        while (arr[left] % 2 == 1 && left < right) left++;\n        ————————————————————————————————————————————————————\n        if (left < right) {\n            swap(arr[left], arr[right]);\n        }\n    }\n    for (int i = 0; i < 5; i++) {\n        cout << arr[i] << \" \";\n    }\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "while (arr[left] % 2 == 0 && left < right) right--;",
+        "B": "while (arr[right] % 2 == 0 && left < right) left--;",
+        "C": "while (arr[right] % 2 != 0 && left < right) right--;",
+        "D": "while (arr[right] % 2 == 0 && left < right) right--;"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "while(arr[right]%2==0&&left<right)right--，从右向左跳过偶数，找到奇数后与左边找到的偶数交换。"
+    },
+    {
+      "title": "第 13 题",
+      "content": "下面程序最后能够得到 HelloC++ 的是（ ）\n```cpp\nint main() {\n    string str = \"HelloWorld\";\n    ___________________\n    cout << str;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "str.replace(0, 5, \"C++\");",
+        "B": "str.replace(5, 5, \"C++\");",
+        "C": "str.replace(1, 5, \"C++\");",
+        "D": "str.replace(4, 5, \"C++\");"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "「HelloWorld」下标0-4为「Hello」，5-9为「World」。替换下标5起的5字符得「HelloC++」。"
+    },
+    {
+      "title": "第 14 题",
+      "content": "想要得到字符串 world ，下面程序横线处应该填入的是（ ）\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string str = \"HelloC++\";\n    _________________\n    _________________\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "str.insert(4, \"World\"); 与 cout << str.substr(4, 4);",
+        "B": "cout << str.substr(5, 5);",
+        "C": "str.insert(\"World\"); 与 cout << str.substr(5, 5);",
+        "D": "str.insert(5, \"World\"); 与 cout << str.substr(5, 5);"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "str.insert(5,「World」)在索引5处插入「World」得「HelloWorldC++」，str.substr(5,5)从索引5起取5字符得「World」。"
+    },
+    {
+      "title": "第 15 题",
+      "content": "有 n 个正整数，假设一个正整数是美丽数字当且仅当该正整数是 9 的倍数但不是 8 的倍数。下面的程序是编写计算 n 个正整数中美丽数字的数量，横线处应该填入的是（ ）\n```cpp\nfor (int i = 1; i <= n; i++) {\n    cin >> a;\n    __________________________\n        cnt++;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "if (a % 9 != 0 && a % 8 != 0)",
+        "B": "if (a % 9 == 0 & a % 8 == 0)",
+        "C": "if (a % 9 == 0 && a % 8 != 0)",
+        "D": "if (a % 9 == 0 & a % 8 != 0)"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "a%9==0（被9整除）&& a%8!=0（不被8整除）用逻辑与&&连接，符合美丽数字定义。"
+    },
+    {
+      "title": "第 1 题",
+      "content": "判断一个三角形是否成立的条件只有：任意两边长度之和大于第三条边的长度。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "三角形两边之和大于第三边是构成三角形的充要条件（边长均为正数隐含成立）。"
+    },
+    {
+      "title": "第 2 题",
+      "content": "这段程序进行的是判断一个从键盘输入的字符的ASCII是否是奇数，若是，输出YES，否则，输出NO。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "x&1检查字符ASCII码的最低位，为1表示奇数。程序功能与描述一致。"
+    },
+    {
+      "title": "第 3 题",
+      "content": "闰年的定义：普通闰年——公历年份是4的倍数，且不是100的倍数的，为闰年；世纪闰年——公历年份是整百数的，必须是400的倍数才是闰年。下面程序是判断是否是闰年的正确程序。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "(n%4==0&&n%100!=0)||(n%400==0)完整覆盖普通闰年与世纪闰年规则。"
+    },
+    {
+      "title": "第 4 题",
+      "content": "C++语句cout << (n % 15 == 0 ? \\\"YES\\\" : \\\"NO\\\");能够判断一个整数能否被3和5同时整除。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "15=3×5且3与5互质，n%15==0等价于n同时被3和5整除。"
+    },
+    {
+      "title": "第 5 题",
+      "content": "有n个同学，从中抽取任意个数来参加学校组织的合唱，共有2的n次幂个方法。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "每人可选或不选，2种状态，n人共2^n种选择方案。"
+    },
+    {
+      "title": "第 6 题",
+      "content": "若将一个正整数化为二进制数，在此二进制数中，我们将数字1的个数是偶数的这类二进制数称为A类数，否则就称其为B类数。判断(2025)10化为二进制后，1的个数为偶数个，因此2025为A类数。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "2025=11111101001₂，其中1的个数为8（偶数），按定义属A类数。"
+    },
+    {
+      "title": "第 7 题",
+      "content": "该段程序将n不停地除以2，并输出此时的商和余数，直到n=0为止。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "反复除以2输出商和余数，直到n=0，正是十进制转二进制的标准方法。"
+    },
+    {
+      "title": "第 8 题",
+      "content": "两个13进制的数A和B，在10进制下分别表示10和11。(A+B)13=(18)13，也就是说13进制数A加上13进制数B，和是13进制数18。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "A(13)=10₁₀，B(13)=11₁₀，和21₁₀=1×13+8=18(13)，计算正确。"
+    },
+    {
+      "title": "第 9 题",
+      "content": "k进制，逢k进一。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "任意进制的基本规则：每满k向高位进一。"
+    },
+    {
+      "title": "第 10 题",
+      "content": "CCF(九进制)=21AC(三进制)(不区分大小写)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "九进制只含数字0-8，C不是合法九进制数字，等式不成立。"
+    },
+    {
+      "title": "2025",
+      "content": "**试题名称：** 2025\n**时间限制：** 1.0 s\n**内存限制：** 512.0 MB\n\n### 题目描述\n小A有一个整数x，他想找到最小的正整数y使得下式成立：\n\n(x & y) + (x | y) = 2025\n\n其中&表示二进制按位与运算，|表示二进制按位或运算。如果不存在满足条件的y，则输出-1。\n\n### 输入格式\n一行，一个整数x。\n\n### 输出格式\n一行，一个整数，若满足条件的y存在则输出y，否则输出-1。\n\n### 样例\n**输入样例1**\n```\n1025\n```\n**输出样例1**\n```\n1000\n```\n\n### 数据范围\n对于所有测试点，保证0 ≤ x < 2025。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/GESP20250303T1",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": "遍历y从1到2024，检查(x&y)+(x|y)==2025。利用位运算恒等式x&y+x|y=x+y，即求x+y=2025的最小正整数y=x-2025。"
+    },
+    {
+      "title": "词频统计",
+      "content": "**试题名称：** 词频统计\n**时间限制：** 1.0 s\n**内存限制：** 512.0 MB\n\n### 题目描述\n在文本处理中，统计单词出现的频率是一个常见的任务。现在，给定n个单词，你需要找出其中出现次数最多的单词。在本题中，忽略单词中字母的大小写（即Apple、apple、APPLE、aPPle等均视为同一个单词）。\n请你编写一个程序，输入n个单词，输出其中出现次数最多的单词。\n\n### 输入格式\n第一行，一个整数n，表示单词的个数；\n接下来n行，每行包含一个单词，单词由大小写英文字母组成。\n输入保证，出现次数最多的单词只会有一个。\n\n### 输出格式\n输出一行，包含出现次数最多的单词（输出单词为小写形式）。\n\n### 样例\n**输入样例1**\n```\n6\nApple\nbanana\napple\nOrange\nbanana\napple\n```\n**输出样例1**\n```\napple\n```\n\n### 数据范围\n对于所有测试点，保证1 ≤ n ≤ 100，每个单词的长度不超过30，且仅由大小写英文字母组成。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/GESP20250303T2",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": "用map<string,int>统计单词出现次数，转小写统一大小写。遍历map找最大值输出对应单词。输入保证唯一解。"
+    }
+  ]
+}
