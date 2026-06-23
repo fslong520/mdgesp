@@ -1,0 +1,218 @@
+{
+  "title": "6 月 20 日作业 - 指针与综合训练",
+  "description": "指针基础、指针运算、指针与数组、进制转换、位运算、一维数组、字符串处理、枚举与模拟",
+  "time_limit": 40,
+  "pass_score": 90,
+  "questions": [
+    {
+      "title": "第 1 题",
+      "content": "快递站王叔叔想记录每个包裹的编号，他用指针写了一段代码：\n```cpp\nint id = 1001;\nint *p = &id;\n```\n以下哪个操作能够**正确**输出包裹编号？",
+      "question_type": "single",
+      "options": {
+        "A": "`cout << p;`",
+        "B": "`cout << *p;`",
+        "C": "`cout << &p;`",
+        "D": "`cout << &id;`"
+      },
+      "correct_answer": "B",
+      "score": 10,
+      "explanation": "p 指向 id，*p 解引用得 id 的值 1001。"
+    },
+    {
+      "title": "第 2 题",
+      "content": "便利店收银台上，价格标签依次排列：\n```cpp\nint price[4] = {10, 20, 30, 40};\nint *p = price;\np++;\np++;\ncout << *p;\n```\n以上代码输出的是？",
+      "question_type": "single",
+      "options": { "A": "10", "B": "20", "C": "30", "D": "40" },
+      "correct_answer": "C",
+      "score": 10,
+      "explanation": "p 初始指向 price[0]，两次 p++ 后指向 price[2]=30。"
+    },
+    {
+      "title": "第 3 题",
+      "content": "冯阿姨写了一段代码，让同学们猜输出：\n```cpp\nint a[3] = {5, 10, 15};\nint *p = a;\ncout << p[2];\n```\n以下哪种说法正确？",
+      "question_type": "single",
+      "options": {
+        "A": "编译报错，指针不能用 `[]` 访问",
+        "B": "输出 15，`p[2]` 等价于 `*(p+2)`，即 `a[2]`",
+        "C": "输出 5，`p[2]` 等价于 `p` 指向的值加 2",
+        "D": "运行时错误，指针越界"
+      },
+      "correct_answer": "B",
+      "score": 10,
+      "explanation": "p[2] 等价于 *(p+2)，即 a[2]=15。指针可用 [] 访问。"
+    },
+    {
+      "title": "第 4 题",
+      "content": "同桌用两种方式记录今天的温度：\n```cpp\nint temp = 28;\nconst int *p1 = &temp;\nint * const p2 = &temp;\n```\n以下哪种操作**合法**？",
+      "question_type": "single",
+      "options": {
+        "A": "`*p1 = 30;` —— 通过 p1 修改温度",
+        "B": "`p2 = &temp;` 之后再 `*p2 = 30;` —— 让 p2 重新指向再修改",
+        "C": "`p1 = &temp;` 之后 `*p1` 能读到 28",
+        "D": "`p2 = nullptr;` —— 让 p2 指向空"
+      },
+      "correct_answer": "C",
+      "score": 10,
+      "explanation": "p1 是 const int*，所指内容不可改但指向可改；p2 是 int* const，指向不可改。C 正确：p1 重指向后仍可读取。"
+    },
+    {
+      "title": "第 5 题",
+      "content": "十六进制数 `2F` 转换成十进制是多少？",
+      "question_type": "single",
+      "options": { "A": "45", "B": "46", "C": "48", "D": "47" },
+      "correct_answer": "D",
+      "score": 10,
+      "explanation": "2F = 2×16 + 15 = 32 + 15 = 47。"
+    },
+    {
+      "title": "第 6 题",
+      "content": "放学后，同桌在黑板上写了一段代码：\n```cpp\nint x = 6;   // 二进制 0110\nint y = 10;  // 二进制 1010\ncout << (x ^ y);\n```\n以上代码的输出是？",
+      "question_type": "single",
+      "options": { "A": "0", "B": "6", "C": "10", "D": "12" },
+      "correct_answer": "D",
+      "score": 10,
+      "explanation": "6(0110) ^ 10(1010) = 1100 = 12。"
+    },
+    {
+      "title": "第 7 题",
+      "content": "值日生要统计全班 40 人的身高，定义了一个数组：\n```cpp\nint height[40];\n```\n以下关于数组的说法，**错误**的是？",
+      "question_type": "single",
+      "options": {
+        "A": "下标从 0 开始，`height[0]` 是第一个同学的身高",
+        "B": "`height[40]` 可以访问第 41 个同学的身高",
+        "C": "可以用 `for` 循环遍历数组：`for(int i=0; i<40; i++)`",
+        "D": "数组名 `height` 是数组首元素的地址"
+      },
+      "correct_answer": "B",
+      "score": 10,
+      "explanation": "height[40] 越界访问（有效下标 0~39），属于未定义行为。"
+    },
+    {
+      "title": "第 8 题",
+      "content": "妈妈在统计网购订单的商品名称：\n```cpp\nstring s = \"hello world\";\ncout << s.find(\"hello\");\n```\n以上代码的输出是？",
+      "question_type": "single",
+      "options": { "A": "0", "B": "1", "C": "6", "D": "-1" },
+      "correct_answer": "A",
+      "score": 10,
+      "explanation": "\"hello\" 在 s 中起始位置为下标 0（第一个匹配）。"
+    },
+    {
+      "title": "第 9 题",
+      "content": "冯阿姨想找出 100 以内所有能被 7 整除的数。以下做法属于枚举法的是？",
+      "question_type": "single",
+      "options": {
+        "A": "逐一检查 1~100 每个数，判断是否能被 7 整除",
+        "B": "用 100÷7≈14，直接输出 7、14、21、…、98",
+        "C": "列出 7 的乘法口诀表",
+        "D": "随机抽几个数试试"
+      },
+      "correct_answer": "A",
+      "score": 10,
+      "explanation": "枚举法即遍历所有可能，逐一检查。A 符合定义。"
+    },
+    {
+      "title": "第 10 题",
+      "content": "电梯从 1 楼出发，先上到 5 楼，再下到 2 楼，最后上到 8 楼。用模拟法计算总运行层数，正确的是？",
+      "question_type": "single",
+      "options": {
+        "A": "只看最高楼层：8 - 1 = 7",
+        "B": "每次到达楼层相加：5 + 2 + 8 = 15",
+        "C": "每段位移取绝对值相加：|5-1|+|2-5|+|8-2| = 13",
+        "D": "只看最低和最高：8 - 1 = 7"
+      },
+      "correct_answer": "C",
+      "score": 10,
+      "explanation": "模拟法逐段累加：1→5 爬 4 层，5→2 下 3 层，2→8 爬 6 层，共 13 层。"
+    },
+    {
+      "title": "第 11 题",
+      "content": "同学说：\"负数的补码表示是将其原码的符号位不变、数值位按位取反再加 1。\"这个说法对吗？",
+      "question_type": "true_false",
+      "options": { "A": "正确", "B": "错误" },
+      "correct_answer": "T",
+      "score": 10,
+      "explanation": "负数的补码 = 原码符号位不变，数值位取反 +1，描述正确。"
+    },
+    {
+      "title": "第 12 题",
+      "content": "冯阿姨说：\"`x & (x-1)` 这个表达式可以用来判断一个数是不是 2 的整数次幂（如 1、2、4、8 等）。如果结果是 0，则 x 是 2 的整数次幂。\"这个说法对吗？",
+      "question_type": "true_false",
+      "options": { "A": "正确", "B": "错误" },
+      "correct_answer": "T",
+      "score": 10,
+      "explanation": "2 的幂二进制只有一个 1，减 1 后借位消除该 1，& 得 0。"
+    },
+    {
+      "title": "第 13 题",
+      "content": "课代表写了 `int a[5] = {1, 2, 3};`，他说数组中未被初始化的元素（`a[3]`、`a[4]`）的值是随机的。这个说法对吗？",
+      "question_type": "true_false",
+      "options": { "A": "正确", "B": "错误" },
+      "correct_answer": "F",
+      "score": 10,
+      "explanation": "局部数组未初始化元素的值不确定（随机），但这里 a[3]、a[4] 会被默认初始化为 0 吗？实际上部分初始化时剩余元素为 0。此题答案为 F，因说法\"随机\"不准确。"
+    },
+    {
+      "title": "第 14 题",
+      "content": "在 C++ 中，比较两个 `string` 类型是否相等应该用 `==`；而两个 `char[]` 不能直接用 `==` 比较内容。这个说法对吗？",
+      "question_type": "true_false",
+      "options": { "A": "正确", "B": "错误" },
+      "correct_answer": "T",
+      "score": 10,
+      "explanation": "string 重载了 == 比较内容；char[] 用 == 比较的是地址而非内容。"
+    },
+    {
+      "title": "第 15 题",
+      "content": "王老师说：\"流程图用菱形框表示判断，用箭头表示流程方向，可以清晰地描述循环结构。\"这个说法对吗？",
+      "question_type": "true_false",
+      "options": { "A": "正确", "B": "错误" },
+      "correct_answer": "F",
+      "score": 10,
+      "explanation": "菱形框表示判断正确，但仅用箭头无法完整描述循环（需回指箭头）。说法不严谨。"
+    },
+    {
+      "title": "买水果",
+      "content": "**题目**：冯阿姨买 3 斤苹果和 5 斤香蕉，输入单价 a、b，计算总价。\n```\n输入：a b\n输出：总金额（元）\n```\n**样例**：`4 3` → `27`\n**提示**：总价 = 3×a + 5×b",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/p/P9524",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int a, b;\n    cin >> a >> b;\n    cout << 3 * a + 5 * b << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "title": "出租车计费",
+      "content": "**题目**：出租车起步价 8 元（含 3 公里），超 3 公里后每公里 2 元。输入里程 d，输出车费。\n```\n输入：d\n输出：车费（元）\n```\n**样例**：`2` → `8`；`5` → `12`\n**提示**：if(d ≤ 3) 起步价 else 起步价 + 超出×2",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/p/P9525",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int d;\n    cin >> d;\n    if (d <= 3) cout << 8 << endl;\n    else cout << 8 + (d - 3) * 2 << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "title": "包子铺销量",
+      "content": "**题目**：包子铺第一天卖 a 个，之后每天多卖 b 个。求第 n 天销量和前 n 天总销量。\n```\n输入：a b n\n输出：第 n 天销量 前 n 天总销量\n```\n**样例**：`3 2 5` → `11 35`\n**提示**：末项 = a+(n-1)×b，总和 = n×(首+末)÷2",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/p/P9526",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int a, b, n;\n    cin >> a >> b >> n;\n    int last = a + (n - 1) * b;\n    int total = n * (a + last) / 2;\n    cout << last << \" \" << total << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "title": "指针找最值",
+      "content": "**题目**：用指针遍历数组找最高分和最低分。必须用指针访问元素。\n```\n输入：n\n      成绩 1 成绩 2 ... 成绩 n\n输出：最高分 最低分\n```\n**样例**：`6` `85 92 78 95 88 90` → `95 78`\n**提示**：`int *p = a;` 用 `*(p+i)` 访问，遍历比较更新最值。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/p/P9527",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    int a[105];\n    for (int i = 0; i < n; i++) cin >> a[i];\n    int *p = a;\n    int maxVal = *p, minVal = *p;\n    for (int i = 1; i < n; i++) {\n        if (*(p + i) > maxVal) maxVal = *(p + i);\n        if (*(p + i) < minVal) minVal = *(p + i);\n    }\n    cout << maxVal << \" \" << minVal << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "title": "指针选择排序",
+      "content": "**题目**：用指针实现选择排序，将成绩从低到高排序。必须用指针访问和交换。\n```\n输入：n\n      成绩 1 成绩 2 ... 成绩 n\n输出：从小到大排序，空格隔开\n```\n**样例**：`5` `150 175 168 180 155` → `150 155 168 175 180`\n**提示**：`*(arr+i)` 访问，`*(arr+j)` 比较，找到最小值下标后交换。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/p/P9528",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    int a[105];\n    for (int i = 0; i < n; i++) cin >> a[i];\n    int *p = a;\n    for (int i = 0; i < n - 1; i++) {\n        int minIdx = i;\n        for (int j = i + 1; j < n; j++)\n            if (*(p + j) < *(p + minIdx)) minIdx = j;\n        if (minIdx != i) {\n            int temp = *(p + i);\n            *(p + i) = *(p + minIdx);\n            *(p + minIdx) = temp;\n        }\n    }\n    for (int i = 0; i < n; i++) {\n        if (i > 0) cout << \" \";\n        cout << *(p + i);\n    }\n    cout << endl;\n    return 0;\n}\n```"
+    }
+  ]
+}

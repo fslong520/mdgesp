@@ -1,0 +1,263 @@
+{
+	"title": "三大结构基础训练",
+	"description": "赵柯豪班 6月13日作业 - 顺序结构、分支结构、循环结构",
+	"time_limit": 90,
+	"pass_score": 60,
+	"questions": [
+		{
+			"content": "便利店收银员需要输入商品单价和购买数量。执行以下代码：\n```cpp\nint price, quantity;\ncin >> price >> quantity;\n```\n如果用户输入 `12 5`，变量 `price` 和 `quantity` 的值分别是？",
+			"question_type": "single",
+			"title": "便利店收银",
+			"options": {
+				"A": "price=5, quantity=12",
+				"B": "price=12, quantity=未定义",
+				"C": "price=12, 程序等待继续输入",
+				"D": "price=12, quantity=5"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "cin按顺序读取，第一个值12赋给price，第二个值5赋给quantity。"
+		},
+		{
+			"content": "小赵存零花钱，执行以下代码：\n```cpp\nint money = 20;\nmoney = money + 15;\nmoney = money - 8;\n```\n执行后 `money` 的值是？",
+			"question_type": "single",
+			"title": "存零花钱",
+			"options": {
+				"A": "27",
+				"B": "35",
+				"C": "12",
+				"D": "43"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "初始20，加15得35，减8得27。"
+		},
+		{
+			"content": "手机电量初始为 100，以下代码执行后 `power` 的值是多少？\n```cpp\nint power = 100;\npower -= 10;\npower -= 5;\n```",
+			"question_type": "single",
+			"title": "手机电量",
+			"options": {
+				"A": "90",
+				"B": "95",
+				"C": "85",
+				"D": "80"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "power=100-10-5=85。"
+		},
+		{
+			"content": "游乐园根据身高和年龄判断能否玩某个项目。以下代码运行后输出什么？\n```cpp\nint age = 8;\nint height = 125;\nif (height >= 120) {\n    if (age >= 6)\n        cout << \"可以玩\";\n    else\n        cout << \"需要大人陪同\";\n} else {\n    cout << \"不能玩\";\n}\n```",
+			"question_type": "single",
+			"title": "游乐园闯关",
+			"options": {
+				"A": "不能玩",
+				"B": "需要大人陪同",
+				"C": "程序报错",
+				"D": "可以玩"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "身高125≥120，年龄8≥6，输出'可以玩'。"
+		},
+		{
+			"content": "小赵考了 85 分，同桌考了 92 分。以下表达式结果为 `true` 的是？",
+			"question_type": "single",
+			"title": "成绩比较",
+			"options": {
+				"A": "85 != 92",
+				"B": "85 > 92",
+				"C": "85 == 92",
+				"D": "85 >= 92"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "85不等于92为真，其他均为假。"
+		},
+		{
+			"content": "超市推出'周末或会员日'打折活动。以下哪个条件能正确判断'今天是周末（isWeekend=1）或者今天是会员日（isMemberDay=1）'？",
+			"question_type": "single",
+			"title": "超市打折",
+			"options": {
+				"A": "isWeekend == 1",
+				"B": "isWeekend == 1 && isMemberDay == 1",
+				"C": "isWeekend == 1 || isMemberDay == 0",
+				"D": "isWeekend == 1 || isMemberDay == 1"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "'周末或会员日'对应逻辑或运算||。"
+		},
+		{
+			"content": "小赵在玩跳格子游戏，代码如下：\n```cpp\nfor (int i = 2; i <= 10; i += 3) {\n    cout << i << \" \";\n}\n```\n屏幕上输出什么？",
+			"question_type": "single",
+			"title": "跳格子",
+			"options": {
+				"A": "2 3 4 5 6 7 8 9 10",
+				"B": "2 5 8",
+				"C": "2 5 8 11",
+				"D": "3 6 9"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "i从2开始，步长3，i≤10时输出，输出2、5、8。"
+		},
+		{
+			"content": "自动售货机一瓶水 3 元，小赵有 10 枚 1 元硬币。以下代码运行后输出什么？\n```cpp\nint coins = 10;\nint count = 0;\nwhile (coins >= 3) {\n    coins -= 3;\n    count++;\n}\ncout << count;\n```",
+			"question_type": "single",
+			"title": "自动售货机",
+			"options": {
+				"A": "3",
+				"B": "2",
+				"C": "4",
+				"D": "10"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "10元每次花3元，能买3瓶（10-3*3=1）。"
+		},
+		{
+			"content": "以下代码找出数组中第一个偶数并输出其下标，`break` 的作用是什么？\n```cpp\nint a[] = {3, 7, 8, 5, 2};\nfor (int i = 0; i < 5; i++) {\n    if (a[i] % 2 == 0) {\n        cout << i;\n        break;\n    }\n}\n```",
+			"question_type": "single",
+			"title": "找第一个偶数",
+			"options": {
+				"A": "0",
+				"B": "2",
+				"C": "4",
+				"D": "3"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "第一个偶数是8（下标2），break使找到第一个就停止循环。"
+		},
+		{
+			"content": "以下代码统计 1 到 10 中不能被 3 整除的数的个数，结果是多少？\n```cpp\nint cnt = 0;\nfor (int i = 1; i <= 10; i++) {\n    if (i % 3 != 0)\n        cnt++;\n}\ncout << cnt;\n```",
+			"question_type": "single",
+			"title": "非3倍数统计",
+			"options": {
+				"A": "3",
+				"B": "6",
+				"C": "7",
+				"D": "10"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "1-10中不能被3整除的有1,2,4,5,7,8,10，共7个。"
+		},
+		{
+			"content": "在 C++ 中，一个 `if` 语句后面可以有多个 `else` 分支。",
+			"question_type": "true_false",
+			"title": "if语句与else分支",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "一个if最多只能有一个else分支，但可以有多个else if。"
+		},
+		{
+			"content": "`break` 语句只能用在循环语句（for、while、do-while）中，不能用在 `switch` 语句中。",
+			"question_type": "true_false",
+			"title": "break语句使用范围",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "break可以用在switch语句中跳出case分支。"
+		},
+		{
+			"content": "`do-while` 循环至少会执行一次循环体，因为条件判断在循环体之后。",
+			"question_type": "true_false",
+			"title": "do-while循环特性",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "do-while先执行一次循环体再判断条件，因此至少执行一次。"
+		},
+		{
+			"content": "`while (true)` 循环如果没有 `break` 语句跳出，会永远执行下去。",
+			"question_type": "true_false",
+			"title": "while(true)循环",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "条件永远为真，没有break或return等跳出机制就会无限循环。"
+		},
+		{
+			"content": "`=` 和 `==` 是相同的操作，都是判断两个值是否相等。",
+			"question_type": "true_false",
+			"title": "赋值与相等判断",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "=是赋值运算符，==才是相等判断运算符。"
+		},
+		{
+			"content": "周末爸爸带小明去游乐园。成人票每张 a 元，儿童票每张 b 元。游乐园推出亲子套票优惠：一大一小同时买，总价为 (a + b) × 2 − b（即儿童票减半）。买完亲子套票后妹妹也来了，需要再买一张成人票再玩一次，同样按套票规则计算。\n\n输入成人票价 a 和儿童票价 b，先输出亲子套票（一大一小）的价格，再输出加上妹妹的成人票后的总价格。\n\n输入格式：一行两个整数 a 和 b（1 ≤ a, b ≤ 1000）。\n输出格式：两行，第一行为亲子套票价格，第二行为最终总价。",
+			"question_type": "programming",
+			"pid": "zkh01",
+			"url": "https://fslong.iok.la/problem/ZKH01",
+			"title": "游乐园套票",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "分两步计算：先算r1=(a+b)*2-b为亲子套票价，再算r2=(r1+a)*2-a为加妹妹后的总价。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int a, b;\n    cin >> a >> b;\n    int r1 = (a + b) * 2 - b;\n    int r2 = (r1 + a) * 2 - a;\n    cout << r1 << endl;\n    cout << r2 << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "两家文具店卖同款笔记本：A店每本6元原价销售；B店买5送1（每买满5本免费得1本）。输入需要购买的笔记本数量 n（1≤n≤60），输出到哪家店买更便宜。如果价格相同，输出 Same。\n\n输入格式：一行一个整数 n。\n输出格式：一行，A店便宜输出A，B店便宜输出B，相同输出Same。",
+			"question_type": "programming",
+			"pid": "zkh02",
+			"url": "https://fslong.iok.la/problem/ZKH02",
+			"title": "哪家更划算",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "A店：n×6元。B店：每6本为1组付5本钱（30元），groups=n/6, rem=n%6, costB=groups×30+rem×6。比较大小输出结果。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    int costA = n * 6;\n    int groups = n / 6;\n    int rem = n % 6;\n    int costB = groups * 30 + rem * 6;\n    if (costA < costB) cout << \"A\" << endl;\n    else if (costA > costB) cout << \"B\" << endl;\n    else cout << \"Same\" << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "学校举办趣味运动会，每个参赛运动员都有一个编号。王老师想统计几个指定区间内编号为奇数的运动员的编号之和。\n\n输入T组数据，每组两个正整数 a 和 b，输出区间 [a,b] 内所有奇数的和。\n\n输入格式：第一行T，接下来T行每行两个整数a和b。\n输出格式：T行，每行一个整数表示奇数之和。",
+			"question_type": "programming",
+			"pid": "zkh03",
+			"url": "https://fslong.iok.la/problem/ZKH03",
+			"title": "趣味运动会号码牌",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "外层循环处理每组数据，内层遍历a到b，用i%2==1判断奇数并累加。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int T;\n    cin >> T;\n    while (T--) {\n        int a, b, sum = 0;\n        cin >> a >> b;\n        for (int i = a; i <= b; i++) {\n            if (i % 2 == 1) sum += i;\n        }\n        cout << sum << endl;\n    }\n    return 0;\n}\n```"
+		},
+		{
+			"content": "王老师去超市采购，货架上 n 种商品价格各不相同。输入 n 种商品的价格，输出最高价和最低价。\n\n输入格式：第一行n，第二行n个正整数。\n输出格式：一行两个整数，先最高价后最低价。",
+			"question_type": "programming",
+			"pid": "zkh04",
+			"url": "https://fslong.iok.la/problem/ZKH04",
+			"title": "最高价与最低价",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "用两个变量记录当前最大值和最小值，每读一个价格比较更新。最大值初始为0，最小值初始为一个大数。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, a[105];\n    cin >> n;\n    int maxv = 0, minv = 1000000;\n    for (int i = 0; i < n; i++) {\n        cin >> a[i];\n        if (a[i] > maxv) maxv = a[i];\n        if (a[i] < minv) minv = a[i];\n    }\n    cout << maxv << \" \" << minv << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "王老师统计完价格后想做进一步分析，将商品按价格分为三档：便宜（<50元）、中等（50~100元）、昂贵（>100元）。输入 n 种商品的价格，分别统计各档次的商品数量。\n\n输入格式：第一行n，第二行n个正整数。\n输出格式：一行三个整数，分别表示便宜、中等、昂贵的数量。",
+			"question_type": "programming",
+			"pid": "zkh05",
+			"url": "https://fslong.iok.la/problem/ZKH05",
+			"title": "价格区间统计",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "用三个计数器变量。每读一个价格用if-else if-else判断所属档次，对应计数器加1。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, cheap = 0, mid = 0, expen = 0;\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        int p;\n        cin >> p;\n        if (p < 50) cheap++;\n        else if (p <= 100) mid++;\n        else expen++;\n    }\n    cout << cheap << \" \" << mid << \" \" << expen << endl;\n    return 0;\n}\n```"
+		}
+	]
+}
