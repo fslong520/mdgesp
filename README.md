@@ -10,7 +10,11 @@ C++/
 ├── GESP四级真题/     ← 四级历年真题
 ├── GESP五级真题/     ← 五级历年真题
 └── GESP六级真题/     ← 六级历年真题
-scratch/              ← Scratch 题目
+scratch/
+├── GESP一级真题/     ← Scratch 一级历年真题
+├── GESP二级真题/     ← Scratch 二级历年真题
+├── GESP三级真题/     ← Scratch 三级历年真题
+└── GESP四级真题/     ← Scratch 四级历年真题
 ```
 
 ## 文件格式
