@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>普及组暑期备赛堂测(01) · 答案与解析</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fa;
+            padding: 12px 8px;
+            display: flex;
+            justify-content: center;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .paper {
+            max-width: 1000px;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            padding: 24px 20px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #dce3eb;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+        .header h1 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #1e2b3c;
+            letter-spacing: 0.5px;
+        }
+        .header .sub {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #4a5a6e;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+        .header .sub span {
+            background: #eef2f7;
+            padding: 0 14px;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+        .score-summary {
+            background: #f7f9fc;
+            border: 1px solid #e2e8ed;
+            border-radius: 8px;
+            padding: 6px 10px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            font-size: 14px;
+            color: #1e2b3a;
+            gap: 4px;
+        }
+        .score-summary span {
+            padding: 2px 6px;
+            white-space: nowrap;
+        }
+        .section {
+            margin: 20px 0 6px 0;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a2a3a;
+            border-left: 5px solid #2c3e50;
+            padding-left: 14px;
+            margin-bottom: 12px;
+        }
+        .question {
+            margin-bottom: 24px;
+            padding-left: 2px;
+            position: relative;
+            border-bottom: 1px dashed #e8ecf0;
+            padding-bottom: 12px;
+        }
+        .question .q-head {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: #0b1a26;
+            line-height: 1.6;
+        }
+        .question .q-head .tag {
+            background: #eef2f7;
+            color: #1a2a3a;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 0 10px;
+            margin-right: 8px;
+            display: inline-block;
+        }
+        .options {
+            padding-left: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 16px;
+        }
+        .options.single-col {
+            grid-template-columns: 1fr;
+        }
+        .options label {
+            display: block;
+            padding: 3px 0;
+            cursor: default;
+            font-size: 15px;
+            color: #1e2b3a;
+            word-break: break-word;
+        }
+        .options label input {
+            margin-right: 8px;
+            transform: scale(1.0);
+            flex-shrink: 0;
+            cursor: default;
+            pointer-events: none;
+        }
+        .code-block {
+            background: #f6f8fa;
+            border: 1px solid #dce3eb;
+            border-radius: 8px;
+            padding: 6px 10px;
+            font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 0.8;
+            overflow-x: auto;
+            white-space: pre;
+            margin: 6px 0 12px 0;
+            color: #1e2b3a;
+            -webkit-overflow-scrolling: touch;
+        }
+        .code-block .line {
+            display: block;
+        }
+        .code-block .line-number {
+            display: inline-block;
+            width: 22px;
+            color: #8a9aa8;
+            user-select: none;
+            text-align: right;
+            margin-right: 8px;
+        }
+        .filled-code {
+            background: #d4edda;
+            padding: 0 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #155724;
+            border: 1px solid #b7d7b7;
+        }
+        .sub-question {
+            margin-top: 8px;
+            padding-left: 10px;
+            border-left: 3px solid #d0d8e2;
+            margin-bottom: 8px;
+        }
+        .sub-question .q-head {
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .options-inline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 24px;
+            padding-left: 18px;
+            margin-top: 2px;
+        }
+        .options-inline label {
+            font-size: 15px;
+            color: #1e2b3a;
+            display: flex;
+            align-items: center;
+            cursor: default;
+        }
+        .options-inline label input {
+            margin-right: 6px;
+            transform: scale(1.0);
+            flex-shrink: 0;
+            pointer-events: none;
+            cursor: default;
+        }
+        .footer-note {
+            margin-top: 20px;
+            border-top: 2px solid #dce3eb;
+            padding-top: 12px;
+            color: #4a5a6e;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-note .score-total {
+            background: #eef3f8;
+            padding: 0 14px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        code {
+            background: #ecf0f5;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #b33c2e;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+        }
+        .code-block code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        /* ---------- 答案与解析区域 ---------- */
+        .answer-explanation {
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: #f8faff;
+            border-left: 4px solid #2c7cb0;
+            border-radius: 0 6px 6px 0;
+            border: 1px solid #dce8f0;
+            border-left-width: 4px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .answer-explanation .ans-title {
+            font-weight: 700;
+            color: #1a4a6a;
+            display: inline-block;
+            margin-right: 12px;
+        }
+        .answer-explanation .correct-answer {
+            display: inline-block;
+            background: #d4edda;
+            padding: 0 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #155724;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+        }
+        .answer-explanation .explanation-text {
+            margin-top: 6px;
+            color: #1e2b3a;
+        }
+        .answer-explanation .explanation-text strong {
+            color: #0b4b6b;
+        }
+        .answer-explanation .explanation-text code {
+            background: #e8edf3;
+            color: #a33c2e;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0.2in;
+            }
+            .paper {
+                box-shadow: none;
+                padding: 0.1in;
+            }
+            .code-block {
+                background: #f4f6f8;
+                border: 1px solid #ccc;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 6px 4px;
+            }
+            .paper {
+                padding: 14px 12px;
+                border-radius: 8px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .header .sub {
+                font-size: 13px;
+                gap: 8px;
+            }
+            .header .sub span {
+                padding: 0 10px;
+            }
+            .score-summary {
+                font-size: 12px;
+                padding: 4px 6px;
+                justify-content: center;
+                gap: 2px 8px;
+            }
+            .section-title {
+                font-size: 18px;
+                padding-left: 10px;
+            }
+            .question .q-head {
+                font-size: 14px;
+            }
+            .options {
+                padding-left: 12px;
+                gap: 1px 8px;
+            }
+            .options label {
+                font-size: 14px;
+                padding: 2px 0;
+            }
+            .options-inline {
+                padding-left: 10px;
+                gap: 2px 14px;
+            }
+            .options-inline label {
+                font-size: 14px;
+            }
+            .code-block {
+                font-size: 11px;
+                padding: 4px 6px;
+                line-height: 0.8;
+            }
+            .code-block .line-number {
+                width: 18px;
+                margin-right: 4px;
+            }
+            .sub-question {
+                padding-left: 6px;
+            }
+            .answer-explanation {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+            .footer-note {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .paper {
+                padding: 10px 8px;
+            }
+            .header h1 {
+                font-size: 19px;
+            }
+            .options {
+                grid-template-columns: 1fr;
+                padding-left: 8px;
+            }
+            .options label {
+                font-size: 13px;
+            }
+            .code-block {
+                font-size: 10px;
+                padding: 2px 4px;
+                line-height: 0.8;
+            }
+            .answer-explanation {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="paper">
+
+        <!-- 头部 -->
+        <div class="header">
+            <h1>📘 普及组暑期备赛堂测 (01) · 答案与解析</h1>
+            <div class="sub">
+                <span>⏱ 建议用时：50分钟</span>
+                <span>📋 满分：37 分</span>
+            </div>
+        </div>
+
+        <!-- 分值速览 -->
+        <div class="score-summary">
+            <span>单选题 5×2分</span>
+            <span>阅读代码 判断题4×1.5分 + 选择题2×3分</span>
+            <span>补全代码 5×3分</span>
+        </div>
+
+        <!-- ========== 一、单选题 ========== -->
+        <div class="section">
+            <div class="section-title">一、单选题（共5题，每题2分）</div>
+
+            <!-- 第1题 -->
+            <div class="question" data-qid="q1">
+                <div class="q-head"><span class="tag">1</span> 计算机的发展经历了从电子管到大规模集成电路的多次技术革命。下列关于计算机发展分代及其相关体系结构的描述中，正确的是（   ）<br>
+                    ① 第一代计算机以晶体管为主要元器件，奠定了冯·诺依曼体系结构的基础。<br>
+                    ② 第二代计算机使用晶体管，其运算速度较第一代有显著提升，但存储容量仍然有限。<br>
+                    ③ 第三代计算机以电子管为主要元器件，能耗高。<br>
+                    ④ 第四代计算机采用大规模/超大规模集成电路，微处理器问世，个人计算机开始普及。</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A" checked> A. 仅②④</label>
+                    <label><input type="radio" name="q1" value="B"> B. 仅①③</label>
+                    <label><input type="radio" name="q1" value="C"> C. 仅①②④</label>
+                    <label><input type="radio" name="q1" value="D"> D. ②③④</label>
+                </div>
+            </div>
+
+            <!-- 第2题 -->
+            <div class="question" data-qid="q2">
+                <div class="q-head"><span class="tag">2</span> 计算机系统中，不同进制之间的转换是理解数据表示的基础。已知十进制数 <code>26.625</code>，将其分别转换为二进制和十六进制。若二进制结果为 <code>B</code>，十六进制结果为 <code>H</code>，则 <code>B</code> 和 <code>H</code> 分别是（   ）</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A" checked> A. <code>11010.101</code> 和 <code>1A.A</code></label>
+                    <label><input type="radio" name="q2" value="B"> B. <code>11010.101</code> 和 <code>1A.8</code></label>
+                    <label><input type="radio" name="q2" value="C"> C. <code>11010.101</code> 和 <code>1A.5</code></label>
+                    <label><input type="radio" name="q2" value="D"> D. <code>11010.101</code> 和 <code>2A.A</code></label>
+                </div>
+            </div>
+
+            <!-- 第3题 -->
+            <div class="question" data-qid="q3">
+                <div class="q-head"><span class="tag">3</span> 在 C++ 中，设有 <code>unsigned char a = 0x9A</code>（十六进制），<code>unsigned char b = 0xB3</code>。执行以下运算后，结果按十进制从小到大排列正确的是（   ）<br>
+                    ① <code>a &amp; b</code>　　② <code>a | b</code>　　③ <code>a ^ b</code>　　④ <code>~a</code>（仅保留低8位）</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> A. ① &lt; ② &lt; ③ &lt; ④</label>
+                    <label><input type="radio" name="q3" value="B"> B. ③ &lt; ① &lt; ② &lt; ④</label>
+                    <label><input type="radio" name="q3" value="C" checked> C. ③ &lt; ④ &lt; ① &lt; ②</label>
+                    <label><input type="radio" name="q3" value="D"> D. ④ &lt; ③ &lt; ① &lt; ②</label>
+                </div>
+            </div>
+
+            <!-- 第4题 -->
+            <div class="question" data-qid="q4">
+                <div class="q-head"><span class="tag">4</span> 在 8 位二进制补码表示中，整数 <code>a</code> 的补码为 <code>10011011</code>，整数 <code>b</code> 的补码为 <code>01101101</code>。现计算 <code>a + b</code>，并将结果以 8 位补码形式存储。以下关于计算过程和结果的说法中，正确的是（   ）</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A" checked> A. 结果为 <code>00001000</code>（<code>8</code>），未发生溢出</label>
+                    <label><input type="radio" name="q4" value="B"> B. 结果为 <code>00001000</code>（<code>8</code>），发生了正溢出</label>
+                    <label><input type="radio" name="q4" value="C"> C. 结果为 <code>11110111</code>（<code>-9</code>），未发生溢出</label>
+                    <label><input type="radio" name="q4" value="D"> D. 结果为 <code>11110111</code>（<code>-9</code>），发生了负溢出</label>
+                </div>
+            </div>
+
+            <!-- 第5题 -->
+            <div class="question" data-qid="q5">
+                <div class="q-head"><span class="tag">5</span> 计算机中，整数通常以补码形式存储，浮点数则遵循 IEEE 754 标准。现有以下关于数据表示的四种说法：<br>
+                    ① 8 位补码 <code>11111111</code> 表示的十进制真值为 <code>-127</code>。<br>
+                    ② 8 位补码 <code>10000000</code> 表示的十进制真值为 <code>-128</code>。<br>
+                    ③ 并不是所有的浮点数都能在计算机内部精确存储。<br>
+                    ④ 浮点数 <code>0.1</code> 在二进制中无法精确表示，这是浮点数运算存在误差的原因之一。<br>
+                上述说法中，正确（   ）</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="A" checked> A. 仅②③④</label>
+                    <label><input type="radio" name="q5" value="B"> B. 仅①③④</label>
+                    <label><input type="radio" name="q5" value="C"> C. 仅②③</label>
+                    <label><input type="radio" name="q5" value="D"> D. ①②③④</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 二、阅读代码题 ========== -->
+        <div class="section">
+            <div class="section-title">二、阅读代码题（判断题 4×1.5分，选择题 2×3分）</div>
+
+            <div style="margin-bottom: 6px; font-weight:500; color:#1e3c5a; font-size:16px;">阅读以下程序，回答第 6~11 题。</div>
+
+            <!-- 阅读代码块（已添加注释） -->
+            <div class="code-block">
+                <span class="line"><span class="line-number">1</span>#include &lt;bits/stdc++.h&gt;</span>
+                <span class="line"><span class="line-number">2</span>using namespace std;</span>
+                <span class="line"><span class="line-number">3</span>// 程序功能：演示位运算基本操作，包括按位与(&)、或(|)、异或(^)、lowbit（取最低位1）、统计二进制中1的个数、移位运算</span>
+                <span class="line"><span class="line-number">4</span>int lowbit(int x) {</span>
+                <span class="line"><span class="line-number">5</span>    return x &amp; -x;</span>
+                <span class="line"><span class="line-number">6</span>}</span>
+                <span class="line"><span class="line-number">7</span>// lowbit函数：返回x的二进制中最低位1所对应的数值（如x=12(1100)，返回4）</span>
+                <span class="line"><span class="line-number">8</span>int count_ones(int x) {</span>
+                <span class="line"><span class="line-number">9</span>    int cnt = 0;</span>
+                <span class="line"><span class="line-number">10</span>    while (x) {</span>
+                <span class="line"><span class="line-number">11</span>        x -= lowbit(x);</span>
+                <span class="line"><span class="line-number">12</span>        cnt++;</span>
+                <span class="line"><span class="line-number">13</span>    }</span>
+                <span class="line"><span class="line-number">14</span>    return cnt;</span>
+                <span class="line"><span class="line-number">15</span>}</span>
+                <span class="line"><span class="line-number">16</span>// main函数：测试上述函数，输出 c d e f g 分别为 a&b, a|b, a^b, lowbit(a), count_ones(a)；再测试移位运算</span>
+                <span class="line"><span class="line-number">17</span>int main() {</span>
+                <span class="line"><span class="line-number">18</span>    int a = 12, b = 7;</span>
+                <span class="line"><span class="line-number">19</span>    int c = a &amp; b;</span>
+                <span class="line"><span class="line-number">20</span>    int d = a | b;</span>
+                <span class="line"><span class="line-number">21</span>    int e = a ^ b;</span>
+                <span class="line"><span class="line-number">22</span>    int f = lowbit(a);</span>
+                <span class="line"><span class="line-number">23</span>    int g = count_ones(a);</span>
+                <span class="line"><span class="line-number">24</span>    cout &lt;&lt; c &lt;&lt; " " &lt;&lt; d &lt;&lt; " " &lt;&lt; e &lt;&lt; " " &lt;&lt; f &lt;&lt; " " &lt;&lt; g &lt;&lt; endl;</span>
+                <span class="line"><span class="line-number">25</span>    int x = 8, y = 3;</span>
+                <span class="line"><span class="line-number">26</span>    cout &lt;&lt; (x &gt;&gt; 1) &lt;&lt; " " &lt;&lt; (y &lt;&lt; 2) &lt;&lt; endl;</span>
+                <span class="line"><span class="line-number">27</span>    return 0;</span>
+                <span class="line"><span class="line-number">28</span>}</span>
+            </div>
+
+            <!-- 判断题 -->
+            <div class="sub-question">
+                <div class="q-head" style="font-weight:600; font-size:16px;">判断题（正确选 A，错误选 B）</div>
+
+                <div style="margin-top:6px;" data-qid="q6">
+                    <div class="q-head"><span class="tag">6</span> 函数 <code>count_ones(x)</code> 的主要功能是对于任意非负整数 <code>x</code>计算出其原码中1的数量。</div>
+                    <div class="options-inline">
+                        <label><input type="radio" name="q6" value="A" checked> A. 正确</label>
+                        <label><input type="radio" name="q6" value="B"> B. 错误</label>
+                    </div>
+                </div>
+
+                <div style="margin-top:6px;" data-qid="q7">
+                    <div class="q-head"><span class="tag">7</span> 若将第 24 行的输出顺序改为 <code>f c g d e</code>，则输出的五个数依次为 <code>4 4 2 15 11</code>。</div>
+                    <div class="options-inline">
+                        <label><input type="radio" name="q7" value="A" checked> A. 正确</label>
+                        <label><input type="radio" name="q7" value="B"> B. 错误</label>
+                    </div>
+                </div>
+
+                <div style="margin-top:6px;" data-qid="q8">
+                    <div class="q-head"><span class="tag">8</span> 若将第 5 行 <code>return x &amp; -x;</code> 改为 <code>return x &amp; (x - 1);</code>，则 <code>count_ones</code> 函数的功能将变为计算 <code>x</code> 的二进制表示中 1 的个数。</div>
+                    <div class="options-inline">
+                        <label><input type="radio" name="q8" value="A"> A. 正确</label>
+                        <label><input type="radio" name="q8" value="B" checked> B. 错误</label>
+                    </div>
+                </div>
+
+                <div style="margin-top:6px;" data-qid="q9">
+                    <div class="q-head"><span class="tag">9</span> 若输入 <code>x = 8, y = 3</code>，将第 26 行改为 <code>cout &lt;&lt; (x &gt;&gt; 2) &lt;&lt; " " &lt;&lt; (y &lt;&lt; 1) &lt;&lt; endl;</code>，输出的两个数分别为 <code>2</code> 和 <code>6</code>。</div>
+                    <div class="options-inline">
+                        <label><input type="radio" name="q9" value="A" checked> A. 正确</label>
+                        <label><input type="radio" name="q9" value="B"> B. 错误</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题 -->
+            <div class="sub-question" style="margin-top:16px;">
+                <div class="q-head" style="font-weight:600; font-size:16px;">选择题（每题 3 分）</div>
+
+                <div style="margin-top:6px;" data-qid="q10">
+                    <div class="q-head"><span class="tag">10</span> 若将第 18 行的 <code>a = 12</code> 改为 <code>a = 0x0F</code>（十六进制），其他不变，则程序第 24 行输出的五个数中，与修改前相比发生变化的是（   ）</div>
+                    <div class="options single-col">
+                        <label><input type="radio" name="q10" value="A"> A. 仅 <code>c</code>、<code>d</code>、<code>e</code></label>
+                        <label><input type="radio" name="q10" value="B" checked> B. 仅 <code>c</code>、<code>e</code>、<code>f</code>、<code>g</code></label>
+                        <label><input type="radio" name="q10" value="C"> C. 全部五个数 <code>c</code>、<code>d</code>、<code>e</code>、<code>f</code>、<code>g</code></label>
+                        <label><input type="radio" name="q10" value="D"> D. 仅 <code>f</code>、<code>g</code></label>
+                    </div>
+                </div>
+
+                <div style="margin-top:10px;" data-qid="q11">
+                    <div class="q-head"><span class="tag">11</span> 若将第 26 行改为 <code>cout &lt;&lt; (x &lt;&lt; 1) &lt;&lt; " " &lt;&lt; (y &gt;&gt; 1) &lt;&lt; endl;</code>，且保持 <code>x = 8, y = 3</code> 不变，则以下关于程序输出的说法中，正确的是（   ）</div>
+                    <div class="options single-col">
+                        <label><input type="radio" name="q11" value="A"> A. 输出为 <code>16 1</code></label>
+                        <label><input type="radio" name="q11" value="B" checked> B. 输出为 <code>16 1</code>，且第 24 行的输出不变</label>
+                        <label><input type="radio" name="q11" value="C"> C. 输出为 <code>4 6</code>，且第 24 行的输出不变</label>
+                        <label><input type="radio" name="q11" value="D"> D. 输出为 <code>16 1</code>，但第 24 行的输出会因为 <code>x</code> 被修改而改变</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 三、补全代码题 ========== -->
+        <div class="section">
+            <div class="section-title">三、补全代码题（5个空，每空 3 分）</div>
+
+            <div style="margin-bottom: 4px; font-weight:500; color:#1e3c5a; font-size:16px;">
+                在 ASCII 码中，大写字母（'A'~'Z'）与小写字母（'a'~'z'）的二进制表示相差 32，因此可以通过位运算进行大小写转换。以下程序通过位运算实现大小写字母的转换，并统计转换后的字符串中大写字母的数量。请补全空缺处的代码（编号 ①~⑤）。
+            </div>
+
+            <!-- 补全代码块（已添加注释） -->
+            <div class="code-block">
+                <span class="line"><span class="line-number">1</span>#include &lt;bits/stdc++.h&gt;</span>
+                <span class="line"><span class="line-number">2</span>using namespace std;</span>
+                <span class="line"><span class="line-number">3</span>// toggleCase函数：利用位运算转换大小写，大写转小写（ch|32），小写转大写（ch&~32），其他字符不变</span>
+                <span class="line"><span class="line-number">4</span>char toggleCase(char ch) {</span>
+                <span class="line"><span class="line-number">5</span>    <span class="filled-code">if (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z')</span></span>
+                <span class="line"><span class="line-number">6</span>        return ch | 32;</span>
+                <span class="line"><span class="line-number">7</span>    <span class="filled-code">else if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z')</span></span>
+                <span class="line"><span class="line-number">8</span>        return ch &amp; ~32;</span>
+                <span class="line"><span class="line-number">9</span>    <span class="filled-code">return ch;</span></span>
+                <span class="line"><span class="line-number">10</span>}</span>
+                <span class="line"><span class="line-number">11</span>// main函数：读入字符串，对每个字符调用toggleCase，并统计转换后的大写字母数量</span>
+                <span class="line"><span class="line-number">12</span>int main() {</span>
+                <span class="line"><span class="line-number">13</span>    string s;</span>
+                <span class="line"><span class="line-number">14</span>    getline(cin, s);</span>
+                <span class="line"><span class="line-number">15</span>    int upper_cnt = 0;</span>
+                <span class="line"><span class="line-number">16</span>    for (int i = 0; i &lt; s.length(); i++) {</span>
+                <span class="line"><span class="line-number">17</span>        s[i] = <span class="filled-code">toggleCase(s[i])</span>;</span>
+                <span class="line"><span class="line-number">18</span>        if (s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') upper_cnt++;</span>
+                <span class="line"><span class="line-number">19</span>    }</span>
+                <span class="line"><span class="line-number">20</span>    <span class="filled-code">cout &lt;&lt; s &lt;&lt; endl &lt;&lt; upper_cnt &lt;&lt; endl;</span></span>
+                <span class="line"><span class="line-number">21</span>    return 0;</span>
+                <span class="line"><span class="line-number">22</span>}</span>
+            </div>
+
+            <!-- 补全代码题的选择题 -->
+            <div style="margin-top:10px;" data-qid="q12">
+                <div class="q-head"><span class="tag">12</span> ① 处应填入（   ）</div>
+                <div class="options single-col">
+                    <label><input type="radio" name="q12" value="A"> A. <code>if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z')</code></label>
+                    <label><input type="radio" name="q12" value="B" checked> B. <code>if (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z')</code></label>
+                    <label><input type="radio" name="q12" value="C"> C. <code>if ((ch | 32) == 32)</code></label>
+                    <label><input type="radio" name="q12" value="D"> D. <code>if ((ch &amp; 32) != 0)</code></label>
+                </div>
+            </div>
+
+            <div style="margin-top:10px;" data-qid="q13">
+                <div class="q-head"><span class="tag">13</span> ② 处应填入（   ）</div>
+                <div class="options single-col">
+                    <label><input type="radio" name="q13" value="A" checked> A. <code>else if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z')</code></label>
+                    <label><input type="radio" name="q13" value="B"> B. <code>else if ((ch &amp; 32) == 0)</code></label>
+                    <label><input type="radio" name="q13" value="C"> C. <code>else if (ch &gt;= '0' &amp;&amp; ch &lt;= '9')</code></label>
+                    <label><input type="radio" name="q13" value="D"> D. <code>else if ((ch | 32) == 32)</code></label>
+                </div>
+            </div>
+
+            <div style="margin-top:10px;" data-qid="q14">
+                <div class="q-head"><span class="tag">14</span> ③ 处应填入（   ）</div>
+                <div class="options single-col">
+                    <label><input type="radio" name="q14" value="A"> A. <code>return ch + 32;</code></label>
+                    <label><input type="radio" name="q14" value="B"> B. <code>return ch - 32;</code></label>
+                    <label><input type="radio" name="q14" value="C" checked> C. <code>return ch;</code></label>
+                    <label><input type="radio" name="q14" value="D"> D. <code>return ch ^ 32;</code></label>
+                </div>
+            </div>
+
+            <div style="margin-top:10px;" data-qid="q15">
+                <div class="q-head"><span class="tag">15</span> ④ 处应填入（   ）</div>
+                <div class="options single-col">
+                    <label><input type="radio" name="q15" value="A" checked> A. <code>toggleCase(s[i])</code></label>
+                    <label><input type="radio" name="q15" value="B"> B. <code>toggleCase(i)</code></label>
+                    <label><input type="radio" name="q15" value="C"> C. <code>toggleCase(s)</code></label>
+                    <label><input type="radio" name="q15" value="D"> D. <code>toggleCase()</code></label>
+                </div>
+            </div>
+
+            <div style="margin-top:10px;" data-qid="q16">
+                <div class="q-head"><span class="tag">16</span> ⑤ 处应填入（   ）</div>
+                <div class="options single-col">
+                    <label><input type="radio" name="q16" value="A"> A. <code>cout &lt;&lt; s &lt;&lt; endl;</code></label>
+                    <label><input type="radio" name="q16" value="B" checked> B. <code>cout &lt;&lt; s &lt;&lt; endl &lt;&lt; upper_cnt &lt;&lt; endl;</code></label>
+                    <label><input type="radio" name="q16" value="C"> C. <code>cout &lt;&lt; upper_cnt &lt;&lt; endl &lt;&lt; s &lt;&lt; endl;</code></label>
+                    <label><input type="radio" name="q16" value="D"> D. <code>cout &lt;&lt; s &lt;&lt; " " &lt;&lt; upper_cnt &lt;&lt; endl;</code></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 底部 ========== -->
+        <div class="footer-note">
+            <div>— 堂测结束，请认真对照解析复习 —</div>
+            <div class="score-total">总分 37 分</div>
+        </div>
+
+    </div>
+
+    <script>
+        (function() {
+            // ---------- 答案与解析数据 ----------
+            const ANSWER_DATA = {
+                q1: {
+                    answer: 'A',
+                    explanation: '① 第一代计算机以电子管为主要元器件，不是晶体管，故①错误。② 第二代计算机使用晶体管，运算速度较第一代显著提升，但存储容量仍有限，故②正确。③ 第三代计算机以集成电路为主要元器件，不是电子管，故③错误。④ 第四代计算机采用大规模/超大规模集成电路，微处理器问世，个人计算机开始普及，故④正确。因此仅②④正确，<strong>选 A</strong>。'
+                },
+                q2: {
+                    answer: 'A',
+                    explanation: '26.625 转二进制：整数部分 26 = 11010，小数部分 0.625 = 0.101（0.5 + 0.125），所以二进制为 <code>11010.101</code>。十六进制：将二进制分组，每四位合成一位十六进制数码 <code>0001 1010 . 1010</code> → <code>1A.A</code>。<strong>选 A</strong>。'
+                },
+                q3: {
+                    answer: 'C',
+                    explanation: 'a = 0x9A = 10011010 (154)，b = 0xB3 = 10110011 (179)。<br>① a&b = 10010010 = 146<br>② a|b = 10111011 = 187<br>③ a^b = 00101001 = 41<br>④ ~a 低8位 = 01100101 = 101<br>从小到大：③(41) < ④(101) < ①(146) < ②(187)，<strong>选 C</strong>。'
+                },
+                q4: {
+                    answer: 'A',
+                    explanation: `【详细解析】<br>
+                    ① 求真值：<br>
+                    &nbsp;&nbsp;• a 的补码 <code>10011011</code> 是负数（符号位=1）。取反加1得原码 <code>01100101</code>，真值为 <code>-101</code>。<br>
+                    &nbsp;&nbsp;• b 的补码 <code>01101101</code> 是正数（符号位=0）。真值为 <code>64+32+8+4+1 = 109</code>。<br>
+                    ② 计算结果：<br>
+                    &nbsp;&nbsp;• a + b = -101 + 109 = 8，8 的 8 位补码为 <code>00001000</code>。<br>
+                    ③ 溢出判定（关键）：<br>
+                    &nbsp;&nbsp;• 在 8 位补码（范围 -128 ~ 127）中，<strong>正溢出</strong>：两个正数相加，结果 > 127，符号位变为1（如 127+1=-128）。<br>
+                    &nbsp;&nbsp;• <strong>负溢出</strong>：两个负数相加，结果 < -128，符号位变为0（如 -128+(-1)=127）。<br>
+                    &nbsp;&nbsp;• <strong>只有同号相加才可能溢出，异号相加（正+负 或 负+正）永远不溢出。</strong><br>
+                    &nbsp;&nbsp;• 本题中 a 为负数，b 为正数，属于<strong>异号相加</strong>，因此<strong>绝对不会发生溢出</strong>。<br>
+                    综上，结果为 <code>00001000</code>（8），未溢出，<strong>选 A</strong>。`
+                },
+                q5: {
+                    answer: 'A',
+                    explanation: '① <code>11111111</code> 补码 = -1，不是 -127，错误。<br>② <code>10000000</code> 补码 = -128，正确。<br>③ 浮点数不能精确存储所有值，正确。<br>④ 0.1 在二进制中无法精确表示，正确。<br>因此仅②③④正确，<strong>选 A</strong>。'
+                },
+                q6: {
+                    answer: 'A',
+                    explanation: 'count_ones 通过不断减去 lowbit(x)（最低位的1）来计算二进制中 1 的个数。对于非负整数，补码与原码相同，因此计算的是原码中 1 的数量。<strong>正确，选 A</strong>。'
+                },
+                q7: {
+                    answer: 'A',
+                    explanation: 'a = 12 (1100)，b = 7 (0111)。<br>c = a&b = 4，d = a|b = 15，e = a^b = 11，f = lowbit(a) = 4，g = count_ones(a) = 2。<br>改为 f c g d e → 4 4 2 15 11。<strong>正确，选 A</strong>。'
+                },
+                q8: {
+                    answer: 'B',
+                    explanation: 'x & (x-1) 会清除最低位的 1，返回的是清除后的值，而不是最低位的 1。若将 lowbit 改为 x & (x-1)，则 count_ones 中的 x -= lowbit(x) 实际上会变成 x = x - (x & (x-1))，这并不会移除最低位的 1，反而可能得到错误结果，甚至死循环。<strong>错误，选 B</strong>。'
+                },
+                q9: {
+                    answer: 'A',
+                    explanation: 'x = 8，y = 3。8 >> 2 = 2，3 << 1 = 6，输出 2 和 6。<strong>正确，选 A</strong>。'
+                },
+                q10: {
+                    answer: 'B',
+                    explanation: 'a = 12 改为 a = 0x0F = 15 (1111)。<br>c: 12&7=4 → 15&7=7（变）<br>d: 12|7=15 → 15|7=15（不变）<br>e: 12^7=11 → 15^7=8（变）<br>f: lowbit(12)=4 → lowbit(15)=1（变）<br>g: count_ones(12)=2 → count_ones(15)=4（变）<br>发生变化的是 c、e、f、g，<strong>选 B</strong>。'
+                },
+                q11: {
+                    answer: 'B',
+                    explanation: 'x = 8，y = 3。x << 1 = 16，y >> 1 = 1，输出 16 1。第 24 行的输出不变，因为第 26 行只是读取 x 和 y 的值，并未修改它们（x 和 y 是局部变量，且没有引用传递）。<strong>选 B</strong>。'
+                },
+                q12: {
+                    answer: 'B',
+                    explanation: '① 处需要判断是否为大写字母，若是大写字母则转为小写（ch | 32）。应填 <code>if (ch >= \'A\' && ch <= \'Z\')</code>，<strong>选 B</strong>。'
+                },
+                q13: {
+                    answer: 'A',
+                    explanation: '② 处需要判断是否为小写字母，若是小写字母则转为大写（ch & ~32）。应填 <code>else if (ch >= \'a\' && ch <= \'z\')</code>，<strong>选 A</strong>。'
+                },
+                q14: {
+                    answer: 'C',
+                    explanation: '③ 处处理既非大写也非小写的字符（如数字、标点等），直接返回原字符。应填 <code>return ch;</code>，<strong>选 C</strong>。'
+                },
+                q15: {
+                    answer: 'A',
+                    explanation: '④ 处调用 toggleCase 函数转换 s[i] 字符。应填 <code>toggleCase(s[i])</code>，<strong>选 A</strong>。'
+                },
+                q16: {
+                    answer: 'B',
+                    explanation: '⑤ 处需要输出转换后的字符串 s 和大写字母数量 upper_cnt，按题意应先输出 s 再输出 upper_cnt，且各占一行。应填 <code>cout << s << endl << upper_cnt << endl;</code>，<strong>选 B</strong>。'
+                }
+            };
+
+            // ---------- 为每个题目插入答案与解析 ----------
+            const qids = Object.keys(ANSWER_DATA);
+            qids.forEach(qid => {
+                const container = document.querySelector(`[data-qid="${qid}"]`);
+                if (!container) return;
+                const data = ANSWER_DATA[qid];
+                if (!data) return;
+
+                const div = document.createElement('div');
+                div.className = 'answer-explanation';
+                div.innerHTML = `
+                    <div>
+                        <span class="ans-title">✅ 正确答案：</span>
+                        <span class="correct-answer">${data.answer}</span>
+                    </div>
+                    <div class="explanation-text">
+                        <strong>📖 详细解析：</strong> ${data.explanation}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            console.log('✅ 已更新：代码块添加了行内注释，所有解析已就绪。');
+        })();
+    </script>
+
+</body>
+</html>
