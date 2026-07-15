@@ -1,0 +1,372 @@
+{
+  "title": "CSP-J 集训计算机基础",
+  "description": "CSPJ组集训 7月14日作业 - 历年真题计算机基础精选20题 + J2 T1编程4题",
+  "time_limit": 120,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "### 第 1 题（2025 真题）一个 32 位无符号整数可以表示的最大值，最接近下列哪个选项？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题（2025 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "32位无符号整数范围 0~2³²-1≈4.29×10⁹，最接近 4×10⁹。",
+      "options": {
+        "A": "4×10⁹",
+        "B": "3×10¹⁰",
+        "C": "2×10⁹",
+        "D": "2×10¹⁰"
+      }
+    },
+    {
+      "content": "### 第 2 题（2024 真题）32 位 int 类型的存储范围是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题（2024 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "int为32位有符号，范围-2³¹~2³¹-1，即-2147483648~2147483647。",
+      "options": {
+        "A": "-2147483647 ~ +2147483647",
+        "B": "-2147483647 ~ +2147483648",
+        "C": "-2147483648 ~ +2147483647",
+        "D": "-2147483648 ~ +2147483648"
+      }
+    },
+    {
+      "content": "### 第 3 题（2024 真题）记 1KB 为 1024 字节（byte），1MB 为 1024KB，那么 1MB 是多少二进制位（bit）？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题（2024 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "1MB=1024KB=1024×1024B=1048576B，1B=8bit，故1048576×8=8388608bit。",
+      "options": {
+        "A": "1,000,000",
+        "B": "1,048,576",
+        "C": "8,000,000",
+        "D": "8,388,608"
+      }
+    },
+    {
+      "content": "### 第 4 题（2024 真题）下面哪一个不是操作系统名字？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题（2024 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "Notepad是文本编辑器（记事本），不是操作系统。",
+      "options": {
+        "A": "Notepad",
+        "B": "Linux",
+        "C": "Windows",
+        "D": "macOS"
+      }
+    },
+    {
+      "content": "### 第 5 题（2024 真题）编译器的主要作用是什么？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题（2024 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "编译器将高级语言源代码翻译成机器指令代码（目标代码）。",
+      "options": {
+        "A": "直接执行源代码",
+        "B": "将源代码转换为机器代码",
+        "C": "进行代码调试",
+        "D": "管理程序运行时的内存"
+      }
+    },
+    {
+      "content": "### 第 6 题（2023 真题）关于高精度运算的说法错误的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题（2023 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "高精度乘法复杂度O(mn)，与两个整数位数都有关，不仅取决于较长者。",
+      "options": {
+        "A": "高精度计算主要用来处理大整数或需保留多位小数的运算",
+        "B": "大整数除以小整数可用竖式模拟",
+        "C": "高精度乘法的运算时间只与参与运算的两个整数中长度较长者的位数有关",
+        "D": "高精度加法运算的关键在于逐位相加并处理进位"
+      }
+    },
+    {
+      "content": "### 第 7 题（2023 真题）在计算机中，以下哪个选项描述的数据存储容量最小？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题（2023 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "1字节=8比特，1字≥2字节，1KB=1024字节。比特是最小存储单位。",
+      "options": {
+        "A": "字节（Byte）",
+        "B": "比特（bit）",
+        "C": "字（Word）",
+        "D": "千字节（KB）"
+      }
+    },
+    {
+      "content": "### 第 8 题（2023 真题）以下哪个不是操作系统？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题（2023 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "单片机是嵌入式芯片，不是操作系统。前三者均为操作系统。",
+      "options": {
+        "A": "Linux",
+        "B": "Windows",
+        "C": "Android",
+        "D": "单片机"
+      }
+    },
+    {
+      "content": "### 第 9 题（2022 真题）以下哪种功能没有涉及 C++语言的面向对象特性支持？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题（2022 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "printf是C语言的输出函数，不涉及面向对象。BCD均涉及类、继承等OOP特性。",
+      "options": {
+        "A": "调用 printf 函数",
+        "B": "调用用户定义的类成员函数",
+        "C": "构造一个 class 或 struct",
+        "D": "构造来源于同一基类的多个派生类"
+      }
+    },
+    {
+      "content": "### 第 10 题（2021 真题）以下不属于面向对象程序设计语言的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题（2021 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "C是面向过程语言，不支持面向对象特性（类、继承、多态）。",
+      "options": {
+        "A": "C++",
+        "B": "C",
+        "C": "Java",
+        "D": "Python"
+      }
+    },
+    {
+      "content": "### 第 11 题（2021 真题）以下奖项与计算机领域相关的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题（2021 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "图灵奖（Turing Award）是计算机科学最高荣誉。",
+      "options": {
+        "A": "图灵奖",
+        "B": "诺贝尔奖",
+        "C": "沃尔夫奖",
+        "D": "阿贝尔奖"
+      }
+    },
+    {
+      "content": "### 第 12 题（2021 真题）目前主流的计算机存储数据最终都是转换成什么数据进行存储的？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题（2021 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "计算机内部所有数据都以二进制（0和1）形式存储和运算。",
+      "options": {
+        "A": "二进制",
+        "B": "八进制",
+        "C": "十进制",
+        "D": "十六进制"
+      }
+    },
+    {
+      "content": "### 第 13 题（2020 真题）在内存储器中每个存储单元都被赋予一个唯一的序号，称为？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题（2020 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "内存中每个存储单元（字节）有唯一二进制地址，CPU通过地址访问。",
+      "options": {
+        "A": "地址",
+        "B": "序号",
+        "C": "下标",
+        "D": "编号"
+      }
+    },
+    {
+      "content": "### 第 14 题（2020 真题）编译器的主要功能是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题（2020 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "编译器将高级语言源代码转换为机器语言（目标代码）。",
+      "options": {
+        "A": "将源程序翻译成机器指令代码",
+        "B": "将源程序重新组合",
+        "C": "将低级语言翻译成高级语言",
+        "D": "将一种高级语言翻译成另一种高级语言"
+      }
+    },
+    {
+      "content": "### 第 15 题（2020 真题）现有一张分辨率为 2048×1024 像素的 32 位真彩色图像。请问要存储这张图像，需要多大的存储空间？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题（2020 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "2048×1024×32÷8=8,388,608字节=8MB。",
+      "options": {
+        "A": "8MB",
+        "B": "6MB",
+        "C": "4MB",
+        "D": "2MB"
+      }
+    },
+    {
+      "content": "### 第 16 题（2019 真题）中国的国家顶级域名是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题（2019 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "中国的国家顶级域名为.cn。.ch是瑞士的顶级域名。",
+      "options": {
+        "A": ".cn",
+        "B": ".ch",
+        "C": ".chn",
+        "D": ".china"
+      }
+    },
+    {
+      "content": "### 第 17 题（2019 真题）一个 32 位整型变量占用多少个字节？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题（2019 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "1字节=8位，32位÷8=4字节。",
+      "options": {
+        "A": "4",
+        "B": "2",
+        "C": "8",
+        "D": "32"
+      }
+    },
+    {
+      "content": "### 第 18 题（2019 真题）以下哪个是计算机科学领域的最高奖？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题（2019 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "图灵奖是计算机科学最高奖。诺贝尔奖无计算机类别，菲尔兹奖是数学奖，普利策奖是新闻奖。",
+      "options": {
+        "A": "图灵奖",
+        "B": "诺贝尔奖",
+        "C": "菲尔兹奖",
+        "D": "普利策奖"
+      }
+    },
+    {
+      "content": "### 第 19 题（2018 真题）以下哪一种设备属于输出设备？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题（2018 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "输出设备将计算机处理结果输出，打印机是典型的输出设备。扫描仪、键盘、鼠标均为输入设备。",
+      "options": {
+        "A": "扫描仪",
+        "B": "键盘",
+        "C": "鼠标",
+        "D": "打印机"
+      }
+    },
+    {
+      "content": "### 第 20 题（2018 真题）广域网的英文缩写是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题（2018 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "WAN(Wide Area Network)广域网，LAN局域网，MAN城域网。",
+      "options": {
+        "A": "LAN",
+        "B": "WAN",
+        "C": "MAN",
+        "D": "LNA"
+      }
+    },
+    {
+      "content": "### 第 1 题 2025 CSP-J J2 T1 拼数 ★ [cspj2025t1]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2025T1\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n小 R 正在学习字符串处理。小 X 给了小 R 一个字符串 s，其中 s 仅包含小写英文字母及数字，且包含至少一个 1∼9 中的数字。\n\n小 X 希望小 R 使用 s 中的任意多个数字，按任意顺序拼成一个正整数。小 R 可以选择 s 中相同的数字，但每个数字只能使用一次。\n\n例如，若 s 为 `1a01b`，则小 R 可以选择第 1、3、4 个字符（分别为 1、0、1），拼成正整数 101 或 110；但不能拼成 111，因为 s 仅包含两个数字 1。\n\n求小 R 能拼成的最大正整数。\n\n**输入格式**\n\n一行，一个字符串 s，长度不超过 100。s 仅包含小写字母和数字，且至少包含一个 1∼9 的数字。\n\n**输出格式**\n\n一行，一个正整数，表示能拼成的最大值。\n\n**样例输入 1**\n\n```\n1a01b\n```\n\n**样例输出 1**\n\n```\n110\n```\n\n**样例输入 2**\n\n```\nabc9def8\n```\n\n**样例输出 2**\n\n```\n98\n```\n\n**提示**\n\n提取所有数字字符，从大到小排序后拼接。注意 0 不能放在最前面。",
+      "question_type": "programming",
+      "pid": "cspj2025t1",
+      "url": "https://fslong.iok.la/problem/CSPJ2025T1",
+      "title": "2025 CSP-J J2 T1 拼数 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "遍历字符串提取数字字符，存到 vector，从大到小排序。如果最大的数字不是 0 则直接拼接返回；如果最大的是 0 则结果就是 0。注意正整数不能以 0 开头。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s;\n    cin >> s;\n    vector<char> digits;\n    for (char c : s) {\n        if (c >= '0' && c <= '9') digits.push_back(c);\n    }\n    sort(digits.rbegin(), digits.rend());\n    if (digits.empty() || digits[0] == '0') { cout << 0 << endl; return 0; }\n    for (char c : digits) cout << c;\n    cout << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 2024 CSP-J J2 T1 扑克牌 ★ [cspj2024t1]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2024T1\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n小 P 从同学小 Q 那儿借来一副 n 张牌的扑克牌。每张牌有花色和点数两个属性。\n\n花色共 4 种：D（方片）、C（草花）、H（红桃）、S（黑桃）。\n点数共 13 种：A、2、3、4、5、6、7、8、9、T（10）、J、Q、K。\n\n一副完整的扑克牌有 4×13=52 张，每种花色+点数组合恰好一张。\n\n小 P 可以向小 S 借任意张牌（每种无限），问至少还需借多少张才能凑成完整一副？\n\n**输入格式**\n\n第一行，一个整数 n（1 ≤ n ≤ 52），表示已有牌数。\n接下来 n 行，每行一个长度为 2 的字符串，第一个字符表示花色（D/C/H/S），第二个字符表示点数（A/2-9/T/J/Q/K）。\n\n**输出格式**\n\n一行，一个整数，表示最少还需借的牌数。\n\n**样例输入 1**\n\n```\n1\nSA\n```\n\n**样例输出 1**\n\n```\n51\n```\n\n**样例输入 2**\n\n```\n4\nDQ\nH3\nDQ\nDT\n```\n\n**样例输出 2**\n\n```\n49\n```\n\n**提示**\n\n用二维布尔数组 `have[4][13]` 标记已有牌，统计已拥有多少种不同的牌，答案 = 52 − 已有种数。注意可能有重复输入。",
+      "question_type": "programming",
+      "pid": "cspj2024t1",
+      "url": "https://fslong.iok.la/problem/CSPJ2024T1",
+      "title": "2024 CSP-J J2 T1 扑克牌 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "将花色映射到 0-3，点数映射到 0-12。用布尔数组 have[4][13] 标记。统计 have 中 true 的个数 cnt，52 - cnt 即为答案。注意：重复牌只算一次。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    bool have[4][13] = {false};\n    int n;\n    cin >> n;\n    string s;\n    for (int i = 0; i < n; i++) {\n        cin >> s;\n        int suit, rank;\n        if (s[0] == 'D') suit = 0;\n        else if (s[0] == 'C') suit = 1;\n        else if (s[0] == 'H') suit = 2;\n        else suit = 3;\n        if (s[1] >= '2' && s[1] <= '9') rank = s[1] - '1';\n        else if (s[1] == 'A') rank = 0;\n        else if (s[1] == 'T') rank = 9;\n        else if (s[1] == 'J') rank = 10;\n        else if (s[1] == 'Q') rank = 11;\n        else rank = 12;\n        have[suit][rank] = true;\n    }\n    int cnt = 0;\n    for (int i = 0; i < 4; i++)\n        for (int j = 0; j < 13; j++)\n            if (have[i][j]) cnt++;\n    cout << 52 - cnt << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 3 题 2023 CSP-J J2 T1 小苹果 ★ [cspj2023t1]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2023T1\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n小 Y 的桌子上放着 n 个苹果排成一列，编号 1 到 n。\n\n每天小苞从左侧第 1 个苹果开始、每隔 2 个拿走 1 个（即拿走第 1、4、7、10…个），然后将剩下的按原序重排。\n\n问多少天能拿完所有苹果？编号为 n 的苹果在第几天被拿走？\n\n**输入格式**\n\n一行，一个正整数 n（1 ≤ n ≤ 10⁹）。\n\n**输出格式**\n\n一行，两个正整数，分别表示拿完所有苹果所需天数、编号 n 的苹果被拿走的天数，中间用空格隔开。\n\n**样例输入**\n\n```\n8\n```\n\n**样例输出**\n\n```\n5 5\n```\n\n**样例解释**\n\n第 1 天拿走 1、4、7 → 剩余 [2,3,5,6,8]\n第 2 天拿走 2、6 → 剩余 [3,5,8]\n第 3 天拿走 3 → 剩余 [5,8]\n第 4 天拿走 5 → 剩余 [8]\n第 5 天拿走 8 → 全部拿完\n\n**提示**\n\nn 可达 10⁹，不能直接模拟。找数学规律：每天拿走约 ceil(n/3) 个苹果。",
+      "question_type": "programming",
+      "pid": "cspj2023t1",
+      "url": "https://fslong.iok.la/problem/CSPJ2023T1",
+      "title": "2023 CSP-J J2 T1 小苹果 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "数学规律：每天拿走的苹果数为 ceil(剩余/3)。总天数用循环累加直到 n=0。编号 n 苹果被拿走的天数：每天检查 n 是否在当天被拿走（即 n%3==1），如果是则记录天数。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, day = 0, ans_day = 0;\n    cin >> n;\n    int remain = n;\n    while (remain > 0) {\n        day++;\n        int take = (remain + 2) / 3;\n        if (remain % 3 == 1 && ans_day == 0) ans_day = day;\n        remain -= take;\n    }\n    cout << day << \" \" << ans_day << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 4 题 2022 CSP-J J2 T1 乘方 ★ [cspj2022t1]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2022T1\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n计算 aᵇ 的值。aᵇ 即 b 个 a 相乘。\n\n如果计算结果超过 10⁹，输出 -1；否则输出正确的 aᵇ。\n\n**输入格式**\n\n一行，两个正整数 a 和 b（1 ≤ a, b ≤ 10⁹）。\n\n**输出格式**\n\n一行，一个整数。若 aᵇ ≤ 10⁹ 则输出 aᵇ，否则输出 -1。\n\n**样例输入 1**\n\n```\n10 9\n```\n\n**样例输出 1**\n\n```\n1000000000\n```\n\n**样例输入 2**\n\n```\n23333 66666\n```\n\n**样例输出 2**\n\n```\n-1\n```\n\n**提示**\n\n用循环累乘，每次乘后判断是否超 10⁹。注意 1 的任何次方都是 1；用 `long long` 防溢出。",
+      "question_type": "programming",
+      "pid": "cspj2022t1",
+      "url": "https://fslong.iok.la/problem/CSPJ2022T1",
+      "title": "2022 CSP-J J2 T1 乘方 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "用 long long 累乘，每次乘 a 后判断是否超过 1e9。注意几个优化：a=1 时直接输出 1；b=0 时输出 1；循环中若 result > 1e9 则提前退出输出 -1。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    long long a, b, ans = 1;\n    cin >> a >> b;\n    if (a == 1) { cout << 1 << endl; return 0; }\n    for (long long i = 0; i < b; i++) {\n        ans *= a;\n        if (ans > 1000000000) { cout << -1 << endl; return 0; }\n    }\n    cout << ans << endl;\n    return 0;\n}\n```"
+    }
+  ]
+}
