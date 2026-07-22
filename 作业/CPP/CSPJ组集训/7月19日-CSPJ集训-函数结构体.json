@@ -1,0 +1,350 @@
+{
+  "title": "CSP-J 集训函数与结构体",
+  "description": "CSPJ组集训 7月19日作业 - C++ 语法精讲·函数·结构体 20题客观 + J2编程2题",
+  "time_limit": 40,
+  "pass_score": 60,
+  "questions": [
+    {
+      "content": "### 第 1 题（2019 真题）阅读 BST 递归程序：如果 a 数组有重复的数字，则程序运行时会发生错误。\n\n```cpp\n#include <iostream>\nusing namespace std;\nconst int maxn = 10000;\nint n;\nint a[maxn];\nint b[maxn];\nint f(int l, int r, int depth) {\n    if (l > r)\n        return 0;\n    int min = maxn, mink;\n    for (int i = l; i <= r; ++i) {\n        if (min > a[i]) {\n            min = a[i];\n            mink = i;\n        }\n    }\n    int lres = f(l, mink - 1, depth + 1);\n    int rres = f(mink + 1, r, depth + 1);\n    return lres + rres + depth * b[mink];\n}\nint main() {\n    cin >> n;\n    for (int i = 0; i < n; ++i)\n        cin >> a[i];\n    for (int i = 0; i < n; ++i)\n        cin >> b[i];\n    cout << f(0, n - 1, 1) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题（2019 真题）BST 递归 - 重复数字",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "重复数字不影响程序运行，min 会取第一个遇到的最小值位置，程序逻辑不受影响。",
+      "options": {
+        "A": "正确",
+        "B": "错误",
+        "C": "不确定，取决于数据规模",
+        "D": "不确定，取决于 b 数组的值"
+      }
+    },
+    {
+      "content": "### 第 2 题（2019 真题）阅读 BST 递归程序：如果 b 数组全为 0，则输出为 0。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题（2019 真题）BST 递归 - b 全零",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "b[i]=0 时，depth*b[mink]=0，每一层递归返回值均为 0，最终输出 0。",
+      "options": {
+        "A": "正确",
+        "B": "错误",
+        "C": "输出为 1",
+        "D": "输出为 n"
+      }
+    },
+    {
+      "content": "### 第 3 题（2019 真题）阅读 BST 递归程序：当 n=100 时，最坏情况下，与第 12 行的比较运算执行的次数最接近的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题（2019 真题）BST 递归 - 最坏比较次数",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "最坏情况（有序数组）每次递归只减少一个元素，比较次数约 n²/2 = 5000。",
+      "options": {
+        "A": "6",
+        "B": "100",
+        "C": "5000",
+        "D": "600"
+      }
+    },
+    {
+      "content": "### 第 4 题（2019 真题）阅读 BST 递归程序：当 n=100 时，最好情况下，与第 12 行的比较运算执行的次数最接近的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题（2019 真题）BST 递归 - 最好比较次数",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "最好情况（完全平衡树）每次平分，递归深度 log n，比较次数约 n = 100。",
+      "options": {
+        "A": "5000",
+        "B": "6",
+        "C": "100",
+        "D": "600"
+      }
+    },
+    {
+      "content": "### 第 5 题（2019 真题）阅读 BST 递归程序：当 n=10 时，若 b 数组满足对任意 0 ≤ i < n 都有 b[i] = i + 1，那么输出最大为？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题（2019 真题）BST 递归 - 输出最大值",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "完全平衡时 depth 最小，输出最大为 385。",
+      "options": {
+        "A": "385",
+        "B": "383",
+        "C": "384",
+        "D": "386"
+      }
+    },
+    {
+      "content": "### 第 6 题（2019 真题）阅读 BST 递归程序：当 n=100 时，若 b 数组满足对任意 0 ≤ i < n 都有 b[i] = 1，那么输出最小为？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题（2019 真题）BST 递归 - 输出最小值",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "最坏情况（有序数组）depth 最大，输出最小为 580。",
+      "options": {
+        "A": "582",
+        "B": "579",
+        "C": "581",
+        "D": "580"
+      }
+    },
+    {
+      "content": "### 第 7 题（2019 真题）完善程序：矩阵变幻。①处应填？\n\n```cpp\n#include <cstdio>\nusing namespace std;\nint n;\nconst int max_size = 1 << 10;\nint res[max_size][max_size];\n\nvoid recursive(int x, int y, int n, int t) {\n    if (n == 0) {\n        res[x][y] = ①;\n        return;\n    }\n    int step = 1 << (n - 1);\n    recursive(②, n - 1, t);\n    recursive(x, y + step, n - 1, t);\n    recursive(x + step, y, n - 1, t);\n    recursive(③, n - 1, !t);\n}\n\nint main() {\n    scanf(\"%d\", &n);\n    recursive(0, 0, ④);\n    int size = ⑤;\n    for (int i = 0; i < size; ++i) {\n        for (int j = 0; j < size; ++j)\n            printf(\"%d\", res[i][j]);\n        puts(\"\");\n    }\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题（2019 真题）矩阵变幻 - ①",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "递归到最底层（n==0），根据 t 值填 0 或 1。",
+      "options": {
+        "A": "1",
+        "B": "n % 2",
+        "C": "t",
+        "D": "0"
+      }
+    },
+    {
+      "content": "### 第 8 题（2019 真题）完善程序：矩阵变幻。②处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题（2019 真题）矩阵变幻 - ②",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "左上角递归位置不变，仍为 (x, y)。",
+      "options": {
+        "A": "x - step, y",
+        "B": "x, y - step",
+        "C": "x - step, y - step",
+        "D": "x, y"
+      }
+    },
+    {
+      "content": "### 第 9 题（2019 真题）完善程序：矩阵变幻。③处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题（2019 真题）矩阵变幻 - ③",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "右下角递归位置为 (x + step, y + step)。",
+      "options": {
+        "A": "x + step, y + step",
+        "B": "x, y - step",
+        "C": "x - step, y",
+        "D": "x - step, y - step"
+      }
+    },
+    {
+      "content": "### 第 10 题（2019 真题）完善程序：矩阵变幻。④处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题（2019 真题）矩阵变幻 - ④",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "初始调用 n 层，t = 0。",
+      "options": {
+        "A": "n - 1, 0",
+        "B": "n - 1, n % 2",
+        "C": "n, 0",
+        "D": "n, n % 2"
+      }
+    },
+    {
+      "content": "### 第 11 题（2019 真题）完善程序：矩阵变幻。⑤处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题（2019 真题）矩阵变幻 - ⑤",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "矩阵大小为 2^n，用位运算 1 << n 表示。",
+      "options": {
+        "A": "n + 1",
+        "B": "1 << n",
+        "C": "1 << (n - 1)",
+        "D": "1 << (n + 1)"
+      }
+    },
+    {
+      "content": "### 第 12 题（2025 真题）以下递归函数 `calc(5)` 的返回值是？\n\n```cpp\nint calc(int n){\n    if(n<=1) return 1;\n    if(n%2==0) return calc(n/2)+1;\n    else return calc(n-1)+calc(n-2);\n}\n```\n\n```cpp\nint calc(int n){\n    if(n<=1) return 1;\n    if(n%2==0) return calc(n/2)+1;\n    else return calc(n-1)+calc(n-2);\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题（2025 真题）calc(5) 返回值",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "calc(5)=calc(4)+calc(3)，calc(4)=calc(2)+1=calc(1)+1+1=3，calc(3)=calc(2)+calc(1)=2+1=3，故 calc(5)=3+3=6。",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      }
+    },
+    {
+      "content": "### 第 13 题（2022 真题）`a+(b-c)*d` 的前缀表达式是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题（2022 真题）前缀表达式",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "运算符前移。先算 b-c 得 -bc，再算 *-bcd，最后 +a*-bcd。",
+      "options": {
+        "A": "*+a-bcd",
+        "B": "+a*-bcd",
+        "C": "abc-d*+",
+        "D": "abc-+d"
+      }
+    },
+    {
+      "content": "### 第 14 题（2021 真题）`a*(b+c)*d` 的后缀表达式是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题（2021 真题）后缀表达式",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "先算 b+c 得 bc+，再乘 a 得 abc+*，最后乘 d 得 abc+*d*。",
+      "options": {
+        "A": "abc+*d*",
+        "B": "abc+d**",
+        "C": "*a*bcd+",
+        "D": "abc*+d*"
+      }
+    },
+    {
+      "content": "### 第 15 题（2017 真题）`a*(b+c)*d` 的后缀形式是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题（2017 真题）后缀形式",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "先 b+c 得 bc+，再 *a 得 abc+*，最后 *d 得 abc+*d*。",
+      "options": {
+        "A": "abcd*+*",
+        "B": "abc+*d*",
+        "C": "a*bc+*d",
+        "D": "b+c*a*d"
+      }
+    },
+    {
+      "content": "### 第 16 题（2025 真题）`(a&&b)||(!c&&a)` 与以下哪个表达式**不**始终相等？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题（2025 真题）逻辑表达式等价",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "原式化简 = a&&(b||!c)。C 选项 a&&(!b||c) 在 a=true,b=true,c=false 时原式为 true，C 为 false，不等价。",
+      "options": {
+        "A": "a&&(b||!c)",
+        "B": "(a||!c)&&(b||!c)&&(a||a)",
+        "C": "a&&(!b||c)",
+        "D": "!(a||!b)||(a&&!c)"
+      }
+    },
+    {
+      "content": "### 第 17 题（2020 真题）设 x = true，y = true，z = false，以下哪个逻辑表达式的结果为 true？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题（2020 真题）逻辑运算求真值",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "D 选项：(x ∧ y) ∨ (z ∨ x) = (true ∧ true) ∨ (false ∨ true) = true ∨ true = true。A、B、C 均含 ∧ z = false 使其结果为 false。",
+      "options": {
+        "A": "(y ∨ z) ∧ x ∧ z",
+        "B": "x ∧ (z ∨ y) ∧ z",
+        "C": "(x ∧ y) ∧ z",
+        "D": "(x ∧ y) ∨ (z ∨ x)"
+      }
+    },
+    {
+      "content": "### 第 18 题（2022 真题）字符串 `\"abcab\"` 有多少个内容不同的子串？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题（2022 真题）不同子串计数",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "枚举所有子串：a, b, c, ab, bc, ca, abc, bca, cab, abca, bcab, abcab，去重后共 13 个。",
+      "options": {
+        "A": "12",
+        "B": "13",
+        "C": "14",
+        "D": "15"
+      }
+    },
+    {
+      "content": "### 第 19 题（2016 真题）关于字符串的正确说法是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题（2016 真题）字符串概念",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "字符串是线性表的一种（每个字符一个元素）。空串长度可为 0，空格串 ≠ 空串。",
+      "options": {
+        "A": "字符串是一种特殊的线性表",
+        "B": "串的长度必须大于零",
+        "C": "字符串不可以用数组表示",
+        "D": "空格串就是空串"
+      }
+    },
+    {
+      "content": "### 第 20 题（2025 真题）完善程序：字符串解码。①处应填？\n\n```cpp\n#include<cctype>\n#include<iostream>\n#include<string>\nusing namespace std;\nint main(){\n    string z;\n    cin>> z;\n    string s=\"\";\n    for(int i=0;;){\n        char ch= z[i];\n        if( ①  &&isdigit(z[i+1])){\n            int count=0;\n            i++;\n            while(i<z.length()&& isdigit(z[i])){\n                count= count*10+(z[i]-'0');\n                i++;\n            }\n            for(int j=0; j< count ;++j){\n                s+= ch;\n            }\n        }else{\n              s+= ch;\n            i++;\n        }\n    }\n    cout<< s<< endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题（2025 真题）字符串解码 - ①",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "i+1 < z.length() 检查不越界，确保 z[i+1] 可安全访问。",
+      "options": {
+        "A": "i<z.length()",
+        "B": "i-1≥0",
+        "C": "i+1<z.length()",
+        "D": "isdigit(z[i])"
+      }
+    },
+    {
+      "content": "### 第 1 题 2021 CSP-J 第二轮 T3 网络连接 ★★★ [cspj2021t3]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2021T3\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n\n网络中有若干计算机，每台计算机有唯一地址，格式为 `a.b.c.d:e`。\n\n地址格式合法性规则：\n- 地址须严格符合 `a.b.c.d:e` 格式\n- a, b, c, d 为 0~255 的整数，e 为 0~65535 的整数\n- 各部分为整数表示，除 \"0\" 外不含前导零\n\n两种操作：\n- `Server addr`：在 addr 注册新服务器。地址不合法输出 ERR；地址已存在输出 FAIL；成功输出 OK\n- `Client addr`：连接 addr 的服务器。地址不合法输出 ERR；找到输出服务器编号（注册顺序）；否则输出 FAIL\n\n**输入格式**\n\n第一行正整数 n。接下来 n 行每行一个操作。\n\n**输出格式**\n\n每行一个输出。\n\n**样例**\n\n输入：\n```\n8\nServer 1.2.3.4:80\nServer 1.2.3.4:80\nClient 1.2.3.4:80\nClient 1.2.3.4:81\nServer 01.2.3.4:80\nClient 256.0.0.0:80\nServer 1.2.3:80\nClient 1.2.3.4:80\n```\n\n输出：\n```\nOK\nFAIL\n1\nFAIL\nERR\nERR\nERR\n1\n```\n\n**数据范围**\n\nn ≤ 1000。",
+      "question_type": "programming",
+      "pid": "cspj2021t3",
+      "url": "https://fslong.iok.la/problem/CSPJ2021T3",
+      "title": "2021 CSP-J 第二轮 T3 网络连接 ★★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "模拟 + 字符串解析。用 map 记录已注册服务器地址及其编号。每次操作先验证地址合法性（sscanf 解析后重新格式化比对，确保无前导零、各段范围正确），再按 Server/Client 逻辑处理。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nbool check(string s) {\n    long long a = 0, b = 0, c = 0, d = 0, port = 0;\n    int ret = sscanf(s.c_str(), \"%lld.%lld.%lld.%lld:%lld\", &a, &b, &c, &d, &port);\n    if (ret != 5) return false;\n    char buf[64];\n    sprintf(buf, \"%lld.%lld.%lld.%lld:%lld\", a, b, c, d, port);\n    if (s != buf) return false;\n    return a >= 0 && a <= 255 && b >= 0 && b <= 255\n        && c >= 0 && c <= 255 && d >= 0 && d <= 255\n        && port >= 0 && port <= 65535;\n}\nint main() {\n    int n;\n    cin >> n;\n    map<string, int> mp;\n    for (int i = 1; i <= n; i++) {\n        string op, ad;\n        cin >> op >> ad;\n        if (!check(ad)) { cout << \"ERR\\n\"; continue; }\n        if (op == \"Server\") {\n            if (mp.count(ad)) cout << \"FAIL\\n\";\n            else { mp[ad] = i; cout << \"OK\\n\"; }\n        } else {\n            if (mp.count(ad)) cout << mp[ad] << \"\\n\";\n            else cout << \"FAIL\\n\";\n        }\n    }\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 2022 CSP-J 第二轮 T3 逻辑表达式 ★★★★ [cspj2022t3]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2022T3\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n\n给定逻辑表达式，仅含 `0` `1` `&` `|` `(` `)`。\n\n& 和 | 同级，从左到右计算。需统计**短路求值**次数：\n- `&` 左操作数为 0 → 不计算右操作数，& 短路次数 +1\n- `|` 左操作数为 1 → 不计算右操作数，| 短路次数 +1\n\n例 `1&0|1&0&0`，从左到右：\n1. `1&0`：左=1，不短路，值=0\n2. `0|1`：左=0，不短路，值=1\n3. `1&0`：左=0，**短路**，值=0，&短路+1\n4. `0&0`：左=0，**短路**，值=0，&短路+1\n\n表达式值=0，&短路 2 次，|短路 1 次。\n\n**输入格式**\n\n一行字符串 s。\n\n**输出格式**\n\n第一行表达式值；第二行 & 短路次数和 | 短路次数。\n\n**样例**\n\n输入：\n```\n1&0|1&0&0\n```\n\n输出：\n```\n0\n2 1\n```\n\n输入：\n```\n0|(1&0)&(1|0)\n```\n\n输出：\n```\n0\n2 0\n```",
+      "question_type": "programming",
+      "pid": "cspj2022t3",
+      "url": "https://fslong.iok.la/problem/CSPJ2022T3",
+      "title": "2022 CSP-J 第二轮 T3 逻辑表达式 ★★★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "递归下降 + 短路求值。定义 Node{v, andCnt, orCnt}，递归解析表达式。& 短路时（左=0）：不计算右值，但右子树所有操作仍计入短路次数。| 短路时（左=1）同理。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nstruct Node {\n    int v, andCnt, orCnt;\n    Node(int v = 0, int a = 0, int o = 0) : v(v), andCnt(a), orCnt(o) {}\n};\nNode calc(const string& s, int& i) {\n    Node cur;\n    if (s[i] == '0' || s[i] == '1') cur = Node(s[i++] - '0');\n    else if (s[i] == '(') { i++; cur = calc(s, i); i++; }\n    while (i < s.size() && s[i] != ')') {\n        char op = s[i++];\n        Node rhs = calc(s, i);\n        if (op == '&') {\n            if (cur.v == 0) { cur.andCnt++; cur.andCnt += rhs.andCnt + rhs.orCnt; }\n            else { cur.v &= rhs.v; cur.andCnt += rhs.andCnt; cur.orCnt += rhs.orCnt; }\n        } else {\n            if (cur.v == 1) { cur.orCnt++; cur.andCnt += rhs.andCnt + rhs.orCnt; }\n            else { cur.v |= rhs.v; cur.andCnt += rhs.andCnt; cur.orCnt += rhs.orCnt; }\n        }\n    }\n    return cur;\n}\nint main() {\n    string s;\n    cin >> s;\n    int i = 0;\n    Node r = calc(s, i);\n    cout << r.v << endl << r.andCnt << \" \" << r.orCnt << endl;\n}\n```"
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "title": "CSP-J 集训进制·位运算 + C++语法（五）",
+  "description": "CSPJ组集训 7月18日作业 - 进制·位运算复习 + C++语法精讲·函数·结构体 20题客观 + J2编程4题",
+  "time_limit": 30,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "### 第 1 题（2023 真题）二进制101010₂+八进制166₈=？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题（2023 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "101010₂=42，166₈=118，42+118=160=A0₁₆。",
+      "options": {
+        "A": "1101010₂",
+        "B": "1011010₂",
+        "C": "1110000₂",
+        "D": "A0₁₆"
+      }
+    },
+    {
+      "content": "### 第 2 题（2016 真题）二进制00101100+00010101=？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题（2016 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "00101100+00010101=01000001。",
+      "options": {
+        "A": "00101000",
+        "B": "01000001",
+        "C": "01000100",
+        "D": "00111000"
+      }
+    },
+    {
+      "content": "### 第 3 题（2016 真题）二进制0.1相等的八进制数是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题（2016 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "二进制0.1=0.5，转八进制：0.5×8=4.0，故0.4₈。",
+      "options": {
+        "A": "0.8",
+        "B": "0.4",
+        "C": "0.2",
+        "D": "0.1"
+      }
+    },
+    {
+      "content": "### 第 4 题（2025 真题）以下代码输出什么？\n```cpp\nint x=255;\ncout << (x & (x-1));\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题（2025 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "x=255=11111111₂，x-1=254=11111110₂，x&(x-1)=254。",
+      "options": {
+        "A": "255",
+        "B": "254",
+        "C": "128",
+        "D": "0"
+      }
+    },
+    {
+      "content": "### 第 5 题（2024 真题）0至7的4位二进制格雷码是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题（2024 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "相邻格雷码只有1位不同。D项0000→0001→0011→0010→0110→0111→0101→0100满足性质。",
+      "options": {
+        "A": "0000,0001,0011,0010,0110,0111,0101,1000",
+        "B": "0000,0001,0011,0010,0110,0111,0100,0101",
+        "C": "0000,0001,0011,0010,0100,0101,0111,0110",
+        "D": "0000,0001,0011,0010,0110,0111,0101,0100"
+      }
+    },
+    {
+      "content": "### 第 6 题（2019 真题）二进制数11 1011 1001 0111和01 0110 1110 1011逻辑与的结果？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题（2019 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "逐位与，全1为1否则为0，得01 0010 1000 0011。",
+      "options": {
+        "A": "01 0010 1000 1011",
+        "B": "01 0010 1000 0001",
+        "C": "01 0010 1000 0011",
+        "D": "01 0010 1001 0011"
+      }
+    },
+    {
+      "content": "### 第 7 题（2018 真题）统计二进制中1个数的缺失代码是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题（2018 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "x&=x-1消除最右1，循环次数即1的个数。",
+      "options": {
+        "A": "x>>=1",
+        "B": "x&=x-1",
+        "C": "x|=x>>1",
+        "D": "x<<=1"
+      }
+    },
+    {
+      "content": "### 第 8 题（2024 真题）哪个不是C++基本数据类型？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题（2024 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "struct是复合类型（结构体），int/float/char是基本数据类型。",
+      "options": {
+        "A": "int",
+        "B": "float",
+        "C": "struct",
+        "D": "char"
+      }
+    },
+    {
+      "content": "### 第 9 题（2024 真题）哪个不是C++循环语句？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题（2024 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "repeat-until是Pascal的循环，C++不支持。",
+      "options": {
+        "A": "for",
+        "B": "while",
+        "C": "do-while",
+        "D": "repeat-until"
+      }
+    },
+    {
+      "content": "### 第 10 题（2024 真题）(char)('a'+13)等于？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题（2024 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "'a' ASCII=97，97+13=110对应'n'。",
+      "options": {
+        "A": "'m'",
+        "B": "'n'",
+        "C": "'z'",
+        "D": "'3'"
+      }
+    },
+    {
+      "content": "### 第 11 题（2023 真题）哪个关键字声明的变量值不能修改？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题（2023 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "const声明常量，值不可修改。",
+      "options": {
+        "A": "unsigned",
+        "B": "const",
+        "C": "static",
+        "D": "mutable"
+      }
+    },
+    {
+      "content": "### 第 12 题（2023 真题）修改union Data的value成员存3.14，正确方式是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题（2023 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "union变量用点(.)访问成员。",
+      "options": {
+        "A": "data.value = 3.14",
+        "B": "value.data = 3.14",
+        "C": "data->value = 3.14",
+        "D": "value->data = 3.14"
+      }
+    },
+    {
+      "content": "### 第 13 题（2022 真题）以下代码执行后p指向？\n```cpp\nint x=101, y=201;\nint *p=&x, *q=&y;\np=q;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题（2022 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "p=q让p存储y的地址，即p指向y。",
+      "options": {
+        "A": "p指向x，值为201",
+        "B": "p指向y，值为101",
+        "C": "p指向x，p指向y的地址",
+        "D": "p指向y的地址"
+      }
+    },
+    {
+      "content": "### 第 14 题（2025 真题）关于C++ string类的说法正确的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题（2025 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "string长度可动态改变(A错)，length()=size()(C错)，\\0不计入length(D错)。+可连接string与char(B对)。",
+      "options": {
+        "A": "string长度创建后不能改变",
+        "B": "可用+连接string和char",
+        "C": "length()和size()返回值可能不同",
+        "D": "string以\\0结尾且计入length()"
+      }
+    },
+    {
+      "content": "### 第 15 题（2025 真题）以下代码输出什么？\n```cpp\nvoid solve(int &a, int b){\n    a = a + b; b = a - b; a = a - b;\n}\nint main(){\n    int x=5, y=10;\n    solve(x, y);\n    cout << x << \",\" << y;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题（2025 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "a是x的引用（同步修改），b是y的副本。a=15,b=5,a=10 → x=10,y=10。",
+      "options": {
+        "A": "5,10",
+        "B": "10,5",
+        "C": "10,10",
+        "D": "5,5"
+      }
+    },
+    {
+      "content": "### 第 16 题（2016 真题）以下循环执行后s的值等价于？\n```cpp\nint s = a;\nfor(int i=1; i<=c; i++) s++;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题（2016 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "循环c次每次s+1，等价于s=a+c。",
+      "options": {
+        "A": "s=a+b",
+        "B": "s=a+c",
+        "C": "s=s+c",
+        "D": "s=b+c"
+      }
+    },
+    {
+      "content": "### 第 17 题（2016 真题）以下代码输出什么？\n```cpp\nint k=4, n=0;\nwhile(n < k){\n    n++;\n    if(n % 3 != 0) continue;\n    k--;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题（2016 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "n=1(跳过)→n=2(跳过)→n=3(k→3)→n=4(n<3?否)退出。最终k=3,n=3。",
+      "options": {
+        "A": "2,2",
+        "B": "2,3",
+        "C": "3,2",
+        "D": "3,3"
+      }
+    },
+    {
+      "content": "### 第 18 题（2018 真题）循环按下CapsLock,A,S,D,F键（CapsLock切换大小写），输出按下的字符。第81个输出什么？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题（2018 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "每5次一个循环(CapsLock,A,S,D,F)，第80个为F，第81个CapsLock切换大小写输出小写a。",
+      "options": {
+        "A": "A",
+        "B": "S",
+        "C": "D",
+        "D": "a"
+      }
+    },
+    {
+      "content": "### 第 19 题（2016 真题）循环按下CapsLock,A,S,D键（CapsLock切换大小写），输出按下的字符。第81个输出什么？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题（2016 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "每4次一个循环(CapsLock,A,S,D)，第80个为D，第81个CapsLock切换大小写输出大写D。",
+      "options": {
+        "A": "A",
+        "B": "S",
+        "C": "D",
+        "D": "a"
+      }
+    },
+    {
+      "content": "### 第 20 题（2019 真题）程序段 s=0; for(i=1; i<=c; i++) s--; 等价于？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题（2019 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "循环c次每次减1，相当于初始值s=a减去c，即s=a-c。",
+      "options": {
+        "A": "s = a - c",
+        "B": "s = a - c",
+        "C": "s = a - c",
+        "D": "s = a - c"
+      }
+    },
+    {
+      "content": "### 第 1 题 NOIP2017 普及组 T2 图书管理员 ★★ [noip2017pjt2]（100 分）— <a href=\"https://fslong.iok.la/problem/NOIP2017PJT2\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n图书馆有 n 本书，每本书有一个图书编码（正整数）。有 q 位读者，每位读者的需求码长度为 len，需求码为 code。找出图书编码末尾 len 位与 code 匹配的最小图书编码。若无匹配输出 -1。\n\n**输入格式**：第一行 n, q；第二行 n 个图书编码；接下来 q 行每行 len code\n\n**输出格式**：每行一个整数\n\n**样例**\n\n输入：4 2 / 12345 67890 12300 12000 / 2 45 / 3 123 → 输出：12345 / 12300\n\n输入：3 2 / 111 222 333 / 1 4 / 2 12 → 输出：-1 / 111",
+      "question_type": "programming",
+      "pid": "noip2017pjt2",
+      "url": "https://fslong.iok.la/problem/NOIP2017PJT2",
+      "title": "NOIP2017 普及组 T2 图书管理员 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "排序后逐个匹配，x % 10^len 取末len位。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, q; cin >> n >> q;\n    vector<int> a(n);\n    for (int i = 0; i < n; i++) cin >> a[i];\n    sort(a.begin(), a.end());\n    while (q--) {\n        int len, code; cin >> len >> code;\n        int mod = 1;\n        for (int i = 0; i < len; i++) mod *= 10;\n        int ans = -1;\n        for (int x : a)\n            if (x % mod == code) { ans = x; break; }\n        cout << ans << endl;\n    }\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 NOIP2016 普及组 T2 回文日期 ★★ [noip2016pjt2]（100 分）— <a href=\"https://fslong.iok.la/problem/NOIP2016PJT2\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n用 8 位数字表示一个日期。给定两个日期，求之间有多少个回文日期。\n\n**输入格式**：两行，每行一个 8 位数字\n\n**输出格式**：一行一个整数\n\n**样例**\n\n输入：20110101 / 20111231 → 输出：1\n\n输入：20000101 / 20101231 → 输出：2",
+      "question_type": "programming",
+      "pid": "noip2016pjt2",
+      "url": "https://fslong.iok.la/problem/NOIP2016PJT2",
+      "title": "NOIP2016 普及组 T2 回文日期 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "枚举年份构造回文日期，检查合法性及范围。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint days[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};\nbool isLeap(int y){return(y%4==0&&y%100!=0)||y%400==0;}\nint main(){\n    int s,e;cin>>s>>e;\n    int ans=0;\n    for(int y=s/10000;y<=e/10000;y++){\n        int m=(y%10)*10+(y/10)%10;\n        int d=((y/100)%10)*10+y/1000;\n        if(m<1||m>12)continue;\n        int lim=days[m];\n        if(m==2&&isLeap(y))lim=29;\n        if(d<1||d>lim)continue;\n        int date=y*10000+m*100+d;\n        if(date>=s&&date<=e)ans++;\n    }\n    cout<<ans<<endl;return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 3 题 2020 CSP-J 第二轮 T2 直播获奖 ★★ [cspj2020t2]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2020T2\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n比赛有 n 名选手，获奖率 w%。每公布一个成绩，获奖人数 = max(1, ⌊当前人数 × w%⌋)，分数线为第获奖人数名的成绩。求每时刻分数线。\n\n**输入格式**：第一行 n, w；第二行 n 个整数\n\n**输出格式**：一行 n 个整数\n\n**样例**\n\n输入：10 60 / 200 300 400 500 600 600 0 300 200 100 → 输出：200 300 400 400 400 500 400 400 300 300",
+      "question_type": "programming",
+      "pid": "cspj2020t2",
+      "url": "https://fslong.iok.la/problem/CSPJ2020T2",
+      "title": "2020 CSP-J 第二轮 T2 直播获奖 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "桶计数，成绩0~600。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint cnt[601];\nint main(){\n    int n,w;cin>>n>>w;\n    for(int i=1;i<=n;i++){\n        int x;cin>>x;cnt[x]++;\n        int win=max(1,i*w/100);\n        int sum=0;\n        for(int s=600;s>=0;s--){\n            sum+=cnt[s];\n            if(sum>=win){cout<<s<<\" \";break;}\n        }\n    }\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 4 题 2019 CSP-J 第二轮 T2 公交换乘 ★★ [cspj2019t2]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2019T2\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n坐地铁得优惠券，45分钟内可免费坐一次公交。给定记录求总花费。\n\n**输入格式**：第一行 n；接下来 n 行 type price time\n\n**输出格式**：一行一个整数\n\n**样例**\n\n输入：6 / 0 5 0 / 1 4 10 / 1 6 20 / 0 7 30 / 1 5 40 / 1 8 50 → 输出：16",
+      "question_type": "programming",
+      "pid": "cspj2019t2",
+      "url": "https://fslong.iok.la/problem/CSPJ2019T2",
+      "title": "2019 CSP-J 第二轮 T2 公交换乘 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "队列存券，公交遍历找可用券。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nstruct Tic{int p,t;};\nint main(){\n    int n;cin>>n;\n    queue<Tic> q;\n    int ans=0;\n    while(n--){\n        int tp,pr,ti;cin>>tp>>pr>>ti;\n        while(!q.empty()&&ti-q.front().t>45)q.pop();\n        if(tp==0){q.push({pr,ti});ans+=pr;}\n        else{\n            bool u=0;int sz=q.size();\n            for(int i=0;i<sz;i++){\n                Tic t=q.front();q.pop();\n                if(!u&&t.p>=pr){u=1;continue;}\n                q.push(t);\n            }\n            if(!u)ans+=pr;\n        }\n    }\n    cout<<ans<<endl;return 0;\n}\n```"
+    }
+  ]
+}

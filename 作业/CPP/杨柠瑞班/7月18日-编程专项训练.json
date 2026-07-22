@@ -1,0 +1,52 @@
+{
+  "title": "2026暑期C++算法训练-5",
+  "description": "杨柠瑞班 7月18日作业 - 验证码字符映射、整除枚举、2×2矩阵最大和、多key混合排序",
+  "time_limit": 120,
+  "pass_score": 200,
+  "questions": [
+    {
+      "content": "### 第 1 题 短信验证码 ★ [P9759]（100 分）— 字符串模拟 <a href=\"https://fslong.iok.la/problem/P9759\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n暑假到了，冯老师穷得揭不开锅了，只能在闲鱼上花 50 块钱买了一个二手老年机。手机屏幕花得厉害，但勉强能收到短信验证码——\n\n但手机屏幕有点老化，有些字母看起来像数字：\n\n- O（大写字母O）看起来像 **0**\n- l（小写L）和 I（大写i）看起来像 **1**\n- Z 看起来像 **2**\n- S 看起来像 **5**\n- B 看起来像 **8**\n\n也就是说，一个6位的验证码字符串\"0Zl8BS\"标准化后变成\"021858\"。\n\n只有全部由数字组成的验证码才是有效的。\n\n给定 n 条短信验证码字符串，请你先把可能混淆的字母标准化为数字，再统计其中有多少个是有效的（全部由 0-9 数字组成）。\n\n【输入格式】\n\n第一行，一个整数 n（1 ≤ n ≤ 1000）。\n\n接下来 n 行，每行一个字符串，表示一条验证码，长度不超过 10。\n\n【输出格式】\n\n一行，一个整数，表示有效验证码的数量。\n\n【样例 1 输入】\n\n```\n4\n0Zl8BS\n123456\nABCDEF\nHello1\n```\n\n【样例 1 输出】\n\n```\n2\n```\n\n【样例 1 解释】\n\n- \"0Zl8BS\" → 标准化为 \"021858\" → 全是数字 ✓\n- \"123456\" → 全是数字 ✓\n- \"ABCDEF\" → 没有混淆字母时 A、C、D、E、F 既不是数字也不能映射 → 无效 ✗\n- \"Hello1\" → 标准化为 \"He1101\"（l→1, o不变）→ 有字母 H、e、o → 无效 ✗\n\n第 1、2 条有效，输出 2。\n\n【样例 2 输入】\n\n```\n3\n000000\nOIZSB8\nGoodBy\n```\n\n【样例 2 输出】\n\n```\n2\n```\n\n【样例 2 解释】\n\n- \"000000\" → 全是数字 ✓\n- \"OIZSB8\" → 标准化为 \"012158\"（O→0, I→1, Z→2, S→5, B→8）→ 全是数字 ✓\n- \"GoodBy\" → 标准化为 \"GoodB8\"（B→8）→ 还有 G、o、o、d → 无效 ✗\n\n前两条有效，输出 2。\n\n【数据范围】\n\n1 ≤ n ≤ 1000，每个字符串长度 ≤ 10。\n\n【提示】\n\n写一个标准化函数 `fix(c)`，对每个字符判断：如果是 O 返回 '0'，l 或 I 返回 '1'，Z 返回 '2'，S 返回 '5'，B 返回 '8'，否则原样返回。对每个字符串，遍历每个字符做标准化，同时检查标准化后是否全为数字（'0'~'9'）。全数字则计数加一。时间复杂度 O(10n)。",
+      "question_type": "programming",
+      "pid": "P9759",
+      "url": "https://fslong.iok.la/problem/P9759",
+      "title": "### 第 1 题 短信验证码 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "写 fix(c) 函数映射易混淆字母→数字，遍历标准化并判断是否全数字。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nchar fix(char c) {\n    if (c == 'O') return '0';\n    if (c == 'l' || c == 'I') return '1';\n    if (c == 'Z') return '2';\n    if (c == 'S') return '5';\n    if (c == 'B') return '8';\n    return c;\n}\nint main() {\n    int n, cnt = 0;\n    cin >> n;\n    while (n--) {\n        string s; cin >> s;\n        bool ok = true;\n        for (int i = 0; i < s.size(); i++) {\n            s[i] = fix(s[i]);\n            if (s[i] < '0' || s[i] > '9') ok = false;\n        }\n        if (ok) cnt++;\n    }\n    cout << cnt << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 游乐园套票 ★★ [P9760]（100 分）— 枚举 <a href=\"https://fslong.iok.la/problem/P9760\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n暑假到了，冯老师带同学们去游乐园玩。\n\n游乐园有三种门票：\n- **VIP 票**：50 元/张，可以玩所有项目不用排队\n- **普通票**：30 元/张，可以玩大部分项目\n- **学生票**：10 元/张，仅限部分项目\n\n冯老师带了 n 元钱，想刚好花完（不找零），而且每种票至少买 1 张。问有多少种不同的购票方案？\n\n【输入格式】\n\n一行，一个整数 n（210 ≤ n ≤ 2000，n 是 10 的倍数）。\n\n【输出格式】\n\n一行，一个整数，表示购票方案的数量。\n\n【样例 1 输入】\n\n```\n100\n```\n\n【样例 1 输出】\n\n```\n1\n```\n\n【样例 1 解释】\n\n100 元，每种至少 1 张，唯一方案：VIP×1 + 普通×1 + 学生×2 = 100 元。\n\n【样例 2 输入】\n\n```\n200\n```\n\n【样例 2 输出】\n\n```\n8\n```\n\n【样例 2 解释】\n\n200 元共有 8 种方案。\n\n| VIP(50) | 普通(30) | 学生(10) | 公式 |\n|:-------:|:-------:|:--------:|------|\n| 1 | 1 | 12 | 50+30+120=200 |\n| 1 | 2 | 9 | 50+60+90=200 |\n| 1 | 3 | 6 | 50+90+60=200 |\n| 1 | 4 | 3 | 50+120+30=200 |\n| 2 | 1 | 7 | 100+30+70=200 |\n| 2 | 2 | 4 | 100+60+40=200 |\n| 2 | 3 | 1 | 100+90+10=200 |\n| 3 | 1 | 2 | 150+30+20=200 |\n\n共 8 种。\n\n【数据范围】\n\n210 ≤ n ≤ 2000，n 是 10 的倍数。\n\n【提示】\n\n枚举 VIP 票数量 i（从 1 到 n/50）和普通票数量 j（从 1 到 n/30），剩余买学生票：rest = n - 50×i - 30×j。若 rest ≥ 10 且能被 10 整除则合法。",
+      "question_type": "programming",
+      "pid": "P9760",
+      "url": "https://fslong.iok.la/problem/P9760",
+      "title": "### 第 2 题 游乐园套票 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "枚举 VIP、普通票数量，检查剩余能否被10整除且≥10。经典枚举法。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, cnt = 0;\n    cin >> n;\n    for (int v = 1; v * 50 <= n; v++)\n        for (int p = 1; p * 30 <= n; p++) {\n            int rest = n - v * 50 - p * 30;\n            if (rest >= 10 && rest % 10 == 0) cnt++;\n        }\n    cout << cnt << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 3 题 拼图找茬 ★ [P9761]（100 分）— 二维数组 <a href=\"https://fslong.iok.la/problem/P9761\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n冯老师在网上买了一个数字拼图。拼图的原图是一张 n 行 m 列的网格，每个格子里有一个数字（代表拼图碎片的编号）。\n\n包装盒上印了一个 a 行 b 列的\"预览小图\"。冯老师想知道，这个预览小图在原图中完整出现了多少次？\n\n也就是说，在大图中找到所有 a×b 的连续子矩阵，要求子矩阵的每一个数字和小图的对应位置完全一样。\n\n【输入格式】\n\n第一行，两个整数 n 和 m（1 ≤ n, m ≤ 50）。\n\n接下来 n 行，每行 m 个整数（0-9），表示大图。\n\n接下来一行，两个整数 a 和 b（1 ≤ a ≤ n，1 ≤ b ≤ m）。\n\n接下来 a 行，每行 b 个整数（0-9），表示小图。\n\n【输出格式】\n\n一行，一个整数，表示小图在大图中出现的次数。\n\n【样例 1 输入】\n\n```\n3 3\n1 1 1\n1 1 1\n1 1 1\n2 2\n1 1\n1 1\n```\n\n【样例 1 输出】\n\n```\n4\n```\n\n【样例 1 解释】\n\n3×3 大图里所有 4 个 2×2 区域都是 1，每个都匹配小图，所以输出 4。\n\n【样例 2 输入】\n\n```\n3 3\n0 0 0\n0 0 0\n0 0 1\n2 2\n0 0\n0 0\n```\n\n【样例 2 输出】\n\n```\n3\n```\n\n【样例 2 解释】\n\n大图中 2×2 全 0 区域有 3 个（左上、右上、左下），右下角因为有个 1 所以不匹配。\n\n【数据范围】\n\n1 ≤ n, m ≤ 50，1 ≤ a ≤ n，1 ≤ b ≤ m，格子值为 0-9。\n\n【提示】\n\n枚举大图左上角 (i,j)，i+a≤n 且 j+b≤m，逐格检查 a×b 区域是否与小图完全一致。时间复杂度 O(n×m×a×b)。",
+      "question_type": "programming",
+      "pid": "P9761",
+      "url": "https://fslong.iok.la/problem/P9761",
+      "title": "### 第 3 题 网红店排队 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "枚举大图中每个左上角，四重循环检测 a×b 区域是否完全匹配小图。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, m, a, b, g[55][55], p[55][55], cnt = 0;\n    cin >> n >> m;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < m; j++) cin >> g[i][j];\n    cin >> a >> b;\n    for (int i = 0; i < a; i++)\n        for (int j = 0; j < b; j++) cin >> p[i][j];\n    for (int i = 0; i + a <= n; i++)\n        for (int j = 0; j + b <= m; j++) {\n            bool ok = 1;\n            for (int x = 0; x < a && ok; x++)\n                for (int y = 0; y < b; y++)\n                    if (g[i+x][j+y] != p[x][y]) { ok = 0; break; }\n            if (ok) cnt++;\n        }\n    cout << cnt << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 4 题 体育课排队 ★★ [P9762]（100 分）— 结构体排序 <a href=\"https://fslong.iok.la/problem/P9762\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n体育课要排队了！n 个同学站成一排，每人有姓名、身高（cm）、体重（kg）、50米跑成绩（秒）。\n\n体育老师王老师的排队规则是：\n1. 先按**身高从高到低**排\n2. 身高相同，按**体重从轻到重**排\n3. 体重也相同，按**50米跑成绩从快到慢**（数值小为快）排\n4. 还是相同，按**姓名字典序从小到大**排\n\n请输出排队结果。\n\n【输入格式】\n\n第一行，一个整数 n（1 ≤ n ≤ 1000）。\n\n接下来 n 行，每行格式：姓名 身高 体重 50米成绩。姓名仅含大小写字母（长度 ≤ 20），身高 100-200，体重 30-100，成绩 6.0-15.0。\n\n【输出格式】\n\n输出 n 行，每行一个姓名，按排队顺序输出。\n\n【样例 1 输入】\n\n```\n5\nAlice 165 55 8.5\nBob 180 70 7.2\nCharlie 175 65 7.8\nDiana 165 50 9.0\nEve 180 70 7.5\n```\n\n【样例 1 输出】\n\n```\nBob\nEve\nCharlie\nDiana\nAlice\n```\n\n【样例 1 解释】\n\n| 姓名 | 身高 | 体重 | 50米 | 排序依据 |\n|------|:---:|:---:|:---:|---------|\n| Bob | 180 | 70 | 7.2 | 最高，体重大，跑得快 |\n| Eve | 180 | 70 | 7.5 | 与Bob同身高体重，跑得慢排后 |\n| Charlie | 175 | 65 | 7.8 | 身高175，第三 |\n| Diana | 165 | 50 | 9.0 | 同身高165，体重50<55，排在Alice前 |\n| Alice | 165 | 55 | 8.5 | 同身高165，体重55>50，排在Diana后 |\n\n【样例 2 输入】\n\n```\n3\nAmy 160 50 10.0\nBen 160 48 10.0\nCathy 155 45 9.5\n```\n\n【样例 2 输出】\n\n```\nBen\nAmy\nCathy\n```\n\n【样例 2 解释】\n\n- Ben 和 Amy 身高相同（160），Ben 体重 48 < Amy 50，所以 Ben 在前\n- Cathy 身高 155，最矮，排最后\n\n【数据范围】\n\n1 ≤ n ≤ 1000，姓名长度 ≤ 20，身高 100-200，体重 30-100，成绩 6.0-15.0。\n\n【提示】\n\n定义结构体存姓名、身高、体重、成绩。自定义 cmp：先身高降序，再体重升序，再成绩升序，最后姓名升序。成绩为浮点数，比较时可用差值 < 1e-9 判等，或乘以 10 转为整数比较。排序后输出姓名。时间复杂度 O(n log n)。",
+      "question_type": "programming",
+      "pid": "P9762",
+      "url": "https://fslong.iok.la/problem/P9762",
+      "title": "### 第 4 题 体育课排队 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "结构体+自定义 cmp：身高降序→体重升序→成绩升序→姓名升序。浮点成绩乘 10 转 int 避免精度。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nstruct Stu { string nm; int h, w, r; } a[1005];\nbool cmp(Stu x, Stu y) {\n    if (x.h != y.h) return x.h > y.h;\n    if (x.w != y.w) return x.w < y.w;\n    if (x.r != y.r) return x.r < y.r;\n    return x.nm < y.nm;\n}\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        double t;\n        cin >> a[i].nm >> a[i].h >> a[i].w >> t;\n        a[i].r = t * 10 + 0.5;  // 转整数\n    }\n    sort(a, a + n, cmp);\n    for (int i = 0; i < n; i++) cout << a[i].nm << endl;\n    return 0;\n}\n```"
+    }
+  ]
+}
