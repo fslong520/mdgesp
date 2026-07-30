@@ -1,0 +1,263 @@
+{
+	"title": "进制与数组综合",
+	"description": "杨柠瑞班 6月13日作业 - 进制转换、位运算、数组、字符串、模拟与枚举",
+	"time_limit": 90,
+	"pass_score": 60,
+	"questions": [
+		{
+			"content": "二进制数 `101011` 转换成十进制是多少？",
+			"question_type": "single",
+			"title": "进制转换",
+			"options": {
+				"A": "43",
+				"B": "44",
+				"C": "45",
+				"D": "46"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "1×32+0×16+1×8+0×4+1×2+1×1=32+0+8+0+2+1=43。"
+		},
+		{
+			"content": "二进制数 `1111` 转换成十进制是多少？",
+			"question_type": "single",
+			"title": "进制转换",
+			"options": {
+				"A": "14",
+				"B": "15",
+				"C": "16",
+				"D": "17"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "8+4+2+1=15。"
+		},
+		{
+			"content": "```cpp\nint a = 12;   // 二进制 01100\nint b = 10;   // 二进制 01010\ncout << (a & b);\n```\n以上代码的输出是？",
+			"question_type": "single",
+			"title": "位运算——与运算",
+			"options": {
+				"A": "0",
+				"B": "8",
+				"C": "10",
+				"D": "12"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "01100 & 01010 = 01000 = 8。"
+		},
+		{
+			"content": "```cpp\nint x = 6;   // 二进制 00110\ncout << (x << 2);\n```\n以上代码的输出是？",
+			"question_type": "single",
+			"title": "位运算——移位",
+			"options": {
+				"A": "12",
+				"B": "18",
+				"C": "24",
+				"D": "30"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "6左移2位相当于6×2²=24（二进制00110→11000=24）。"
+		},
+		{
+			"content": "快递站王叔叔要记录一周的包裹数，以下哪种数组定义方式**不正确**？",
+			"question_type": "single",
+			"title": "一维数组——初始化",
+			"options": {
+				"A": "int a[7] = {120, 90, 150, 80, 110, 130, 100};",
+				"B": "int a[7] = {120, 90, 150};",
+				"C": "int a[7]; a = {120, 90, 150, 80, 110, 130, 100};",
+				"D": "int a[] = {120, 90, 150, 80, 110, 130, 100};"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "数组定义后不能直接用花括号赋值，只能在初始化时使用。"
+		},
+		{
+			"content": "以下代码的输出是？\n```cpp\nint a[5] = {5, 10, 15, 20, 25};\nfor (int i = 0; i < 5; i++) {\n    a[i] = a[i] * 2;\n}\ncout << a[3];\n```",
+			"question_type": "single",
+			"title": "一维数组——下标遍历",
+			"options": {
+				"A": "20",
+				"B": "30",
+				"C": "40",
+				"D": "50"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "a[0]=10,a[1]=20,a[2]=30,a[3]=40,a[4]=50，输出a[3]=40。"
+		},
+		{
+			"content": "```cpp\nstring s = \"hello\";\ncout << s.find(\"h\");\n```\n以上代码的输出是？",
+			"question_type": "single",
+			"title": "字符串——查找",
+			"options": {
+				"A": "0",
+				"B": "1",
+				"C": "2",
+				"D": "-1"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "find('h')返回'h'在字符串中的位置，下标从0开始，'h'是第0个字符。"
+		},
+		{
+			"content": "```cpp\nstring s = \"abcdef\";\ncout << s.find(\"bcd\");\n```\n以上代码的输出是？",
+			"question_type": "single",
+			"title": "字符串——子串",
+			"options": {
+				"A": "0",
+				"B": "1",
+				"C": "2",
+				"D": "3"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "\"bcd\"从s的下标1开始，所以返回1。"
+		},
+		{
+			"content": "冯阿姨出了一道题：'一个两位数，十位比个位大3，且十位与个位之和为11。'以下关于枚举法的说法正确的是？",
+			"question_type": "single",
+			"title": "枚举法",
+			"options": {
+				"A": "枚举所有两位数（10~99），检查条件",
+				"B": "枚举个位（0~9），十位=个位+3，检查和",
+				"C": "枚举十位（1~9），个位=十位-3，检查和",
+				"D": "A、B、C都是枚举法，B和C效率更高"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "三种都是枚举法。B和C只枚举10次，A枚举90次，B和C效率更高。"
+		},
+		{
+			"content": "电梯从1楼出发，先上到5楼，再下到2楼，最后上到8楼。用模拟法求电梯运行总层数，以下做法正确的是？",
+			"question_type": "single",
+			"title": "模拟法",
+			"options": {
+				"A": "只看最高楼层：8-1=7",
+				"B": "将每次到达的楼层加起来：5+2+8=15",
+				"C": "模拟每段位移取绝对值再相加：|5-1|+|2-5|+|8-2|=13",
+				"D": "只看最低和最高楼层：8-1=7"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "模拟法按实际路径逐段计算：第一段上4层，第二段下3层，第三段上6层，共13层。"
+		},
+		{
+			"content": "在补码表示中，正数的补码就是它本身，负数的补码是其原码除符号位外取反再加1。",
+			"question_type": "true_false",
+			"title": "数据编码——补码",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "补码规则：正数补码等于原码，负数补码=原码除符号位外取反+1。"
+		},
+		{
+			"content": "对于任意整数 x，x^x 的结果总是 0，x^0 的结果总是 x。",
+			"question_type": "true_false",
+			"title": "位运算——异或",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "异或性质：相同为0，与0异或保持不变。"
+		},
+		{
+			"content": "当数组作为函数参数传递时，在函数内部用 sizeof(arr) 仍然能返回整个数组的大小。",
+			"question_type": "true_false",
+			"title": "一维数组——函数传参",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "数组作为参数退化为指针，sizeof(arr)得到的是指针大小而非数组大小。"
+		},
+		{
+			"content": "用 cin>>s 读取字符串时，遇到空格就会停止读取。",
+			"question_type": "true_false",
+			"title": "字符串——输入",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "cin>>以空白字符（空格、换行、制表符）为分隔符，遇到即停止。"
+		},
+		{
+			"content": "用自然语言描述算法比用流程图更精确、更不容易产生歧义。",
+			"question_type": "true_false",
+			"title": "算法描述",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "流程图比自然语言更精确、更结构化，自然语言容易产生歧义。"
+		},
+		{
+			"content": "王老师统计班里同学的学号，想看看每个数字（0~9）在学号中出现了多少次。\n\n输入一个正整数 n（1≤n≤10^9），统计 n 的每一位数字出现的次数。\n\n输入格式：一行一个正整数 n。\n输出格式：一行10个整数，分别表示0~9的出现次数。",
+			"question_type": "programming",
+			"pid": "ynr01",
+			"url": "https://fslong.iok.la/problem/YNR01",
+			"title": "数字统计",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "用n%10逐位取数字，n/=10去掉最低位，用长度为10的数组计数。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long n;\n    cin >> n;\n    int cnt[10] = {0};\n    while (n > 0) {\n        cnt[n % 10]++;\n        n /= 10;\n    }\n    for (int i = 0; i < 10; i++) {\n        if (i > 0) cout << \" \";\n        cout << cnt[i];\n    }\n    cout << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "体育老师要对全班同学按座位顺序分组做仰卧起坐测试，每组计算平均成绩。\n\n输入 n 个学生的成绩，按顺序分成 g 人一组（最后一组不足g人时仍需计算），输出每组的平均成绩（保留一位小数）。\n\n输入格式：第一行n和g，第二行n个整数。\n输出格式：若干行，每行一个保留一位小数的浮点数。",
+			"question_type": "programming",
+			"pid": "ynr02",
+			"url": "https://fslong.iok.la/problem/YNR02",
+			"title": "分组平均成绩",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "外层循环按组遍历（步长g），内层累加该组g人成绩（最后一组不足g人注意边界）。用fixed和setprecision(1)保留一位小数。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, g;\n    cin >> n >> g;\n    int a[105];\n    for (int i = 0; i < n; i++) cin >> a[i];\n    for (int i = 0; i < n; i += g) {\n        double sum = 0;\n        int cnt = 0;\n        for (int j = i; j < n && j < i + g; j++) {\n            sum += a[j];\n            cnt++;\n        }\n        cout << fixed << setprecision(1) << sum / cnt << endl;\n    }\n    return 0;\n}\n```"
+		},
+		{
+			"content": "班主任需要快速了解班级同学的性别分布和转学生人数，以便安排春游分组。\n\n输入 n 个同学的信息，每行包含姓名和性别（'M'/'F'），若姓名末尾带有_T后缀则表示转学生。统计男生、女生和转学生的人数。\n\n输入格式：第一行n，接下来n行每行字符串+字符。\n输出格式：三行，依次为男生人数、女生人数、转学生人数。",
+			"question_type": "programming",
+			"pid": "ynr03",
+			"url": "https://fslong.iok.la/problem/YNR03",
+			"title": "班级信息统计",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "用三个变量统计。性别用if判断，转学生用substr(name.size()-2)检查'_T'后缀。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    int male = 0, female = 0, transfer = 0;\n    for (int i = 0; i < n; i++) {\n        string name;\n        char gender;\n        cin >> name >> gender;\n        if (gender == 'M') male++;\n        else female++;\n        if (name.size() >= 2 && name.substr(name.size() - 2) == \"_T\")\n            transfer++;\n    }\n    cout << male << endl << female << endl << transfer << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "学校举办'最受欢迎歌手'投票活动，每位同学只能投一票，候选人编号从1开始。统计每位候选人的得票数，找出得票最多的获胜者（若平票选编号最小的）。\n\n输入格式：第一行m，第二行m个候选人编号。\n输出格式：一行，获胜者编号。",
+			"question_type": "programming",
+			"pid": "ynr04",
+			"url": "https://fslong.iok.la/problem/YNR04",
+			"title": "最受欢迎歌手",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "用数组cnt[101]计票（候选人编号做下标）。遍历数组找最大值，因为从小到大遍历，平票时自动取最小编号。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int m;\n    cin >> m;\n    int cnt[101] = {0};\n    for (int i = 0; i < m; i++) {\n        int x;\n        cin >> x;\n        cnt[x]++;\n    }\n    int maxVote = 0, winner = 0;\n    for (int i = 1; i <= 100; i++) {\n        if (cnt[i] > maxVote) {\n            maxVote = cnt[i];\n            winner = i;\n        }\n    }\n    cout << winner << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "图书管理员需要在有序书架上快速找到某本书的位置。书架上有 n 本书按编号从小到大排列（不重复）。输入一个目标编号，找到则输出位置下标（从0开始），找不到输出-1。\n\n输入格式：第一行n和target，第二行n个升序整数。\n输出格式：一行一个整数。",
+			"question_type": "programming",
+			"pid": "ynr05",
+			"url": "https://fslong.iok.la/problem/YNR05",
+			"title": "查找书的位置",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "二分查找。用指针标记查找区间，每次取中间位置与目标比较，缩小范围直至找到或区间为空。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, target;\n    cin >> n >> target;\n    int a[1005];\n    for (int i = 0; i < n; i++) cin >> a[i];\n    int *low = a;\n    int *high = a + n - 1;\n    while (low <= high) {\n        int *mid = low + (high - low) / 2;\n        if (*mid == target) {\n            cout << (mid - a) << endl;\n            return 0;\n        } else if (*mid < target) {\n            low = mid + 1;\n        } else {\n            high = mid - 1;\n        }\n    }\n    cout << -1 << endl;\n    return 0;\n}\n```"
+		}
+	]
+}

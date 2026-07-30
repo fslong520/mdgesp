@@ -1,0 +1,52 @@
+{
+  "title": "2026暑期C++算法训练-6",
+  "description": "杨柠瑞班 7月19日作业 - 报名码校验、公因数枚举、4邻域山峰探测、加权评分排序",
+  "time_limit": 120,
+  "pass_score": 200,
+  "questions": [
+    {
+      "content": "### 第 1 题 运动会报名 ★ [P9769]（100 分）— 字符串模拟 <a href=\"https://fslong.iok.la/problem/P9769\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n暑假到了，冯老师组织班级运动会。每班生成一个\"报名码\"——由大写字母（A-Z）和数字（0-9）组成的字符串。\n\n但报名系统有个Bug：如果报名码里 **数字的总个数多于字母的总个数**，系统会报错无法提交。\n\n请帮冯老师统计，n 个报名码中有多少个能成功提交？\n\n【输入格式】\n\n第一行，一个整数 n（1 ≤ n ≤ 1000）。\n\n接下来 n 行，每行一个字符串，表示报名码。字符串仅含大写字母 A-Z 和数字 0-9，长度不超过 20。\n\n【输出格式】\n\n一行，一个整数，表示能成功提交的报名码个数（数字个数 ≤ 字母个数）。\n\n【样例 1 输入】\n\n```\n3\nABC123\nA1B2C3D4\n12AB\n```\n\n【样例 1 输出】\n\n```\n3\n```\n\n【样例 1 解释】\n\n| 报名码 | 字母数 | 数字数 | 结果 |\n|--------|:-----:|:-----:|:----:|\n| ABC123 | 3 | 3 | 3 ≤ 3 ✓ 通过 |\n| A1B2C3D4 | 4 | 4 | 4 ≤ 4 ✓ 通过 |\n| 12AB | 2 | 2 | 2 ≤ 2 ✓ 通过 |\n\n全部 3 个都通过。\n\n【样例 2 输入】\n\n```\n2\nA123\nABCDEF12\n```\n\n【样例 2 输出】\n\n```\n1\n```\n\n【样例 2 解释】\n\n- \"A123\"：字母 1 个（A），数字 3 个 → 3 > 1 ✗ 失败\n- \"ABCDEF12\"：字母 6 个，数字 2 个 → 2 ≤ 6 ✓ 通过\n\n只有第 2 个通过，输出 1。\n\n【数据范围】\n\n1 ≤ n ≤ 1000，每个字符串长度 ≤ 20。\n\n【提示】\n\n遍历每个字符，统计字母个数 letter 和数字个数 digit。比较 digit ≤ letter 则计数。因为只有大写字母和数字，可直接判 `c >= 'A'` 则为字母，否则为数字。",
+      "question_type": "programming",
+      "pid": "P9769",
+      "url": "https://fslong.iok.la/problem/P9769",
+      "title": "### 第 1 题 运动会报名 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "遍历字符串统计字母数和数字数，比较即可。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, ans = 0;\n    cin >> n;\n    while (n--) {\n        string s; cin >> s;\n        int letter = 0, digit = 0;\n        for (char c : s) {\n            if (c >= 'A' && c <= 'Z') letter++;\n            else digit++;\n        }\n        if (digit <= letter) ans++;\n    }\n    cout << ans << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 方砖铺地 ★★ [P9770]（100 分）— 枚举 <a href=\"https://fslong.iok.la/problem/P9770\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n暑假到了，冯老师要装修新家。他有一块 a 厘米 × b 厘米的矩形地面，想铺上正方形的瓷砖。\n\n瓷砖的边长必须是整数厘米。为了美观，冯老师要求瓷砖边长**至少为 3 厘米**。\n\n问有多少种不同规格的瓷砖（即不同的边长），可以恰好铺满整个地面（不切割瓷砖、不重叠）？\n\n【输入格式】\n\n一行，两个整数 a 和 b（1 ≤ a, b ≤ 1000）。\n\n【输出格式】\n\n一行，一个整数，表示符合条件的瓷砖边长种类数。如果没有符合条件的，输出 0。\n\n【样例 1 输入】\n\n```\n12 8\n```\n\n【样例 1 输出】\n\n```\n1\n```\n\n【样例 1 解释】\n\n12 和 8 的公因数有 1、2、4。其中 ≥ 3 的只有 4。所以只有边长 4 cm 的瓷砖，共 1 种。\n\n【样例 2 输入】\n\n```\n30 15\n```\n\n【样例 2 输出】\n\n```\n3\n```\n\n【样例 2 解释】\n\n30 和 15 的公因数有 1、3、5、15。其中 ≥ 3 的有 3、5、15，共 3 种。\n\n【样例 3 输入】\n\n```\n5 7\n```\n\n【样例 3 输出】\n\n```\n0\n```\n\n【样例 3 解释】\n\n5 和 7 互质，公因数只有 1。1 < 3，没有符合条件的边长，输出 0。\n\n【数据范围】\n\n1 ≤ a, b ≤ 1000。\n\n【提示】\n\n瓷砖边长必须能同时整除 a 和 b，即 `a % d == 0 && b % d == 0`。枚举可能的边长 d 从 3 到 min(a, b)，检查是否同时整除两者。计数符合条件的 d 即可。",
+      "question_type": "programming",
+      "pid": "P9770",
+      "url": "https://fslong.iok.la/problem/P9770",
+      "title": "### 第 2 题 方砖铺地 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "枚举 3 到 min(a,b)，检查能否同时整除 a 和 b。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int a, b, cnt = 0;\n    cin >> a >> b;\n    int mx = min(a, b);\n    for (int d = 3; d <= mx; d++)\n        if (a % d == 0 && b % d == 0) cnt++;\n    cout << cnt << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 3 题 寻找山峰 ★★ [P9771]（100 分）— 矩阵内枚举 <a href=\"https://fslong.iok.la/problem/P9771\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n冯老师暑假去爬山了。登山队拿到一张 n 行 m 列的数字地图，每个格子里的数字表示该点的**海拔高度**（0-99）。\n\n登山队想在地图上标记\"山峰\"——一个格子如果是山峰，它的海拔必须**严格高于上下左右四个相邻格子**。\n\n注意：地图边界上的格子缺少相邻格，所以不可能是山峰。\n\n请帮登山队统计地图上有多少座山峰。\n\n【输入格式】\n\n第一行，两个整数 n 和 m（3 ≤ n, m ≤ 50）。\n\n接下来 n 行，每行 m 个整数（0-99），表示海拔高度。\n\n【输出格式】\n\n一行，一个整数，表示山峰的数量。\n\n【样例 1 输入】\n\n```\n3 3\n1 2 3\n4 5 6\n7 8 9\n```\n\n【样例 1 输出】\n\n```\n0\n```\n\n【样例 1 解释】\n\n3×3 地图中，只有正中间 (2,2)=5 有完整的 4 个邻居（上=2、下=8、左=4、右=6）。5 < 6 且 5 < 8，不是山峰。输出 0。\n\n【样例 2 输入】\n\n```\n3 3\n1 2 3\n4 9 6\n7 8 5\n```\n\n【样例 2 输出】\n\n```\n1\n```\n\n【样例 2 解释】\n\n中间 (2,2)=9，4 个邻居为上=2、下=8、左=4、右=6，9 比它们都大，是山峰。输出 1。\n\n【样例 3 输入】\n\n```\n4 4\n5 3 4 6\n2 9 1 8\n7 4 3 2\n1 5 6 4\n```\n\n【样例 3 输出】\n\n```\n1\n```\n\n【样例 3 解释】\n\n检查所有不在边界的格子（即第 2~3 行、第 2~3 列）：\n\n| 位置 | 值 | 上下左右 | 结果 |\n|:----:|:--:|:---------|:----:|\n| (2,2) | 9 | ↑3 ←2 →1 ↓4 | **9 > 全部 ✓** |\n| (2,3) | 1 | ↑4 ←9 →8 ↓3 | 1 < 9 ✗ |\n| (3,2) | 4 | ↑9 ←7 →3 ↓5 | 4 < 9 ✗ |\n| (3,3) | 3 | ↑1 ←4 →2 ↓6 | 3 < 6 ✗ |\n\n只有 (2,2) 是山峰，输出 1。\n\n【数据范围】\n\n3 ≤ n, m ≤ 50，0 ≤ 高度 ≤ 99。\n\n【提示】\n\n只检查内部格子——即行号 i 从 1 到 n-2、列号 j 从 1 到 m-2（行列均从 0 开始编号，0 为第 1 行/列，n-1/m-1 为末行/列）。用方向数组简化 4 方向比较：\n\n```\nint dx[4] = {-1, 1, 0, 0};\nint dy[4] = { 0, 0,-1, 1};\n```\n\n循环检查 4 个邻居是否都小于当前格子值。全满足则计数加一。",
+      "question_type": "programming",
+      "pid": "P9771",
+      "url": "https://fslong.iok.la/problem/P9771",
+      "title": "### 第 3 题 寻找山峰 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "枚举内部格子，用方向数组检查 4 个邻居是否都更小。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n, m, g[55][55];\nint dx[4] = {-1, 1, 0, 0};\nint dy[4] = { 0, 0,-1, 1};\nint main() {\n    int cnt = 0;\n    cin >> n >> m;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < m; j++) cin >> g[i][j];\n    for (int i = 1; i < n-1; i++)\n        for (int j = 1; j < m-1; j++) {\n            bool ok = true;\n            for (int d = 0; d < 4; d++)\n                if (g[i][j] <= g[i+dx[d]][j+dy[d]]) { ok = false; break; }\n            if (ok) cnt++;\n        }\n    cout << cnt << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 4 题 古诗大赛 ★★ [P9772]（100 分）— 结构体排序 <a href=\"https://fslong.iok.la/problem/P9772\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n班级举办古诗大赛，每位同学参加三轮比赛：\n\n- **第 1 轮·朗诵**（满分 100）\n- **第 2 轮·即兴创作**（满分 100）—— 最难的一轮\n- **第 3 轮·常识问答**（满分 100）\n\n最终得分的计算公式是：\n\n> **最终分 = 朗诵 × 3 + 即兴创作 × 4 + 常识问答 × 3**\n\n其中即兴创作的权重最高（×4），因为它最能体现古诗功底。\n\n排名规则：\n1. 最终分从高到低排\n2. 最终分相同，按姓名拼音字典序从小到大排\n\n请输出所有同学按排名顺序的姓名。\n\n【输入格式】\n\n第一行，一个整数 n（1 ≤ n ≤ 1000）。\n\n接下来 n 行，每行格式：`姓名 朗诵分 即兴分 常识分`。\n\n姓名仅含大小写字母（长度 ≤ 20），三部分数均为 0-100 的整数。\n\n【输出格式】\n\n输出 n 行，每行一个姓名，按排名从高到低输出。\n\n【样例 1 输入】\n\n```\n4\nLibai 85 90 92\nDufu 88 87 95\nWangwei 90 90 90\nBaijuyi 95 80 85\n```\n\n【样例 1 输出】\n\n```\nWangwei\nDufu\nLibai\nBaijuyi\n```\n\n【样例 1 解释】\n\n| 姓名 | 朗诵×3 | 即兴×4 | 常识×3 | 最终分 | 排名 |\n|------|:------:|:------:|:------:|:-----:|:----:|\n| Wangwei | 90×3=270 | 90×4=360 | 90×3=270 | **900** | 1 |\n| Dufu | 88×3=264 | 87×4=348 | 95×3=285 | **897** | 2 |\n| Libai | 85×3=255 | 90×4=360 | 92×3=276 | **891** | 3 |\n| Baijuyi | 95×3=285 | 80×4=320 | 85×3=255 | **860** | 4 |\n\n最终分：Wangwei(900) > Dufu(897) > Libai(891) > Baijuyi(860)。\n\n【样例 2 输入】\n\n```\n3\nSushi 80 80 80\nLuyou 80 80 80\nLiqingzhao 80 80 80\n```\n\n【样例 2 输出】\n\n```\nLiqingzhao\nLuyou\nSushi\n```\n\n【样例 2 解释】\n\n三人最终分相同：80×3+80×4+80×3=800。按字典序排：Liqingzhao < Luyou < Sushi。\n\n【数据范围】\n\n1 ≤ n ≤ 1000，姓名长度 ≤ 20，三部分数 0-100。\n\n【提示】\n\n定义结构体存储姓名 name 和三个分数。读入后计算最终分 `score = a*3 + b*4 + c*3`。自定义 cmp：先比 score 降序，再比 name 升序。排序后输出 name。权重计算用整数乘法，最终分最大 1000，int 足够。",
+      "question_type": "programming",
+      "pid": "P9772",
+      "url": "https://fslong.iok.la/problem/P9772",
+      "title": "### 第 4 题 古诗大赛 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "结构体存姓名和三科分数，计算加权最终分，按分降序→姓名升序排序。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nstruct Stu { string nm; int a, b, c, s; } p[1005];\nbool cmp(Stu x, Stu y) {\n    if (x.s != y.s) return x.s > y.s;\n    return x.nm < y.nm;\n}\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        cin >> p[i].nm >> p[i].a >> p[i].b >> p[i].c;\n        p[i].s = p[i].a * 3 + p[i].b * 4 + p[i].c * 3;\n    }\n    sort(p, p + n, cmp);\n    for (int i = 0; i < n; i++) cout << p[i].nm << endl;\n    return 0;\n}\n```"
+    }
+  ]
+}

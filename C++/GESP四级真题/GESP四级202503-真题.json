@@ -1,0 +1,356 @@
+{
+  "title": "【GESP】C++等级考试4级 2025年03月 真题",
+  "description": "GESP C++四级真题",
+  "time_limit": 90,
+  "pass_score": 60,
+  "questions": [
+    {
+      "title": "第 1 题",
+      "content": "关于下述代码，说法错误的是（ ）。\n```cpp\nint multiply(int x, int y);\n\nint main() {\n    int a = 4;\n    int b = 5;\n    int result = multiply(a, b);\n    std::cout << \"The result is: \" << result << std::endl;\n    return 0;\n}\n\nint multiply(int x, int y) {\n    return x * y;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "函数 multiply 的定义应该放到函数 main 之前。",
+        "B": "函数声明 int multiply(int x, int y); 中明确指定了函数 multiply() 的返回值为整数类型。",
+        "C": "在 main 函数中，函数 multiply 通过 multiply(a, b) 被调用，其中 a 和 b 是定义在 main 函数中的变量，它们作为实参传递给了 multiply 函数的形参 x 和 y 。",
+        "D": "运行上述代码，将输出 The result is: 20 。"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 2 题",
+      "content": "执行下述代码将输出（ ）。\n```cpp\nint x = 10;\nvoid func() { int x = 20; std::cout << x; }\nint main() {\n    func();\n    std::cout << x;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "2020",
+        "B": "2010",
+        "C": "1010",
+        "D": "编译错误"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 3 题",
+      "content": "执行下述代码后，变量 a 的值为（ ）。\n```cpp\nint a = 10;\nint* p = &a;\n*p = 20\n```",
+      "question_type": "single",
+      "options": {
+        "A": "10",
+        "B": "20",
+        "C": "随机值",
+        "D": "编译错误"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 4 题",
+      "content": "以下哪种参数传递方式可以避免拷贝大型对象？",
+      "question_type": "single",
+      "options": {
+        "A": "只能用值传递",
+        "B": "只能用引用传递",
+        "C": "只能用指针传递",
+        "D": "引用传递和指针传递均可"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 5 题",
+      "content": "执行下述代码，将输出（ ）。\n```cpp\nvoid swap(int a, int &b) {\n    int temp = a;\n    a = b;\n    b = temp;\n}\nint main() {\n    int x = 1, y = 2;\n    swap(x, y);\n    std::cout << x << y;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "12",
+        "B": "21",
+        "C": "22",
+        "D": "11"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 6 题",
+      "content": "下面的描述中，（ ）正确定义一个名为 Person 的结构体并正确初始化了一个 Person 结构体的变量 p 。",
+      "question_type": "single",
+      "options": {
+        "A": "struct Person {\n    string name;\n    int age;\n};\nPerson p(\"Yang\", 10);",
+        "B": "struct Person {\n    string name,\n    int age;\n};\nPerson p;\np.name = \"Yang\";\np.age = 10;",
+        "C": "struct Person {\n    string name;\n    int age;\n};\nPerson p = { \"Yang\", 10 };",
+        "D": "struct Person {\n    string name;\n    int age;\n};\nPerson p = new Person(\"Yang\", 10);"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 7 题",
+      "content": "给定如下代码，\n```cpp\nstruct Person {\n    std::string name;\n    int age;\n    struct Address {\n        std::string street;\n        std::string city;\n    };\n    Address address;\n};\n```\n下面描述错误的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "结构 Person 内嵌套结构 Address",
+        "B": "Person 有一个 Address 类型的 address 成员",
+        "C": "一个 Person 类型的变量 p 的 address 的初始化可以写成： p.address.street = \"123 Main St\"; p.address.city = \"Anytown\";",
+        "D": "结构的嵌套可以减少命名冲突，因此可以不必控制嵌套层次"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 8 题",
+      "content": "假设 int arr[2][3] = {{1,2,3},{4,5,6}}; ，则 arr[1][2] 的值是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 9 题",
+      "content": "下面（ ）正确定义了二维数组。",
+      "question_type": "single",
+      "options": {
+        "A": "int arr[3,4];",
+        "B": "int arr[3][4];",
+        "C": "int arr(3,4);",
+        "D": "int a[3-4];"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 10 题",
+      "content": "小杨正在爬楼梯，需要爬 n 阶才能到达楼顶。如果每次可以爬 1 个或 2 个台阶，下面代码采用递推算法来计算一共有多少种不同的方法可以爬到楼顶，则横线上应填写（ ）。\n```cpp\nint f(int n) {\n    if (n == 1 || n == 2)\n        return n;\n\n    int f1 = 1;\n    int f2 = 2;\n    int res = 0;\n    for (int i = 3; i <= n; i++) {\n        ________________________________   // 在此处填入代码\n    }\n    return res;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "res += f1 + f2;\nf1 = f2;\nf2 = res;",
+        "B": "res = f1 + f2;\nf1 = f2;\nf2 = res;",
+        "C": "res += f1 + f2;\nf2 = res;\nf1 = f2;",
+        "D": "res = f1 + f2;\nf2 = res;\nf1 = f2;"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 11 题",
+      "content": "给定如下算法，其时间复杂度为（ ）。\n```cpp\nbool f(int arr[], int n, int target) {\n    for (int i = 0; i < (1 << n); i++) {\n        int sum = 0;\n        for (int j = 0; j < n; j++) {\n            if (i & (1 << j)) {\n                sum += arr[j];\n            }\n        }\n        if (sum == target) return true;\n    }\n    return false;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "O(n^2)",
+        "B": "O(n × 2^n)",
+        "C": "O(1)",
+        "D": "O(n^3)"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 12 题",
+      "content": "下面关于排序稳定性的描述，正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "稳定性指算法的时间复杂度恒定",
+        "B": "稳定排序保证相同元素的相对顺序不变",
+        "C": "选择排序是稳定排序",
+        "D": "插入排序不是稳定排序"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 13 题",
+      "content": "对数组 arr[]={5, 3, 8, 1} 进行升序排序，执行第一轮冒泡排序后数组 arr 中的内容为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "3, 5, 1, 8",
+        "B": "3, 1, 5, 8",
+        "C": "3, 5, 8, 1",
+        "D": "5, 3, 8, 1"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 14 题",
+      "content": "运行下面的代码，将出现（ ）。\n```cpp\ndouble hmean(double a, double b) {\n    if (a == -b )\n        throw runtime_error(\"Runtime error occurred.\");\n    return 2.0*a*b/(a + b);\n}\n\nint main() {\n    double x = 10;\n    double y = -10;\n\n    try {\n        int result = hmean(x, y);\n        cout << \"hmean: \" << result << endl;\n    }\n    catch (const runtime_error& e) {\n        cout << \"Caught: \" << e.what() << endl;\n    } catch (...) {\n        cout << \"Caught an unknown exception.\" << endl;\n    }\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "屏幕上输出 Caught: Runtime error occurred.",
+        "B": "屏幕上输出 Caught an unknown exception.",
+        "C": "程序调用 std::terminate()",
+        "D": "编译错误"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 15 题",
+      "content": "下面哪种方式不能实现将字符串 \"Happy Spring!\" 输出重定向到文件 log.txt （ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "freopen(\"log.txt\", \"w\", stdout);\ncout << \"Happy Spring!\" << endl;\nfclose(stdout);",
+        "B": "std::ofstream outFile(\"log.txt\");\noutFile << \"Happy Spring!\" << endl;\noutFile.close();",
+        "C": "std::ofstream outFile(\"log.txt\");\ncout << \"Happy Spring!\" << endl;\noutFile.close();",
+        "D": "ofstream log_file(\"log.txt\");\nstreambuf* org_cout = cout.rdbuf();\ncout.rdbuf(log_file.rdbuf());\ncout << \"Happy Spring!\" << endl;\ncout.rdbuf(org_cout);"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 1 题",
+      "content": "函数是C++中的核心概念，用于封装可重用的代码块。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 2 题",
+      "content": "在C++中，函数的返回类型可以省略，默认为 int 。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 3 题",
+      "content": "结构体的成员默认是 public 访问权限。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 4 题",
+      "content": "假设整数数组 arr[4]= {0, 1, 2, 3}; 的第一个元素在内存中的地址为 0x7ffee4065820 , 经过 int* p = arr; p += 1; 后，指针 p 的值是1。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 5 题",
+      "content": "二维数组作为函数参数时，必须显式指定所有维度的大小。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 6 题",
+      "content": "递推是一种通过已知的初始值和递推公式，逐步求解目标值的算法。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 7 题",
+      "content": "考虑最坏情况下冒泡排序算法的时间复杂度，T(n)为待排序数字的数目为n的复杂度，则其递推关系式为 T(n) = T(n − 1) + n，T(0) = 1。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 8 题",
+      "content": "插入排序在最好情况（已有序）下的时间复杂度是 O(n^2)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 9 题",
+      "content": "对数组 arr[]={4, 3, 1, 5, 2} 进行升序排序，执行第一轮选择排序后数组arr中的内容是 {1, 4, 3, 5, 2} 。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "第 10 题",
+      "content": "未捕获异常会调用std::terminate终止程序。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": ""
+    },
+    {
+      "title": "荒地开垦",
+      "content": "小杨有一大片荒地，可以表示为一个 n 行 m 列的网格图。\n小杨想要开垦这块荒地，但荒地中一些位置存在杂物，对于一块不存在杂物的荒地，该荒地可以开垦当且仅当其上下左右四个方向相邻的格子均不存在杂物。\n小杨可以选择至多一个位置，清除该位置的杂物，移除杂物后该位置变为荒地。小杨想知道在清除至多一个位置的杂物的情况下，最多能够开垦多少块荒地。\n\n输入格式：第一行包含两个正整数 n, m，含义如题面所示。之后 n 行，每行包含一个长度为 m 且仅包含字符 . 和 # 的字符串。如果为 . ，代表该位置为荒地，如果为 # ，代表该位置为杂物。\n输出格式：输出一个整数，代表在清除至多一个位置的杂物的情况下，最多能够开垦的荒地块数。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/P7036",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": ""
+    },
+    {
+      "title": "二阶矩阵",
+      "content": "小 A 有一个 n 行 m 列的矩阵 A。\n小 A 认为一个 2×2 的矩阵 D 是好的，当且仅当 D_{1,1} × D_{2,2} = D_{1,2} × D_{2,1}。其中 D_{i,j} 表示矩阵 D 的第 i 行第 j 列的元素。\n小 A 想知道 A 中有多少个好的子矩阵。\n\n输入格式：第一行，两个正整数 n, m。接下来 n 行，每行 m 个整数 A_{i,1}, A_{i,2}, ..., A_{i,m}。\n输出格式：一行，一个整数，表示 A 中好的子矩阵的数量。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/P7038",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": ""
+    }
+  ]
+}

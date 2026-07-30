@@ -1,0 +1,372 @@
+{
+  "title": "CSP-J 集训进制与位运算",
+  "description": "CSPJ组集训 7月16日作业 - 数据表示·进制·位运算 20题客观 + J2编程4题",
+  "time_limit": 120,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "### 第 1 题（2016 真题）十进制 0.5 转成八进制小数是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题（2016 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "0.5 × 8 = 4.0，整数部分为 4，小数部分为 0，结束。结果 0.4₈。",
+      "options": {
+        "A": "0.8",
+        "B": "0.4",
+        "C": "0.2",
+        "D": "0.1"
+      }
+    },
+    {
+      "content": "### 第 2 题（2017 真题）8 位二进制补码 10101011 表示的十进制数是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题（2017 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "补码 10101011，首位 1 为负数。取反加 1 得 01010101 = 85，故原数为 -85。",
+      "options": {
+        "A": "43",
+        "B": "-85",
+        "C": "-43",
+        "D": "-84"
+      }
+    },
+    {
+      "content": "### 第 3 题【阅读程序】以下代码输出什么？\n```cpp\nint n = 45, r = 0;\nwhile (n) {\n    r = r * 2 + (n & 1);\n    n >>= 1;\n}\n cout << r << endl;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题【阅读程序】",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "位运算版十进制转二进制。45 = 101101₂，每次取末位 n&1 再左移累加。r 最终为 101101₂ 的十进制表示 = 45，但输出的是二进制位拼成的十进制数 101101。",
+      "options": {
+        "A": "45",
+        "B": "101100",
+        "C": "101101",
+        "D": "110101"
+      }
+    },
+    {
+      "content": "### 第 4 题【阅读程序】以下代码输出什么？\n```cpp\nint n = 13, c = 0;\nwhile (n) {\n    c++;\n    n &= n - 1;\n}\n cout << c << endl;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题【阅读程序】",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "popcount 统计二进制中 1 的个数。13 = 1101₂，有 3 个 1。每次 n &= n-1 消去最低位 1，3 次后 n = 0。",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "13"
+      }
+    },
+    {
+      "content": "### 第 5 题【阅读程序】以下代码输出什么？\n```cpp\nint n = 52, c = 0;\nwhile (n) {\n    c++;\n    n &= n - 1;\n}\n cout << c << endl;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题【阅读程序】",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "52 = 110100₂，有 3 个 1。popcount = 3。",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "3",
+        "D": "5"
+      }
+    },
+    {
+      "content": "### 第 6 题【阅读程序】以下代码输出什么？\n```cpp\nint x = 12;\nint lb = x & (-x);\n cout << lb << endl;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题【阅读程序】",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "lowbit 运算：x = 12 = 1100₂，-x 的补码 = 0100₂，x & -x = 0100₂ = 4。取最低位 1 及其后所有 0。",
+      "options": {
+        "A": "4",
+        "B": "2",
+        "C": "12",
+        "D": "8"
+      }
+    },
+    {
+      "content": "### 第 7 题【阅读程序】以下代码输出什么？\n```cpp\nint x = 7;\nint lb = x & (-x);\n cout << lb << endl;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题【阅读程序】",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "x = 7 = 111₂，-x = 001₂，x & -x = 001₂ = 1。最低位 1 就是最后一位。",
+      "options": {
+        "A": "7",
+        "B": "1",
+        "C": "3",
+        "D": "5"
+      }
+    },
+    {
+      "content": "### 第 8 题【阅读程序】以下代码输出什么？\n```cpp\nint a = 5, b = 10;\na ^= b; b ^= a; a ^= b;\n cout << a << \" \" << b << endl;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题【阅读程序】",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "XOR 交换：a ^= b → a = 15; b ^= a → b = 5; a ^= b → a = 10。最终 a = 10, b = 5。",
+      "options": {
+        "A": "5 10",
+        "B": "5 5",
+        "C": "10 10",
+        "D": "10 5"
+      }
+    },
+    {
+      "content": "### 第 9 题【阅读程序】以下代码输出什么？\n```cpp\nbool isPow2(int x) {\n    return x > 0 && (x & (x - 1)) == 0;\n}\n cout << isPow2(8) << endl;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题【阅读程序】",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "8 = 1000₂，8-1 = 0111₂，8 & 7 = 0。x > 0 且 x & (x-1) == 0，故为 2 的幂，输出 1（true）。",
+      "options": {
+        "A": "0",
+        "B": "8",
+        "C": "1",
+        "D": "false"
+      }
+    },
+    {
+      "content": "### 第 10 题【阅读程序】以下代码输出什么？\n```cpp\nint n = 11, c = 0;\nwhile (n) {\n    c++;\n    n &= n - 1;\n}\n cout << c << endl;\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题【阅读程序】",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "11 = 1011₂，有 3 个 1。popcount = 3。",
+      "options": {
+        "A": "3",
+        "B": "2",
+        "C": "4",
+        "D": "5"
+      }
+    },
+    {
+      "content": "### 第 11 题【补全程序】补全十进制转二进制（除基取余法），使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    string r = \"\";\n    while (n > 0) {\n        r = char('0' + ___①___) + r;\n        n /= 2;\n    }\n    cout << r << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题【补全程序】",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "除基取余法：每次 n % 2 得余数（0 或 1），拼接到结果字符串前面。① 处应填 n % 2。",
+      "options": {
+        "A": "n / 2",
+        "B": "n % 2",
+        "C": "n & 1",
+        "D": "n >> 1"
+      }
+    },
+    {
+      "content": "### 第 12 题【补全程序】补全位运算版十进制转二进制，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    string r = \"\";\n    while (n > 0) {\n        r = char('0' + (n & 1)) + r;\n        n ___①___ ;\n    }\n    cout << r << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题【补全程序】",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "位运算版：n & 1 取末位，右移一位去掉已取出的位。① 处应填 >>= 1。",
+      "options": {
+        "A": "<<= 1",
+        "B": "/= 2",
+        "C": ">>= 1",
+        "D": "&= 1"
+      }
+    },
+    {
+      "content": "### 第 13 题【补全程序】补全 lowbit 函数，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint lowbit(int x) {\n    return ___①___;\n}\nint main() {\n    int n;\n    cin >> n;\n    cout << lowbit(n) << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题【补全程序】",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "lowbit 取最低位 1 及其后所有 0，公式为 x & (-x)。利用补码性质：-x = ~x + 1。",
+      "options": {
+        "A": "x & (x - 1)",
+        "B": "x | (-x)",
+        "C": "x ^ (-x)",
+        "D": "x & (-x)"
+      }
+    },
+    {
+      "content": "### 第 14 题【补全程序】补全统计二进制中 1 个数的函数，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint popcnt(int x) {\n    int c = 0;\n    while (x) {\n        c++;\n        x ___①___ ;\n    }\n    return c;\n}\nint main() {\n    int n;\n    cin >> n;\n    cout << popcnt(n) << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题【补全程序】",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "popcount 经典写法：x &= x - 1 消去最低位 1，循环次数即为 1 的个数。",
+      "options": {
+        "A": "&= x - 1",
+        "B": ">>= 1",
+        "C": "|= x >> 1",
+        "D": "^= x"
+      }
+    },
+    {
+      "content": "### 第 15 题【补全程序】补全判断奇偶的位运算表达式，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    if (n ___①___ == 1)\n        cout << \"odd\" << endl;\n    else\n        cout << \"even\" << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题【补全程序】",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "n & 1：取末位。末位为 1 是奇数，为 0 是偶数。等价于 n % 2，但位运算更快。",
+      "options": {
+        "A": "% 2",
+        "B": "& 1",
+        "C": "| 1",
+        "D": "^ 1"
+      }
+    },
+    {
+      "content": "### 第 16 题【补全程序】补全二进制转十进制的左移累加法，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s;\n    cin >> s;\n    int r = 0;\n    for (char c : s)\n        r = ___①___ + (c - '0');\n    cout << r << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题【补全程序】",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "左移累加法：每次将已有结果左移 1 位（乘 2），加上当前位。r = (r << 1) + (c - '0') 等价于 r = r * 2 + (c - '0')。",
+      "options": {
+        "A": "r * 10 + (c - '0')",
+        "B": "r + (c - '0') * 2",
+        "C": "(r << 1)",
+        "D": "r << 1 + (c - '0')"
+      }
+    },
+    {
+      "content": "### 第 17 题【补全程序】补全判断 2 的幂的表达式，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    if (n > 0 && ___①___ == 0)\n        cout << \"YES\" << endl;\n    else\n        cout << \"NO\" << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题【补全程序】",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "判断 2 的幂：x & (x-1) 消去最低位 1，若结果为 0 且 x > 0，则 x 是 2 的幂。",
+      "options": {
+        "A": "n & (n + 1)",
+        "B": "n | (n - 1)",
+        "C": "n ^ (n - 1)",
+        "D": "n & (n - 1)"
+      }
+    },
+    {
+      "content": "### 第 18 题【补全程序】补全取第 j 位值的位运算表达式，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int x, j;\n    cin >> x >> j;\n    int bit = ___①___;\n    cout << bit << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题【补全程序】",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "取第 j 位：先右移 j 位使目标位到最低位，再 & 1 取出。即 (x >> j) & 1。",
+      "options": {
+        "A": "(x >> j) & 1",
+        "B": "(x << j) & 1",
+        "C": "x & (1 << j)",
+        "D": "x | (1 << j)"
+      }
+    },
+    {
+      "content": "### 第 19 题【补全程序】补全将第 j 位置 1 的位运算表达式，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int x, j;\n    cin >> x >> j;\n    x = ___①___;\n    cout << x << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题【补全程序】",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "将第 j 位置 1：用 1 << j 构造掩码，再与 x 按位或。x | (1 << j)。",
+      "options": {
+        "A": "x & (1 << j)",
+        "B": "x ^ (1 << j)",
+        "C": "x | (1 << j)",
+        "D": "x & ~(1 << j)"
+      }
+    },
+    {
+      "content": "### 第 20 题【补全程序】补全将第 j 位清 0 的位运算表达式，使程序正确运行。\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int x, j;\n    cin >> x >> j;\n    x = ___①___;\n    cout << x << endl;\n    return 0;\n}\n```\n① 处应填？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题【补全程序】",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "将第 j 位清 0：先对 1 << j 取反得到掩码（该位为 0，其余为 1），再与 x 按位与。x & ~(1 << j)。",
+      "options": {
+        "A": "x | (1 << j)",
+        "B": "x ^ (1 << j)",
+        "C": "x & (1 << j)",
+        "D": "x & ~(1 << j)"
+      }
+    },
+    {
+      "content": "### 第 1 题 NOIP2017 普及组 T1 成绩 ★ [noip2017t1]（100 分）— <a href=\"https://fslong.iok.la/problem/NOIP2017T1\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n\n总成绩 = 作业 × 20% + 小测 × 30% + 期末 × 50%。\n\n输入三个非负整数 A, B, C（均 ≤ 100，且为 10 的倍数），输出总成绩（四舍五入取整）。\n\n**输入格式**\n\n一行三个非负整数 A B C。\n\n**输出格式**\n\n一行一个整数，总成绩。\n\n**样例**\n\n输入：100 100 80\n输出：90\n\n输入：60 90 80\n输出：79\n\n**数据范围**\n\n0 ≤ A, B, C ≤ 100，均为 10 的倍数。",
+      "question_type": "programming",
+      "pid": "noip2017t1",
+      "url": "https://fslong.iok.la/problem/NOIP2017T1",
+      "title": "NOIP2017 普及组 T1 成绩 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "直接按公式计算：(A * 20 + B * 30 + C * 50) / 100。整数运算避免浮点误差。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int a, b, c;\n    cin >> a >> b >> c;\n    cout << (a * 20 + b * 30 + c * 50) / 100 << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 NOIP2016 普及组 T1 铅笔 ★ [noip2016t1]（100 分）— <a href=\"https://fslong.iok.la/problem/NOIP2016T1\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n\n小明需要 n 支铅笔。铅笔以盒为单位出售，每盒有 k 支，价格为 p 元。每盒必须整盒购买。\n\n求最少花多少钱能买到至少 n 支铅笔。\n\n**输入格式**\n\n三个正整数 n, k, p（n ≤ 10000）。\n\n**输出格式**\n\n一行一个整数，最少花费。\n\n**样例**\n\n输入：57 2 2\n输出：58\n\n输入：50 30 30\n输出：13（30支装1盒，27支装1盒，共57支 ≥ 50，花费30+30=60）\n\n**数据范围**\n\nn ≤ 10000。",
+      "question_type": "programming",
+      "pid": "noip2016t1",
+      "url": "https://fslong.iok.la/problem/NOIP2016T1",
+      "title": "NOIP2016 普及组 T1 铅笔 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "需要 ceil(n/k) 盒，花费 = ceil(n/k) * p。整数计算：(n + k - 1) / k * p。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, k, p;\n    cin >> n >> k >> p;\n    int boxes = (n + k - 1) / k;\n    cout << boxes * p << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 3 题 2022 CSP-J J2 T2 解密 ★★ [cspj2022t2]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2022T2\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n\n给定 k 次询问，每次给定三个正整数 n_i, e_i, d_i，求两个正整数 p_i, q_i，使 n_i = p_i × q_i，e_i × d_i = (p_i − 1)(q_i − 1) + 1。\n\n若无解输出 NO。\n\n**输入格式**\n\n第一行一个正整数 k。接下来 k 行，每行三个正整数 n_i, d_i, e_i。\n\n**输出格式**\n\n输出 k 行，每行两个正整数 p_i, q_i（p_i ≤ q_i）或 NO。\n\n**样例**\n\n输入：\n```\n10\n770 77 5\n633 1 211\n```\n输出：\n```\n2 385\nNO\n```\n\n**数据范围**\n\n1 ≤ k ≤ 10⁵，1 ≤ n_i ≤ 10¹⁸，1 ≤ e_i × d_i ≤ 10¹⁸。",
+      "question_type": "programming",
+      "pid": "cspj2022t2",
+      "url": "https://fslong.iok.la/problem/CSPJ2022T2",
+      "title": "2022 CSP-J J2 T2 解密 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "由 e×d = (p-1)(q-1)+1 和 n=pq 得 m = n - e×d + 2 = p+q。解一元二次方程 x² - mx + n = 0，判别式 Δ = m²-4n，若 Δ < 0 或不是完全平方则无解。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int k;\n    cin >> k;\n    while (k--) {\n        long long n, e, d;\n        cin >> n >> d >> e;\n        long long m = n - e * d + 2;\n        long long delta = m * m - 4 * n;\n        if (delta < 0) { cout << \"NO\" << endl; continue; }\n        long long sq = sqrt(delta);\n        if (sq * sq != delta) { cout << \"NO\" << endl; continue; }\n        long long p = (m - sq) / 2, q = (m + sq) / 2;\n        if (p * q != n || p <= 0 || q <= 0) { cout << \"NO\" << endl; continue; }\n        cout << p << \" \" << q << endl;\n    }\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 4 题 2023 CSP-J J2 T2 公路 ★★ [cspj2023t2]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2023T2\" target=\"_blank\">在线答题</a>\n\n**题目描述**\n\nn 个站点排成一列，站点 i 到 i+1 距离 v_i 公里。站点 i 油价 a_i 元/升。每升油行驶 d 公里。油箱无限大。\n\n从站点 1 到站点 n，油箱初始为空，求最少花费。\n\n**输入格式**\n\n第一行两个正整数 n, d。\n第二行 n-1 个正整数 v_1 ... v_{n-1}。\n第三行 n 个正整数 a_1 ... a_n。\n\n**输出格式**\n\n一行一个整数，最少花费。\n\n**样例**\n\n输入：\n```\n5 4\n10 10 10 10\n9 8 9 6 5\n```\n输出：79\n\n**数据范围**\n\n1 ≤ n ≤ 10⁵，1 ≤ d, v_i, a_i ≤ 10⁵。",
+      "question_type": "programming",
+      "pid": "cspj2023t2",
+      "url": "https://fslong.iok.la/problem/CSPJ2023T2",
+      "title": "2023 CSP-J J2 T2 公路 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "贪心：记录当前最低油价。到达站点 i 时，如果前方距离需要的油量超过当前油箱，以最低价补油。用优先队列或直接贪心模拟。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nint main() {\n    int n;\n    ll d;\n    cin >> n >> d;\n    vector<ll> v(n - 1);\n    for (int i = 0; i < n - 1; i++) cin >> v[i];\n    vector<ll> a(n);\n    for (int i = 0; i < n; i++) cin >> a[i];\n    ll cost = 0, fuel = 0, minPrice = a[0];\n    for (int i = 0; i < n - 1; i++) {\n        ll need = (v[i] + d - 1) / d;\n        if (fuel < need) {\n            ll buy = need - fuel;\n            cost += buy * minPrice;\n            fuel += buy;\n        }\n        fuel -= need;\n        minPrice = min(minPrice, a[i + 1]);\n    }\n    cout << cost << endl;\n    return 0;\n}\n```"
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "title": "CSP-J 集训递归",
+  "description": "CSPJ组集训 7月20日作业 - 历年真题递归相关精选20题 + 编程题2道",
+  "time_limit": 40,
+  "pass_score": 60,
+  "questions": [
+    {
+      "content": "### 第 1 题（2025 真题）当输入为 2 时，程序并不会执行第 16 行的判断语句。\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\ninline int gcd(int a, int b) {\n  if (b == 0) return a;\n  return gcd(b, a % b);\n}\nint main() {\n  int n;\n  scanf(\"%d\", &n);\n  int ans = 0;\n  for (int i = 1; i <= n; ++i) {\n    for (int j = i + 1; j <= n; ++j) {\n      for (int k = j + 1; k <= n; ++k) {\n        if (gcd(i, j) == 1 && gcd(j, k) == 1 && gcd(i, k) == 1) ans++;\n      }\n    }\n  }\n  printf(\"%d\\n\", ans);\n  return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题（2025 真题）互质三元组-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "n=2时，k循环条件k<=n不满足（k从j+1=3开始），第16行不执行。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 2 题（2025 真题）将第 16 行中的 `&& gcd(i,k)==1` 删去不会影响程序运行结果。\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\ninline int gcd(int a, int b) {\n  if (b == 0) return a;\n  return gcd(b, a % b);\n}\nint main() {\n  int n;\n  scanf(\"%d\", &n);\n  int ans = 0;\n  for (int i = 1; i <= n; ++i) {\n    for (int j = i + 1; j <= n; ++j) {\n      for (int k = j + 1; k <= n; ++k) {\n        if (gcd(i, j) == 1 && gcd(j, k) == 1 && gcd(i, k) == 1) ans++;\n      }\n    }\n  }\n  printf(\"%d\\n\", ans);\n  return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题（2025 真题）互质三元组-判断题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "i,k互质不一定成立，如i=2,j=3,k=4时，gcd(2,4)=2≠1，删去后会多计数。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 3 题（2025 真题）当输入的 n≥3 的时候，程序总是输出一个正整数。\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\ninline int gcd(int a, int b) {\n  if (b == 0) return a;\n  return gcd(b, a % b);\n}\nint main() {\n  int n;\n  scanf(\"%d\", &n);\n  int ans = 0;\n  for (int i = 1; i <= n; ++i) {\n    for (int j = i + 1; j <= n; ++j) {\n      for (int k = j + 1; k <= n; ++k) {\n        if (gcd(i, j) == 1 && gcd(j, k) == 1 && gcd(i, k) == 1) ans++;\n      }\n    }\n  }\n  printf(\"%d\\n\", ans);\n  return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题（2025 真题）互质三元组-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "n=3时，(1,2,3)两两互质，ans≥1，总是输出正整数。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 4 题（2025 真题）将第 7 行的 `gcd(b, a%b)` 改为 `gcd(a, a%b)` 后，程序可能出现的问题是？\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\ninline int gcd(int a, int b) {\n  if (b == 0) return a;\n  return gcd(b, a % b);\n}\nint main() {\n  int n;\n  scanf(\"%d\", &n);\n  int ans = 0;\n  for (int i = 1; i <= n; ++i) {\n    for (int j = i + 1; j <= n; ++j) {\n      for (int k = j + 1; k <= n; ++k) {\n        if (gcd(i, j) == 1 && gcd(j, k) == 1 && gcd(i, k) == 1) ans++;\n      }\n    }\n  }\n  printf(\"%d\\n\", ans);\n  return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题（2025 真题）互质三元组-选择题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "gcd(a,a%b)参数不交换，递归无法正确归约，最大公约数计算错误，导致答案变小。",
+      "options": {
+        "A": "输出的答案大于原答案",
+        "B": "输出的答案小于原答案",
+        "C": "程序有可能陷入死循环",
+        "D": "可能发生整型溢出问题"
+      }
+    },
+    {
+      "content": "### 第 5 题（2025 真题）当输入为 8 的时候，输出为？\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\ninline int gcd(int a, int b) {\n  if (b == 0) return a;\n  return gcd(b, a % b);\n}\nint main() {\n  int n;\n  scanf(\"%d\", &n);\n  int ans = 0;\n  for (int i = 1; i <= n; ++i) {\n    for (int j = i + 1; j <= n; ++j) {\n      for (int k = j + 1; k <= n; ++k) {\n        if (gcd(i, j) == 1 && gcd(j, k) == 1 && gcd(i, k) == 1) ans++;\n      }\n    }\n  }\n  printf(\"%d\\n\", ans);\n  return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题（2025 真题）互质三元组-选择题",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "n=8时手动模拟得25，即1到8中两两互质的三元组有25个。",
+      "options": {
+        "A": "37",
+        "B": "42",
+        "C": "35",
+        "D": "25"
+      }
+    },
+    {
+      "content": "### 第 6 题（2025 真题）调用 gcd(36, 42) 会返回？\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\ninline int gcd(int a, int b) {\n  if (b == 0) return a;\n  return gcd(b, a % b);\n}\nint main() {\n  int n;\n  scanf(\"%d\", &n);\n  int ans = 0;\n  for (int i = 1; i <= n; ++i) {\n    for (int j = i + 1; j <= n; ++j) {\n      for (int k = j + 1; k <= n; ++k) {\n        if (gcd(i, j) == 1 && gcd(j, k) == 1 && gcd(i, k) == 1) ans++;\n      }\n    }\n  }\n  printf(\"%d\\n\", ans);\n  return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题（2025 真题）互质三元组-选择题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "gcd(36,42)=gcd(42,36)=gcd(36,6)=gcd(6,0)=6。",
+      "options": {
+        "A": "6",
+        "B": "252",
+        "C": "3",
+        "D": "2"
+      }
+    },
+    {
+      "content": "### 第 7 题（2024 真题）当输入为\"10\"时，程序的第一个输出为\"4\"，第二个输出为\"17\"。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n <= 1) {\n        return false;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint countPrimes(int n) {\n    int count = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            count++;\n        }\n    }\n    return count;\n}\n\nint sumPrimes(int n) {\n    int sum = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            sum += i;\n        }\n    }\n    return sum;\n}\n\nint main() {\n    int x;\n    cin >> x;\n    cout << countPrimes(x) << \" \" << sumPrimes(x) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题（2024 真题）素数计数与求和-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "10以内素数有2,3,5,7共4个，和为2+3+5+7=17。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 8 题（2024 真题）若将 isPrime(i)函数中的条件改为 i ≤ n / 2，输入\"20\"时，countPrimes(20)的输出将变为\"6\"。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n <= 1) {\n        return false;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint countPrimes(int n) {\n    int count = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            count++;\n        }\n    }\n    return count;\n}\n\nint sumPrimes(int n) {\n    int sum = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            sum += i;\n        }\n    }\n    return sum;\n}\n\nint main() {\n    int x;\n    cin >> x;\n    cout << countPrimes(x) << \" \" << sumPrimes(x) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题（2024 真题）素数计数与求和-判断题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "改为i<=n/2后，isPrime函数逻辑错误，但countPrimes仍会计算素数，输出不会变为6。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 9 题（2024 真题）sumPrimes 函数计算的是从 2 到 n 之间的所有素数之和。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n <= 1) {\n        return false;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint countPrimes(int n) {\n    int count = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            count++;\n        }\n    }\n    return count;\n}\n\nint sumPrimes(int n) {\n    int sum = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            sum += i;\n        }\n    }\n    return sum;\n}\n\nint main() {\n    int x;\n    cin >> x;\n    cout << countPrimes(x) << \" \" << sumPrimes(x) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题（2024 真题）素数计数与求和-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "sumPrimes函数遍历2到n，累加所有素数，正确。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 10 题（2024 真题）当输入为\"50\"时，sumPrimes(50)的输出为？\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n <= 1) {\n        return false;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint countPrimes(int n) {\n    int count = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            count++;\n        }\n    }\n    return count;\n}\n\nint sumPrimes(int n) {\n    int sum = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            sum += i;\n        }\n    }\n    return sum;\n}\n\nint main() {\n    int x;\n    cin >> x;\n    cout << countPrimes(x) << \" \" << sumPrimes(x) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题（2024 真题）素数计数与求和-选择题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "50以内素数：2,3,5,7,11,13,17,19,23,29,31,37,41,43,47，和为328。",
+      "options": {
+        "A": "1060",
+        "B": "328",
+        "C": "381",
+        "D": "275"
+      }
+    },
+    {
+      "content": "### 第 11 题（2024 真题）如果将 for (int i = 2; i * i <= n; i++) 改为 for (int i = 2; i <= n; i++)，输入\"10\"时，程序的输出？\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n <= 1) {\n        return false;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint countPrimes(int n) {\n    int count = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            count++;\n        }\n    }\n    return count;\n}\n\nint sumPrimes(int n) {\n    int sum = 0;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime(i)) {\n            sum += i;\n        }\n    }\n    return sum;\n}\n\nint main() {\n    int x;\n    cin >> x;\n    cout << countPrimes(x) << \" \" << sumPrimes(x) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题（2024 真题）素数计数与求和-选择题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "改为i<=n后，isPrime函数仍能正确判断素数，输出不变但效率降低。",
+      "options": {
+        "A": "将不能正确计算 10 以内素数个数及其和",
+        "B": "仍然输出\"4\"和\"17\"",
+        "C": "输出\"3\"和\"10\"",
+        "D": "输出结果不变，但运行时间更短"
+      }
+    },
+    {
+      "content": "### 第 12 题（2024 真题）当输入为\"2 3\"时，customFunction(2, 3)的返回值为\"64\"。\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint customFunction(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return a + customFunction(a, b-1);\n}\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    int result = customFunction(x, y);\n    cout << pow(result, 2) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题（2024 真题）递归函数-判断题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "customFunction(2,3)=2+2+2+2=8，8²=64，但题目说返回值为64，实际返回值为8。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 13 题（2024 真题）当 b 为负数时，customFunction(a, b)会陷入无限递归。\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint customFunction(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return a + customFunction(a, b-1);\n}\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    int result = customFunction(x, y);\n    cout << pow(result, 2) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题（2024 真题）递归函数-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "b为负数时，b-1会越来越小，永远不会等于0，导致无限递归。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 14 题（2024 真题）当 b 的值越大，程序的运行时间越长。\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint customFunction(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return a + customFunction(a, b-1);\n}\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    int result = customFunction(x, y);\n    cout << pow(result, 2) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题（2024 真题）递归函数-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "b越大，递归次数越多，运行时间越长。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 15 题（2024 真题）当输入为\"5 4\"时，customFunction(5, 4)的返回值为？\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint customFunction(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return a + customFunction(a, b-1);\n}\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    int result = customFunction(x, y);\n    cout << pow(result, 2) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题（2024 真题）递归函数-选择题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "customFunction(5,4)=5+5+5+5+5=25，25²=625，但返回值为25。",
+      "options": {
+        "A": "5",
+        "B": "25",
+        "C": "250",
+        "D": "625"
+      }
+    },
+    {
+      "content": "### 第 16 题（2024 真题）如果输入 x=3 和 y=3，则程序的最终输出为？\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint customFunction(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return a + customFunction(a, b-1);\n}\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    int result = customFunction(x, y);\n    cout << pow(result, 2) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题（2024 真题）递归函数-选择题",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "customFunction(3,3)=3+3+3+3=12，12²=144。",
+      "options": {
+        "A": "27",
+        "B": "81",
+        "C": "144",
+        "D": "256"
+      }
+    },
+    {
+      "content": "### 第 17 题（2024 真题）若将 customFunction 函数改为\"return a + customFunction(a-1, b-1);\"，并输入\"3 3\"，则程序的最终输出为？\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint customFunction(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return a + customFunction(a, b-1);\n}\n\nint main() {\n    int x, y;\n    cin >> x >> y;\n    int result = customFunction(x, y);\n    cout << pow(result, 2) << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题（2024 真题）递归函数-选择题",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "修改后customFunction(3,3)=3+customFunction(2,2)=3+2+customFunction(1,1)=3+2+1+customFunction(0,0)=3+2+1+0=6，6²=36。",
+      "options": {
+        "A": "9",
+        "B": "16",
+        "C": "25",
+        "D": "36"
+      }
+    },
+    {
+      "content": "### 第 18 题（2022 真题）关于递归方法的描述正确的是？\n\n- A. 递归是允许多组参数调用函数的编程技术\n- B. 递归是通过调用自身来求解问题的编程技术\n- C. 递归是面向对象的编程语言模型\n- D. 递归是将高级语言转换为机器代码的技术",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题（2022 真题）递归定义",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "递归的核心是函数调用自身，将原问题分解为规模更小的同类子问题。",
+      "options": {
+        "A": "递归是允许多组参数调用函数的编程技术",
+        "B": "递归是通过调用自身来求解问题的编程技术",
+        "C": "递归是面向对象的编程语言模型",
+        "D": "递归是将高级语言转换为机器代码的技术"
+      }
+    },
+    {
+      "content": "### 第 19 题（2021 真题）递归函数 solve(7) 的值是多少？（已知 n<5 时返回 n!，n≥5 时返回 n×solve(n-2)）\n\n- A. 5040\n- B. 210\n- C. 720\n- D. 120",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题（2021 真题）递归函数值",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "n<5时返回n!，n≥5时返回n×solve(n-2)。solve(7)=7×5×3!=7×5×6=210。",
+      "options": {
+        "A": "5040",
+        "B": "210",
+        "C": "720",
+        "D": "120"
+      }
+    },
+    {
+      "content": "### 第 20 题（2020 真题）递归算法 XYZ(数组 A, n) 的输出是？\n\n- A. 数组平均值\n- B. 数组最大值\n- C. 数组最小值\n- D. 数组之和",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题（2020 真题）递归求数组最值",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "递归分解后返回左右部分的最大值中的较大者，即求数组最大值。",
+      "options": {
+        "A": "数组平均值",
+        "B": "数组最大值",
+        "C": "数组最小值",
+        "D": "数组之和"
+      }
+    },
+    {
+      "content": "### 第 1 题 NOIP2017 普及组 T3 棋盘 ★★★(改)★ [noip2017pjt3g]（100 分）— <a href=\"https://fslong.iok.la/problem/NOIP2017PJT3\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n有一个 m×m 的棋盘，棋盘上有一些格子有颜色，颜色为 0（红色）或 1（黄色），其余格子为无色。你需要从 (1,1) 走到 (m,m)，中途必须经过至少一个无色格子，只能站在有颜色的格子上。每次只能向上下左右四个方向走一格。\n\n如果相邻的两个格子颜色相同，则不需要花费金币；如果颜色不同，则需要花费 1 金币。你可以花费 3 金币施展魔法，将一个与当前所在格子相邻的无色格子暂时变为指定颜色（0 或 1），但使用魔法后必须等 2 步才能再次使用——即你必须先走到一个有颜色的格子上，才能再次使用魔法。\n\n求从 (1,1) 到 (m,m) 的最小花费。如果无法到达，输出 -1。\n\n【输入格式】\n\n第一行两个整数 m 和 n，分别表示棋盘大小和有色格子数量。\n接下来 n 行，每行三个整数 x, y, c，表示第 x 行第 y 列的格子颜色为 c。保证 (1,1) 和 (m,m) 都在输入中。\n\n【输出格式】\n\n一行一个整数，表示最小花费。如果无法到达，输出 -1。\n\n【样例输入】\n\n```\n5 7\n1 1 0\n1 2 0\n2 2 1\n3 3 1\n3 4 0\n4 4 1\n5 5 0\n```\n\n【样例输出】\n\n```\n8\n```\n\n【数据范围】\n\n- m ≤ 100\n- n ≤ 1000",
+      "question_type": "programming",
+      "pid": "noip2017pjt3g",
+      "url": "https://fslong.iok.la/problem/NOIP2017PJT3G",
+      "title": "NOIP2017 普及组 T3 棋盘(改) ★★★(改)★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "DFS+记忆化搜索。从(1,1)到(m,m)，无色格子可用魔法变颜色花费3，同色走花费0，异色走花费1。魔法用后需等2步。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint m,n,cor[105][105],f[105][105][2];\nint dx[]={-1,1,0,0},dy[]={0,0,-1,1};\n\nvoid dfs(int x,int y,int used) {\n    for(int d=0;d<4;d++) {\n        int nx=x+dx[d],ny=y+dy[d];\n        if(nx<1||nx>m||ny<1||ny>m) continue;\n        if(cor[nx][ny]) {\n            int w=(cor[nx][ny]!=cor[x][y]);\n            if(f[x][y][used]+w<f[nx][ny][0]) {\n                f[nx][ny][0]=f[x][y][used]+w;\n                dfs(nx,ny,0);\n            }\n        } else if(!used) {\n            for(int c=1;c<=2;c++) {\n                int w=2+(c!=cor[x][y]);\n                if(f[x][y][0]+w<f[nx][ny][1]) {\n                    f[nx][ny][1]=f[x][y][0]+w;\n                    cor[nx][ny]=c;\n                    dfs(nx,ny,1);\n                    cor[nx][ny]=0;\n                }\n            }\n        }\n    }\n}\n\nint main() {\n    cin>>m>>n;\n    memset(f,0x3f,sizeof(f));\n    for(int i=0;i<n;i++) {\n        int x,y,c;cin>>x>>y>>c;\n        cor[x][y]=c+1;\n    }\n    f[1][1][0]=0;\n    dfs(1,1,0);\n    int ans=min(f[m][m][0],f[m][m][1]);\n    cout<<(ans<0x3f3f3f3f?ans:-1)<<endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 2025 CSP-J 第二轮 T3 异或和 ★★★(改) [cspj2025t3g]（100 分）\n\n**题目描述**\n给定长度为 n 的非负整数序列 a1...an 和非负整数 k。定义区间 [l, r] 的权值为 al⊕...⊕ar。选择尽可能多的不相交区间（长度≥2），使每个区间权值**≥k**且区间长度**≥2**。求最多区间数。\n\n**输入格式**：第一行 n, k；第二行 n 个整数\n\n**输出格式**：一行一个整数\n\n**样例**\n\n输入：4 2 / 2 1 0 3 → 输出：2\n\n输入：5 0 / 1 1 1 2 2 → 输出：2",
+      "question_type": "programming",
+      "pid": "cspj2025t3g",
+      "url": "https://fslong.iok.la/problem/CSPJ2025T3G",
+      "title": "2025 CSP-J 第二轮 T3 异或和(改) ★★★(改)",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "前缀异或。用map记录每种前缀异或值最后一次出现位置。贪心策略：当pre⊕k出现过时，切分区间并重置。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n,k,ans,pre,arr[500005];\nmap<int,int> mp;\n\nint main() {\n    cin>>n>>k;\n    for(int i=1;i<=n;i++) cin>>arr[i];\n    mp[0]=0; pre=0; ans=0;\n    int last=-1;\n    for(int i=1;i<=n;i++) {\n        pre^=arr[i];\n        int aim=pre^k;\n        if(mp.count(aim)&&mp[aim]>=last) {\n            ans++;\n            last=i-1;\n        }\n        mp[pre]=i;\n    }\n    cout<<ans<<endl;\n    return 0;\n}\n```"
+    }
+  ]
+}

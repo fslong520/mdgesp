@@ -1,0 +1,350 @@
+{
+  "title": "CSP-J 集训 · 哈夫曼编码",
+  "description": "CSPJ组集训 7月30日作业 - 哈夫曼编码专题20题 + 编程2道",
+  "time_limit": 40,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "哈夫曼树又称为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题 哈夫曼树定义",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "哈夫曼树也称为最优二叉树（Optimal Binary Tree），因在给定叶子权值下带权路径长度最小。",
+      "options": {
+        "A": "平衡二叉树",
+        "B": "最优二叉树",
+        "C": "完全二叉树",
+        "D": "满二叉树"
+      }
+    },
+    {
+      "content": "关于哈夫曼树，以下说法正确的是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题 哈夫曼树性质",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "哈夫曼树中无度为1之节点，即每个内部节点恰有二子。A误：非完全。C误：非满。D误：叶子无子。",
+      "options": {
+        "A": "哈夫曼树一定是完全二叉树",
+        "B": "哈夫曼树中一定没有度为 1 的节点",
+        "C": "哈夫曼树一定是满二叉树",
+        "D": "哈夫曼树中所有节点都有两个孩子"
+      }
+    },
+    {
+      "content": "若一组权值分别为 {2, 4, 5, 7}，构建哈夫曼树，其带权路径长度（WPL）为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题 WPL计算",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "构建：① 2+4=6（WPL+=6）→ {5,6,7}；② 5+6=11（WPL+=11）→ {7,11}；③ 7+11=18（WPL+=18）。WPL=6+11+18=35。或算叶深：2深3、4深3、5深2、7深1 → 2×3+4×3+5×2+7×1=6+12+10+7=35。",
+      "options": {
+        "A": "35",
+        "B": "36",
+        "C": "37",
+        "D": "38"
+      }
+    },
+    {
+      "content": "哈夫曼编码属于（ ）编码。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题 编码类型",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "哈夫曼编码为前缀编码（非等长编码），任一字符编码不为他者前缀。变长编码，非定长。",
+      "options": {
+        "A": "等长编码",
+        "B": "前缀编码（非等长编码）",
+        "C": "定长编码",
+        "D": "循环编码"
+      }
+    },
+    {
+      "content": "在构建哈夫曼树的过程中，每一步都需要选择（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题 构建策略",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "哈夫曼算法乃贪心之经典。每步取权值最小二树合并，使WPL最小。",
+      "options": {
+        "A": "权值最小的两个节点合并",
+        "B": "权值最大的两个节点合并",
+        "C": "权值最小的一个节点与权值最大的一个节点合并",
+        "D": "任意两个节点合并"
+      }
+    },
+    {
+      "content": "对于 n 个叶子节点的哈夫曼树，其总节点数为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题 节点数关系",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "哈夫曼树无度为1之节点。n₀=n，由二叉树性质n₀=n₂+1得n₂=n-1，总节点=n₀+n₂=n+(n-1)=2n-1。",
+      "options": {
+        "A": "n",
+        "B": "2n",
+        "C": "2n - 1",
+        "D": "2n + 1"
+      }
+    },
+    {
+      "content": "关于哈夫曼编码，下列说法错误的是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题 编码特点",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "哈夫曼编码乃变长编码，高频短码、低频长码，编码长度不尽相同。A/B/D皆正，C\"所有字符编码长度相同\"反其道，故错。",
+      "options": {
+        "A": "出现频率越高的字符，编码越短",
+        "B": "出现频率越低的字符，编码越长",
+        "C": "所有字符的编码长度一定相同",
+        "D": "哈夫曼编码是前缀编码"
+      }
+    },
+    {
+      "content": "下列哪种数据结构最适合模拟哈夫曼树的构建过程？（ ）",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题 数据结构选择",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "需反复取最小权值并插新节点，小根堆（优先队列）以O(log n)完成，最为高效。此为CSP/GESP常考。",
+      "options": {
+        "A": "栈",
+        "B": "队列",
+        "C": "优先队列（小根堆）",
+        "D": "链表"
+      }
+    },
+    {
+      "content": "已知某哈夫曼树中，权值为 2、3 的叶子是兄弟节点，且它们的父节点权值为 5。若最终树根权值为 18，则该哈夫曼树至少含（ ）个叶子节点。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题 叶子数推断",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "根权值18即所有叶子权值和。除2、3外剩余和为13。若13为一叶则仅3叶(2,3,13)，但13需与5合并得18，仅一次合并，结构简单。至少需再拆为2叶（如6+7），则森{5,6,7}→{11,7}→{18}，共4叶(2,3,6,7)。至少4叶。",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      }
+    },
+    {
+      "content": "一段文本中仅含 a、b、c、d、e 五个字符，出现频率分别为 7、9、12、15、20。为这些字符设计哈夫曼编码，字符 a 的编码长度是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题 编码长度",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "构建：① 7+9=16 → {12,15,16,20}；② 12+15=27 → {16,20,27}；③ 16+20=36 → {27,36}；④ 27+36=63。a(7)→16(第①步)→36(第③步)→63(第④步)，深度3，编码长3。",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      }
+    },
+    {
+      "content": "以下哪个不是哈夫曼编码的特点？（ ）",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题 特点辨析",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "哈夫曼编码正以字符权重（频率）分配码长——权大码短、权小码长。B\"编码时不需考虑字符权重\"恰与此背，故错。",
+      "options": {
+        "A": "任一字符的编码不是另一字符编码的前缀",
+        "B": "编码时不需要考虑字符的权重",
+        "C": "带权路径长度最小",
+        "D": "编码唯一可译"
+      }
+    },
+    {
+      "content": "给定权值集合 {1, 2, 3, 4, 5}，构建哈夫曼树后，权值为 3 的叶子节点的深度（根深度为 0）为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题 叶子深度",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "构建：① 1+2=3 → {3(新),3,4,5}；② 3(新)+3=6 → {4,5,6}；③ 4+5=9 → {6,9}；④ 6+9=15。原3在②中与新3合并，路径15→9→6→3，深度2。",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      }
+    },
+    {
+      "content": "哈夫曼编码能实现数据压缩的主要原因是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题 压缩原理",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "高频用短码、低频用长码，整体平均码长最小，此乃压缩之源。若频率全同，则退化为等长编码，无压缩效果。",
+      "options": {
+        "A": "将每个字符都转换为更短的二进制码",
+        "B": "高频字符用短编码，低频字符用长编码，整体编码长度最短",
+        "C": "编码过程中消除了所有冗余信息",
+        "D": "哈夫曼编码长度固定，便于存储"
+      }
+    },
+    {
+      "content": "对 8 个字符进行哈夫曼编码，在构建哈夫曼树的过程中，共需要进行（ ）次合并操作。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题 合并次数",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "n叶构建需n-1次合并。n=8，则7次。每次合并树数减1，从8到1需7次。",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7"
+      }
+    },
+    {
+      "content": "以下哪个序列可能是哈夫曼编码的编码方案？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题 前缀编码判断",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "Huffman编码必为前缀码。A：a:0, b:10, c:110, d:111 — 合前缀性。B：a:0为b:01前缀。C：a:0为c:00前缀，b:1为d:11前缀。D：a:00为c:001前缀，b:01为d:010前缀。",
+      "options": {
+        "A": "a:0, b:10, c:110, d:111",
+        "B": "a:0, b:01, c:011, d:111",
+        "C": "a:0, b:1, c:00, d:11",
+        "D": "a:00, b:01, c:001, d:010"
+      }
+    },
+    {
+      "content": "假设字符 a、b、c、d 的频率分别为 10、20、30、40，采用哈夫曼编码后，字符 b 的编码长度为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题 编码长度",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "构建：① 10+20=30 → {30,30,40}；② 30+30=60 → {40,60}；③ 40+60=100。b(20)在树中深度为3（根→30(新)→30(原)→b），编码长3。",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      }
+    },
+    {
+      "content": "给定哈夫曼树中某两个叶子节点的权值分别为 p 和 q（p < q），它们在树中的深度分别为 dp 和 dq，则一定有（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题 权值与深度",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "哈夫曼基本原则：权小者深（码长），权大者浅（码短）。p<q即p权值小于q，故p更深、dp>dq。B正确。",
+      "options": {
+        "A": "dp < dq",
+        "B": "dp > dq",
+        "C": "dp = dq",
+        "D": "dp 与 dq 的大小关系不确定"
+      }
+    },
+    {
+      "content": "将序列 {1, 1, 1, 1, 1}（5 个权值均为 1）构建哈夫曼树，其带权路径长度 WPL 为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题 等权WPL",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "构建：① 1+1=2 → {1,1,1,2}；② 1+1=2 → {1,2,2}；③ 1+2=3 → {2,3}；④ 2+3=5。WPL=2+2+3+5=12。或算叶深：三叶深2、二叶深3 → 1×2×3+1×3×2=12。",
+      "options": {
+        "A": "5",
+        "B": "8",
+        "C": "10",
+        "D": "12"
+      }
+    },
+    {
+      "content": "以下关于哈夫曼编码的说法，正确的是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题 综合判断",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "A误：编码不唯一（0/1分配可互换）。B误：分布不同则压缩率不同。C正：无损压缩。D误：译码需编码表而非权值。",
+      "options": {
+        "A": "哈夫曼编码的结果是唯一的",
+        "B": "不同频率分布下，哈夫曼编码的压缩率相同",
+        "C": "哈夫曼编码是一种无损压缩编码方法",
+        "D": "哈夫曼编码的译码过程需要事先知道所有字符的权值"
+      }
+    },
+    {
+      "content": "以下关于哈夫曼树的说法，正确的是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题 综合性质",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "A误：哈夫曼树不一定完全（如某节点缺左子仅右子时不满足完全二叉树定义）。B正：权值越大、编码越短、离根越近，此乃哈夫曼树核心性质。C误：左右分支0/1可互换，编码不唯一。D误：树高与叶子数无正比关系（例如权值全等时树高约log₂n）。",
+      "options": {
+        "A": "哈夫曼树一定是完全二叉树",
+        "B": "哈夫曼树中权值越大的叶子离根节点越近",
+        "C": "哈夫曼树的编码结果唯一",
+        "D": "哈夫曼树的高度与叶子数成正比"
+      }
+    },
+    {
+      "content": "### 第 1 题 电报编码（100 分）\n\n**题目描述**\n\n在电报通信中，为提升传输效率，需为每个字符设计二进制编码。现给定 n 个字符及其出现频率，请你为每个字符设计哈夫曼编码。\n\n编码规则：左分支为 `0`，右分支为 `1`。构建时每次合并权值最小的两节点；若权值相同，优先合并字符 ASCII 码较小的节点。\n\n**输入格式**\n\n第一行一个整数 n（2 ≤ n ≤ 26），表示字符种类数。\n\n接下来 n 行，每行一个字符 c 和一个整数 f，表示字符及其出现频率。字符为小写英文字母，频率为正整数（1 ≤ f ≤ 1000）。\n\n**输出格式**\n\n对于每个字符，按输入顺序输出一行 `c: code`，表示该字符的哈夫曼编码。\n\n**样例输入**\n```\n5\na 2\nb 3\nc 5\nd 7\ne 9\n```\n\n**样例输出**\n```\na: 000\nb: 001\nc: 01\nd: 10\ne: 11\n```\n\n**提示**\n\n可利用优先队列（小根堆）辅助构建哈夫曼树。注意处理权值相同时的选择规则。\n\n**数据范围**\n\n对于 30% 的数据，n ≤ 5。\n对于 60% 的数据，n ≤ 15。\n对于 100% 的数据，2 ≤ n ≤ 26，1 ≤ f ≤ 1000。",
+      "question_type": "programming",
+      "pid": "P9837",
+      "url": "https://fslong.iok.la/problem/P9837",
+      "title": "电报编码",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "\u53c2\u8003\u4ee3\u7801\uff1a\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nstruct Node {\n    char ch;\n    int w;\n    Node *l, *r;\n    Node(char c, int w) : ch(c), w(w), l(nullptr), r(nullptr) {}\n};\n\nstruct cmp {\n    bool operator()(Node* a, Node* b) {\n        if (a->w != b->w) return a->w > b->w;\n        return a->ch > b->ch;\n    }\n};\n\nvoid dfs(Node* root, string code, map<char,string>& res) {\n    if (!root) return;\n    if (!root->l && !root->r) {\n        res[root->ch] = code;\n        return;\n    }\n    dfs(root->l, code + \"0\", res);\n    dfs(root->r, code + \"1\", res);\n}\n\nint main() {\n    int n; cin >> n;\n    vector<char> order(n);\n    map<char,int> freq;\n    priority_queue<Node*, vector<Node*>, cmp> pq;\n    for (int i = 0; i < n; i++) {\n        char c; int f;\n        cin >> c >> f;\n        order[i] = c;\n        freq[c] = f;\n        pq.push(new Node(c, f));\n    }\n    while (pq.size() > 1) {\n        Node* a = pq.top(); pq.pop();\n        Node* b = pq.top(); pq.pop();\n        Node* p = new Node(min(a->ch, b->ch), a->w + b->w);\n        p->l = a; p->r = b;\n        pq.push(p);\n    }\n    map<char,string> res;\n    dfs(pq.top(), \"\", res);\n    for (char c : order) cout << c << \": \" << res[c] << '\\n';\n    return 0;\n}\n```",
+      "options": {}
+    },
+    {
+      "content": "### 第 2 题 最小编码长度（100 分）\n\n**题目描述**\n\n小明需要将一篇由 n 种不同字符组成的文章进行二进制编码传输。已知每种字符的出现次数，请你计算采用哈夫曼编码时，编码整篇文章所需的**最少二进制位数**（即哈夫曼树的带权路径长度 WPL）。\n\n**输入格式**\n\n第一行一个整数 n（2 ≤ n ≤ 10000），表示字符种类数。\n\n第二行 n 个正整数 a₁, a₂, ..., aₙ，表示每种字符的出现次数（1 ≤ aᵢ ≤ 10⁵）。\n\n**输出格式**\n\n输出一个整数，表示编码整篇文章所需的最少二进制位数。\n\n**样例输入 1**\n```\n4\n7 5 2 4\n```\n\n**样例输出 1**\n```\n35\n```\n\n**样例解释 1**\n\n构建哈夫曼树：\n- 合并 2+4=6（WPL+=6）\n- 合并 5+6=11（WPL+=11）\n- 合并 7+11=18（WPL+=18）\n- WPL = 6+11+18 = 35\n\n**样例输入 2**\n```\n5\n1 2 3 4 5\n```\n\n**样例输出 2**\n```\n33\n```\n\n**提示**\n\n- WPL 即为所有非叶子节点的权值之和\n- 可使用 `priority_queue`（小根堆）模拟合并过程\n- 注意数据范围，结果可能超过 32 位整数\n\n**数据范围**\n\n对于 30% 的数据，n ≤ 100。\n对于 60% 的数据，n ≤ 1000。\n对于 100% 的数据，2 ≤ n ≤ 10000，1 ≤ aᵢ ≤ 10⁵。",
+      "question_type": "programming",
+      "pid": "P9838",
+      "url": "https://fslong.iok.la/problem/P9838",
+      "title": "最小编码长度",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n; cin >> n;\n    priority_queue<long long, vector<long long>, greater<long long>> pq;\n    for (int i = 0; i < n; i++) {\n        int x; cin >> x;\n        pq.push(x);\n    }\n    \n    long long wpl = 0;\n    while (pq.size() > 1) {\n        long long a = pq.top(); pq.pop();\n        long long b = pq.top(); pq.pop();\n        long long sum = a + b;\n        wpl += sum;\n        pq.push(sum);\n    }\n    \n    cout << wpl << '\\n';\n    return 0;\n}\n```\n\n**原理说明**：WPL = 所有非叶子节点权值之和。每次合并两个节点产生一个新的非叶子节点，其权值为两子之和，加入WPL累加。最终WPL即为所有中间节点权值总和。注意结果用 long long 防溢出。",
+      "options": {}
+    }
+  ]
+}

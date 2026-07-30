@@ -1,0 +1,336 @@
+{
+  "title": "CSP-J 集训 · 数组·结构体·排序",
+  "description": "CSPJ组集训 7月21日作业 - 历年真题数组·排序·结构体精选20题 + T3编程2道",
+  "time_limit": 40,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "### 第 1 题（2025 真题·阅读程序）当输入为 \"3 1 3 2 1\" 时，输出结果为 2。\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\n#define ll long long\nint n, k;\nint a[200007];\nint ans[200007];\nint main() {\n  scanf(\"%d%d\", &n, &k);\n  for (int i = 1; i <= n; ++i) {\n    scanf(\"%d\", &a[i]);\n  }\n  std::sort(a + 1, a + n + 1);\n  n = std::unique(a + 1, a + n + 1) - a - 1;\n  for (int i = 1, j = 0; i <= n; ++i) {\n    for (; j < i && a[i] - a[j + 1] > k; ++j)\n      ;\n    ans[i] = ans[j] + 1;\n  }\n  printf(\"%d\\n\", ans[n]);\n}\n```\n\n**答案：A**\n\n**解析：** 排序去重得 1 2 3，极差 ≤1 最少分组 2。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题（2025 真题）分组计数-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "排序去重得 1 2 3，极差 ≤1 最少分组 2。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 2 题（2025 真题·阅读程序）假设输入的 n 为正整数，输出的答案一定小于等于 n，大于等于 1。\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\n#define ll long long\nint n, k;\nint a[200007];\nint ans[200007];\nint main() {\n  scanf(\"%d%d\", &n, &k);\n  for (int i = 1; i <= n; ++i) {\n    scanf(\"%d\", &a[i]);\n  }\n  std::sort(a + 1, a + n + 1);\n  n = std::unique(a + 1, a + n + 1) - a - 1;\n  for (int i = 1, j = 0; i <= n; ++i) {\n    for (; j < i && a[i] - a[j + 1] > k; ++j)\n      ;\n    ans[i] = ans[j] + 1;\n  }\n  printf(\"%d\\n\", ans[n]);\n}\n```\n\n**答案：A**\n\n**解析：** ans 每轮至少 +1，最多 +n，故答案在 [1, n] 范围内。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题（2025 真题）分组计数-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "ans 每轮至少 +1，最多 +n，故答案在 [1, n] 范围内。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 3 题（2025 真题·阅读程序）将第 14 行的 `n=std::unique(a+1,a+n+1)-a-1;` 删去后，有可能出现与原本代码不同的输出结果。\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\n#define ll long long\nint n, k;\nint a[200007];\nint ans[200007];\nint main() {\n  scanf(\"%d%d\", &n, &k);\n  for (int i = 1; i <= n; ++i) {\n    scanf(\"%d\", &a[i]);\n  }\n  std::sort(a + 1, a + n + 1);\n  n = std::unique(a + 1, a + n + 1) - a - 1;\n  for (int i = 1, j = 0; i <= n; ++i) {\n    for (; j < i && a[i] - a[j + 1] > k; ++j)\n      ;\n    ans[i] = ans[j] + 1;\n  }\n  printf(\"%d\\n\", ans[n]);\n}\n```\n\n**答案：B**\n\n**解析：** 重复元素极差 0 不影响分组，删去去重不影响结果。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题（2025 真题）分组计数-判断题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "重复元素极差 0 不影响分组，删去去重不影响结果。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 4 题（2025 真题·阅读程序）假设输入的 a 数组和 k 均为正整数，执行第 18 行代码时，一定满足的条件不包括？\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\n#define ll long long\nint n, k;\nint a[200007];\nint ans[200007];\nint main() {\n  scanf(\"%d%d\", &n, &k);\n  for (int i = 1; i <= n; ++i) {\n    scanf(\"%d\", &a[i]);\n  }\n  std::sort(a + 1, a + n + 1);\n  n = std::unique(a + 1, a + n + 1) - a - 1;\n  for (int i = 1, j = 0; i <= n; ++i) {\n    for (; j < i && a[i] - a[j + 1] > k; ++j)\n      ;\n    ans[i] = ans[j] + 1;\n  }\n  printf(\"%d\\n\", ans[n]);\n}\n```\n\n**答案：B**\n\n**解析：** j 循环结束后 a[i]-a[j+1] ≤ k，a[i]-a[j] 不一定 > k。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题（2025 真题）分组计数-选择题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "j 循环结束后 a[i]-a[j+1] ≤ k，a[i]-a[j] 不一定 > k。",
+      "options": {
+        "A": "j ≤ i",
+        "B": "a[i] - a[j] > k",
+        "C": "j ≤ n",
+        "D": "a[j] < a[i]"
+      }
+    },
+    {
+      "content": "### 第 5 题（2025 真题·阅读程序）当输入的 n=100、k=2、a={1,2,…,100} 时，输出为？\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\n#define ll long long\nint n, k;\nint a[200007];\nint ans[200007];\nint main() {\n  scanf(\"%d%d\", &n, &k);\n  for (int i = 1; i <= n; ++i) {\n    scanf(\"%d\", &a[i]);\n  }\n  std::sort(a + 1, a + n + 1);\n  n = std::unique(a + 1, a + n + 1) - a - 1;\n  for (int i = 1, j = 0; i <= n; ++i) {\n    for (; j < i && a[i] - a[j + 1] > k; ++j)\n      ;\n    ans[i] = ans[j] + 1;\n  }\n  printf(\"%d\\n\", ans[n]);\n}\n```\n\n**答案：A**\n\n**解析：** 100 个数，极差 ≤2 每 3 个一组 → ceil(100/3)=34。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题（2025 真题）分组计数-选择题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "100 个数，极差 ≤2 每 3 个一组 → ceil(100/3)=34。",
+      "options": {
+        "A": "34",
+        "B": "100",
+        "C": "50",
+        "D": "33"
+      }
+    },
+    {
+      "content": "### 第 6 题（2025 真题·阅读程序）假设输入的 a 数组和 k 均为正整数，但 a 数组不一定有序，若误删去第 13 行的 sort，程序有可能出现的问题有？\n\n```cpp\n#include <algorithm>\n#include <cstdio>\n#include <cstring>\n#define ll long long\nint n, k;\nint a[200007];\nint ans[200007];\nint main() {\n  scanf(\"%d%d\", &n, &k);\n  for (int i = 1; i <= n; ++i) {\n    scanf(\"%d\", &a[i]);\n  }\n  std::sort(a + 1, a + n + 1);\n  n = std::unique(a + 1, a + n + 1) - a - 1;\n  for (int i = 1, j = 0; i <= n; ++i) {\n    for (; j < i && a[i] - a[j + 1] > k; ++j)\n      ;\n    ans[i] = ans[j] + 1;\n  }\n  printf(\"%d\\n\", ans[n]);\n}\n```\n\n**答案：B**\n\n**解析：** 乱序导致 j 提前停止，答案可能变小。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题（2025 真题）分组计数-选择题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "乱序导致 j 提前停止，答案可能变小。",
+      "options": {
+        "A": "输出的答案比原本答案更大",
+        "B": "输出的答案比原本答案更小",
+        "C": "出现死循环行为",
+        "D": "以上均可能发生"
+      }
+    },
+    {
+      "content": "### 第 7 题（2022 真题·阅读程序）该算法最准确的时间复杂度分析结果为 O(log n + k)。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, k;\n\nint solve1() {\n    int l = 0, r = n;\n    while (l <= r) {\n        int mid = (l + r) / 2;\n        if (mid * mid <= n) l = mid + 1;\n        else r = mid - 1;\n    }\n    return l - 1;\n}\n\ndouble solve2(double x) {\n    if (x == 0) return x;\n    for (int i = 0; i < k; i++)\n        x = (x + n / x) / 2;\n    return x;\n}\n\nint main() {\n    cin >> n >> k;\n    double ans = solve2(solve1());\n    cout << ans << ' ' << (ans * ans == n) << endl;\n    return 0;\n}\n```\n\n**答案：A**\n\n**解析：** solve1 二分查找 O(log n)，solve2 迭代 k 次 O(k)，总复杂度 O(log n + k)。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题（2022 真题）二分求平方根-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "solve1 二分查找 O(log n)，solve2 迭代 k 次 O(k)，总复杂度 O(log n + k)。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 8 题（2022 真题·阅读程序）当输入为 \"9801 1\" 时，输出的第一个数为 \"99\"。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, k;\n\nint solve1() {\n    int l = 0, r = n;\n    while (l <= r) {\n        int mid = (l + r) / 2;\n        if (mid * mid <= n) l = mid + 1;\n        else r = mid - 1;\n    }\n    return l - 1;\n}\n\ndouble solve2(double x) {\n    if (x == 0) return x;\n    for (int i = 0; i < k; i++)\n        x = (x + n / x) / 2;\n    return x;\n}\n\nint main() {\n    cin >> n >> k;\n    double ans = solve2(solve1());\n    cout << ans << ' ' << (ans * ans == n) << endl;\n    return 0;\n}\n```\n\n**答案：A**\n\n**解析：** 9801 = 99²，solve1 返回 99，solve2(99) 返回 99。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题（2022 真题）二分求平方根-判断题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "9801 = 99²，solve1 返回 99，solve2(99) 返回 99。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 9 题（2022 真题·阅读程序）对于任意输入的 n，随着所输入 k 的增大，输出的第二个数会变成 \"1\"。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, k;\n\nint solve1() {\n    int l = 0, r = n;\n    while (l <= r) {\n        int mid = (l + r) / 2;\n        if (mid * mid <= n) l = mid + 1;\n        else r = mid - 1;\n    }\n    return l - 1;\n}\n\ndouble solve2(double x) {\n    if (x == 0) return x;\n    for (int i = 0; i < k; i++)\n        x = (x + n / x) / 2;\n    return x;\n}\n\nint main() {\n    cin >> n >> k;\n    double ans = solve2(solve1());\n    cout << ans << ' ' << (ans * ans == n) << endl;\n    return 0;\n}\n```\n\n**答案：B**\n\n**解析：** 只有 n 是完全平方数时，第二个数才会是 1。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题（2022 真题）二分求平方根-判断题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "只有 n 是完全平方数时，第二个数才会是 1。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 10 题（2022 真题·阅读程序）该程序存在缺陷。当输入的 n 过大时，第 12 行的乘法有可能溢出，因此应当将 mid 强制转换为 64 位整数再计算。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, k;\n\nint solve1() {\n    int l = 0, r = n;\n    while (l <= r) {\n        int mid = (l + r) / 2;\n        if (mid * mid <= n) l = mid + 1;\n        else r = mid - 1;\n    }\n    return l - 1;\n}\n\ndouble solve2(double x) {\n    if (x == 0) return x;\n    for (int i = 0; i < k; i++)\n        x = (x + n / x) / 2;\n    return x;\n}\n\nint main() {\n    cin >> n >> k;\n    double ans = solve2(solve1());\n    cout << ans << ' ' << (ans * ans == n) << endl;\n    return 0;\n}\n```\n\n**答案：B**\n\n**解析：** n ≤ 47000，mid ≤ 216，mid×mid ≤ 47000² < 2³¹，不会溢出。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题（2022 真题）二分求平方根-判断题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "n ≤ 47000，mid ≤ 216，mid×mid ≤ 47000² < 2³¹，不会溢出。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 11 题（2022 真题·阅读程序）当输入为 \"2 1\" 时，输出的第一个数最接近？\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, k;\n\nint solve1() {\n    int l = 0, r = n;\n    while (l <= r) {\n        int mid = (l + r) / 2;\n        if (mid * mid <= n) l = mid + 1;\n        else r = mid - 1;\n    }\n    return l - 1;\n}\n\ndouble solve2(double x) {\n    if (x == 0) return x;\n    for (int i = 0; i < k; i++)\n        x = (x + n / x) / 2;\n    return x;\n}\n\nint main() {\n    cin >> n >> k;\n    double ans = solve2(solve1());\n    cout << ans << ' ' << (ans * ans == n) << endl;\n    return 0;\n}\n```\n\n**答案：C**\n\n**解析：** solve1 返回 1，solve2(1) 迭代 1 次得 (1 + 2/1)/2 = 1.5。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题（2022 真题）二分求平方根-选择题",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "solve1 返回 1，solve2(1) 迭代 1 次得 (1 + 2/1)/2 = 1.5。",
+      "options": {
+        "A": "1",
+        "B": "1.414",
+        "C": "1.5",
+        "D": "2"
+      }
+    },
+    {
+      "content": "### 第 12 题（2022 真题·阅读程序）当输入为 \"3 10\" 时，输出的第一个数最接近？\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, k;\n\nint solve1() {\n    int l = 0, r = n;\n    while (l <= r) {\n        int mid = (l + r) / 2;\n        if (mid * mid <= n) l = mid + 1;\n        else r = mid - 1;\n    }\n    return l - 1;\n}\n\ndouble solve2(double x) {\n    if (x == 0) return x;\n    for (int i = 0; i < k; i++)\n        x = (x + n / x) / 2;\n    return x;\n}\n\nint main() {\n    cin >> n >> k;\n    double ans = solve2(solve1());\n    cout << ans << ' ' << (ans * ans == n) << endl;\n    return 0;\n}\n```\n\n**答案：B**\n\n**解析：** solve1 返回 1，solve2(1) 迭代 10 次逼近 √3 ≈ 1.732。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题（2022 真题）二分求平方根-选择题",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "solve1 返回 1，solve2(1) 迭代 10 次逼近 √3 ≈ 1.732。",
+      "options": {
+        "A": "1.7",
+        "B": "1.732",
+        "C": "1.75",
+        "D": "2"
+      }
+    },
+    {
+      "content": "### 第 13 题（2022 真题·阅读程序）当输入为 \"256 11\" 时，输出的第一个数？\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint n, k;\n\nint solve1() {\n    int l = 0, r = n;\n    while (l <= r) {\n        int mid = (l + r) / 2;\n        if (mid * mid <= n) l = mid + 1;\n        else r = mid - 1;\n    }\n    return l - 1;\n}\n\ndouble solve2(double x) {\n    if (x == 0) return x;\n    for (int i = 0; i < k; i++)\n        x = (x + n / x) / 2;\n    return x;\n}\n\nint main() {\n    cin >> n >> k;\n    double ans = solve2(solve1());\n    cout << ans << ' ' << (ans * ans == n) << endl;\n    return 0;\n}\n```\n\n**答案：A**\n\n**解析：** 256 = 16²，solve1 返回 16，solve2(16) 返回 16。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题（2022 真题）二分求平方根-选择题",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "256 = 16²，solve1 返回 16，solve2(16) 返回 16。",
+      "options": {
+        "A": "等于 16",
+        "B": "接近但小于 16",
+        "C": "接近但大于 16",
+        "D": "前三种情况都有可能"
+      }
+    },
+    {
+      "content": "### 第 14 题（2025 真题）对数组 [6,1,5,2,4] 进行冒泡排序升序排列，需要多少次交换？\n\n- A. 5\n- B. 6\n- C. 7\n- D. 8\n\n**答案：B**\n\n**解析：** 交换次数等于逆序对数量。(6,1)(6,5)(6,2)(6,4)(5,2)(5,4) 共 6 个。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题（2025 真题）冒泡排序交换次数",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "交换次数等于逆序对数量。(6,1)(6,5)(6,2)(6,4)(5,2)(5,4) 共 6 个。",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      }
+    },
+    {
+      "content": "### 第 15 题（2022 真题）以下关于排序的说法，错误的是？\n\n- A. 冒泡排序是稳定的\n- B. 简单选择排序是稳定的\n- C. 简单插入排序是稳定的\n- D. 归并排序是稳定的\n\n**答案：B**\n\n**解析：** 不稳定排序：选择、希尔、快速、堆排序。冒泡、插入、归并稳定。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题（2022 真题）排序稳定性",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "不稳定排序：选择、希尔、快速、堆排序。冒泡、插入、归并稳定。",
+      "options": {
+        "A": "冒泡排序是稳定的",
+        "B": "简单选择排序是稳定的",
+        "C": "简单插入排序是稳定的",
+        "D": "归并排序是稳定的"
+      }
+    },
+    {
+      "content": "### 第 16 题（2024 真题）对 1000 个元素进行二分查找，最多需要比较多少次？\n\n- A. 25\n- B. 10\n- C. 7\n- D. 1\n\n**答案：B**\n\n**解析：** ⌊log₂1000⌋ + 1 = 9 + 1 = 10 次（2⁹ = 512 < 1000 ≤ 2¹⁰ = 1024）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题（2024 真题）二分查找比较次数",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "⌊log₂1000⌋ + 1 = 9 + 1 = 10 次（2⁹ = 512 < 1000 ≤ 2¹⁰ = 1024）。",
+      "options": {
+        "A": "25",
+        "B": "10",
+        "C": "7",
+        "D": "1"
+      }
+    },
+    {
+      "content": "### 第 17 题（2021 真题）在 N 个数中找出最大数，最少需要比较多少次？\n\n- A. N\n- B. N - 1\n- C. N + 1\n- D. N(N - 1)/2\n\n**答案：B**\n\n**解析：** 先假设第 1 个为最大值，依次与剩余 N−1 个数各比较 1 次，共 N−1 次。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题（2021 真题）最大数比较次数",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "先假设第 1 个为最大值，依次与剩余 N−1 个数各比较 1 次，共 N−1 次。",
+      "options": {
+        "A": "N",
+        "B": "N - 1",
+        "C": "N + 1",
+        "D": "N(N - 1)/2"
+      }
+    },
+    {
+      "content": "### 第 18 题（2020 真题）冒泡排序对 n 个数排序，最好情况下比较次数是？\n\n- A. n\n- B. n - 1\n- C. n(n - 1)/2\n- D. n²/2\n\n**答案：B**\n\n**解析：** 最好情况数据已有序，第一趟比较 n−1 次即结束。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题（2020 真题）冒泡最佳比较次数",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "最好情况数据已有序，第一趟比较 n−1 次即结束。",
+      "options": {
+        "A": "n",
+        "B": "n - 1",
+        "C": "n(n - 1)/2",
+        "D": "n²/2"
+      }
+    },
+    {
+      "content": "### 第 19 题（2019 真题）对 100 个有序元素进行折半查找，最多需要比较多少次？\n\n- A. 6\n- B. 7\n- C. 8\n- D. 9\n\n**答案：B**\n\n**解析：** ⌊log₂100⌋ + 1 = 6 + 1 = 7 次（2⁶ = 64 < 100 ≤ 2⁷ = 128）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题（2019 真题）折半查找比较次数",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "⌊log₂100⌋ + 1 = 6 + 1 = 7 次（2⁶ = 64 < 100 ≤ 2⁷ = 128）。",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      }
+    },
+    {
+      "content": "### 第 20 题（2018 真题）以下哪种排序算法不需要进行关键字比较？\n\n- A. 基数排序\n- B. 冒泡排序\n- C. 堆排序\n- D. 直接插入排序\n\n**答案：A**\n\n**解析：** 基数排序按位分配收集，不进行关键字比较。其余三种均需比较。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题（2018 真题）无比较排序",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "基数排序按位分配收集，不进行关键字比较。其余三种均需比较。",
+      "options": {
+        "A": "基数排序",
+        "B": "冒泡排序",
+        "C": "堆排序",
+        "D": "直接插入排序"
+      }
+    },
+    {
+      "content": "### 第 1 题 NOIP2016 普及组 T3 海港 ★★★ [noip2016t3]（100 分）— <a href=\"https://fslong.iok.la/problem/NOIP2016T3\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**【题目描述】**\n\n小李是一个海港工作人员。每天都有许多船只到达海港，船上通常有许多来自不同国家的乘客。\n\n他需要统计每艘船到达后的 24 小时内（含当前船）到达的船只上的乘客来自多少个不同的国家。\n\n**【输入格式】**\n\n第一行一个正整数 n，表示船的数量。\n\n接下来 n 行，每行描述一艘船：第一个整数 t 表示时间（秒），第二个整数 k 表示该船乘客数量，接下来 k 个整数 x 表示乘客国籍。\n\n**【输出格式】**\n\n输出 n 行，每艘船到达时输出一个整数，表示当前 24 小时（86400 秒）内到达的乘客中不同国籍的数量。\n\n**【样例输入】**\n\n```\n3\n1 4 4 1 2 2\n2 2 2 3\n10 1 3\n```\n\n**【样例输出】**\n\n```\n4\n4\n5\n```\n\n**【数据范围】**\n\n1 ≤ n ≤ 10⁵，0 ≤ t ≤ 10⁹，1 ≤ k ≤ 10⁵，1 ≤ x ≤ 10⁵\n\n所有 t 严格递增。总乘客数 ≤ 3×10⁵。",
+      "question_type": "programming",
+      "pid": "noip2016t3",
+      "url": "https://fslong.iok.la/problem/NOIP2016T3",
+      "title": "NOIP2016 普及组 T3 海港 ★★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "队列存 (时间, 国籍)。每艘船到达时，把 24 小时前的弹出，统计不同国籍数。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint n,t,k,x,cnt[100005],ans;\nqueue<pair<int,int>> q;\nint main() {\n    cin>>n;\n    while(n--) {\n        cin>>t>>k;\n        while(k--) {\n            cin>>x;\n            q.push({t,x});\n            if(!cnt[x]) ans++;\n            cnt[x]++;\n        }\n        while(!q.empty()&&t-q.front().first>=86400) {\n            int c=q.front().second; q.pop();\n            cnt[c]--;\n            if(!cnt[c]) ans--;\n        }\n        cout<<ans<<\"\\n\";\n    }\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 2023 CSP-J 第二轮 T3 一元二次方程 ★★★ [cspj2023t3]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2023T3\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**【题目描述】**\n\n给定一元二次方程 ax² + bx + c = 0（a ≠ 0），求该方程的最大实数根，以最简分数形式输出。若无实数根输出 NO。\n\n**【输入格式】**\n\n第一行一个正整数 T，表示方程个数。\n\n接下来 T 行，每行三个整数 a, b, c。\n\n**【输出格式】**\n\n输出 T 行，每行一个结果。若方程有实数解，输出最大实数根的最简分数形式（分母为正）；若无实数解，输出 NO。\n\n**【样例输入】**\n\n```\n3\n1 -2 1\n1 2 1\n1 1 1\n```\n\n**【样例输出】**\n\n```\n1\n-1\nNO\n```\n\n**【数据范围】**\n\n1 ≤ T ≤ 5000，|a|,|b|,|c| ≤ 5000，a ≠ 0。\n\n**【提示】**\n\n判别式 Δ = b² − 4ac。Δ < 0 时无实数根；Δ = 0 时有唯一根 −b/(2a)；Δ > 0 时最大根为 (−b + √Δ)/(2a)。当 √Δ 为整数时以最简分数输出。",
+      "question_type": "programming",
+      "pid": "cspj2023t3",
+      "url": "https://fslong.iok.la/problem/CSPJ2023T3",
+      "title": "2023 CSP-J 第二轮 T3 一元二次方程 ★★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "判别式 Δ = b² − 4ac，Δ < 0 则输出 NO；Δ = 0 则输出 −b/2a 约分；Δ > 0 且 √Δ 为整数时输出 (−b+√Δ)/(2a) 约分。注意分母化为正。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nll gcd(ll a,ll b){return b?gcd(b,a%b):abs(a);}\nint main() {\n    int T;cin>>T;\n    while(T--) {\n        ll a,b,c;cin>>a>>b>>c;\n        ll d=b*b-4*a*c;\n        if(d<0){cout<<\"NO\\n\";continue;}\n        ll sq=sqrt(d);\n        if(sq*sq!=d){cout<<\"NO\\n\";continue;}\n        ll p=-b+sq,q=2*a;\n        if(q<0)p=-p,q=-q;\n        ll g=gcd(p,q);\n        p/=g;q/=g;\n        if(q==1)cout<<p<<\"\\n\";\n        else cout<<p<<\"/\"<<q<<\"\\n\";\n    }\n    return 0;\n}\n```"
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "title": "CSP-J 集训计算机基础（二）",
+  "description": "CSPJ组集训 7月15日作业 - 历年真题计算机基础精选20题 + J2 T1编程4题",
+  "time_limit": 120,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "### 第 1 题（2016 真题）以下不是微软公司出品的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题（2016 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "Acrobat Reader 是 Adobe 公司的产品，PowerPoint/Word/Excel 是微软 Office 组件。",
+      "options": {
+        "A": "PowerPoint",
+        "B": "Word",
+        "C": "Excel",
+        "D": "Acrobat Reader"
+      }
+    },
+    {
+      "content": "### 第 2 题（2016 真题）256 种颜色需要多少位二进制编码？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题（2016 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "2⁸ = 256，故需要 8 位二进制编码。",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      }
+    },
+    {
+      "content": "### 第 3 题（2016 真题）以下不属于无线通信技术的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题（2016 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "以太网（Ethernet）是有线网络技术，依赖网线传输。蓝牙、WiFi、GPRS 均为无线通信技术。",
+      "options": {
+        "A": "蓝牙",
+        "B": "WiFi",
+        "C": "GPRS",
+        "D": "以太网"
+      }
+    },
+    {
+      "content": "### 第 4 题（2016 真题）以下不是 CPU 生产厂商的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题（2016 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "Microsoft 是软件公司。Intel、AMD、IBM 均为硬件/CPU 厂商。",
+      "options": {
+        "A": "Intel",
+        "B": "AMD",
+        "C": "Microsoft",
+        "D": "IBM"
+      }
+    },
+    {
+      "content": "### 第 5 题（2016 真题）以下不是存储设备的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题（2016 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "鼠标是输入设备。光盘、磁盘、固态硬盘均为存储设备。",
+      "options": {
+        "A": "光盘",
+        "B": "磁盘",
+        "C": "固态硬盘",
+        "D": "鼠标"
+      }
+    },
+    {
+      "content": "### 第 6 题（2016 真题）32 位机和 64 位机的本质区别是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题（2016 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "32 位寻址空间 2³² ≈ 4GB，64 位寻址空间 2⁶⁴，寻址空间不同是核心区别。",
+      "options": {
+        "A": "显示器不同",
+        "B": "硬盘大小不同",
+        "C": "寻址空间不同",
+        "D": "输入法不同"
+      }
+    },
+    {
+      "content": "### 第 7 题（2016 真题）参加 NOI 竞赛，以下哪种物品不能带入考场？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题（2016 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "U 盘属于电子存储设备，竞赛严禁携带。钢笔、衣服、铅笔均可带入。",
+      "options": {
+        "A": "钢笔",
+        "B": "适量的衣服",
+        "C": "U 盘",
+        "D": "铅笔"
+      }
+    },
+    {
+      "content": "### 第 8 题（2017 真题）计算机存储数据的基本单位是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题（2017 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "Byte（字节）是计算机存储数据的基本单位，1 Byte = 8 bit。",
+      "options": {
+        "A": "bit",
+        "B": "Byte",
+        "C": "GB",
+        "D": "KB"
+      }
+    },
+    {
+      "content": "### 第 9 题（2017 真题）800 × 600 像素、16 位色的位图，存储空间约为？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题（2017 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "800 × 600 × 16 ÷ 8 = 960000 字节 = 937.5 KB。",
+      "options": {
+        "A": "937.5 KB",
+        "B": "4218.75 KB",
+        "C": "4320 KB",
+        "D": "2880 KB"
+      }
+    },
+    {
+      "content": "### 第 10 题（2017 真题）计算机应用的最早领域是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题（2017 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "计算机最早（1940 年代）用于弹道计算等数值计算领域。",
+      "options": {
+        "A": "数值计算",
+        "B": "人工智能",
+        "C": "机器人",
+        "D": "过程控制"
+      }
+    },
+    {
+      "content": "### 第 11 题（2017 真题）NOI 的中文含义是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题（2017 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "NOI 全称 National Olympiad in Informatics，即全国青少年信息学奥林匹克竞赛。",
+      "options": {
+        "A": "中国信息学联赛",
+        "B": "全国青少年信息学奥林匹克竞赛",
+        "C": "中国青少年信息学奥林匹克竞赛",
+        "D": "中国计算机协会"
+      }
+    },
+    {
+      "content": "### 第 12 题（2017 真题）从哪一年起，NOIP 系列竞赛不再支持 Pascal 语言？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题（2017 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "CCF 宣布 2022 年起 NOIP 系列竞赛不再支持 Pascal 语言。",
+      "options": {
+        "A": "2020",
+        "B": "2021",
+        "C": "2022",
+        "D": "2023"
+      }
+    },
+    {
+      "content": "### 第 13 题（2017 真题）以下奖项中，和计算机领域密切相关的是？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题（2017 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "图灵奖是计算机科学最高奖项。",
+      "options": {
+        "A": "奥斯卡奖",
+        "B": "图灵奖",
+        "C": "诺贝尔奖",
+        "D": "普利策奖"
+      }
+    },
+    {
+      "content": "### 第 14 题（2017 真题）以下哪个协议与电子邮件无关？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题（2017 真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "WTO 是世界贸易组织，不是网络协议。POP3/SMTP/IMAP 均为电子邮件协议。",
+      "options": {
+        "A": "POP3",
+        "B": "SMTP",
+        "C": "WTO",
+        "D": "IMAP"
+      }
+    },
+    {
+      "content": "### 第 15 题（2017 真题）以下哪个不属于面向对象程序设计语言？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题（2017 真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "C 是面向过程语言。C++、Java、C# 均支持面向对象特性。",
+      "options": {
+        "A": "C",
+        "B": "C++",
+        "C": "Java",
+        "D": "C#"
+      }
+    },
+    {
+      "content": "### 第 16 题（2018 真题）1 MB 等于多少字节？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题（2018 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "1 MB = 1024 KB = 1024 × 1024 字节。",
+      "options": {
+        "A": "1000 字节",
+        "B": "1024 字节",
+        "C": "1000 × 1000 字节",
+        "D": "1024 × 1024 字节"
+      }
+    },
+    {
+      "content": "### 第 17 题（2018 真题）中国计算机学会（CCF）在哪一年创办全国青少年计算机程序设计竞赛（NOIP 前身）？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题（2018 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "1984 年 CCF 创办全国青少年计算机程序设计竞赛，即 NOIP 前身。",
+      "options": {
+        "A": "1983",
+        "B": "1984",
+        "C": "1985",
+        "D": "1986"
+      }
+    },
+    {
+      "content": "### 第 18 题（2023 真题）二进制 101010₂ + 八进制 166₈ 的结果是多少？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题（2023 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "101010₂ = 42，166₈ = 118，42 + 118 = 160 = A0₁₆。",
+      "options": {
+        "A": "1101010₂",
+        "B": "1011010₂",
+        "C": "1110000₂",
+        "D": "A0₁₆"
+      }
+    },
+    {
+      "content": "### 第 19 题（2020 真题）设 x = true，y = true，z = false，以下哪个逻辑表达式的结果为 true？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题（2020 真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "D 选项：(x ∧ y) ∨ (z ∨ x) = (true ∧ true) ∨ (false ∨ true) = true ∨ true = true。A、B、C 均含 ∧ z = false 使其结果为 false。",
+      "options": {
+        "A": "(y ∨ z) ∧ x ∧ z",
+        "B": "x ∧ (z ∨ y) ∧ z",
+        "C": "(x ∧ y) ∧ z",
+        "D": "(x ∧ y) ∨ (z ∨ x)"
+      }
+    },
+    {
+      "content": "### 第 20 题（2025 真题）执行 `int x = 255; cout << (x & (x - 1));` 输出多少？",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题（2025 真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "x = 255 = 11111111₂，x & (x − 1) 消除最右边的 1，得 11111110₂ = 254。x & (x − 1) 是统计二进制 1 个数或消除最低位 1 的常用技巧。",
+      "options": {
+        "A": "255",
+        "B": "254",
+        "C": "128",
+        "D": "0"
+      }
+    },
+    {
+      "content": "### 第 1 题 2021 CSP-J J2 T1 分糖果 ★ [cspj2021t1]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2021T1\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n红太阳幼儿园有 n 个小朋友，你是园长。现在你有一些糖果分给小朋友。\n\n给定 L, R，你需要选择一个正整数 k（L ≤ k ≤ R），使得分给小朋友后，你手中剩下的糖果最少。\n\n即最大化 k mod n。\n\n【输入格式】\n\n一行三个正整数 n, L, R。\n\n【输出格式】\n\n一行一个整数，表示 k mod n 的最大可能值。\n\n【样例输入】\n\n```\n7 16 23\n```\n\n【样例输出】\n\n```\n6\n```\n\n【数据范围】\n\n1 ≤ n ≤ 10⁹，1 ≤ L ≤ R ≤ 10⁹\n\n【提示】\n\n若 L / n 和 R / n 的整数部分不同（即区间跨越 n 的倍数），则最大值 = n − 1；否则最大值 = R mod n。",
+      "question_type": "programming",
+      "pid": "cspj2021t1",
+      "url": "https://fslong.iok.la/problem/CSPJ2021T1",
+      "title": "2021 CSP-J J2 T1 分糖果 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "关键观察：如果 L/n 和 R/n 不相等，说明区间 [L, R] 跨越了 n 的倍数，此时一定可以取到 n − 1。否则最大余数为 R mod n。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, L, R;\n    cin >> n >> L >> R;\n    if (L / n != R / n) {\n        cout << n - 1 << endl;\n    } else {\n        cout << R % n << endl;\n    }\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 2020 CSP-J J2 T1 优秀的拆分 ★ [cspj2020t1]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2020T1\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n正整数 n 的「优秀的拆分」：将 n 拆分成若干个不同的 2 的正整数次幂之和。1 不是 2 的正整数次幂。\n\n如果存在优秀的拆分，从大到小输出；否则输出 −1。\n\n【输入格式】\n\n一行一个正整数 n。\n\n【输出格式】\n\n如果存在，从大到小输出拆分中的每个数，空格隔开；否则输出 −1。\n\n【样例输入 1】\n\n```\n6\n```\n\n【样例输出 1】\n\n```\n4 2\n```\n\n【样例输入 2】\n\n```\n7\n```\n\n【样例输出 2】\n\n```\n-1\n```\n\n【数据范围】\n\n1 ≤ n ≤ 10⁷\n\n【提示】\n\nn 为奇数时直接输出 −1（因为 2 的正整数次幂均为偶数）。否则将 n 的二进制表示中为 1 的位对应的 2 的幂次从大到小输出。",
+      "question_type": "programming",
+      "pid": "cspj2020t1",
+      "url": "https://fslong.iok.la/problem/CSPJ2020T1",
+      "title": "2020 CSP-J J2 T1 优秀的拆分 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "n 为奇数则输出 −1。否则将 n 的二进制分解。从大到小枚举 2 的幂，若 n 包含该次幂则输出。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    if (n % 2 == 1) {\n        cout << -1 << endl;\n        return 0;\n    }\n    for (int i = 30; i >= 1; i--) {\n        int p = 1 << i;\n        if (n >= p) {\n            cout << p << ' ';\n            n -= p;\n        }\n    }\n    cout << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 3 题 2019 CSP-J J2 T1 数字游戏 ★ [cspj2019t1]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ2019T1\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n给定一个长度为 8 的 01 字符串，统计其中字符 '1' 的个数。\n\n【输入格式】\n\n一行，一个长度为 8 的 01 字符串。\n\n【输出格式】\n\n一行一个整数，表示 '1' 的个数。\n\n【样例输入 1】\n\n```\n00010100\n```\n\n【样例输出 1】\n\n```\n2\n```\n\n【样例输入 2】\n\n```\n11111111\n```\n\n【样例输出 2】\n\n```\n8\n```\n\n【数据范围】\n\n字符串长度固定为 8，仅含字符 0 和 1。\n\n【提示】\n\n遍历字符串累加计数即可。",
+      "question_type": "programming",
+      "pid": "cspj2019t1",
+      "url": "https://fslong.iok.la/problem/CSPJ2019T1",
+      "title": "2019 CSP-J J2 T1 数字游戏 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "最简单的入门题。遍历字符串，cnt += (s[i] == '1')。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s;\n    cin >> s;\n    int cnt = 0;\n    for (char c : s)\n        if (c == '1') cnt++;\n    cout << cnt << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 4 题 2018 NOIP 普及组复赛 T1 标题统计 ★ [noip2018pjt1]（100 分）— <a href=\"https://fslong.iok.la/problem/NOIP2018PJT1\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n作文标题中可能包含大、小写英文字母、数字字符、空格和换行符。统计标题字符数时，空格和换行符不计算在内。\n\n【输入格式】\n\n一行，一个字符串 s（可能包含空格）。\n\n【输出格式】\n\n一行一个整数，有效字符（非空格非换行）个数。\n\n【样例输入 1】\n\n```\n234\n```\n\n【样例输出 1】\n\n```\n3\n```\n\n【样例输入 2】\n\n```\nHello  world!\n```\n\n【样例输出 2】\n\n```\n12\n```\n\n【数据范围】\n\n1 ≤ |s| ≤ 5（字符串可能包含空格，|s| 表示字符串总长度）。\n\n【提示】\n\n用 getline(cin, s) 读入整行，遍历计数非空格字符。",
+      "question_type": "programming",
+      "pid": "noip2018pjt1",
+      "url": "https://fslong.iok.la/problem/NOIP2018PJT1",
+      "title": "2018 NOIP 普及组复赛 T1 标题统计 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "注意输入可能包含空格，使用 getline 读入整行。遍历字符串统计 s[i] != ' ' 的字符个数。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s;\n    getline(cin, s);\n    int cnt = 0;\n    for (char c : s)\n        if (c != ' ') cnt++;\n    cout << cnt << endl;\n    return 0;\n}\n```"
+    }
+  ]
+}

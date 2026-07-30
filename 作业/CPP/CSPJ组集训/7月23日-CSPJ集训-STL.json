@@ -1,0 +1,332 @@
+{
+  "title": "CSP-J 集训 · STL 标准模板库",
+  "description": "CSPJ组集训 7月23日作业 - 历年真题STL·栈·队列·string精选20题 + T3编程2道",
+  "time_limit": 40,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "### 第 1 题（判断）栈的特点是后进先出（LIFO），队列的特点是先进先出（FIFO）。\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** 栈在一端操作，后进先出；队列两端操作，先进先出。二者均为操作受限的线性表。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题 栈与队列基本特性",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "栈在一端操作，后进先出；队列两端操作，先进先出。二者均为操作受限的线性表。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 2 题（2022 真题·阅读程序）关于数据结构的表述不恰当的是？\n\n- A. 栈与队列本质不同，无法用栈实现队列\n- B. 图的 DFS 常用栈\n- C. 栈后进先出，队列先进先出\n- D. 队列常用于 BFS\n\n**答案：A**\n\n**解析：** 栈和队列本质相同（都是操作受限的线性表），可以用两个栈实现队列。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题（2022 真题）数据结构表述",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "栈和队列本质相同（都是操作受限的线性表），可以用两个栈实现队列。",
+      "options": {
+        "A": "栈与队列本质不同，无法用栈实现队列",
+        "B": "图的 DFS 常用栈",
+        "C": "栈后进先出，队列先进先出",
+        "D": "队列常用于 BFS"
+      }
+    },
+    {
+      "content": "### 第 3 题（判断）C++ STL 中，`stack` 的 `pop()` 成员函数返回栈顶元素并将其移除。\n\n- A. 正确\n- B. 错误\n\n**答案：B**\n\n**解析：** pop() 仅移除栈顶元素，不返回值。访问栈顶用 top()，二者分离是 STL 的设计哲学。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题 STL stack pop 特性",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "pop() 仅移除栈顶元素，不返回值。访问栈顶用 top()，二者分离是 STL 的设计哲学。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 4 题（2022 真题）6 个元素 6,5,4,3,2,1 顺序进栈，以下哪个出栈序列是非法的？\n\n- A. 5 4 3 6 1 2\n- B. 4 5 3 1 2 6\n- C. 2 3 4 1 5 6\n- D. 3 4 6 5 2 1\n\n**答案：D**\n\n**解析：** D 中 3 出 4 出后栈顶为 5，不能直接出 6，非法。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题（2022 真题）出栈序列判定",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "D 中 3 出 4 出后栈顶为 5，不能直接出 6，非法。",
+      "options": {
+        "A": "5 4 3 6 1 2",
+        "B": "4 5 3 1 2 6",
+        "C": "2 3 4 1 5 6",
+        "D": "3 4 6 5 2 1"
+      }
+    },
+    {
+      "content": "### 第 5 题（判断）STL 中 `queue` 的 `front()` 返回队首元素，`back()` 返回队尾元素。\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** queue 提供 front() 访问队首、back() 访问队尾，pop() 移除队首。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题 STL queue front/back",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "queue 提供 front() 访问队首、back() 访问队尾，pop() 移除队首。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 6 题（选择）以下关于 STL `priority_queue` 的说法正确的是？\n\n- A. 默认是大根堆，即 top() 返回最大元素\n- B. 元素必须支持 `+` 运算符\n- C. push 的时间复杂度为 O(n)\n- D. 不能自定义比较方式\n\n**答案：A**\n\n**解析：** priority_queue 默认大根堆（less 比较），push/pop 均为 O(log n)，可通过自定义仿函数改变排序。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题 STL priority_queue",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "priority_queue 默认大根堆（less 比较），push/pop 均为 O(log n)，可通过自定义仿函数改变排序。",
+      "options": {
+        "A": "默认是大根堆，即 top() 返回最大元素",
+        "B": "元素必须支持 + 运算符",
+        "C": "push 的时间复杂度为 O(n)",
+        "D": "不能自定义比较方式"
+      }
+    },
+    {
+      "content": "### 第 7 题（判断）STL 中 `vector` 的 `push_back` 操作在容量不足时会自动重新分配内存，但原迭代器不会失效。\n\n- A. 正确\n- B. 错误\n\n**答案：B**\n\n**解析：** vector 重新分配时会复制元素到新内存，原迭代器、指针、引用均失效。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题 vector 迭代器失效",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "vector 重新分配时会复制元素到新内存，原迭代器、指针、引用均失效。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 8 题（选择）以下哪种数据结构支持在两端均能进行插入和删除操作？\n\n- A. stack\n- B. queue\n- C. deque\n- D. priority_queue\n\n**答案：C**\n\n**解析：** deque（双端队列）支持在头部和尾部均进行 push/pop 操作，时间复杂度 O(1)。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题 双端操作数据结构",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "deque（双端队列）支持在头部和尾部均进行 push/pop 操作，时间复杂度 O(1)。",
+      "options": {
+        "A": "stack",
+        "B": "queue",
+        "C": "deque",
+        "D": "priority_queue"
+      }
+    },
+    {
+      "content": "### 第 9 题（判断）`std::sort(a, a + n)` 默认按降序排序。\n\n- A. 正确\n- B. 错误\n\n**答案：B**\n\n**解析：** sort 默认用 operator< 升序排序，降序需传 greater<T>()。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题 sort 排序方向",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "sort 默认用 operator< 升序排序，降序需传 greater<T>()。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 10 题（2022 真题）链表和数组的区别包括？\n\n- A. 数组不能排序，链表可以\n- B. 链表比数组能存储更多信息\n- C. 数组大小固定，链表大小可动态调整\n- D. 以上均正确\n\n**答案：C**\n\n**解析：** 数组大小固定，链表可动态分配结点。A（数组可以排序）B（存储量不是本质区别）均错误。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题（2022 真题）链表与数组区别",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "数组大小固定，链表可动态分配结点。A（数组可以排序）B（存储量不是本质区别）均错误。",
+      "options": {
+        "A": "数组不能排序，链表可以",
+        "B": "链表比数组能存储更多信息",
+        "C": "数组大小固定，链表大小可动态调整",
+        "D": "以上均正确"
+      }
+    },
+    {
+      "content": "### 第 11 题（2023 真题）链表头插法插入新节点 data=42，正确操作是？\n\n- A. newNode->next=head;\n- B. head->data=42; newNode->next=head; head=newNode;\n- C. head->next=newNode;\n- D. newNode->next=head; head=newNode;\n\n**答案：D**\n\n**解析：** 头插法：新节点 next 指向原 head，head 指向新节点。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题（2023 真题）链表头插法",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "头插法：新节点 next 指向原 head，head 指向新节点。",
+      "options": {
+        "A": "newNode->next=head;",
+        "B": "head->data=42; newNode->next=head; head=newNode;",
+        "C": "head->next=newNode;",
+        "D": "newNode->next=head; head=newNode;"
+      }
+    },
+    {
+      "content": "### 第 12 题（判断）STL 中 `string` 的 `length()` 和 `size()` 方法返回的值相同，均为字符串长度。\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** length() 和 size() 是 string 的同义方法，均返回字符个数，不包括结尾的 '\\0'。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题 string length vs size",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "length() 和 size() 是 string 的同义方法，均返回字符个数，不包括结尾的 '\\0'。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 13 题（选择）关于 C++ STL `string` 类的 `find` 方法，以下说法正确的是？\n\n- A. 找到子串返回该子串在字符串中的起始下标\n- B. 若未找到返回 `string::npos`，其值通常为 0\n- C. find 只能查找单个字符，不能查找子串\n- D. find 的时间复杂度为 O(1)\n\n**答案：A**\n\n**解析：** find 未找到返回 string::npos（通常为 -1），可查找子串，时间复杂度 O(n)。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题 string find 方法",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "find 未找到返回 string::npos（通常为 -1），可查找子串，时间复杂度 O(n)。",
+      "options": {
+        "A": "找到子串返回该子串在字符串中的起始下标",
+        "B": "若未找到返回 string::npos，其值通常为 0",
+        "C": "find 只能查找单个字符，不能查找子串",
+        "D": "find 的时间复杂度为 O(1)"
+      }
+    },
+    {
+      "content": "### 第 14 题（2016 真题）关于字符串的正确说法是？\n\n- A. 字符串是一种特殊的线性表\n- B. 串的长度必须大于零\n- C. 字符串不可以用数组表示\n- D. 空格串就是空串\n\n**答案：A**\n\n**解析：** 字符串是线性表的一种（每个字符一个元素）。空串长度可为 0，空格串 ≠ 空串。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题（2016 真题）字符串定义",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "字符串是线性表的一种（每个字符一个元素）。空串长度可为 0，空格串 ≠ 空串。",
+      "options": {
+        "A": "字符串是一种特殊的线性表",
+        "B": "串的长度必须大于零",
+        "C": "字符串不可以用数组表示",
+        "D": "空格串就是空串"
+      }
+    },
+    {
+      "content": "### 第 15 题（判断）STL 算法 `std::unique` 会移除容器中所有重复的元素，使容器大小减小。\n\n- A. 正确\n- B. 错误\n\n**答案：B**\n\n**解析：** unique 只是将相邻重复元素移到末尾，返回新逻辑结尾的迭代器，不会改变容器大小。需配合 erase 使用。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题 unique 算法行为",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "unique 只是将相邻重复元素移到末尾，返回新逻辑结尾的迭代器，不会改变容器大小。需配合 erase 使用。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 16 题（选择）以下代码中 `std::lower_bound` 的作用是？\n\n```cpp\nint a[] = {1, 3, 5, 7, 9};\nint p = lower_bound(a, a + 5, 5) - a;\n```\n\n- A. 查找值为 5 的元素位置\n- B. 查找第一个 ≥ 5 的元素位置\n- C. 查找第一个 > 5 的元素位置\n- D. 对数组进行排序\n\n**答案：B**\n\n**解析：** lower_bound 返回第一个 ≥ 目标值的位置；upper_bound 返回第一个 > 目标值的位置。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题 lower_bound 语义",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "lower_bound 返回第一个 ≥ 目标值的位置；upper_bound 返回第一个 > 目标值的位置。",
+      "options": {
+        "A": "查找值为 5 的元素位置",
+        "B": "查找第一个 ≥ 5 的元素位置",
+        "C": "查找第一个 > 5 的元素位置",
+        "D": "对数组进行排序"
+      }
+    },
+    {
+      "content": "### 第 17 题（选择）STL 中 `map` 容器的底层实现是？\n\n- A. 哈希表\n- B. 红黑树\n- C. 数组\n- D. 链表\n\n**答案：B**\n\n**解析：** map 和 set 底层通常为红黑树（平衡二叉搜索树），保证 O(log n) 插入查找删除。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题 map 底层实现",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "map 和 set 底层通常为红黑树（平衡二叉搜索树），保证 O(log n) 插入查找删除。",
+      "options": {
+        "A": "哈希表",
+        "B": "红黑树",
+        "C": "数组",
+        "D": "链表"
+      }
+    },
+    {
+      "content": "### 第 18 题（判断）`unordered_map` 的插入和查找操作平均时间复杂度为 O(1)。\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** unordered_map 基于哈希表实现，平均复杂度 O(1)，最坏 O(n)。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题 unordered_map 复杂度",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "unordered_map 基于哈希表实现，平均复杂度 O(1)，最坏 O(n)。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 19 题（选择）以下代码输出结果是什么？\n\n```cpp\nvector<int> v;\nv.push_back(1);\nv.push_back(2);\nv.push_back(3);\ncout << v.size() << \" \" << v[1];\n```\n\n- A. 3 1\n- B. 3 2\n- C. 2 1\n- D. 2 2\n\n**答案：B**\n\n**解析：** push_back 三次后 size=3，v[1] 为第二个元素 2。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题 vector 基本操作",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "push_back 三次后 size=3，v[1] 为第二个元素 2。",
+      "options": {
+        "A": "3 1",
+        "B": "3 2",
+        "C": "2 1",
+        "D": "2 2"
+      }
+    },
+    {
+      "content": "### 第 20 题（判断）STL 中 `pair` 可以将两个不同类型的数据组合成一个单元，常用于 map 的元素类型。\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** pair<T1, T2> 将两个值组合，map 的每个元素即为 pair<const Key, Value>。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题 pair 用法",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "pair<T1, T2> 将两个值组合，map 的每个元素即为 pair<const Key, Value>。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 1 题 表达式计算器 ★★★ [expr-calc]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ-STL-CALC\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**【题目描述】**\n\n侯老师在数学课上教了四则运算，同学们写了一个表达式计算器程序。现给定一个只包含非负整数和 `+ - * / ( )` 的表达式，请你计算其结果。表达式保证合法，除法为整除（向零取整）。\n\n**【输入格式】**\n\n第一行一个正整数 T，表示有 T 组测试数据。\n\n接下来 T 行，每行一个字符串 s，表示表达式。表达式仅包含数字、`+`、`-`、`*`、`/`、`(`、`)`，数字为非负整数，不含前导零。\n\n**【输出格式】**\n\n对于每组测试数据，输出一行一个整数，表示表达式的结果。\n\n**【样例输入】**\n\n```\n3\n1+2\n2*(3+4)\n10-5*2+6/3\n```\n\n**【样例输出】**\n\n```\n3\n14\n2\n```\n\n**【数据范围】**\n\n1 ≤ T ≤ 10，1 ≤ |s| ≤ 1000，表达式中的数字范围 [0, 10⁴]，中间结果绝对值不超过 2³¹−1。",
+      "question_type": "programming",
+      "pid": "CSPJ-STL-CALC",
+      "url": "https://fslong.iok.la/problem/CSPJ-STL-CALC",
+      "title": "表达式计算器 ★★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "使用两个 STL stack：一个存操作数，一个存运算符。遇数字入操作数栈；遇左括号入运算符栈；遇右括号弹出运算符直到左括号；遇运算符，先弹出栈顶优先级不低于当前运算符者计算，再入栈。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint calc(int a, int b, char op) {\n    if (op == '+') return a + b;\n    if (op == '-') return a - b;\n    if (op == '*') return a * b;\n    return a / b;\n}\nint prio(char op) {\n    if (op == '+' || op == '-') return 1;\n    if (op == '*' || op == '/') return 2;\n    return 0;\n}\nint solve(string s) {\n    stack<int> nums;\n    stack<char> ops;\n    int i = 0;\n    while (i < s.size()) {\n        if (isdigit(s[i])) {\n            int x = 0;\n            while (i < s.size() && isdigit(s[i]))\n                x = x * 10 + (s[i++] - '0');\n            nums.push(x);\n        } else if (s[i] == '(') {\n            ops.push(s[i++]);\n        } else if (s[i] == ')') {\n            while (ops.top() != '(') {\n                int b = nums.top(); nums.pop();\n                int a = nums.top(); nums.pop();\n                nums.push(calc(a, b, ops.top()));\n                ops.pop();\n            }\n            ops.pop(); i++;\n        } else {\n            while (!ops.empty() && prio(ops.top()) >= prio(s[i])) {\n                int b = nums.top(); nums.pop();\n                int a = nums.top(); nums.pop();\n                nums.push(calc(a, b, ops.top()));\n                ops.pop();\n            }\n            ops.push(s[i++]);\n        }\n    }\n    while (!ops.empty()) {\n        int b = nums.top(); nums.pop();\n        int a = nums.top(); nums.pop();\n        nums.push(calc(a, b, ops.top()));\n        ops.pop();\n    }\n    return nums.top();\n}\nint main() {\n    int T; cin >> T;\n    while (T--) {\n        string s; cin >> s;\n        cout << solve(s) << \"\\n\";\n    }\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 滑动窗口最值 ★★★ [sliding-window]（100 分）— <a href=\"https://fslong.iok.la/problem/CSPJ-STL-SLIDE\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**【题目描述】**\n\n给定一个长度为 n 的整数序列，求每个长度为 k 的连续子区间中的最大值。\n\n**【输入格式】**\n\n第一行两个整数 n 和 k（1 ≤ k ≤ n ≤ 10⁵）。\n\n第二行 n 个整数 a₁, a₂, ..., aₙ（|aᵢ| ≤ 10⁹）。\n\n**【输出格式】**\n\n输出一行 n−k+1 个整数，每个整数表示对应滑动窗口内的最大值。\n\n**【样例输入】**\n\n```\n8 3\n1 3 -1 -3 5 3 6 7\n```\n\n**【样例输出】**\n\n```\n3 3 5 5 6 7\n```\n\n**【数据范围】**\n\n1 ≤ k ≤ n ≤ 10⁵，|aᵢ| ≤ 10⁹。",
+      "question_type": "programming",
+      "pid": "CSPJ-STL-SLIDE",
+      "url": "https://fslong.iok.la/problem/CSPJ-STL-SLIDE",
+      "title": "滑动窗口最值 ★★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "使用 STL deque 维护窗口内可能成为最大值的元素下标。保持队列中元素值单调递减，队首即为当前窗口最大值。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nconst int N = 100005;\nint a[N];\nint main() {\n    int n, k; cin >> n >> k;\n    for (int i = 0; i < n; i++) cin >> a[i];\n    deque<int> dq;\n    for (int i = 0; i < n; i++) {\n        while (!dq.empty() && a[dq.back()] <= a[i])\n            dq.pop_back();\n        dq.push_back(i);\n        if (dq.front() <= i - k) dq.pop_front();\n        if (i >= k - 1) cout << a[dq.front()] << \" \\n\"[i == n - 1];\n    }\n    return 0;\n}\n```"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+	"title": "乘法原理编程训练",
+	"description": "陈韵西 6月17日作业 - 乘法原理、分步计数、编程实现",
+	"time_limit": 90,
+	"pass_score": 300,
+	"questions": [
+		{
+			"content": "### 第 1 题 毕业旅行 [P9509]（100 分）— <a href=\"https://fslong.iok.la/problem/P9509\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n毕业旅行要规划路线。从起点到景点 A 有 a 条路，从景点 A 到景点 B 有 b 条路，从景点 B 到终点有 c 条路。问从起点经过 A、B 到终点共有多少种走法？\n\n**输入格式**\n\n一行三个整数 a, b, c（1 ≤ a,b,c ≤ 30）。\n\n**输出格式**\n\n一个整数。\n\n**样例输入**\n```\n2 3 4\n```\n\n**样例输出**\n```\n24\n```\n\n**提示**\n\n三步累乘。试试用 do-while 循环，先执行再判断。",
+			"question_type": "programming",
+			"pid": "P9509",
+			"url": "https://fslong.iok.la/problem/P9509",
+			"title": "毕业旅行",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "三步累乘 a×b×c。试试用 do-while 循环，先执行再判断。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int a, b, c;\n    cin >> a >> b >> c;\n    int ans = 1;\n    int arr[3] = {a, b, c};\n    int i = 0;\n    do {\n        ans *= arr[i];\n        i++;\n    } while (i < 3);\n    cout << ans << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 2 题 抽奖活动 [P9510]（100 分）— <a href=\"https://fslong.iok.la/problem/P9510\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n商场抽奖有 n 类奖品，每类有 a_i 个。从每类中各抽一个奖品，有多少种不同的中奖组合？\n\n**输入格式**\n\n第一行一个整数 n（1 ≤ n ≤ 10）。\n第二行 n 个整数 a_1, a_2, ..., a_n（1 ≤ a_i ≤ 20）。\n\n**输出格式**\n\n一个整数。\n\n**样例输入**\n```\n3\n4 5 2\n```\n\n**样例输出**\n```\n40\n```\n\n**提示**\n\n先读 n，再用数组存每类的数量，最后用 for 循环累乘。跟课堂上的加法原理比一比：加法累加、乘法累乘。",
+			"question_type": "programming",
+			"pid": "P9510",
+			"url": "https://fslong.iok.la/problem/P9510",
+			"title": "抽奖活动",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "先读 n，再用数组存每类的数量，用 for 循环累乘。注意 a_i ≤ 20、n ≤ 10，最大乘积 20¹⁰ ≈ 1e13，需用 long long。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, a[15];\n    cin >> n;\n    for (int i = 0; i < n; i++) cin >> a[i];\n    long long ans = 1;\n    for (int i = 0; i < n; i++) ans *= a[i];\n    cout << ans << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 3 题 上学路线 [P9511]（100 分）— <a href=\"https://fslong.iok.la/problem/P9511\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n小西记录了一周每天从家到学校的路线。第 i 天从家到车站有 a_i 条路，从车站到学校有 b_i 条路。问每天各有多少种走法？\n\n**输入格式**\n\n第一行一个整数 t（1 ≤ t ≤ 7）。\n接下来 t 行，每行两个整数 a_i, b_i（1 ≤ a_i, b_i ≤ 20）。\n\n**输出格式**\n\nt 行，每行一个整数，表示当天的走法数。\n\n**样例输入**\n```\n3\n2 3\n1 4\n5 2\n```\n\n**样例输出**\n```\n6\n4\n10\n```\n\n**提示**\n\n多组数据，每组用两层循环处理——外层遍历天数，内层累乘。",
+			"question_type": "programming",
+			"pid": "P9511",
+			"url": "https://fslong.iok.la/problem/P9511",
+			"title": "上学路线",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "多组数据，每组用两层循环处理——外层遍历天数，内层累乘。但这里每组只有两个数，直接 a×b 即可。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int t;\n    cin >> t;\n    for (int i = 0; i < t; i++) {\n        int a, b;\n        cin >> a >> b;\n        cout << a * b << endl;\n    }\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 4 题 选择题答案 [P9512]（100 分）— <a href=\"https://fslong.iok.la/problem/P9512\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n一张试卷有 n 道选择题，每道题有 k 个选项。如果不看题目乱猜，有多少种不同的答案组合？\n\n**输入格式**\n\n一行两个整数 n, k（1 ≤ n ≤ 10, 2 ≤ k ≤ 5）。\n\n**输出格式**\n\n一个整数。\n\n**样例输入**\n```\n5 4\n```\n\n**样例输出**\n```\n1024\n```\n\n**样例解释**\n\n每道题 4 种选择，n 道题就是 4 × 4 × ... × 4（共 n 个 4）。4^5 = 1024。\n\n**提示**\n\n循环 n 次，每次累乘 k。跟课堂上的加法原理比一比：加法是\"或\"，乘法是\"且\"——这里每道题都要选，所以用乘法。",
+			"question_type": "programming",
+			"pid": "P9512",
+			"url": "https://fslong.iok.la/problem/P9512",
+			"title": "选择题答案",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "循环 n 次，每次累乘 k。跟课堂上的加法原理比一比：加法是\"或\"，乘法是\"且\"——这里每道题都要选，所以用乘法。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, k;\n    cin >> n >> k;\n    int ans = 1;\n    for (int i = 0; i < n; i++) ans *= k;\n    cout << ans << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 5 题 哪种方案更多 [P9513]（100 分）— <a href=\"https://fslong.iok.la/problem/P9513\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n**题目描述**\n\n商场有两种抽奖方案：\n\n- 方案 A：分 a 类奖品，每类分别有 a_1, a_2, ..., a_a 个，从每类中各抽一个。\n- 方案 B：分 b 类奖品，每类分别有 b_1, b_2, ..., b_b 个，从每类中各抽一个。\n\n问哪种方案的可能结果总数更多？如果相同输出 `Same`。\n\n**输入格式**\n\n第一行一个整数 a（1 ≤ a ≤ 10）。\n第二行 a 个整数（1 ≤ a_i ≤ 20）。\n第三行一个整数 b（1 ≤ b ≤ 10）。\n第四行 b 个整数（1 ≤ b_i ≤ 20）。\n\n**输出格式**\n\n一行：\n- 如果 A 方案更多，输出 `A`\n- 如果 B 方案更多，输出 `B`\n- 如果相同，输出 `Same`\n\n**样例输入**\n```\n2\n3 4\n3\n2 2 2\n```\n\n**样例输出**\n```\nA\n```\n\n**样例解释**\n\nA 方案：3 × 4 = 12 种。B 方案：2 × 2 × 2 = 8 种。A 更多，输出 A。\n\n**提示**\n\n分别计算两种方案的总数再比较。需要两个数组、两次循环累乘、一个 if-else 判断。",
+			"question_type": "programming",
+			"pid": "P9513",
+			"url": "https://fslong.iok.la/problem/P9513",
+			"title": "哪种方案更多",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "分别计算两种方案的总数再比较。需要两个数组、两次循环累乘、一个 if-else 判断。注意乘积可能超 int，需用 long long。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int a, b;\n    int arrA[15], arrB[15];\n    long long sumA = 1, sumB = 1;\n    cin >> a;\n    for (int i = 0; i < a; i++) { cin >> arrA[i]; sumA *= arrA[i]; }\n    cin >> b;\n    for (int i = 0; i < b; i++) { cin >> arrB[i]; sumB *= arrB[i]; }\n    if (sumA > sumB) cout << \"A\" << endl;\n    else if (sumA < sumB) cout << \"B\" << endl;\n    else cout << \"Same\" << endl;\n    return 0;\n}\n```"
+		}
+	]
+}

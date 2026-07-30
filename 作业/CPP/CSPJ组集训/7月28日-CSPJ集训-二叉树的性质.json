@@ -1,0 +1,336 @@
+{
+  "title": "CSP-J 集训 · 二叉树的性质",
+  "description": "CSPJ组集训 7月28日作业 - 历年真题二叉树性质精选20题 + 编程2道",
+  "time_limit": 40,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "### 第 1 题在一棵二叉搜索树（BST）中，若中序遍历的序列为{1, 2, 3, 4, 5}，且先序遍历的第一个序列元素为3，则下列说法正确的是（ ）。\n\n- A. 该树一定是一棵完全二叉树\n- B. 元素4和5不可能是兄弟节点\n- C. 元素1所在节点的深度可能大于3（根节点深度为1）\n- D. 元素2一定是元素1的父节点\n\n**答案：B**\n\n**解析：** 中序升序说明是有效BST。前序第一个为3，则3为根。左子树含{1,2}，右子树含{4,5}。因BST中右子树节点递增，4必为5之祖先，4与5不可能是兄弟。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题 BST性质",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "中序升序说明是有效BST。前序第一个为3，则3为根。左子树含{1,2}，右子树含{4,5}。因BST中右子树节点递增，4必为5之祖先，4与5不可能是兄弟。",
+      "options": {
+        "A": "该树一定是一棵完全二叉树",
+        "B": "元素4和5不可能是兄弟节点",
+        "C": "元素1所在节点的深度可能大于3（根节点深度为1）",
+        "D": "元素2一定是元素1的父节点"
+      }
+    },
+    {
+      "content": "### 第 2 题某二叉树共有10个结点，记为A~J，已知先序遍历为 A B D H I E C F J G，中序遍历为 H D I B E A F J C G，则该二叉树的后序遍历是（ ）。\n\n- A. H I D E B J F G C A\n- B. H I D B E J F G C A\n- C. I H D E B J F G C A\n- D. H I D E B F J G C A\n\n**答案：A**\n\n**解析：** 前序首A为根，中序分左右。递归重建得后序 H I D E B J F G C A。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题 二叉树遍历",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "前序首A为根，中序分左右。递归重建得后序 H I D E B J F G C A。",
+      "options": {
+        "A": "H I D E B J F G C A",
+        "B": "H I D B E J F G C A",
+        "C": "I H D E B J F G C A",
+        "D": "H I D E B F J G C A"
+      }
+    },
+    {
+      "content": "### 第 3 题下列关于树的遍历的说法中，正确的一项是（ ）。\n\n- A. 对任意一棵树进行深度优先遍历，所得序列一定唯一\n- B. 已知二叉树的先序遍历和后序遍历序列，可以唯一确定这棵二叉树\n- C. 已知二叉树的先序遍历和中序遍历序列，可以唯一确定这棵二叉树\n- D. 已知二叉树的先序遍历序列，可以唯一确定这棵二叉树\n\n**答案：C**\n\n**解析：** A错在DFS访问子结点顺序不固定；B错在先序+后序不能唯一确定（单子节点时歧义）；C正确；D错在先序单独不能唯一确定。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题 遍历性质",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "A错在DFS访问子结点顺序不固定；B错在先序+后序不能唯一确定；C正确；D错在先序单独不能唯一确定。",
+      "options": {
+        "A": "对任意一棵树进行深度优先遍历，所得序列一定唯一",
+        "B": "已知二叉树的先序遍历和后序遍历序列，可以唯一确定这棵二叉树",
+        "C": "已知二叉树的先序遍历和中序遍历序列，可以唯一确定这棵二叉树",
+        "D": "已知二叉树的先序遍历序列，可以唯一确定这棵二叉树"
+      }
+    },
+    {
+      "content": "### 第 4 题二叉树采用BFS算法返回右视图所有节点值。右视图定义为从右侧看过去时可见的节点集合。补全代码。\n\n```cpp\nvector<int> rightSideView(TreeNode* root) {\n    unordered_map<int, int> rightmostValueAtDepth;\n    int max_depth = -1;\n    queue<TreeNode*> nodeQueue;\n    queue<int> depthQueue;\n    nodeQueue.push(root);\n    depthQueue.push(0);\n    while (!nodeQueue.empty()) {\n        TreeNode* node = nodeQueue.front(); nodeQueue.pop();\n        int depth = depthQueue.front(); depthQueue.pop();\n        if (node != NULL) {\n            max_depth = max(max_depth, depth);\n            rightmostValueAtDepth[depth] = node->val;\n            nodeQueue.push(node->left);\n            nodeQueue.push(node->right);\n            depthQueue.push(________);\n            depthQueue.push(________);\n        }\n    }\n    vector<int> rightView;\n    for (int depth = 0; ________; ++depth)\n        rightView.push_back(rightmostValueAtDepth[depth]);\n    return rightView;\n}\n```\n\n- A. `depth` / `depth` / `depth < max_depth`\n- B. `depth + 1` / `depth + 1` / `depth <= max_depth`\n- C. `depth + 1` / `depth + 1` / `depth < max_depth`\n- D. `depth` / `depth` / `depth <= max_depth`\n\n**答案：B**\n\n**解析：** BFS中子结点深度为父结点深度+1，故push(depth+1)。depth从0到max_depth（含）收集右视图。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题 BFS与二叉树深度",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "BFS中子结点深度为父结点深度+1，故push(depth+1)。depth从0到max_depth（含）收集右视图。",
+      "options": {
+        "A": "depth / depth / depth < max_depth",
+        "B": "depth + 1 / depth + 1 / depth <= max_depth",
+        "C": "depth + 1 / depth + 1 / depth < max_depth",
+        "D": "depth / depth / depth <= max_depth"
+      }
+    },
+    {
+      "content": "### 第 5 题下列关于树的深度优先搜索（DFS）的说法中，正确的是（ ）。\n\n- A. 对树进行 DFS 时，一定是按层从上到下依次访问结点\n- B. 对任意一棵树进行 DFS，得到的遍历序列唯一\n- C. 对一棵树进行 DFS 时，常借助递归或栈实现\n- D. DFS 只能用于二叉树，不能用于普通树\n\n**答案：C**\n\n**解析：** A描述的是BFS；B中子结点访问顺序不固定；C正确；D错在DFS可用于任意树。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题 DFS性质",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "A描述的是BFS；B中子结点访问顺序不固定；C正确；D错在DFS可用于任意树。",
+      "options": {
+        "A": "对树进行 DFS 时，一定是按层从上到下依次访问结点",
+        "B": "对任意一棵树进行 DFS，得到的遍历序列唯一",
+        "C": "对一棵树进行 DFS 时，常借助递归或栈实现",
+        "D": "DFS 只能用于二叉树，不能用于普通树"
+      }
+    },
+    {
+      "content": "### 第 6 题设二叉树共 n 个结点，递归先序遍历的时间复杂度为 O(n)，空间复杂度为 O(n)。\n\n```cpp\nvoid preorder(TreeNode *root, vector<int> &res) {\n    if (root == nullptr) return;\n    res.push_back(root->val);\n    preorder(root->left, res);\n    preorder(root->right, res);\n}\n```\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** 每结点访问一次，时间 O(n)。递归深度最坏 O(n)（单链树），空间 O(n)。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题 递归遍历复杂度",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "每结点访问一次，时间 O(n)。递归深度最坏 O(n)，空间 O(n)。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 7 题用栈非递归实现二叉树前序遍历时，处理完当前结点后，应先将左孩子压入栈，再将右孩子压入栈。\n\n- A. 正确\n- B. 错误\n\n**答案：B**\n\n**解析：** 栈后进先出。前序「根→左→右」，应先压右孩子（后处理），再压左孩子（先处理）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题 栈实现前序遍历",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "栈后进先出。前序「根→左→右」，应先压右孩子，再压左孩子。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 8 题用一维数组 `vector<int> tree` 存储层序遍历的完全二叉树，根节点在 `tree[0]`，则非空节点 `tree[i]` 的右孩子（若存在）位于 `tree[2*i+2]`。\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** 完全二叉树层序存储，根在 tree[0] 时，左孩子 2i+1，右孩子 2i+2。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题 完全二叉树数组存储",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "完全二叉树层序存储，根在 tree[0] 时，左孩子 2i+1，右孩子 2i+2。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 9 题一棵包含1000个结点的完全二叉树，其叶子结点的数量是多少？（ ）\n\n- A. 499\n- B. 512\n- C. 500\n- D. 501\n\n**答案：C**\n\n**解析：** 完全二叉树叶子结点数 = ceil(n/2) = ceil(1000/2) = 500。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题 完全二叉树叶子数",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "完全二叉树叶子结点数 = ceil(n/2) = 500。",
+      "options": {
+        "A": "499",
+        "B": "512",
+        "C": "500",
+        "D": "501"
+      }
+    },
+    {
+      "content": "### 第 10 题（二叉树遍历·后序+中序求前序）已知二叉树的后序遍历为 G D B E F C A，中序遍历为 D G B A E C F，则该二叉树的前序遍历是（ ）。\n\n- A. A B D G C E F\n- B. A B G D C E F\n- C. A B D G E C F\n- D. A D B G C E F\n\n**答案：A**\n\n**解析：** 后序最后一个A为根。中序D G B | A | E C F，左子树后序G D B，右子树后序E F C。递归得左树B→D→G，右树C→E,F。前序A B D G C E F。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题 后序+中序求前序",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "后序最后一个A为根。递归得前序A B D G C E F。",
+      "options": {
+        "A": "A B D G C E F",
+        "B": "A B G D C E F",
+        "C": "A B D G E C F",
+        "D": "A D B G C E F"
+      }
+    },
+    {
+      "content": "### 第 11 题已知前序遍历 [A,B,D,E,C,F,G]，中序遍历 [D,B,E,A,F,C,G]，后序遍历是？（ ）\n\n- A. [D,E,B,F,G,C,A]\n- B. [D,E,B,F,G,A,C]\n- C. [D,B,E,F,G,C,A]\n- D. [D,B,E,F,G,A,C]\n\n**答案：A**\n\n**解析：** 前序首A为根，中序分左右。左子树B→D,E，右子树C→F,G。后序[D,E,B,F,G,C,A]。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题 二叉树遍历",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "前序首A为根，中序分左右。后序[D,E,B,F,G,C,A]。",
+      "options": {
+        "A": "[D, E, B, F, G, C, A]",
+        "B": "[D, E, B, F, G, A, C]",
+        "C": "[D, B, E, F, G, C, A]",
+        "D": "[D, B, E, F, G, A, C]"
+      }
+    },
+    {
+      "content": "### 第 12 题根节点高度为1，一棵拥有2023个节点的三叉树高度至少为（ ）。\n\n- A. 6\n- B. 7\n- C. 8\n- D. 9\n\n**答案：C**\n\n**解析：** 满三叉树高度h最多(3^h-1)/2个节点。7层1093，8层3280。2023>1093，故至少8层。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题 三叉树高度",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "满三叉树高度h最多(3^h-1)/2个节点。7层1093，8层3280。2023>1093，故至少8层。",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      }
+    },
+    {
+      "content": "### 第 13 题前序遍历 ABDECFG，中序遍历 DEBACFG，后序遍历是？（ ）\n\n- A. EDBGFCA\n- B. EDBGCFA\n- C. DEBGFCA\n- D. DBEGFCA\n\n**答案：A**\n\n**解析：** 前序首A为根。中序D E B | A | C F G。左子树B→D→E，右子树C→F→G。递归得后序E D B G F C A。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题 二叉树遍历",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "前序首A为根，中序分左右。递归得后序E D B G F C A。",
+      "options": {
+        "A": "EDBGFCA",
+        "B": "EDBGCFA",
+        "C": "DEBGFCA",
+        "D": "DBEGFCA"
+      }
+    },
+    {
+      "content": "### 第 14 题（完全二叉树·叶子数计算）一棵完全二叉树有 512 个结点，其叶子结点数是多少？（ ）\n\n- A. 255\n- B. 256\n- C. 257\n- D. 511\n\n**答案：B**\n\n**解析：** 完全二叉树叶子数 = ceil(n/2) = ceil(512/2) = 256。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题 完全二叉树叶子数",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "完全二叉树叶子数 = ceil(n/2) = 256。",
+      "options": {
+        "A": "255",
+        "B": "256",
+        "C": "257",
+        "D": "511"
+      }
+    },
+    {
+      "content": "### 第 15 题对如下树执行 travel 函数，输出结果是 1 2 3 4 5。（ ）\n\n```\n    1\n   / \\\n  2   3\n / \\\n4   5\n```\n```cpp\nvoid travel(Node* root) {\n    if (!root) return;\n    stack<Node*> s;\n    s.push(root);\n    while (!s.empty()) {\n        Node* cur = s.top(); s.pop();\n        cout << cur->val << \" \";\n        if (cur->right) s.push(cur->right);\n        if (cur->left) s.push(cur->left);\n    }\n}\n```\n\n- A. 正确\n- B. 错误\n\n**答案：B**\n\n**解析：** 先压右再压左，出栈先左后右，输出 1 2 4 5 3，不是 1 2 3 4 5。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题 栈模拟遍历",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "先压右再压左，输出 1 2 4 5 3。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 16 题（二叉树性质·叶子与度的关系）在一棵二叉树中，度为2的结点有 10 个，则叶子结点有多少个？（ ）\n\n- A. 9\n- B. 10\n- C. 11\n- D. 12\n\n**答案：C**\n\n**解析：** 二叉树性质 n₀ = n₂ + 1 = 10 + 1 = 11。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题 叶子与度关系",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "n₀ = n₂ + 1 = 11。",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "12"
+      }
+    },
+    {
+      "content": "### 第 17 题（二叉树性质·完全二叉树高度）一棵完全二叉树有 1000 个结点，其高度为多少？（根结点高度为 1）\n\n- A. 9\n- B. 10\n- C. 11\n- D. 12\n\n**答案：B**\n\n**解析：** 完全二叉树高度 = ⌊log₂n⌋ + 1 = ⌊log₂1000⌋ + 1 = 10。2⁹=512 < 1000 ≤ 2¹⁰=1024。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题 完全二叉树高度",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "完全二叉树高度 = ⌊log₂n⌋ + 1 = 10。",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "12"
+      }
+    },
+    {
+      "content": "### 第 18 题（二叉树基本性质·叶子与度）在一棵非空二叉树中，叶子结点数（度为0）总是比度为2的结点数多1。（ ）\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** 二叉树基本性质 n₀ = n₂ + 1。设总结点数 n = n₀ + n₁ + n₂，总边数 n-1 = n₁ + 2n₂，联立可得 n₀ = n₂ + 1。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题 叶子与度关系",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "n₀ = n₂ + 1。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 19 题（二叉树性质·节点与深度）一棵高度为 h 的二叉树（根高度为1），最多有 2^h - 1 个结点。（ ）\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** 满二叉树每层节点数 = 2^{k-1}，总和 = 2^0 + 2^1 + … + 2^{h-1} = 2^h - 1。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题 节点与深度关系",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "满二叉树节点总和 = 2^h - 1。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 20 题（二叉树性质·完全二叉树节点编号）完全二叉树中，若某节点无左孩子，则该节点必为叶子结点。（ ）\n\n- A. 正确\n- B. 错误\n\n**答案：A**\n\n**解析：** 完全二叉树节点按层序连续排列。若某节点无左孩子，则其右侧不可能有任何节点，故必为叶子。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题 完全二叉树叶子判定",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "完全二叉树节点按层序连续排列。无左孩子则右侧不可能有节点，必为叶子。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "### 第 1 题 仓库寻路（100 分）\n\n**题目描述**\n\n王叔叔的便利店有一个仓库，货架排列方式很特别——从入口（1号货架）开始，每个货架左右两侧可以放置两个子货架，编号规则如下：\n\n- 入口货架编号为 1\n- 编号为 i 的货架，其左侧子货架编号为 2i，右侧子货架编号为 2i+1\n\n这样一来，所有货架就构成了一棵完全二叉树的形状。\n\n王叔叔要取一件放在编号为 n 的货架上的商品。他从入口出发，每次可以选择走向左侧通道（L）或右侧通道（R），目标是走最短路径到达目标货架。\n\n请你帮王叔叔输出从入口到目标货架的路径。\n\n例如，到 5 号货架的路径是：1 → 左(到2) → 右(到5)，即 LR。\n\n**输入格式**\n\n一行，一个正整数 n（1 ≤ n ≤ 10⁹），表示目标货架编号。\n\n**输出格式**\n\n一行，一个由 L 和 R 组成的字符串，表示从入口（1号）到目标货架 n 的最短路径。\n\n**样例输入 1**\n```\n5\n```\n\n**样例输出 1**\n```\nLR\n```\n\n**样例输入 2**\n```\n12\n```\n\n**样例输出 2**\n```\nRLL\n```\n\n**提示**\n\n观察编号的二进制表示与路径之间的关系：5(101)→01→LR，6(110)→10→RL，12(1100)→100→RLL，3(11)→1→R。\n\n**数据范围**\n\n对于 30% 的数据，n ≤ 100。\n对于 60% 的数据，n ≤ 10⁵。\n对于 100% 的数据，1 ≤ n ≤ 10⁹。",
+      "question_type": "programming",
+      "pid": "P9816",
+      "url": "https://fslong.iok.la/problem/P9816",
+      "title": "仓库寻路",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "完全二叉树编号性质：节点i的左子=2i，右子=2i+1。从1走到n等价于将n的二进制表示去掉最高位后，0→L，1→R。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n    long long n;\n    cin >> n;\n    char s[65];\n    int len = 0;\n    for (int i = 60; i >= 0; i--)\n    {\n        if (n >> i & 1)\n        {\n            for (int j = i - 1; j >= 0; j--)\n                s[len++] = (n >> j & 1) ? 'R' : 'L';\n            break;\n        }\n    }\n    s[len] = '\\0';\n    cout << s << '\\n';\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 展位验证（100 分）\n\n**题目描述**\n\n学校举办社团文化节，各个社团在操场路边摆放展位。冯老师发现展位的布局有点像一棵完全二叉树——每个展位可以占一个节点，有些位置空着不放展位，排列顺序是从左到右逐层摆放。\n\n王老师把展位安排情况记录成一个层序遍历序列：从第一层（根位置）开始，从左到右逐层记录每个位置的展位编号，如果没有展位则用 0 表示。\n\n冯老师发现，如果展位布局符合完全二叉树的形状（除最后一层外每层都满，最后一层的展位连续靠左排列），那么社团间的动线最合理。现在给定一个展位安排序列，请你判断它是否可能来自一棵完全二叉树。\n\n**输入格式**\n\n第一行一个正整数 T（1 ≤ T ≤ 100），表示有 T 个待验证的布局。\n\n接下来 T 行，每行包含若干个整数，第一个整数 n 表示序列长度（1 ≤ n ≤ 1000），后面 n 个整数表示展位安排序列（正整数表示该位置有展位，0 表示空位，序列按层序遍历顺序给出）。\n\n**输出格式**\n\n对于每个布局，如果可能来自一棵完全二叉树，输出 YES，否则输出 NO。\n\n**样例输入**\n```\n3\n7 1 2 3 4 5 0 0\n7 1 2 3 0 4 0 0\n3 1 0 2\n```\n\n**样例输出**\n```\nYES\nNO\nNO\n```\n\n**数据范围**\n\n对于 30% 的数据，n ≤ 10。\n对于 60% 的数据，n ≤ 100。\n对于 100% 的数据，1 ≤ T ≤ 100，1 ≤ n ≤ 1000。",
+      "question_type": "programming",
+      "pid": "P9817",
+      "url": "https://fslong.iok.la/problem/P9817",
+      "title": "展位验证",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "完全二叉树的层序遍历性质：空节点之后不能出现非空节点。遍历序列，遇到第一个0后检查其后是否还有非0值。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint a[1005];\n\nint main()\n{\n    int T;\n    cin >> T;\n    while (T--)\n    {\n        int n;\n        cin >> n;\n        for (int i = 0; i < n; i++) cin >> a[i];\n        bool ok = true, seen_zero = false;\n        for (int i = 0; i < n; i++)\n        {\n            if (a[i] == 0) seen_zero = true;\n            else if (seen_zero) { ok = false; break; }\n        }\n        cout << (ok ? \"YES\" : \"NO\") << '\\n';\n    }\n    return 0;\n}\n```"
+    }
+  ]
+}

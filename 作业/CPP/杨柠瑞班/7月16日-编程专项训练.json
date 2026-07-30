@@ -1,0 +1,52 @@
+{
+  "title": "GESP 三四级编程训练（加深版）",
+  "description": "杨柠瑞班 7月16日作业 - 字符串校验、难度差枚举、矩阵冷区探测、分组排序",
+  "time_limit": 120,
+  "pass_score": 200,
+  "questions": [
+    {
+      "content": "### 第 1 题 快递单号校验 ★ [P9742]（100 分）— 字符串模拟 <a href=\"https://fslong.iok.la/problem/P9742\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n双十一到了，冯老师帮快递站分拣包裹。快递站的系统会对每个单号自动校验，只有通过全部三条规则的单号才能入库扫描，否则就是\"问题件\"要人工处理。冯老师想写个程序快速筛出合格的单号。\n\n单号是一个由字母（A-Z、a-z）和数字（0-9）组成的字符串，长度恰好为 10。校验规则如下：\n\n1. **无相邻重复**：不能有两个相同的相邻字符（如 \"AA\"、\"55\" 不允许，但间隔出现的相同字符可以，如 \"A1A\"）\n2. **字母数为偶数**：单号中所有字母的总个数必须是偶数\n3. **数字数为偶数**：单号中所有数字的总个数必须是偶数\n\n给定 n 个快递单号，请统计其中有多少个通过了全部校验。\n\n【输入格式】\n\n第一行，一个整数 n（1 ≤ n ≤ 1000）。\n\n接下来 n 行，每行一个长度恰好为 10 的字符串，表示一个快递单号。\n\n【输出格式】\n\n一行，一个整数，表示通过校验的单号数量。\n\n【样例 1 输入】\n\n```\n4\na1b2c3d4e5\nAABB112233\nAb1Cd2Ef3Gh\nAa1B2c3D4e\n```\n\n【样例 1 输出】\n\n```\n1\n```\n\n【样例 1 解释】\n\n- \"a1b2c3d4e5\"：无相邻重复 ✓，字母 5 个（奇数）✗\n- \"AABB112233\"：有 \"AA\" 相邻重复 ✗\n- \"Ab1Cd2Ef3Gh\"：无相邻重复 ✓，字母 6 个（偶数）✓，数字 3 个（奇数）✗\n- \"Aa1B2c3D4e\"：无相邻重复 ✓，字母 6 个（偶数）✓，数字 4 个（偶数）✓\n\n只有最后一个通过全部校验，输出 1。\n\n【样例 2 输入】\n\n```\n3\naB3cD5eF7g\n1234567890\nAbCdEfGhIj\n```\n\n【样例 2 输出】\n\n```\n2\n```\n\n【样例 2 解释】\n\n- \"aB3cD5eF7g\"：无相邻重复 ✓，字母 6 个（偶数）✓，数字 3 个（奇数）✗\n- \"1234567890\"：无相邻重复 ✓，字母 0 个（偶数）✓，数字 10 个（偶数）✓\n- \"AbCdEfGhIj\"：无相邻重复 ✓，字母 10 个（偶数）✓，数字 0 个（偶数）✓\n\n后两个通过校验，输出 2。\n\n【数据范围】\n\n1 ≤ n ≤ 1000，每个单号长度恰好为 10，仅由大小写字母和数字组成。\n\n【提示】\n\n对每个单号做三件事：① 从头到尾扫描一遍，检查 `s[i] == s[i-1]`；② 遍历统计字母个数和数字个数；③ 判断两个计数是否均为偶数。三条都满足才算通过。时间复杂度 O(10n)，轻松通过。",
+      "question_type": "programming",
+      "pid": "P9742",
+      "url": "https://fslong.iok.la/problem/P9742",
+      "title": "### 第 1 题 快递单号校验 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "对每个单号：① 从下标1开始检查 s[i]==s[i-1] 判重；② 统计 isalpha(c) 和 isdigit(c) 的个数；③ 两个计数均为偶数则 ans++。三条件缺一不可。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, ans = 0;\n    cin >> n;\n    while (n--) {\n        string s;\n        cin >> s;\n        bool ok = true;\n        for (int i = 1; i < 10; i++)\n            if (s[i] == s[i-1]) { ok = false; break; }\n        int letters = 0, digits = 0;\n        for (char c : s) {\n            if (isalpha(c)) letters++;\n            else digits++;\n        }\n        if (letters % 2 != 0 || digits % 2 != 0) ok = false;\n        if (ok) ans++;\n    }\n    cout << ans << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 2 题 关卡挑战配对 ★★ [P9743]（100 分）— 枚举 <a href=\"https://fslong.iok.la/problem/P9743\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n学校旁边的电玩城新出了一款闯关游戏，共有 n 个关卡。每个关卡 i 有一个难度值 d[i]，通关后能拿到的奖励代币为 r[i]。\n\n电玩城有个\"搭档模式\"：选两个不同的关卡同时挑战，通关后奖励叠加。但不是任意两个关卡都能搭档——只有当两个关卡的难度差**不超过** k（即 |d[i] − d[j]| ≤ k）时，机器才会允许你搭档闯关。\n\n小明想知道，在所有合法的搭档组合中，最多能拿到多少奖励代币？\n\n如果没有任何合法的搭档组合，输出 −1。\n\n【输入格式】\n\n第一行，两个整数 n 和 k（2 ≤ n ≤ 5000，1 ≤ k ≤ 1000）。\n\n接下来 n 行，每行两个整数 d[i] 和 r[i]（1 ≤ d[i] ≤ 1000，1 ≤ r[i] ≤ 1000），分别表示第 i 个关卡的难度和奖励代币数。\n\n【输出格式】\n\n一行，一个整数，表示最大的奖励代币之和；若无合法搭档，输出 −1。\n\n【样例 1 输入】\n\n```\n4 2\n3 15\n5 25\n6 10\n8 20\n```\n\n【样例 1 输出】\n\n```\n40\n```\n\n【样例 1 解释】\n\n四个关卡：(3,15)、(5,25)、(6,10)、(8,20)。\n\n合法搭档（难度差 ≤ 2）及其奖励和：\n\n| 搭档 | 难度差 | 奖励和 |\n|------|--------|--------|\n| (3,15) 与 (5,25) | 2 | 40 |\n| (5,25) 与 (6,10) | 1 | 35 |\n| (6,10) 与 (8,20) | 2 | 30 |\n\n最大奖励和为 **40**。\n\n【样例 2 输入】\n\n```\n6 5\n1 100\n3 80\n6 90\n10 70\n12 60\n15 50\n```\n\n【样例 2 输出】\n\n```\n190\n```\n\n【样例 2 解释】\n\n合法搭档中奖励和最大的是 (1,100) 与 (6,90)，难度差 5，奖励和 190。\n\n【样例 3 输入】\n\n```\n3 0\n10 100\n11 50\n12 80\n```\n\n【样例 3 输出】\n\n```\n-1\n```\n\n【样例 3 解释】\n\nk=0 要求难度完全相同。三个关卡难度各不相同（10、11、12），不存在合法搭档，输出 −1。\n\n【数据范围】\n\n2 ≤ n ≤ 5000，1 ≤ d[i] ≤ 1000，1 ≤ r[i] ≤ 1000，1 ≤ k ≤ 1000。\n\n【提示】\n\n两重循环枚举所有 i < j 的关卡对。对每一对，先判断 |d[i] − d[j]| ≤ k 是否成立，成立则用 r[i] + r[j] 更新答案最大值。初始化答案为 −1，若全程没有更新过则输出 −1。时间复杂度 O(n²)，n = 5000 时约 1250 万次运算，可在 1 秒内完成。",
+      "question_type": "programming",
+      "pid": "P9743",
+      "url": "https://fslong.iok.la/problem/P9743",
+      "title": "### 第 2 题 关卡挑战配对 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "枚举 i<j 无序对，同时满足 |d[i]-d[j]|≤k 才用 r[i]+r[j] 更新最大值。ans 初始为 -1，全程未更新则输出 -1。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, k, d[5005], r[5005];\n    cin >> n >> k;\n    for (int i = 0; i < n; i++) cin >> d[i] >> r[i];\n    int ans = -1;\n    for (int i = 0; i < n; i++)\n        for (int j = i + 1; j < n; j++)\n            if (abs(d[i] - d[j]) <= k)\n                ans = max(ans, r[i] + r[j]);\n    cout << ans << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 3 题 冷区探测 ★ [P9744]（100 分）— 二维矩阵枚举 <a href=\"https://fslong.iok.la/problem/P9744\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n冯老师在玩一款吃鸡手游，游戏地图被分成 n 行 m 列的网格，每个格子有一个\"危险值\"（数值越大代表该区域敌人越多，越容易刚枪；负数表示安全区）。\n\n冯老师有一个 **2 行 k 列** 的扫描框，可以框住地图上任意一个连续的 2×k 区域。框内所有格子的危险值之和就是该区域的\"危险得分\"。\n\n为了安稳发育，冯老师想找到危险得分**最小**的 2×k 区域跳伞。请你帮她算一算，这个最小危险得分是多少？\n\n【输入格式】\n\n第一行，三个整数 n、m 和 k（2 ≤ n ≤ 50，2 ≤ k ≤ m ≤ 50）。\n\n接下来 n 行，每行 m 个整数，表示地图各格子的危险值（−100 ≤ 危险值 ≤ 100）。\n\n【输出格式】\n\n一行，一个整数，表示最小的危险得分。\n\n【样例 1 输入】\n\n```\n2 5 3\n5 -10  3  -8  2\n2  -7  1  -4  6\n```\n\n【样例 1 输出】\n\n```\n-25\n```\n\n【样例 1 解释】\n\n地图只有 2 行，k=3，可取的 2×3 区域有 3 个：\n\n- 左上角 (1,1)：5 + (−10) + 3 + 2 + (−7) + 1 = **−6**\n- 左上角 (1,2)：(−10) + 3 + (−8) + (−7) + 1 + (−4) = **−25**\n- 左上角 (1,3)：3 + (−8) + 2 + 1 + (−4) + 6 = **0**\n\n最小值为 **−25**。\n\n【样例 2 输入】\n\n```\n3 6 4\n10  5  8  3  12  7\n-2  7  4 -6   9  1\n 3 -1  6  2  -5  4\n```\n\n【样例 2 输出】\n\n```\n13\n```\n\n【样例 2 解释】\n\nn=3, m=6, k=4，可取的 2×4 区域有 6 个：\n\n| 左上角 | 危险得分 |\n|--------|----------|\n| (1,1) | 10+5+8+3+(−2)+7+4+(−6) = 29 |\n| (1,2) | 5+8+3+12+7+4+(−6)+9 = 42 |\n| (1,3) | 8+3+12+7+(−6)+9+1+2 = 36 |\n| (2,1) | (−2)+7+4+(−6)+3+(−1)+6+2 = 13 |\n| (2,2) | 7+4+(−6)+9+(−1)+6+2+(−5) = 16 |\n| (2,3) | 4+(−6)+9+1+6+2+(−5)+4 = 15 |\n\n最小值为 **13**。\n\n【数据范围】\n\n2 ≤ n ≤ 50，2 ≤ k ≤ m ≤ 50，−100 ≤ 危险值 ≤ 100。\n\n【提示】\n\n枚举所有 2×k 子矩阵的左上角 (i, j)：i 从 0 到 n−2，j 从 0 到 m−k。对每个左上角，用两层循环累加 k 列×2 行共 2k 个格子的和，更新最小值。答案初始化为一个很大的正数（如 10⁹），因为所有和都可能小于它。时间复杂度 O(n × (m−k+1) × k)。",
+      "question_type": "programming",
+      "pid": "P9744",
+      "url": "https://fslong.iok.la/problem/P9744",
+      "title": "### 第 3 题 冷区探测 ★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "枚举 2×k 子矩阵左上角 (i,j)，i 从 0 到 n-3，j 从 0 到 m-k，用二重循环累加 2k 个格子之和取最小值。ans 初始化为 1e9。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, m, k, a[55][55];\n    cin >> n >> m >> k;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < m; j++) cin >> a[i][j];\n    int ans = 1e9;\n    for (int i = 0; i <= n - 2; i++)\n        for (int j = 0; j <= m - k; j++) {\n            int sum = 0;\n            for (int di = 0; di < 2; di++)\n                for (int dj = 0; dj < k; dj++)\n                    sum += a[i + di][j + dj];\n            ans = min(ans, sum);\n        }\n    cout << ans << endl;\n    return 0;\n}\n```"
+    },
+    {
+      "content": "### 第 4 题 运动会分组排名 ★★ [P9745]（100 分）— 结构体排序 <a href=\"https://fslong.iok.la/problem/P9745\" target=\"_blank\">🧑‍💻 在线答题</a>\n\n【题目描述】\n\n学校运动会，n 个同学报名参赛。每人有昵称、组别和一个成绩值。\n\n组别有三种：\n\n- **短跑组**（group = 1）：成绩是用时（秒，**越小越好**）\n- **长跑组**（group = 2）：成绩是用时（秒，**越小越好**）\n- **田赛组**（group = 3）：成绩是距离（米，**越大越好**）\n\n注意：短跑组和长跑组按成绩**从小到大**排（用时少的厉害），田赛组按成绩**从大到小**排（投得远的厉害）。\n\n排名时，先按组别顺序输出：**短跑组 → 长跑组 → 田赛组**。每个组内部按各自规则排好序后，依次输出。如果组内成绩相同，按昵称的字典序从小到大排。\n\n请按最终顺序输出所有同学的昵称。\n\n【输入格式】\n\n第一行，一个整数 n（1 ≤ n ≤ 1000）。\n\n接下来 n 行，每行三个数据：一个字符串昵称、一个整数 group、一个浮点数 score（1 ≤ group ≤ 3，1 ≤ score ≤ 10000，结果保留一位小数）。\n\n【输出格式】\n\n输出 n 行，每行一个昵称，按最终排名顺序输出。\n\n【样例 1 输入】\n\n```\n6\nAlice 1 12.5\nBob 3 8.2\nCharlie 2 180.0\nDiana 1 11.8\nEve 3 7.5\nFrank 2 175.0\n```\n\n【样例 1 输出】\n\n```\nDiana\nAlice\nFrank\nCharlie\nBob\nEve\n```\n\n【样例 1 解释】\n\n分组：\n\n- 短跑组(1)：Alice(12.5)、Diana(11.8) → 按用时从小到大：Diana(11.8) → Alice(12.5)\n- 长跑组(2)：Charlie(180.0)、Frank(175.0) → 按用时从小到大：Frank(175.0) → Charlie(180.0)\n- 田赛组(3)：Bob(8.2)、Eve(7.5) → 按距离从大到小：Bob(8.2) → Eve(7.5)\n\n按\"短跑→长跑→田赛\"拼接输出：Diana, Alice, Frank, Charlie, Bob, Eve。\n\n【样例 2 输入】\n\n```\n5\nAmy 1 12.0\nAnna 1 12.0\nBen 2 300.0\nBob 2 300.0\nCathy 3 6.0\n```\n\n【样例 2 输出】\n\n```\nAmy\nAnna\nBen\nBob\nCathy\n```\n\n【样例 2 解释】\n\n- 短跑组：Amy(12.0)、Anna(12.0) → 成绩相同，按昵称字典序：Amy → Anna\n- 长跑组：Ben(300.0)、Bob(300.0) → 成绩相同，按昵称字典序：Ben → Bob\n- 田赛组：Cathy(6.0) → 只有一人\n\n输出：Amy, Anna, Ben, Bob, Cathy。\n\n【数据范围】\n\n1 ≤ n ≤ 1000，1 ≤ group ≤ 3，1 ≤ score ≤ 10000，score 保留一位小数。昵称仅含大小写字母，长度不超过 20。\n\n【提示】\n\n定义结构体存储昵称 name、组别 group、成绩 score。读入所有数据后，用三次 sort 分别对短跑组、长跑组、田赛组排序，或者用一个 cmp 函数统一处理：cmp 中先判断两人的 group 是否相同，不同组的按 group 编号排（1 < 2 < 3）；同组时，短跑和长跑用 `a.score < b.score`（升序），田赛用 `a.score > b.score`（降序）；成绩相同时按 name 升序。排序后直接输出 name 即可。",
+      "question_type": "programming",
+      "pid": "P9745",
+      "url": "https://fslong.iok.la/problem/P9745",
+      "title": "### 第 4 题 运动会分组排名 ★★",
+      "options": {},
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "定义结构体存 name, group, score。cmp 先比 group 升序（1<2<3），同组时短跑长跑 score 升序、田赛 score 降序，成绩相同按 name 升序。排序后输出 name。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nstruct Stu {\n    string name;\n    int group;\n    double score;\n};\nbool cmp(Stu a, Stu b) {\n    if (a.group != b.group) return a.group < b.group;\n    if (a.group <= 2) { // 短跑、长跑：升序\n        if (a.score != b.score) return a.score < b.score;\n    } else { // 田赛：降序\n        if (a.score != b.score) return a.score > b.score;\n    }\n    return a.name < b.name;\n}\nint main() {\n    int n;\n    cin >> n;\n    vector<Stu> v(n);\n    for (int i = 0; i < n; i++)\n        cin >> v[i].name >> v[i].group >> v[i].score;\n    sort(v.begin(), v.end(), cmp);\n    for (int i = 0; i < n; i++) cout << v[i].name << endl;\n    return 0;\n}\n```"
+    }
+  ]
+}
