@@ -1,0 +1,263 @@
+{
+	"title": "字符数组",
+	"description": "赵柯豪班 8月2日作业 - 字符数组、字符串、ASCII码、字符处理",
+	"time_limit": 90,
+	"pass_score": 60,
+	"questions": [
+		{
+			"content": "冯老师做英语单词卡，用 `char s[100];` 存储一个单词。这个数组最多能存储多少个有效字符（不含结束符）？",
+			"question_type": "single",
+			"title": "英语单词卡",
+			"options": {
+				"A": "100",
+				"B": "101",
+				"C": "98",
+				"D": "99"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "字符串末尾必须留一个位置存 '\\0'，故 100 个元素的数组最多存 99 个有效字符。"
+		},
+		{
+			"content": "王叔叔收到一条短信验证码，程序用 `char c;` 存下其中一位数字字符。要判断 `c` 是不是数字字符，正确的表达式是？",
+			"question_type": "single",
+			"title": "短信验证码",
+			"options": {
+				"A": "c >= 0 && c <= 9",
+				"B": "c == 0 || c == 9",
+				"C": "c >= '0' && c <= '9'",
+				"D": "c > '0' && c < '9'"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "数字字符 '0'~'9' 的 ASCII 码连续，判断需用字符字面量 '0' 与 '9' 比较。B 用整数 0、9 比较错误（'0' 的 ASCII 是 48）；C 只判断两端；D 排除 0 和 9。"
+		},
+		{
+			"content": "侯老师统计朋友圈文案的字数，用一个循环从头往后数，直到遇到字符串结尾。循环条件应写成？",
+			"question_type": "single",
+			"title": "朋友圈字数",
+			"options": {
+				"A": "s[i] != ' '",
+				"B": "s[i] != '\\0'",
+				"C": "s[i] != '\\n'",
+				"D": "s[i] != '0'"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "字符串以 '\\0'（ASCII 0）结尾，遍历时用 s[i] != '\\0' 判断是否到末尾。空格、换行都是合法字符，不能作结束标志。"
+		},
+		{
+			"content": "妈妈用拼音输入法打字，程序需要判断一个字符 `c` 是不是小写字母。正确的表达式是？",
+			"question_type": "single",
+			"title": "拼音首字母",
+			"options": {
+				"A": "c >= 'a' && c <= 'z'",
+				"B": "c >= 'A' && c <= 'Z'",
+				"C": "c >= 97 || c <= 122",
+				"D": "c >= 'a' || c <= 'z'"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "小写字母 'a'~'z' ASCII 码 97~122，判断须用 'a' 与 'z' 作区间且用与逻辑（&&）。B 判断大写，C、D 用或逻辑使任意字符几乎都满足，均错。"
+		},
+		{
+			"content": "王叔叔用 `cin >> s;` 读入一个字符串存进 `char s[100];`。当他输入 `\"hello world\"`（中间有空格）时，程序读到了什么？",
+			"question_type": "single",
+			"title": "微信昵称",
+			"options": {
+				"A": "world",
+				"B": "hello world",
+				"C": "什么也没读到",
+				"D": "hello"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "cin >> 读字符串遇到空白（空格、回车）即停止，故只读到 hello，world 留在输入流中。"
+		},
+		{
+			"content": "侯老师要把字符数组 `a` 的内容整个复制给 `char b[100];`。以下哪种做法是正确的？",
+			"question_type": "single",
+			"title": "答题卡涂改",
+			"options": {
+				"A": "strcpy(b, a);",
+				"B": "b = a;",
+				"C": "cin >> b >> a;",
+				"D": "b[100] = a[100];"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "字符数组不能整体赋值（A 非法），须用 strcpy 复制字符串（需 #include <cstring>）。D 越界访问，C 是输入操作非复制。"
+		},
+		{
+			"content": "C++ 中，普通字符串在内存里以什么字符表示结束？",
+			"question_type": "single",
+			"title": "字符串结尾的秘密",
+			"options": {
+				"A": "'0'（ASCII 码为 48）",
+				"B": "'\\0'（ASCII 码为 0）",
+				"C": "' '（空格）",
+				"D": "'\\n'（换行）"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "C/C++ 字符串以 '\\0'（ASCII 0）结尾，'0' 是数字字符 48，空格 32，换行 10，都不是结束标志。"
+		},
+		{
+			"content": "`char s[] = \"hello\";` 那么 `s[1]` 的值是？",
+			"question_type": "single",
+			"title": "单词下标",
+			"options": {
+				"A": "'e'",
+				"B": "'h'",
+				"C": "'l'",
+				"D": "'o'"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "下标从 0 开始：s[0]='h'，s[1]='e'，s[2]='l'，s[3]='l'，s[4]='o'。故 s[1] 为 'e'。"
+		},
+		{
+			"content": "冯老师的名字存在 `char s[100]` 中，名字是 `\"zhang\"`。数组 `s` 里实际占用的元素个数（含结束符）是？",
+			"question_type": "single",
+			"title": "名字长度",
+			"options": {
+				"A": "100",
+				"B": "5",
+				"C": "7",
+				"D": "6"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "zhang 共 5 个字符，加上结尾 '\\0'，共占 6 个元素。strlen 返回值是 5（不含 '\\0'）。"
+		},
+		{
+			"content": "定义 `char s[100];` 后，这个数组一共有多少个元素？",
+			"question_type": "single",
+			"title": "字符数组大小",
+			"options": {
+				"A": "101",
+				"B": "99",
+				"C": "100",
+				"D": "由输入决定"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "char s[100] 定义 100 个元素，下标 0~99。数组大小在定义时固定，与输入无关。"
+		},
+		{
+			"content": "用 `cin >> s;` 读字符串时，遇到空格会停止读取。",
+			"question_type": "judge",
+			"title": "第 11 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "cin >> 以空白字符（空格、回车、Tab）为分隔，读字符串时遇空格即停止。说法正确。"
+		},
+		{
+			"content": "字符数组可以直接整体赋值，例如 `s = \"hello\";` 是合法的。",
+			"question_type": "judge",
+			"title": "第 12 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "数组名是常量指针，不能整体赋值。须用 strcpy(s, \"hello\")。说法错误。"
+		},
+		{
+			"content": "函数 `strlen(s)` 统计字符串长度时，包含结尾的 `'\\0'`。",
+			"question_type": "judge",
+			"title": "第 13 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "strlen 返回有效字符个数，不含结尾 '\\0'。例如 \"abc\" 的 strlen 为 3。说法错误。"
+		},
+		{
+			"content": "字符 `'0'` 的 ASCII 码是整数 0。",
+			"question_type": "judge",
+			"title": "第 14 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "'0' 的 ASCII 码是 48，整数 0 是 '\\0'（空字符）。说法错误。"
+		},
+		{
+			"content": "遍历字符数组时，可以用 `s[i] != '\\0'` 来判断是否已经到字符串末尾。",
+			"question_type": "judge",
+			"title": "第 15 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "字符串以 '\\0' 结束，遍历时 s[i] != '\\0' 即未到末尾，可用作循环条件。说法正确。"
+		},
+		{
+			"content": "### 第 16 题 统计元音（100 分）\n\n**题目描述**\n\n冯老师批改英文作文，想统计一段话里元音字母（a、e、i、o、u）一共出现了多少次。输入一行只含小写字母的字符串，请统计其中元音字母的总个数。\n\n**输入格式**\n\n一行，一个只含小写字母的字符串 s（长度 ≤ 100）。\n\n**输出格式**\n\n一行，一个整数，表示元音字母的总个数。\n\n**样例输入**\n```\nhello\n```\n\n**样例输出**\n```\n2\n```\n\n**样例解释**\n\n`hello` 中元音字母有 e、o，共 2 个。\n\n**提示**\n\n用 `char s[105];` 存字符串，`cin >> s;` 读入。用 `for` 循环遍历，逐个判断是否属于 `'a'`、`'e'`、`'i'`、`'o'`、`'u'`，是则计数加 1。",
+			"question_type": "programming",
+			"pid": "zkh11",
+			"url": "https://fslong.iok.la/problem/ZKH11",
+			"title": "统计元音",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "遍历字符串，判断字符是否为元音字母 a/e/i/o/u，计数累加。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char s[105];\n    cin >> s;\n    int cnt = 0;\n    for (int i = 0; s[i] != '\\0'; i++) {\n        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u')\n            cnt++;\n    }\n    cout << cnt << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 17 题 字符出现了几次（100 分）\n\n**题目描述**\n\n王叔叔管理游戏服务器，想统计某个字母在一条聊天消息里出现了多少次。输入一个字符 c 和一个字符串 s，请统计 c 在 s 中出现的次数。\n\n**输入格式**\n\n第一行，一个字符 c（小写字母）。\n\n第二行，一个只含小写字母的字符串 s（长度 ≤ 100）。\n\n**输出格式**\n\n一行，一个整数，表示 c 在 s 中出现的次数。\n\n**样例输入**\n```\no\nhello\n```\n\n**样例输出**\n```\n1\n```\n\n**样例解释**\n\n`o` 在 `hello` 中出现了 1 次。\n\n**提示**\n\n`cin >> c;` 读字符，`cin >> s;` 读字符串。遍历 s，每当 `s[i] == c` 时计数加 1。",
+			"question_type": "programming",
+			"pid": "zkh12",
+			"url": "https://fslong.iok.la/problem/ZKH12",
+			"title": "字符出现了几次",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "读入字符与字符串，遍历字符串统计与 c 相等的字符个数。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char c, s[105];\n    cin >> c >> s;\n    int cnt = 0;\n    for (int i = 0; s[i] != '\\0'; i++)\n        if (s[i] == c) cnt++;\n    cout << cnt << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 18 题 大写小写各多少（100 分）\n\n**题目描述**\n\n侯老师统计一篇文章里大写字母和小写字母各有多少个。输入一个字符串（可能含大写字母、小写字母和数字），请统计其中大写字母的个数和小写字母的个数。\n\n**输入格式**\n\n一行，一个字符串 s（长度 ≤ 100，可能含大写字母、小写字母和数字）。\n\n**输出格式**\n\n一行，两个整数，依次为小写字母个数和大写字母个数，用空格隔开。\n\n**样例输入**\n```\nHello123\n```\n\n**样例输出**\n```\n4 1\n```\n\n**样例解释**\n\n`Hello123` 中：小写字母 e、l、l、o 共 4 个，大写字母 H 共 1 个，数字 123 不计入。\n\n**提示**\n\n遍历字符串，`c >= 'a' && c <= 'z'` 是小写，`c >= 'A' && c <= 'Z'` 是大写，分别计数。",
+			"question_type": "programming",
+			"pid": "zkh13",
+			"url": "https://fslong.iok.la/problem/ZKH13",
+			"title": "大写小写各多少",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "遍历字符串，用小写字母区间和大写字母区间分别计数，输出时先小写后大写。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char s[105];\n    cin >> s;\n    int low = 0, up = 0;\n    for (int i = 0; s[i] != '\\0'; i++) {\n        if (s[i] >= 'a' && s[i] <= 'z') low++;\n        else if (s[i] >= 'A' && s[i] <= 'Z') up++;\n    }\n    cout << low << \" \" << up << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 19 题 倒序输出（100 分）\n\n**题目描述**\n\n王叔叔带女儿玩\"倒着念名字\"的游戏：把一句话倒过来念。输入一个字符串，请把它的字符顺序完全颠倒后输出。\n\n**输入格式**\n\n一行，一个不含空格的字符串 s（长度 ≤ 100）。\n\n**输出格式**\n\n一行，s 倒序后的字符串。\n\n**样例输入**\n```\nhello\n```\n\n**样例输出**\n```\nolleh\n```\n\n**提示**\n\n先求字符串长度 n（用循环数到 `'\\0'`），再从 `n-1` 到 `0` 倒着输出每个字符。",
+			"question_type": "programming",
+			"pid": "zkh14",
+			"url": "https://fslong.iok.la/problem/ZKH14",
+			"title": "倒序输出",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "先遍历求字符串长度 n，再从 n-1 到 0 倒序输出每个字符。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char s[105];\n    cin >> s;\n    int n = 0;\n    while (s[n] != '\\0') n++;\n    for (int i = n - 1; i >= 0; i--)\n        cout << s[i];\n    cout << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 20 题 手机号里有几个数字（100 分）\n\n**题目描述**\n\n侯老师收集了一份作业登记信息，里面混着字母和数字。他想知道：其中一共出现了多少个数字字符（`'0'` 到 `'9'`）。输入一个字符串，请统计其中数字字符的个数。\n\n**输入格式**\n\n一行，一个字符串 s（长度 ≤ 100，可能含字母、数字和其他符号）。\n\n**输出格式**\n\n一行，一个整数，表示数字字符的个数。\n\n**样例输入**\n```\nabc123xyz4\n```\n\n**样例输出**\n```\n4\n```\n\n**样例解释**\n\n`abc123xyz4` 中数字字符为 1、2、3、4，共 4 个。\n\n**提示**\n\n遍历字符串，判断 `s[i] >= '0' && s[i] <= '9'`，是则计数加 1。",
+			"question_type": "programming",
+			"pid": "zkh15",
+			"url": "https://fslong.iok.la/problem/ZKH15",
+			"title": "手机号里有几个数字",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "遍历字符串，用字符区间判断是否为数字字符并计数。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char s[105];\n    cin >> s;\n    int cnt = 0;\n    for (int i = 0; s[i] != '\\0'; i++)\n        if (s[i] >= '0' && s[i] <= '9') cnt++;\n    cout << cnt << endl;\n    return 0;\n}\n```"
+		}
+	]
+}

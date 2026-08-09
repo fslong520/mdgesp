@@ -1,0 +1,364 @@
+{
+  "title": "CSP-J 集训 · 拓扑排序",
+  "description": "CSPJ组集训 8月2日作业 - 拓扑排序（单选10+阅读5+完善5）+ 编程4道",
+  "time_limit": 40,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "对一个图进行拓扑排序，适用的图是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题 拓扑排序适用图",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "拓扑排序仅适用于有向无环图（DAG）。无向图无方向概念，含环有向图无法排出满足所有边方向的线性序列。",
+      "options": {
+        "A": "有向无环图",
+        "B": "无向图",
+        "C": "任意有向图",
+        "D": "任意图"
+      }
+    },
+    {
+      "content": "用 Kahn 算法进行拓扑排序时，每次从队列中取出并输出的顶点满足（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题 Kahn算法取点",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "Kahn 算法每次取出入度为 0 的顶点输出——它没有未被处理的前驱，可先确定。",
+      "options": {
+        "A": "出度为 0",
+        "B": "入度为 0",
+        "C": "度数最大",
+        "D": "编号最小"
+      }
+    },
+    {
+      "content": "一个顶点数为 n 的有向图存在拓扑排序的充要条件是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题 拓扑排序条件",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "有向图存在拓扑排序 ⟺ 图是 DAG（不存在有向环）。连通性、边数、入度为 0 的顶点都不是充要条件。",
+      "options": {
+        "A": "图是连通的",
+        "B": "图中边数不超过 n-1",
+        "C": "图中存在入度为 0 的顶点",
+        "D": "图中不存在有向环"
+      }
+    },
+    {
+      "content": "下列关于拓扑排序的说法，正确的是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题 拓扑序唯一性",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "当多个入度为 0 的顶点同时可选时，顺序可不同，故拓扑排序结果不一定唯一。A 错；拓扑排序适用于 DAG 而非树，B 错；无向图不能拓扑排序，D 错。",
+      "options": {
+        "A": "一个图的拓扑排序结果一定是唯一的",
+        "B": "拓扑排序只能用于树形结构",
+        "C": "同一个图可能存在多种不同的拓扑排序结果",
+        "D": "无向图也可以进行拓扑排序"
+      }
+    },
+    {
+      "content": "用邻接表存储的 n 个顶点、m 条边的有向图，Kahn 算法求拓扑排序的时间复杂度为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题 Kahn算法复杂度",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "每个顶点入队出队一次（n），每条边被扫描一次（m），总复杂度 O(n + m)。",
+      "options": {
+        "A": "O(n)",
+        "B": "O(m)",
+        "C": "O(n²)",
+        "D": "O(n + m)"
+      }
+    },
+    {
+      "content": "对 n 个顶点的有向图执行 Kahn 算法，若最终输出的顶点个数少于 n，则说明（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题 输出不足判定",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "若图有环，环上顶点入度永远不会降为 0，无法入队，输出数 < n。故图中存在有向环。",
+      "options": {
+        "A": "图中存在有向环",
+        "B": "图不连通",
+        "C": "输入数据错误",
+        "D": "算法执行正常"
+      }
+    },
+    {
+      "content": "以下实际场景，最适合用拓扑排序解决的是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题 拓扑排序应用",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "课程先修关系是有向依赖，求可行顺序即拓扑排序。最短路用 Dijkstra/BFS，连通分量用 DFS/BFS，最小生成树用 Kruskal/Prim。",
+      "options": {
+        "A": "求两个城市间的最短路径",
+        "B": "安排课程的先修顺序",
+        "C": "求无向图的连通分量",
+        "D": "求最小生成树"
+      }
+    },
+    {
+      "content": "有向图的边为 (1,2)、(1,3)、(2,4)，忽略其余顶点，该图可能的拓扑排序有（ ）种。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题 拓扑序计数",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "顶点 1 入度为 0 必先输出；顶点 4 入度来自 2，必在 2 后。2 与 3 无依赖关系，可交换顺序。故有两种：1,2,3,4 与 1,3,2,4。",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      }
+    },
+    {
+      "content": "用深度优先搜索（DFS）求拓扑排序时，最终的输出顺序应取（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题 DFS拓扑序",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "DFS 结束时顶点加入序列（后序），此时前驱已全部加入，故后序遍历结果的逆序才是拓扑排序。",
+      "options": {
+        "A": "DFS 的访问顺序",
+        "B": "DFS 的前序遍历顺序",
+        "C": "DFS 后序遍历结果的逆序",
+        "D": "顶点编号顺序"
+      }
+    },
+    {
+      "content": "以下问题中，不能直接用拓扑排序解决的是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题 拓扑排序局限",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "判环、任务执行顺序、课程修完判断都可用拓扑排序。两点间最短路径需 Dijkstra/BFS 等，拓扑排序无法直接解决。",
+      "options": {
+        "A": "判断有向图是否存在环",
+        "B": "求任务依赖关系的执行顺序",
+        "C": "求图中两点间的最短路径",
+        "D": "判断课程能否全部修完"
+      }
+    },
+    {
+      "content": "程序一（Kahn算法）：\n\n```cpp\nconst int N = 100005;\nvector<int> g[N];\nint in[N];\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n        in[v]++;\n    }\n    queue<int> q;\n    for (int i = 1; i <= n; i++)\n        if (in[i] == 0) q.push(i);\n    int cnt = 0;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        cout << u << \" \";\n        cnt++;\n        for (int v : g[u]) {\n            in[v]--;\n            if (in[v] == 0) q.push(v);\n        }\n    }\n    cout << endl;\n    if (cnt < n) cout << \"Cycle\" << endl;\n    return 0;\n}\n```\n\n设图为有向图，边为 1-2、1-3、2-4、3-4，调用该程序。程序输出的第 2 个整数为 4。（ ）",
+      "question_type": "judge",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题 Kahn算法输出判断",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "入度为 0 的只有 1，输出 1；删 1 后 2、3 入度变 0，输出 2、3（按入队顺序 2 先 3 后）；删 2、3 后 4 入度变 0，输出 4。序列 1 2 3 4，第 2 个整数为 2 而非 4，说法错误，选 B。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "接程序一，若图中存在有向环（如边为 1-2、2-3、3-1），则程序会（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题 有环时Kahn行为",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "环上顶点入度不会降为 0，无法入队，输出数 cnt < n，程序最后输出 Cycle。A 错；队列中入度为 0 的顶点被处理完即结束，不死循环，C 错；会输出若干顶点，D 错。",
+      "options": {
+        "A": "仍然输出一个完整的拓扑排序",
+        "B": "输出的顶点数少于 n，并输出 Cycle",
+        "C": "陷入死循环",
+        "D": "不输出任何内容"
+      }
+    },
+    {
+      "content": "程序二（DFS判环+拓扑序）：\n\n```cpp\nconst int N = 100005;\nvector<int> g[N];\nint vis[N];          // 0 未访问，1 访问中，2 已结束\nvector<int> ans;\n\nbool dfs(int u) {\n    vis[u] = 1;\n    for (int v : g[u]) {\n        if (vis[v] == 1) return false;   // 有环\n        if (vis[v] == 0) {\n            if (!dfs(v)) return false;\n        }\n    }\n    vis[u] = 2;\n    ans.push_back(u);\n    return true;\n}\n```\n\nvis 数组用状态 2 表示该顶点已结束（其所有后继顶点均已处理完毕）。（ ）",
+      "question_type": "judge",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题 DFS三色标记",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "状态 2 表示该顶点及其所有后继都已递归处理完毕，可以安全加入拓扑序列。说法正确，选 A。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "接程序二，dfs 函数返回 false 的条件是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题 DFS判环条件",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "遍历某顶点的后继时，若遇到 vis[v] == 1（还在递归栈中），说明从 v 出发沿递归链可回到 v，存在环，返回 false。",
+      "options": {
+        "A": "图不连通",
+        "B": "顶点编号超过 n",
+        "C": "遇到了访问中的顶点（vis[v] == 1），即图中存在环",
+        "D": "队列为空"
+      }
+    },
+    {
+      "content": "接程序二，输出前为什么要把 ans 反转（reverse）？（ ）",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题 DFS逆序原理",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "ans 是后序遍历序列：每完成一个顶点的所有后继才加入该顶点，故前驱在后继之后。逆序后前驱在前，才是拓扑排序。",
+      "options": {
+        "A": "使输出按顶点编号升序",
+        "B": "使输出按顶点编号降序",
+        "C": "防止顶点被重复输出",
+        "D": "因为 ans 是后序遍历结果，逆序才是拓扑排序"
+      }
+    },
+    {
+      "content": "完善程序（选课可行性判断）：\n\n```cpp\nint n, m;\ncin >> n >> m;\nfor (int i = 0; i < m; i++) {\n    int u, v;\n    cin >> u >> v;\n    g[u].push_back(v);\n    ①;\n}\n```\n\n① 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题 完善程序①",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "边 u→v 使 v 的入度加 1，故填 in[v]++。",
+      "options": {
+        "A": "in[u]++",
+        "B": "in[v]++",
+        "C": "in[u]--",
+        "D": "in[v]--"
+      }
+    },
+    {
+      "content": "接完善程序：\n\n```cpp\nqueue<int> q;\nfor (int i = 1; i <= n; i++)\n    if (②) q.push(i);\n```\n\n② 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题 完善程序②",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "入度为 0 的课程无先修，先入队，故填 in[i] == 0。",
+      "options": {
+        "A": "in[i] == 0",
+        "B": "in[i] > 0",
+        "C": "g[i].empty()",
+        "D": "i < n"
+      }
+    },
+    {
+      "content": "接完善程序：\n\n```cpp\nwhile (!q.empty()) {\n    int u = q.front(); q.pop();\n    cnt++;\n    for (int v : g[u]) {\n        ③;\n        if (④) q.push(v);\n    }\n}\n```\n\n③ 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题 完善程序③",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "删去 u 后，u 的每个后继 v 的入度减 1，故填 in[v]--。",
+      "options": {
+        "A": "in[u]--",
+        "B": "in[v]--",
+        "C": "in[u]++",
+        "D": "in[v]++"
+      }
+    },
+    {
+      "content": "接完善程序，④ 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题 完善程序④",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "v 的入度降为 0 时，其先修全部完成，可入队，故填 in[v] == 0。",
+      "options": {
+        "A": "in[v] == 0",
+        "B": "in[u] == 0",
+        "C": "g[v].empty()",
+        "D": "cnt == n"
+      }
+    },
+    {
+      "content": "接完善程序：\n\n```cpp\nif (⑤) cout << \"No\" << endl;\nelse cout << \"Yes\" << endl;\n```\n\n⑤ 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题 完善程序⑤",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "若输出的课程数 cnt 不等于 n，说明存在环、有课程无法修完，输出 No，故填 cnt != n。",
+      "options": {
+        "A": "cnt > n",
+        "B": "cnt == n",
+        "C": "cnt != n",
+        "D": "cnt >= n"
+      }
+    },
+    {
+      "content": "### 第 1 题 选课安排（100 分）\n\n**题目描述**\n\n学校本学期开设了 n 门课程，编号为 1 ∼ n。部分课程有先修要求：要选修课程 v，必须先修完课程 u。现给定 m 条先修关系，请你判断能否安排一个学习顺序，使所有课程都能被修完。\n\n若可以，输出 `Yes`；若不可以（存在循环依赖），输出 `No`。\n\n**输入格式**\n\n第一行两个整数 n 和 m，表示课程数和先修关系数。\n\n接下来 m 行，每行两个整数 u, v，表示课程 u 是课程 v 的先修课（要先修 u 才能修 v）。\n\n**输出格式**\n\n若能修完所有课程，输出 `Yes`；否则输出 `No`。\n\n**样例输入 1**\n```\n4 3\n1 2\n2 3\n3 4\n```\n\n**样例输出 1**\n```\nYes\n```\n\n**样例解释 1**\n\n按 1 → 2 → 3 → 4 的顺序即可修完所有课程。\n\n**样例输入 2**\n```\n3 3\n1 2\n2 3\n3 1\n```\n\n**样例输出 2**\n```\nNo\n```\n\n**样例解释 2**\n\n三门课形成循环依赖：1 → 2 → 3 → 1，无法安排顺序。\n\n**提示**\n\n- 建图：先修关系 u→v 作为有向边\n- Kahn 算法：统计入度，入度为 0 入队\n- 若能输出的顶点数等于 n，则无环可修完；否则存在环\n- 复杂度 O(n + m)\n\n**数据范围**\n\n对于 30% 的数据，1 ≤ n ≤ 100，1 ≤ m ≤ 500。\n对于 60% 的数据，1 ≤ n ≤ 10⁴，1 ≤ m ≤ 5 × 10⁴。\n对于 100% 的数据，1 ≤ n ≤ 10⁵，1 ≤ m ≤ 10⁵。",
+      "question_type": "programming",
+      "pid": "tppx001",
+      "url": "https://fslong.iok.la/problem/tppx001",
+      "title": "选课安排",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "参考代码（Kahn 算法判环）：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 100005;\nvector<int> g[N];\nint in[N];\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n, m;\n    cin >> n >> m;\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n        in[v]++;\n    }\n    queue<int> q;\n    for (int i = 1; i <= n; i++)\n        if (in[i] == 0) q.push(i);\n    int cnt = 0;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        cnt++;\n        for (int v : g[u]) {\n            in[v]--;\n            if (in[v] == 0) q.push(v);\n        }\n    }\n    cout << (cnt == n ? \"Yes\" : \"No\") << '\\n';\n    return 0;\n}\n```\n\n**原理说明**：入度为 0 的课程无先修，先修完。删去它并更新后继入度，循环往复。若能修完所有课程，输出顶点数等于 n；否则存在循环依赖。复杂度 O(n+m)。"
+    },
+    {
+      "content": "### 第 2 题 课程学习顺序（100 分）\n\n**题目描述**\n\n学校开设了 n 门课程，编号为 1 ∼ n。部分课程有先修要求：要选修课程 v，必须先修完课程 u。现给定 m 条先修关系（保证不构成循环依赖），请你输出一个**字典序最小**的学习顺序。\n\n字典序最小：从左往右比较，第一位尽可能小；第一位相同时第二位尽可能小，以此类推。\n\n**输入格式**\n\n第一行两个整数 n 和 m，表示课程数和先修关系数。\n\n接下来 m 行，每行两个整数 u, v，表示课程 u 是课程 v 的先修课。\n\n**输出格式**\n\n输出一行 n 个整数，表示字典序最小的学习顺序，相邻整数之间用空格隔开。\n\n**样例输入**\n```\n5 4\n1 3\n1 4\n2 3\n3 5\n```\n\n**样例输出**\n```\n1 2 3 4 5\n```\n\n**样例解释**\n\n先修关系：1→3、1→4、2→3、3→5。入度为 0 的课程有 1、2，先选小的 1；选完 1 后入度为 0 的有 2、4，先选 2；再选 3、4（此时 4 已可选），最后选 5。得到 1 2 3 4 5。\n\n**提示**\n\n- Kahn 算法，把普通队列换成**小顶堆**（`priority_queue<int, vector<int>, greater<int>>`）\n- 每次取编号最小的入度为 0 的课程输出\n- 保证有解，无需判环\n- 复杂度 O((n + m) log n)\n\n**数据范围**\n\n对于 30% 的数据，1 ≤ n ≤ 100，1 ≤ m ≤ 500。\n对于 60% 的数据，1 ≤ n ≤ 10⁴，1 ≤ m ≤ 5 × 10⁴。\n对于 100% 的数据，1 ≤ n ≤ 10⁵，1 ≤ m ≤ 10⁵。",
+      "question_type": "programming",
+      "pid": "tppx002",
+      "url": "https://fslong.iok.la/problem/tppx002",
+      "title": "课程学习顺序",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "参考代码（小顶堆 Kahn 算法）：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 100005;\nvector<int> g[N];\nint in[N];\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n, m;\n    cin >> n >> m;\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n        in[v]++;\n    }\n    priority_queue<int, vector<int>, greater<int>> pq;\n    for (int i = 1; i <= n; i++)\n        if (in[i] == 0) pq.push(i);\n    vector<int> ans;\n    while (!pq.empty()) {\n        int u = pq.top(); pq.pop();\n        ans.push_back(u);\n        for (int v : g[u]) {\n            in[v]--;\n            if (in[v] == 0) pq.push(v);\n        }\n    }\n    for (int x : ans) cout << x << \" \";\n    cout << '\\n';\n    return 0;\n}\n```\n\n**原理说明**：用优先队列（小顶堆）取代普通队列，每次弹出编号最小的入度为 0 顶点，保证字典序最小。每个顶点进出堆各一次，每条边扫描一次，复杂度 O((n+m)log n)。"
+    },
+    {
+      "content": "### 第 3 题 拓扑排序唯一吗（100 分）\n\n**题目描述**\n\n给定 n 个任务（编号为 1 ∼ n）和 m 条先后关系 u→v，表示任务 u 必须在任务 v 之前完成。保证这些先后关系**不会构成循环依赖**（即图为有向无环图）。\n\n请你判断：该图的拓扑排序是否**唯一**。若唯一输出 `Yes`，否则输出 `No`。\n\n**输入格式**\n\n第一行两个整数 n 和 m，表示任务数和先后关系数。\n\n接下来 m 行，每行两个整数 u, v，表示任务 u 必须在任务 v 之前完成。\n\n**输出格式**\n\n若拓扑排序唯一，输出 `Yes`；否则输出 `No`。\n\n**样例输入 1**\n```\n4 3\n1 2\n2 3\n3 4\n```\n\n**样例输出 1**\n```\nYes\n```\n\n**样例解释 1**\n\n先后关系构成一条链 1→2→3→4，拓扑排序只能为 1 2 3 4，唯一。\n\n**样例输入 2**\n```\n4 3\n1 2\n1 3\n3 4\n```\n\n**样例输出 2**\n```\nNo\n```\n\n**样例解释 2**\n\n2 和 3 无依赖关系。拓扑排序既可以是 1 2 3 4，也可以是 1 3 2 4，不唯一。\n\n**提示**\n\n- 用 Kahn 算法：统计入度，入度为 0 的任务入队\n- 若某时刻入度为 0 的任务**多于 1 个**，它们可以互相交换顺序，拓扑排序不唯一\n- 只有整个过程中任何时候入度为 0 的任务都至多 1 个，拓扑排序才唯一\n- 复杂度 O(n + m)\n\n**数据范围**\n\n对于 30% 的数据，1 ≤ n ≤ 100，1 ≤ m ≤ 500。\n对于 60% 的数据，1 ≤ n ≤ 10⁴，1 ≤ m ≤ 5 × 10⁴。\n对于 100% 的数据，1 ≤ n ≤ 10⁵，1 ≤ m ≤ 10⁵。",
+      "question_type": "programming",
+      "pid": "tppx003",
+      "url": "https://fslong.iok.la/problem/tppx003",
+      "title": "拓扑排序唯一吗",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "参考代码（Kahn 算法判唯一）：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 100005;\nvector<int> g[N];\nint in[N];\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n, m;\n    cin >> n >> m;\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n        in[v]++;\n    }\n    queue<int> q;\n    for (int i = 1; i <= n; i++)\n        if (in[i] == 0) q.push(i);\n    if (q.size() > 1) {\n        cout << \"No\\n\";\n        return 0;\n    }\n    bool unique = true;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        for (int v : g[u]) {\n            in[v]--;\n            if (in[v] == 0) q.push(v);\n        }\n        if (q.size() > 1) unique = false;\n    }\n    cout << (unique ? \"Yes\" : \"No\") << '\\n';\n    return 0;\n}\n```\n\n**原理说明**：拓扑排序唯一的充要条件是 Kahn 算法中任一时刻入度为 0 的顶点至多 1 个。若有多个，它们可互换顺序。本题保证无环，无需判环。复杂度 O(n+m)。"
+    },
+    {
+      "content": "### 第 4 题 验证拓扑序列（100 分）\n\n**题目描述**\n\n给定 n 个任务（编号为 1 ∼ n）和 m 条先后关系 u→v，表示任务 u 必须在任务 v 之前完成。\n\n再给定一个长度为 n 的排列（1 ∼ n 各出现一次），请你判断：这个排列是否为该图的一个**合法拓扑序列**（即每条先后关系 u→v 中，u 在排列中都排在 v 前面）。\n\n若是，输出 `Yes`；否则输出 `No`。\n\n**输入格式**\n\n第一行两个整数 n 和 m，表示任务数和先后关系数。\n\n接下来 m 行，每行两个整数 u, v，表示任务 u 必须在任务 v 之前完成。\n\n最后一行 n 个整数，表示待验证的排列。\n\n**输出格式**\n\n若是合法拓扑序列，输出 `Yes`；否则输出 `No`。\n\n**样例输入 1**\n```\n5 4\n1 2\n1 3\n2 4\n3 4\n1 2 3 4 5\n```\n\n**样例输出 1**\n```\nYes\n```\n\n**样例解释 1**\n\n1 在 2、3 前，2、3 在 4 前，5 无依赖。排列 1 2 3 4 5 满足所有先后关系。\n\n**样例输入 2**\n```\n5 4\n1 2\n1 3\n2 4\n3 4\n1 2 4 3 5\n```\n\n**样例输出 2**\n```\nNo\n```\n\n**样例解释 2**\n\n先后关系 3→4 要求 3 排在 4 前，但排列中 4 在 3 前，故不合法。\n\n**提示**\n\n- 先读入排列，用 pos 数组记录每个数字在排列中的位置\n- 再对每条边 u→v，检查 pos[u] 是否小于 pos[v]\n- 若存在一条边 u→v 满足 pos[u] > pos[v]，则排列不合法\n- 复杂度 O(n + m)\n\n**数据范围**\n\n对于 30% 的数据，1 ≤ n ≤ 100，1 ≤ m ≤ 500。\n对于 60% 的数据，1 ≤ n ≤ 10⁴，1 ≤ m ≤ 5 × 10⁴。\n对于 100% 的数据，1 ≤ n ≤ 10⁵，1 ≤ m ≤ 10⁵。",
+      "question_type": "programming",
+      "pid": "tppx004",
+      "url": "https://fslong.iok.la/problem/tppx004",
+      "title": "验证拓扑序列",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "参考代码（pos 数组判定）：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 100005;\nvector<int> g[N];\nint pos[N];\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n, m;\n    cin >> n >> m;\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n    }\n    for (int i = 1; i <= n; i++) {\n        int x;\n        cin >> x;\n        pos[x] = i;\n    }\n    for (int u = 1; u <= n; u++) {\n        for (int v : g[u]) {\n            if (pos[u] > pos[v]) {\n                cout << \"No\\n\";\n                return 0;\n            }\n        }\n    }\n    cout << \"Yes\\n\";\n    return 0;\n}\n```\n\n**原理说明**：用 pos 记录每个数字在排列中的位置。对每条边 u→v，只需检查 pos[u] < pos[v] 是否成立；若有违反，则排列不是合法拓扑序列。复杂度 O(n+m)。"
+    }
+  ]
+}

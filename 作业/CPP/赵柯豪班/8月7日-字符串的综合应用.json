@@ -1,0 +1,263 @@
+{
+	"title": "字符串七十二变",
+	"description": "赵柯豪班 8月7日作业 - 字符串综合应用、字符转数字、字符串转整数、提取数字子串、字典序排序、find与replace",
+	"time_limit": 40,
+	"pass_score": 60,
+	"questions": [
+		{
+			"content": "爸爸收压岁钱，看到钱上印着字符 `'7'`，他想把它当成数字 7 用。字符 `'7'` 转成数字 7，应该写？",
+			"question_type": "single",
+			"title": "钱上的数字",
+			"options": {
+				"A": "55",
+				"B": "`'7' - '0'`",
+				"C": "`'7'`",
+				"D": "0"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "字符 `'7'` 的 ASCII 码比 `'0'` 大 7，`'7' - '0'` 得数字 7，这是字符转数字的标准写法。"
+		},
+		{
+			"content": "王叔叔有个存钱罐，密码是 `string s = \"456\";`，他循环执行 `d = d * 10 + (s[i] - '0');`，结束后 `d` 的值是？",
+			"question_type": "single",
+			"title": "存钱罐密码",
+			"options": {
+				"A": "15",
+				"B": "4",
+				"C": "456",
+				"D": "报错"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "每轮先乘 10 进位再加当前位数字，依次 4、45、456，最终 `d` 为 456，字符串转成了整数。"
+		},
+		{
+			"content": "压岁钱金额混在字母里，字符串是 `\"ab12c3\"`。程序正把数字 `\"12\"` 拼进 `temp`，这时撞上非数字字符 `'c'`，应该怎么做？",
+			"question_type": "single",
+			"title": "压岁钱混杂",
+			"options": {
+				"A": "继续把 `'c'` 也拼进 `temp`",
+				"B": "什么都不做",
+				"C": "把 `'c'` 当成数字 3 处理",
+				"D": "把 `temp` 转成整数加到和上，再把 `temp` 清空"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "撞上非数字说明一段数字结束，把 `temp` 里拼好的 `\"12\"` 转成整数 12 加到和上，再清空 `temp` 开始拼下一段。"
+		},
+		{
+			"content": "侯老师给 `string names[3] = {\"wang\",\"li\",\"an\"};` 排序，用 `names[j] < names[k]` 来比较两个名字，它比的是什么？",
+			"question_type": "single",
+			"title": "姓名排座",
+			"options": {
+				"A": "名字的长短",
+				"B": "ASCII 码之和",
+				"C": "字典序",
+				"D": "随机"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "`string` 直接支持 `<`、`>` 比较，按字典序（逐个字符比 ASCII 码），所以 `\"an\" < \"li\" < \"wang\"`。"
+		},
+		{
+			"content": "王叔叔统计车牌上的两位数，枚举到 `int j = 7;` 时，用 `j / 10 + '0'` 和 `j % 10 + '0'` 拼出两位字符串 `x`，`x` 的值是？",
+			"question_type": "single",
+			"title": "车牌找两位",
+			"options": {
+				"A": "`\"7\"`",
+				"B": "`\"07\"`",
+				"C": "`\"70\"`",
+				"D": "`\"77\"`"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "j=7 时 `j/10=0` 得 `'0'`，`j%10=7` 得 `'7'`，拼成 `\"07\"`，保证 0~9 也按两位字符串统计。"
+		},
+		{
+			"content": "字符串旋转：把最后一个字符放到最前面。`\"abcdef\"` 旋转 1 次的结果是？",
+			"question_type": "single",
+			"title": "旋转一次",
+			"options": {
+				"A": "`\"fabcde\"`",
+				"B": "`\"bcdefa\"`",
+				"C": "`\"abcde f\"`",
+				"D": "`\"abcdef\"`"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "把最后一个字符 `'f'` 放到最前面，其余字符依次后移，`\"abcdef\"` 旋转一次得 `\"fabcde\"`。"
+		},
+		{
+			"content": "妈妈处理短信：连续的非数字字符只留一个 `*`。代码里 `ans[ans.size() - 1] != '*'` 这个判断，作用是？",
+			"question_type": "single",
+			"title": "短信净化",
+			"options": {
+				"A": "判断 `ans` 是否为空",
+				"B": "只保留数字",
+				"C": "防止连续多个非数字时连加好几个 `*`",
+				"D": "让 `*` 一定出现在开头"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "只有当答案末尾还不是 `*` 时才补一个，这样 `!!ab`、连续空格这类连续非数字只会留下一个 `*`。"
+		},
+		{
+			"content": "妈妈改文章，把 `\"You\"` 换成 `\"I\"`。每次替换完 `s.replace(pos, 3, \"I\")` 后执行 `pos += 1;`（`\"I\"` 长度 1），这么做的目的是？",
+			"question_type": "single",
+			"title": "改稿子",
+			"options": {
+				"A": "从头再找一遍",
+				"B": "跳过整个字符串",
+				"C": "把 `pos` 重置成 0",
+				"D": "从新词末尾继续找，防止死循环"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "替换后该处已是新词，把查找起点挪到新词末尾，才不会把刚换进去的内容再找一遍，也不会死循环。"
+		},
+		{
+			"content": "从字符串里提取所有整数求和，为什么要用 `long long` 而不是 `int` 来存总和？",
+			"question_type": "single",
+			"title": "大额压岁钱",
+			"options": {
+				"A": "所有整数加起来可能超过 `int` 的范围",
+				"B": "字符串太长，`int` 存不下字符串",
+				"C": "`long long` 运行起来更快",
+				"D": "两者没有区别"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "提取出的单个整数和总和都可能超过 `int`（约 21 亿）的范围，用 `long long` 存才保险。"
+		},
+		{
+			"content": "字符 `'5'` 的 ASCII 码是 53。执行 `cout << '5' + 1;`，屏幕上显示什么？",
+			"question_type": "single",
+			"title": "字符的真面目",
+			"options": {
+				"A": "6",
+				"B": "`'5'`",
+				"C": "51",
+				"D": "54"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "字符本质是整数（ASCII 码），`'5'` 即 53，`53 + 1 = 54`，输出数字 54。"
+		},
+		{
+			"content": "`'0' - '0'` 的值是数字 0。",
+			"question_type": "judge",
+			"title": "数字的秘密",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "相同字符相减得 0，`'0'` 的 ASCII 码减去自身为 0，说法正确。"
+		},
+		{
+			"content": "字符串旋转一次的操作是：把第一个字符放到末尾。",
+			"question_type": "judge",
+			"title": "转圈的误会",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "旋转一次是把最后一个字符放到最前面，不是把第一个放末尾，说法错误。"
+		},
+		{
+			"content": "姓名排序时，`names[j] < names[k]` 比较的是两个名字的长度。",
+			"question_type": "judge",
+			"title": "比长短",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "`string` 的 `<` 按字典序比较，逐个字符比 ASCII 码，不是比长度，说法错误。"
+		},
+		{
+			"content": "`string s = \"123\";` 执行 `s + 1`，会得到数字 124。",
+			"question_type": "judge",
+			"title": "加不动的数字",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "`s + 1` 是字符串与整数相加，不做数值运算，程序甚至可能无法编译；字符串转整数须逐字符 `d = d * 10 + (c - '0')`。"
+		},
+		{
+			"content": "字符串旋转 c 次时，先算 `c = c % 段的长度`，可以去掉多转的整圈。",
+			"question_type": "judge",
+			"title": "转圈的优化",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "转一整圈回到原位，转 c 次等价于转 c % 长度 次，取模可去整圈、防越界，说法正确。"
+		},
+		{
+			"content": "### 1、<a href=\"https://fslong.iok.la/problem/ZKH31\" target=\"_blank\">短信净化</a>(100分)\n\n**题目描述**\n\n妈妈的手机短信被乱七八糟的符号刷屏，她决定把连续的非数字字符统统换成一个大 `*`，数字原样保留。帮她净化短信。\n\n**输入格式**\n\n一行字符串 s（可能含空格，长度 ≤ 1000）。\n\n**输出格式**\n\n一行，净化后的字符串：数字保留，连续的非数字字符只留一个 `*`。\n\n**样例输入**\n```\n$Ts!47&*s456  a23* +B9\n```\n\n**样例输出**\n```\n*47*456*23*9\n```\n\n**提示**\n\n数字直接拼到答案；非数字只有答案末尾不是 `*` 时才加一个 `*`。可能含空格，用 `getline(cin, s)` 读入。",
+			"question_type": "programming",
+			"pid": "zkh31",
+			"url": "https://fslong.iok.la/problem/ZKH31",
+			"title": "短信净化",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s, ans = \"\";\n    getline(cin, s);\n    for (char c : s) {\n        if (c >= '0' && c <= '9') {\n            ans += c;\n        } else if (ans.empty() || ans[ans.size() - 1] != '*') {\n            ans += '*';\n        }\n    }\n    cout << ans << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 2、<a href=\"https://fslong.iok.la/problem/ZKH32\" target=\"_blank\">菜价大作战</a>(100分)\n\n**题目描述**\n\n妈妈买菜回来，小票上的价格数字全和字母糊在一起了。她只想知道所有数字加起来是多少。帮她算一算。\n\n**输入格式**\n\n一行，由小写字母和数字组成的字符串 s（长度 ≤ 1000）。\n\n**输出格式**\n\n一个整数，为 s 中所有数字字符的数值之和。\n\n**样例输入**\n```\na1b2c3\n```\n\n**样例输出**\n```\n6\n```\n\n**样例解释**\n\n`a1b2c3` 里的数字字符是 1、2、3，和为 `1 + 2 + 3 = 6`。\n\n**提示**\n\n遍历字符串，遇到数字字符就 `c - '0'` 转成数字累加。单个数字直接相加即可，不用把连续数字拼成整数。",
+			"question_type": "programming",
+			"pid": "zkh32",
+			"url": "https://fslong.iok.la/problem/ZKH32",
+			"title": "菜价大作战",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s;\n    cin >> s;\n    int sum = 0;\n    for (char c : s) {\n        if (c >= '0' && c <= '9') sum += c - '0';\n    }\n    cout << sum << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 3、<a href=\"https://fslong.iok.la/problem/ZKH33\" target=\"_blank\">姓名排座</a>(100分)\n\n**题目描述**\n\n侯老师要给全班同学按姓名的字典序排座次，说\"先来后到不如按字母排队\"。帮他排序。\n\n**输入格式**\n\n第一行，一个整数 N（1 ≤ N ≤ 100）。\n接下来 N 行，每行一个小写字母组成的姓名（长度 ≤ 50）。\n\n**输出格式**\n\nN 行，按字典序从小到大输出每个姓名。\n\n**样例输入**\n```\n3\nwang\nliying\nanqian\n```\n\n**样例输出**\n```\nanqian\nliying\nwang\n```\n\n**提示**\n\n`string` 之间可以直接用 `<`、`>` 按字典序比较，姓名排序和数字排序思路一样，用选择排序即可。",
+			"question_type": "programming",
+			"pid": "zkh33",
+			"url": "https://fslong.iok.la/problem/ZKH33",
+			"title": "姓名排座",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    string names[105];\n    for (int i = 0; i < n; ++i) cin >> names[i];\n    for (int i = 0; i < n; ++i) {\n        int k = i;\n        for (int j = i + 1; j < n; ++j)\n            if (names[j] < names[k]) k = j;\n        swap(names[i], names[k]);\n    }\n    for (int i = 0; i < n; ++i) cout << names[i] << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 4、<a href=\"https://fslong.iok.la/problem/ZKH34\" target=\"_blank\">锦鲤号码</a>(100分)\n\n**题目描述**\n\n王叔叔的抽奖券上印着一串字符，规则说：里面最大的那个数字就是幸运数字。帮他找出来。\n\n**输入格式**\n\n一行，由小写字母和数字组成的字符串 s（长度 ≤ 1000）。\n\n**输出格式**\n\n一个字符，为 s 中最大的数字字符。若没有数字，输出 `0`。\n\n**样例输入**\n```\na3b9c5\n```\n\n**样例输出**\n```\n9\n```\n\n**提示**\n\n遍历字符串，用变量记录当前最大的数字字符（初始化为 `'0'`），数字字符之间用 `>` 比较 ASCII 码即可。",
+			"question_type": "programming",
+			"pid": "zkh34",
+			"url": "https://fslong.iok.la/problem/ZKH34",
+			"title": "锦鲤号码",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s;\n    cin >> s;\n    char mx = '0';\n    for (char c : s) {\n        if (c >= '0' && c <= '9' && c > mx) mx = c;\n    }\n    cout << mx << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 5、<a href=\"https://fslong.iok.la/problem/ZKH35\" target=\"_blank\">改稿子</a>(100分)\n\n**题目描述**\n\n妈妈写文章总爱用某个词，爸爸看腻了，让她把文章里这个词全部换成新词（单词的前缀、后缀里的也算）。帮她改稿子。\n\n**输入格式**\n\n第一行，一篇文章 s（含空格，长度 ≤ 1000）。\n第二行，要被替换的词 a（不含空格）。\n第三行，替换成的词 b（不含空格）。\n\n**输出格式**\n\n一行，替换后的文章。\n\n**样例输入**\n```\nYou want someone to help you。  You want someone to like you。\nYou\nI\n```\n\n**样例输出**\n```\nI want someone to help you。  I want someone to like you。\n```\n\n**提示**\n\n用 `find()` 从某个位置开始找 a，找到就用 `replace()` 替换，然后把查找起点挪到新词末尾继续找，直到 `find` 返回 `string::npos`。文章含空格，用 `getline` 读入。",
+			"question_type": "programming",
+			"pid": "zkh35",
+			"url": "https://fslong.iok.la/problem/ZKH35",
+			"title": "改稿子",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s, a, b;\n    getline(cin, s);\n    getline(cin, a);\n    getline(cin, b);\n    size_t pos = 0;\n    while ((pos = s.find(a, pos)) != string::npos) {\n        s.replace(pos, a.length(), b);\n        pos += b.length();\n    }\n    cout << s << endl;\n    return 0;\n}\n```"
+		}
+	]
+}

@@ -1,0 +1,263 @@
+{
+	"title": "计数排序",
+	"description": "赵柯豪班 8月1日作业 - 顺序结构、选择结构、循环结构、计数排序",
+	"time_limit": 90,
+	"pass_score": 60,
+	"questions": [
+		{
+			"content": "冯阿姨在小区门口卖菜，每种菜的数量有限。她发现计数排序和普通排序不一样。计数排序的核心思想是？",
+			"question_type": "single",
+			"title": "小区菜摊",
+			"options": {
+				"A": "用一个\"计数数组\"统计每个数出现的次数，再按顺序输出",
+				"B": "两两比较大小并交换位置",
+				"C": "每次从未排序部分挑最小的放到最前面",
+				"D": "把数据分成两半分别排序再合并"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "计数排序的核心：用计数数组统计每个数值出现的次数，再按下标顺序展开，无需两两比较。"
+		},
+		{
+			"content": "王叔叔在篮球场当记分员，得分只有 0、1、2、3 四种。他定义 `int cnt[4] = {0};` 记录每种得分出现的次数。看到一次得 3 分时，正确的操作是？",
+			"question_type": "single",
+			"title": "篮球记分",
+			"options": {
+				"A": "cnt[3] = 3;",
+				"B": "cnt[4]++;",
+				"C": "cnt[0]++;",
+				"D": "cnt[3]++;"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "得 3 分应对应下标 3 的计数器加 1，即 cnt[3]++。cnt[4] 越界（数组下标 0~3）。"
+		},
+		{
+			"content": "王老师统计完 100 名学生的成绩（0-10 分），计数数组 `cnt[11]` 的每个元素依次是各分数的人数。那么 `cnt[0] + cnt[1] + ... + cnt[10]` 的结果是多少？",
+			"question_type": "single",
+			"title": "人数核算",
+			"options": {
+				"A": "11",
+				"B": "100",
+				"C": "10",
+				"D": "无法确定"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "计数数组每个元素统计一个分数的人数，所有元素之和等于总人数 100。"
+		},
+		{
+			"content": "快递站要按目的地分拣包裹，目的地只有\"本市、同省、外省\"三类。哪种方法最快？",
+			"question_type": "single",
+			"title": "快递分拣",
+			"options": {
+				"A": "冒泡排序",
+				"B": "计数排序（按类别计数）",
+				"C": "插入排序",
+				"D": "选择排序"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "类别少，只需按类别计数分类，即计数排序思想，无需比较。"
+		},
+		{
+			"content": "侯老师统计 1000 个学生的成绩（0-10 分）。用计数排序，若 n 为数据个数、k 为取值范围，其时间复杂度为？",
+			"question_type": "single",
+			"title": "周测排名",
+			"options": {
+				"A": "O(k²)",
+				"B": "O(n + k)",
+				"C": "O(n²)",
+				"D": "O(n × k)"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "计数排序分两遍：统计一遍 O(n)，展开一遍 O(k)，总 O(n+k)。"
+		},
+		{
+			"content": "以下哪种情况最适合用计数排序？",
+			"question_type": "single",
+			"title": "选算法",
+			"options": {
+				"A": "50 个整数，范围从 1 到 1000000",
+				"B": "1000 个学生的身高（130-200 cm 的浮点数）",
+				"C": "100000 个人的身份证号（各不相同）",
+				"D": "200 个学生的体育成绩（0-100 的整数）"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "计数排序要求数据为取值范围较小的整数。A 值域太大、B 是浮点数、C 值域巨大，均不适合。"
+		},
+		{
+			"content": "校运会的号码牌编号只有 1、2、3。计数统计结果为：1 出现 2 次、2 出现 0 次、3 出现 1 次。从小到大排序后的结果是？",
+			"question_type": "single",
+			"title": "校运会号码牌",
+			"options": {
+				"A": "1 1 3 3",
+				"B": "1 3 1",
+				"C": "1 1 3",
+				"D": "1 1 2 2 3"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "1 输出 2 次、2 出现 0 次不输出、3 输出 1 次，结果为 1 1 3。"
+		},
+		{
+			"content": "冯老师统计英文报刊中小写字母的出现次数，用 `cnt[26]` 数组。字符 `'c'` 应该对应哪个下标？",
+			"question_type": "single",
+			"title": "英文报刊统计",
+			"options": {
+				"A": "cnt['a' - 'c']",
+				"B": "cnt[26]",
+				"C": "cnt['c' - 'a']（即 cnt[2]）",
+				"D": "cnt['c']"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "字母与下标的映射为 ch - 'a'，'c'-'a'=2，对应 cnt[2]。cnt['c'] 下标为 ASCII 值 99，越界。"
+		},
+		{
+			"content": "侯老师统计完 100 名学生的成绩（0-10 分），计数数组 `cnt[11]` 已经填好。现在要把每个分数的人数依次输出一遍，以下哪个循环是正确的？",
+			"question_type": "single",
+			"title": "成绩单输出",
+			"options": {
+				"A": "for (int i = 0; i <= 10; i++)",
+				"B": "for (int i = 1; i <= 11; i++)",
+				"C": "for (int i = 1; i <= 10; i++)",
+				"D": "for (int i = 0; i <= 11; i++)"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "cnt[11] 下标 0~10 对应 0~10 分，须完整遍历 0 到 10。B、D 会访问越界的 cnt[11]，C 漏掉 cnt[0]（0 分人数）。"
+		},
+		{
+			"content": "王叔叔的彩票站统计开奖号码（1-35）的出现次数。关于计数排序，说法**错误**的是？",
+			"question_type": "single",
+			"title": "彩票站",
+			"options": {
+				"A": "计数排序不需要比较元素之间的大小",
+				"B": "计数排序用空间换时间",
+				"C": "计数数组的下标对应数据值",
+				"D": "计数排序的时间复杂度永远是 O(n²)"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "计数排序时间复杂度是 O(n+k)，不是 O(n²)。"
+		},
+		{
+			"content": "计数排序需要额外开辟一个计数数组来统计每个数出现的次数。",
+			"question_type": "true_false",
+			"title": "计数数组",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "计数排序用 cnt 数组按值统计频次，需要额外空间。"
+		},
+		{
+			"content": "计数排序可以高效处理值域很大的数据（比如取值范围从 1 到 10⁹ 的数）。",
+			"question_type": "true_false",
+			"title": "值域限制",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "值域 1~10⁹ 需要 10⁹ 个计数单元，空间爆炸，计数排序无法高效处理。"
+		},
+		{
+			"content": "计数排序的时间复杂度和数据取值范围 k 有关，取值范围越大，需要的计数数组也越大。",
+			"question_type": "true_false",
+			"title": "空间与值域",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "计数数组大小由取值范围 k 决定，k 越大空间越大，总复杂度 O(n+k)。"
+		},
+		{
+			"content": "计数排序需要两两比较元素的大小才能完成排序。",
+			"question_type": "true_false",
+			"title": "无需比较",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "计数排序不用比较元素，只用值作下标统计频次，再按序展开。"
+		},
+		{
+			"content": "对值域小、数据量大的数据，计数排序通常比冒泡排序快很多。",
+			"question_type": "true_false",
+			"title": "计数vs冒泡",
+			"options": {
+				"A": "正确",
+				"B": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "计数排序 O(n+k) 线性，冒泡排序 O(n²)。值域小时计数排序快得多。"
+		},
+		{
+			"content": "### 第 16 题 超市购物（100 分）\n\n**题目描述**\n\n冯阿姨去超市买菜，买了青菜 x 元、肉 y 元、水果 z 元，给收银员 100 元。请计算这三样菜一共多少钱，以及收银员应找回多少钱。\n\n**输入格式**\n\n一行，三个整数 x、y、z（1 ≤ x, y, z ≤ 50），分别表示青菜、肉、水果的价格。\n\n**输出格式**\n\n两行，第一行为总价，第二行为应找回的钱。\n\n**样例输入**\n```\n20 35 15\n```\n\n**样例输出**\n```\n70\n30\n```\n\n**提示**\n\n总价 = x + y + z，找零 = 100 − 总价。按顺序计算、输出即可。",
+			"question_type": "programming",
+			"pid": "zkh06",
+			"url": "https://fslong.iok.la/problem/ZKH06",
+			"title": "超市购物",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "顺序结构：先算总价 sum = x+y+z，再算找零 100-sum，依次输出。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int x, y, z;\n    cin >> x >> y >> z;\n    int sum = x + y + z;\n    cout << sum << endl;\n    cout << 100 - sum << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 17 题 超市满减（100 分）\n\n**题目描述**\n\n超市促销：单次购物满 50 元减 10 元，不满 50 元不减。输入购物金额 m，输出实际应付的钱。\n\n**输入格式**\n\n一行，一个整数 m（1 ≤ m ≤ 1000），表示购物金额。\n\n**输出格式**\n\n一行，一个整数，表示实际应付的钱。\n\n**样例输入 1**\n```\n60\n```\n\n**样例输出 1**\n```\n50\n```\n\n**样例输入 2**\n```\n45\n```\n\n**样例输出 2**\n```\n45\n```\n\n**样例输入 3**\n```\n50\n```\n\n**样例输出 3**\n```\n40\n```\n\n**提示**\n\n判断 m 是否 ≥ 50：满 50 就减 10，否则原价输出。注意正好 50 元也满足满减条件。",
+			"question_type": "programming",
+			"pid": "zkh07",
+			"url": "https://fslong.iok.la/problem/ZKH07",
+			"title": "超市满减",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "选择结构：if (m >= 50) m -= 10; 再输出 m。边界 50 也减 10。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int m;\n    cin >> m;\n    if (m >= 50) m -= 10;\n    cout << m << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 18 题 跑步打卡（100 分）\n\n**题目描述**\n\n冯阿姨坚持晨跑，第 1 天跑 1 圈，之后每天比前一天多跑 1 圈。输入晨跑天数 n，输出这 n 天一共跑了多少圈。\n\n**输入格式**\n\n一行，一个整数 n（1 ≤ n ≤ 100），表示天数。\n\n**输出格式**\n\n一行，一个整数，表示总共跑的圈数。\n\n**样例输入 1**\n```\n3\n```\n\n**样例输出 1**\n```\n6\n```\n\n第 1 到 3 天分别跑 1、2、3 圈，共 1+2+3=6 圈。\n\n**样例输入 2**\n```\n5\n```\n\n**样例输出 2**\n```\n15\n```\n\n第 1 到 5 天分别跑 1、2、3、4、5 圈，共 1+2+3+4+5=15 圈。\n\n**提示**\n\n用 for 循环从 1 累加到 n，把每天跑的圈数加进一个变量，最后输出。",
+			"question_type": "programming",
+			"pid": "zkh08",
+			"url": "https://fslong.iok.la/problem/ZKH08",
+			"title": "跑步打卡",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "循环结构：for (i=1; i<=n; i++) sum += i; 累加 1 到 n。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, sum = 0;\n    cin >> n;\n    for (int i = 1; i <= n; i++)\n        sum += i;\n    cout << sum << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 19 题 最受欢迎动物投票（100 分）\n\n**题目描述**\n\nMinecraft 服务器举办\"最受欢迎动物\"评选。候选动物有 6 种：1 羊、2 牛、3 猪、4 鸡、5 狼、6 猫。每个玩家把票投给自己最喜欢的动物（票上写的是动物编号）。请你统计每只动物的得票数，输出得票最多的动物编号；若多种动物平票，输出编号最小的那种。\n\n**输入格式**\n\n第一行，一个整数 n（1 ≤ n ≤ 1000），表示票数。\n第二行，n 个整数，表示每张票投给的动物编号（1 ≤ 编号 ≤ 6）。\n\n**输出格式**\n\n一行，一个整数，表示得票最多的动物编号。\n\n**样例输入 1**\n```\n10\n1 2 1 3 2 2 1 2 3 2\n```\n\n**样例输出 1**\n```\n2\n```\n\n**样例解释 1**\n\n1 号羊 3 票、2 号牛 5 票、3 号猪 2 票，2 号牛票数最多。\n\n**样例输入 2**\n```\n8\n1 2 1 3 2 3 1 3\n```\n\n**样例输出 2**\n```\n1\n```\n\n**样例解释 2**\n\n1 号羊 3 票、2 号牛 2 票、3 号猪 3 票。1 号和 3 号平票，取编号较小者 1 号。\n\n**提示**\n\n计数排序思想：建计数数组 `cnt[7]`（下标 1~6 对应 6 种动物），读到票号 x 就执行 `cnt[x]++`。统计完遍历找票数最多的编号。注意平票取编号小者——只有票数**严格大于**当前最大值时才更新，平票时保持原编号即可。",
+			"question_type": "programming",
+			"pid": "zkh09",
+			"url": "https://fslong.iok.la/problem/ZKH09",
+			"title": "最受欢迎动物投票",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "计数排序统计票数：cnt[7] 按动物编号作下标统计，cnt[x]++。再遍历找票数最多者，仅当 cnt[i] > cnt[winner] 时更新，严格大于保证平票取编号小者。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, cnt[7] = {0};\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        cnt[x]++;\n    }\n    int winner = 1;\n    for (int i = 2; i <= 6; i++)\n        if (cnt[i] > cnt[winner]) winner = i;\n    cout << winner << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 20 题 骰子点数统计（100 分）\n\n**题目描述**\n\n王叔叔带儿子在游乐园玩掷骰子游戏，一共掷了 n 次。请你统计每个点数（1-6）各出现了多少次，按 1 到 6 的顺序输出。\n\n**输入格式**\n\n第一行，一个整数 n（1 ≤ n ≤ 1000）。\n第二行，n 个整数，表示每次掷出的点数（1 ≤ 点数 ≤ 6）。\n\n**输出格式**\n\n6 行，每行格式为 `点数:次数`，按点数 1 到 6 输出。\n\n**样例输入**\n```\n7\n3 1 3 6 2 3 5\n```\n\n**样例输出**\n```\n1:1\n2:1\n3:3\n4:0\n5:1\n6:1\n```\n\n**提示**\n\n计数排序基础应用：建计数数组 `cnt[7]`（下标 1~6 对应每个点数），读到点数 x 就执行 `cnt[x]++`。最后从 1 到 6 输出每个点数的出现次数。",
+			"question_type": "programming",
+			"pid": "zkh10",
+			"url": "https://fslong.iok.la/problem/ZKH10",
+			"title": "骰子点数统计",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "计数排序统计频次：cnt[7] 按点数作下标统计，cnt[x]++，最后从 1 到 6 输出。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n, cnt[7] = {0};\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        int x;\n        cin >> x;\n        cnt[x]++;\n    }\n    for (int i = 1; i <= 6; i++)\n        cout << i << \":\" << cnt[i] << endl;\n    return 0;\n}\n```"
+		}
+	]
+}

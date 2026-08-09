@@ -1,0 +1,364 @@
+{
+  "title": "CSP-J 集训 · 图的遍历",
+  "description": "CSPJ组集训 8月1日作业 - 图的遍历与连通性（单选10+阅读5+完善5）+ 编程4道",
+  "time_limit": 40,
+  "pass_score": 100,
+  "questions": [
+    {
+      "content": "以下对数据结构的表述不恰当的一项为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 1 题 遍历与数据结构（2022真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "栈与队列本质相同（均属操作受限的线性表），用两个栈可实现队列。A、B、C 表述均正确，D 错误。（2022 CSP-J 真题）",
+      "options": {
+        "A": "图的深度优先遍历算法常使用的数据结构为栈",
+        "B": "栈的访问原则为后进先出，队列的访问原则是先进先出",
+        "C": "队列常常被用于广度优先搜索算法",
+        "D": "栈与队列存在本质不同，无法用栈实现队列"
+      }
+    },
+    {
+      "content": "以 a 为起点，对下图进行深度优先遍历，则 b、c、d、e 四个点中有可能作为最后一个遍历到的点的个数为（ ）。\n\n```\n      a\n     / \\\n    b   c\n    |  / \\\n    d     e\n```\n\n（无向图，边为 a-b、a-c、b-d、d-c、c-e）",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 2 题 DFS遍历顺序（2021真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "DFS 顺序取决于邻点访问次序。若先走 b：a→b→d→c→e，最后为 e；若先走 c 且先走 e：a→c→e→d→b，最后为 b。c、d 之后必有后继节点，不可能为最后。仅 b、e 可能，共 2 个。（2021 CSP-J 真题）",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      }
+    },
+    {
+      "content": "考虑由 N 个顶点构成的有向连通图，采用邻接矩阵的数据结构表示时，该矩阵中至少存在（ ）个非零元素。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 3 题 连通图邻接矩阵（2022真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "有向连通图（弱连通）至少需 N-1 条边构成树形，每条边在邻接矩阵中对应 1 个非零元素，故至少 N-1 个。（2022 CSP-J 真题）",
+      "options": {
+        "A": "N - 1",
+        "B": "N",
+        "C": "N + 1",
+        "D": "N²"
+      }
+    },
+    {
+      "content": "对于有 n 个顶点、m 条边的无向连通图（m > n），需要删掉（ ）条边才能使其成为一棵树。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 4 题 连通图删边成树（2021真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "树有 n-1 条边。需删 m-(n-1) = m-n+1 条边。（2021 CSP-J 真题，官方选项）",
+      "options": {
+        "A": "n - 1",
+        "B": "m - n",
+        "C": "m - n - 1",
+        "D": "m - n + 1"
+      }
+    },
+    {
+      "content": "10 个顶点的无向图，至少有（ ）条边才能确保其是一个连通图。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 5 题 连通最少边（2020真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "n 个顶点的连通图至少需 n-1 = 9 条边（树形结构）。45 为完全图边数，非必要。（2020 CSP-J 真题）",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "45"
+      }
+    },
+    {
+      "content": "由四个没有区别的点构成的简单无向连通图的个数是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 6 题 连通图计数（2018真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "4 节点无向连通非同构图共 6 种：树形 3 种（星形、链形、Z 形）+ 含环 3 种（三角形+悬点、四边形、四边形加对角线）。（2018 NOIP 普及组真题）",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      }
+    },
+    {
+      "content": "对下图从顶点 1 出发进行广度优先遍历（同一顶点的邻接点按编号从小到大访问），遍历序列为（ ）。\n\n```\n    1\n   / \\\n  2   3\n / \\   \\\n4   5   6\n```\n\n（无向图，边为 1-2、1-3、2-4、2-5、3-6）",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 7 题 BFS遍历顺序",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "BFS 按层扩展：第一层 1 → 第二层 2、3 → 第三层 4、5、6。序列 1 2 3 4 5 6。",
+      "options": {
+        "A": "1 2 3 4 5 6",
+        "B": "1 2 3 4 6 5",
+        "C": "1 2 4 5 3 6",
+        "D": "1 3 2 4 5 6"
+      }
+    },
+    {
+      "content": "对下图从顶点 1 出发进行深度优先遍历（同一顶点的邻接点按编号从小到大访问），遍历序列为（ ）。\n\n```\n    1\n   / \\\n  2   3\n / \\   \\\n4   5   6\n```\n\n（无向图，边为 1-2、1-3、2-4、2-5、3-6）",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 8 题 DFS遍历顺序",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "DFS 纵深深入：1→2→4→回溯→5→回溯→3→6。序列 1 2 4 5 3 6。",
+      "options": {
+        "A": "1 2 3 4 5 6",
+        "B": "1 2 4 5 3 6",
+        "C": "1 3 2 4 5 6",
+        "D": "1 2 4 5 6 3"
+      }
+    },
+    {
+      "content": "在图的遍历中，使用 visited（访问标记）数组的主要作用是（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 9 题 visited数组作用",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "visited 数组标记已访问顶点，防止重复访问导致死循环。图可能存在环，无标记则 DFS/BFS 会无限循环。",
+      "options": {
+        "A": "记录遍历顺序",
+        "B": "防止顶点被重复访问，避免死循环",
+        "C": "统计图中顶点的个数",
+        "D": "存储每个顶点的权值"
+      }
+    },
+    {
+      "content": "对一个 n 个顶点、m 条边的图，采用邻接表存储，进行 DFS 或 BFS 遍历的时间复杂度均为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 10 题 遍历时间复杂度",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "遍历时每个顶点访问一次（n），每条边检查两次（无向图2m），总复杂度 O(n+m)。邻接矩阵存储则 O(n²)。",
+      "options": {
+        "A": "O(n)",
+        "B": "O(m)",
+        "C": "O(n + m)",
+        "D": "O(n × m)"
+      }
+    },
+    {
+      "content": "程序一（栈实现DFS遍历）：对如下结构的树执行 travel 函数。\n\n```\n    1\n   / \\\n  2   3\n / \\\n4   5\n```\n\n```cpp\nvoid travel(Node* root) {\n    if (!root) return;\n    stack<Node*> s;\n    s.push(root);\n    while (!s.empty()) {\n        Node* cur = s.top(); s.pop();\n        cout << cur->val << \" \";\n        if (cur->right) s.push(cur->right);\n        if (cur->left) s.push(cur->left);\n    }\n}\n```\n\n程序执行后，输出结果是 1 2 3 4 5。（ ）",
+      "question_type": "judge",
+      "pid": "",
+      "url": "",
+      "title": "第 11 题 栈模拟DFS判断（2025 GESP六级真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "栈后进先出。先压右再压左，则左先出栈。实际输出 1 2 4 5 3，非 1 2 3 4 5。故错误，选 B。（2025 GESP 六级真题）",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "接程序一，程序执行后，实际输出为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 12 题 栈模拟DFS实际输出",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "模拟：pop 1 输出；压右3、压左2 → pop 2 输出；压右5、压左4 → pop 4、5；最后 pop 3。输出 1 2 4 5 3。",
+      "options": {
+        "A": "1 2 4 5 3",
+        "B": "1 3 2 4 5",
+        "C": "1 2 3 4 5",
+        "D": "1 3 4 5 2"
+      }
+    },
+    {
+      "content": "程序二（BFS遍历图）：\n\n```cpp\nconst int N = 100005;\nvector<int> g[N];\nbool vis[N];\n\nvoid bfs(int start) {\n    queue<int> q;\n    q.push(start);\n    vis[start] = true;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        cout << u << \" \";\n        for (int v : g[u]) {\n            if (!vis[v]) {\n                vis[v] = true;\n                q.push(v);\n            }\n        }\n    }\n}\n```\n\n设图为无向图，边为 1-2、1-3、2-4，调用 bfs(1)。程序输出的前 4 个整数为 1 2 3 4。（ ）",
+      "question_type": "judge",
+      "pid": "",
+      "url": "",
+      "title": "第 13 题 BFS程序判断",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "BFS 从 1 出发：出队1→入队2、3；出队2→入队4；出队3；出队4。输出 1 2 3 4，说法正确，选 A。",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      }
+    },
+    {
+      "content": "接程序二，若图中再加入一条边 3-4（图变为 1-2、1-3、2-4、3-4），调用 bfs(1)，程序输出为（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 14 题 BFS程序加边",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "BFS：1→入队2、3；2→入队4；3→4已访问不重复入队。输出 1 2 3 4。",
+      "options": {
+        "A": "1 2 3 4",
+        "B": "1 3 2 4",
+        "C": "1 2 4 3",
+        "D": "无法确定"
+      }
+    },
+    {
+      "content": "接程序二，若在 BFS 遍历过程中去掉 vis 标记数组（即入队时不标记已访问），对存在环的无向图，可能发生（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 15 题 无vis的后果",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "无向图中环上顶点会互相重复入队，队列无限增长，程序陷入死循环。故 B 正确。",
+      "options": {
+        "A": "输出仍然正确，不影响",
+        "B": "顶点被重复入队，程序可能陷入死循环",
+        "C": "只输出起始顶点",
+        "D": "程序一定正常运行完毕"
+      }
+    },
+    {
+      "content": "程序一（洪水填充BFS）：\n\n```cpp\nbool is_valid(char image[ROWS][COLS], Point pt,\n              int prev_color, int new_color) {\n    int r = pt.r;\n    int c = pt.c;\n    return (0 <= r && r < ROWS && 0 <= c && c < COLS &&\n            ① && image[r][c] != new_color);\n}\n```\n\n① 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 16 题 洪水填充①（2022真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "is_valid 判断像素是否可填充：颜色须与起始像素相同（==prev_color），且未填充过新颜色（!=new_color）。故选 A。（2022 CSP-J 真题）",
+      "options": {
+        "A": "image[r][c] == prev_color",
+        "B": "image[r][c] != prev_color",
+        "C": "image[r][c] == new_color",
+        "D": "image[r][c] != new_color"
+      }
+    },
+    {
+      "content": "接洪水填充程序：\n\n```cpp\nvoid flood_fill(char image[ROWS][COLS], Point cur, int new_color) {\n    queue<Point> queue;\n    queue.push(cur);\n    int prev_color = image[cur.r][cur.c];\n    ②;\n    while (!queue.empty()) { ... }\n}\n```\n\n② 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 17 题 洪水填充②（2022真题）",
+      "correct_answer": "B",
+      "score": 5,
+      "explanation": "入队后立即将起始像素颜色改为新颜色（image[cur.r][cur.c] = new_color），避免重复处理。B 正确。（2022 CSP-J 真题）",
+      "options": {
+        "A": "image[cur.r+1][cur.c] = new_color",
+        "B": "image[cur.r][cur.c] = new_color",
+        "C": "image[cur.r][cur.c+1] = new_color",
+        "D": "image[cur.r][cur.c] = prev_color"
+      }
+    },
+    {
+      "content": "接洪水填充程序，四个方向的扩展：\n\n```cpp\nPoint points[4] = {③, Point(pt.r - 1, pt.c),\n                   Point(pt.r, pt.c + 1), Point(pt.r, pt.c - 1)};\n```\n\n③ 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 18 题 洪水填充③（2022真题）",
+      "correct_answer": "C",
+      "score": 5,
+      "explanation": "四个方向为上下左右：上(pt.r-1,pt.c)、下(pt.r+1,pt.c)、右(pt.r,pt.c+1)、左(pt.r,pt.c-1)。已列上、右、左，缺下，故选 C。（2022 CSP-J 真题）",
+      "options": {
+        "A": "Point(pt.r, pt.c)",
+        "B": "Point(pt.r, pt.c+1)",
+        "C": "Point(pt.r+1, pt.c)",
+        "D": "Point(pt.r+1, pt.c+1)"
+      }
+    },
+    {
+      "content": "接洪水填充程序，对相邻像素的处理：\n\n```cpp\nfor (auto p : points) {\n    if (is_valid(image, p, prev_color, new_color)) {\n        ④;\n        ⑤;\n    }\n}\n```\n\n④ 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 19 题 洪水填充④（2022真题）",
+      "correct_answer": "D",
+      "score": 5,
+      "explanation": "对有效相邻像素，将其颜色改为新颜色：image[p.r][p.c] = new_color。D 正确。（2022 CSP-J 真题）",
+      "options": {
+        "A": "prev_color = image[p.r][p.c]",
+        "B": "new_color = image[p.r][p.c]",
+        "C": "image[p.r][p.c] = prev_color",
+        "D": "image[p.r][p.c] = new_color"
+      }
+    },
+    {
+      "content": "接洪水填充程序，⑤ 处应填（ ）。",
+      "question_type": "single",
+      "pid": "",
+      "url": "",
+      "title": "第 20 题 洪水填充⑤（2022真题）",
+      "correct_answer": "A",
+      "score": 5,
+      "explanation": "将相邻像素入队，继续 BFS：queue.push(p)。A 正确。（2022 CSP-J 真题）",
+      "options": {
+        "A": "queue.push(p)",
+        "B": "queue.push(pt)",
+        "C": "queue.push(cur)",
+        "D": "queue.push(Point(ROWS,COLS))"
+      }
+    },
+    {
+      "content": "### 第 1 题 岛屿周长（100 分）\n\n**题目描述**\n\n小明绘制了一幅 n 行 m 列的地图，每个格子要么是陆地（`1`），要么是海洋（`0`）。四连通的陆地组成一座岛屿。\n\n给定一个陆地格子的坐标 (x, y)，请你计算**它所在的岛屿**的周长。\n\n周长的定义：岛屿中每个陆地格子，其四条边中与海洋或地图边界相邻的边的数量之和。\n\n**输入格式**\n\n第一行两个整数 n 和 m，表示地图的行数和列数。\n\n接下来 n 行，每行 m 个整数（0 或 1），表示地图。\n\n最后一行两个整数 x, y，表示起始陆地格子的坐标。保证该格子是陆地（值为 1）。\n\n**输出格式**\n\n输出一个整数，表示起始格子所在岛屿的周长。\n\n**样例输入 1**\n```\n4 4\n0 1 1 0\n1 1 0 0\n0 0 0 1\n1 1 0 0\n2 2\n```\n\n**样例输出 1**\n```\n10\n```\n\n**样例解释 1**\n\n起始格子 (2,2) 所在岛屿包含 {(1,2),(1,3),(2,1),(2,2)}，其周长为 10。\n\n**样例输入 2**\n```\n1 3\n1 1 1\n1 2\n```\n\n**样例输出 2**\n```\n8\n```\n\n**样例解释 2**\n\n一行三个陆地格子，岛屿周长为 8（两端各 3，中间 2）。\n\n**提示**\n\n- 先用 BFS/DFS 从起始格子出发，把整座岛屿的格子全部找出来\n- 再对每个岛屿格子，检查四条边：若邻格是海洋或越界，则该边计入周长\n- 注意地图边界也算周长（越界的边要计入）\n\n**数据范围**\n\n对于 30% 的数据，1 ≤ n, m ≤ 50。\n对于 60% 的数据，1 ≤ n, m ≤ 100。\n对于 100% 的数据，1 ≤ n, m ≤ 200，格子数 n × m ≤ 4 × 10⁴。",
+      "question_type": "programming",
+      "pid": "P9861",
+      "url": "https://fslong.iok.la/problem/P9861",
+      "title": "岛屿周长",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "参考代码（递归 DFS 洪水填充 + 周长统计）：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint a[205][205];\nbool vis[205][205];\nint dx[4] = {1, -1, 0, 0};\nint dy[4] = {0, 0, 1, -1};\nint n, m;\nint perim;\n\n// 递归 DFS 找整座岛屿，同时统计周长\nvoid dfs(int r, int c) {\n    vis[r][c] = true;\n    for (int k = 0; k < 4; k++) {\n        int nr = r + dx[k], nc = c + dy[k];\n        if (nr < 1 || nr > n || nc < 1 || nc > m) { perim++; continue; }\n        if (a[nr][nc] == 0) { perim++; continue; }\n        if (!vis[nr][nc]) dfs(nr, nc);\n    }\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cin >> n >> m;\n    for (int i = 1; i <= n; i++)\n        for (int j = 1; j <= m; j++)\n            cin >> a[i][j];\n    int x, y;\n    cin >> x >> y;\n    dfs(x, y);\n    cout << perim << '\\n';\n    return 0;\n}\n```\n\n**原理说明**：递归 DFS 从起始格子出发找整座岛屿，边遍历边统计周长：每格的邻格为海洋或越界则计入。注意 n,m ≤ 200，递归深度最大 4×10⁴，安全。复杂度 O(n×m)。"
+    },
+    {
+      "content": "### 第 2 题 环路检测（100 分）\n\n**题目描述**\n\n学校为 n 个机房铺设了 m 根网线，把机房连接成一个网络。工程师想检查这个网络是否存在**环**——即是否存在一条路径，从某个机房出发，沿着网线经过若干台机房，最后又回到出发点（中间不重复经过任何机房）。\n\n若网络中存在环，说明存在冗余连接，输出 `Yes`；否则输出 `No`。\n\n**输入格式**\n\n第一行两个整数 n 和 m，表示机房数和网线数。\n\n接下来 m 行，每行两个整数 u, v，表示机房 u 和 v 之间有一根网线。\n\n**输出格式**\n\n若网络中存在环，输出 `Yes`；否则输出 `No`。\n\n**样例输入 1**\n```\n4 4\n1 2\n2 3\n3 4\n4 1\n```\n\n**样例输出 1**\n```\nYes\n```\n\n**样例解释 1**\n\n网线构成一个环：1→2→3→4→1，存在冗余连接。\n\n**样例输入 2**\n```\n4 3\n1 2\n2 3\n3 4\n```\n\n**样例输出 2**\n```\nNo\n```\n\n**样例解释 2**\n\n网络是一条链，从 1 到 4，没有环。\n\n**提示**\n\n- 用 BFS 或 DFS 遍历每个连通分量\n- 遍历时记录每个顶点的**上一个顶点**（parent）\n- 若遍历到一个已访问顶点，且它不是当前顶点的 parent，说明找到了环\n- 注意图可能不连通，每个连通分量都要检查\n\n**数据范围**\n\n对于 30% 的数据，1 ≤ n ≤ 1000，1 ≤ m ≤ 5000。\n对于 60% 的数据，1 ≤ n ≤ 10⁴，1 ≤ m ≤ 5 × 10⁴。\n对于 100% 的数据，1 ≤ n ≤ 5 × 10⁴，1 ≤ m ≤ 5 × 10⁴。",
+      "question_type": "programming",
+      "pid": "P9862",
+      "url": "https://fslong.iok.la/problem/P9862",
+      "title": "环路检测",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "参考代码（递归 DFS 判环，parent 标记）：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 50005;\nvector<int> g[N];\nbool vis[N];\n\n// 递归 DFS 判环：遍历到已访问且非 parent 的顶点即有环\nbool dfs(int u, int parent) {\n    vis[u] = true;\n    for (int v : g[u]) {\n        if (!vis[v]) {\n            if (dfs(v, u)) return true;\n        } else if (v != parent) {\n            return true;\n        }\n    }\n    return false;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n, m;\n    cin >> n >> m;\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n        g[v].push_back(u);\n    }\n    bool ok = false;\n    for (int i = 1; i <= n; i++) {\n        if (!vis[i] && dfs(i, 0)) {\n            ok = true;\n            break;\n        }\n    }\n    cout << (ok ? \"Yes\" : \"No\") << '\\n';\n    return 0;\n}\n```\n\n**原理说明**：递归 DFS 遍历无向图，记录父顶点（parent）。若某条边指向已访问且非 parent 的顶点，则此边与遍历树路径构成环。注意图可能不连通，须遍历所有连通分量。n ≤ 5×10⁴，递归深度安全。复杂度 O(n+m)。"
+    },
+    {
+      "content": "### 第 3 题 疫情传播（100 分）\n\n**题目描述**\n\n某地区有 n 个村庄，编号为 1 ∼ n，之间有 m 条双向道路。最初有 k 个村庄爆发了疫情（记作第 0 天）。\n\n每天，已感染的村庄都会沿着道路把疫情传播给相邻的村庄。请你计算：多少天后最后一个村庄被感染？若有村庄永远不会被感染，输出 `-1`。\n\n**输入格式**\n\n第一行三个整数 n, m, k，表示村庄数、道路数和最初感染村庄数。\n\n第二行 k 个整数，表示最初感染疫情的村庄编号。\n\n接下来 m 行，每行两个整数 u, v，表示村庄 u 和 v 之间有一条双向道路。\n\n**输出格式**\n\n输出一个整数，表示最后一个村庄被感染的天数。若有村庄永远不会被感染，输出 `-1`。\n\n**样例输入 1**\n```\n5 4 1\n1\n1 2\n2 3\n3 4\n4 5\n```\n\n**样例输出 1**\n```\n4\n```\n\n**样例解释 1**\n\n5 个村庄排成一条链：1→2→3→4→5。第 1 天 2 被感染，第 2 天 3，第 3 天 4，第 4 天 5。最后一个在第 4 天被感染。\n\n**样例输入 2**\n```\n4 2 1\n1\n1 2\n3 4\n```\n\n**样例输出 2**\n```\n-1\n```\n\n**样例解释 2**\n\n村庄 3、4 与村庄 1、2 之间没有道路，永远无法被感染，输出 -1。\n\n**提示**\n\n- 把所有最初感染的村庄同时入队，做 BFS\n- dist 数组记录每个村庄被感染的天数，初始感染的村庄 dist = 0\n- BFS 逐层扩展，答案即所有 dist 的最大值\n- 若有村庄 dist 未被更新（仍为 -1），则无法到达，输出 -1\n\n**数据范围**\n\n对于 30% 的数据，1 ≤ n ≤ 100，1 ≤ m ≤ 500。\n对于 60% 的数据，1 ≤ n ≤ 10³，1 ≤ m ≤ 10⁴。\n对于 100% 的数据，1 ≤ n ≤ 10⁵，1 ≤ m ≤ 10⁵，1 ≤ k ≤ n。",
+      "question_type": "programming",
+      "pid": "P9863",
+      "url": "https://fslong.iok.la/problem/P9863",
+      "title": "疫情传播",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "参考代码（多源 BFS）：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 100005;\nvector<int> g[N];\nint dist[N];\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n, m, k;\n    cin >> n >> m >> k;\n    memset(dist, -1, sizeof(dist));\n    queue<int> q;\n    for (int i = 0; i < k; i++) {\n        int s;\n        cin >> s;\n        dist[s] = 0;\n        q.push(s);\n    }\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n        g[v].push_back(u);\n    }\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        for (int v : g[u]) {\n            if (dist[v] == -1) {\n                dist[v] = dist[u] + 1;\n                q.push(v);\n            }\n        }\n    }\n    int ans = 0;\n    for (int i = 1; i <= n; i++) {\n        if (dist[i] == -1) {\n            cout << -1 << '\\n';\n            return 0;\n        }\n        ans = max(ans, dist[i]);\n    }\n    cout << ans << '\\n';\n    return 0;\n}\n```\n\n**原理说明**：多源 BFS——把 k 个初始感染村庄全部入队，同时逐层扩展。dist 记录每个村庄被感染的天数，答案即最大 dist。若有村庄 dist 仍为 -1 则不可达，输出 -1。复杂度 O(n+m)。"
+    },
+    {
+      "content": "### 第 4 题 校园网最远传递（100 分）\n\n**题目描述**\n\n某学校的校园网由 n 台电脑和 n-1 根网线连接而成，整张网络连通且没有环（即形成一棵树）。\n\n信息从一台电脑发出后，每秒钟沿网线传到相邻的一台电脑。请你计算：从某台电脑到另一台电脑传递信息**最多需要多少秒**（即树上任意两台电脑之间距离的最大值）。\n\n**输入格式**\n\n第一行一个整数 n，表示电脑台数。\n\n接下来 n-1 行，每行两个整数 u, v，表示电脑 u 和 v 之间有一根网线。\n\n**输出格式**\n\n输出一个整数，表示传递信息最多需要的秒数。\n\n**样例输入**\n```\n5\n1 2\n1 3\n2 4\n2 5\n```\n\n**样例输出**\n```\n3\n```\n\n**样例解释**\n\n网络结构：\n\n```\n    1\n   / \\\n  2   3\n / \\\n4   5\n```\n\n电脑 4 传信息到电脑 3 需经过 4→2→1→3，共 3 秒；电脑 5 到电脑 3 同样 3 秒。没有两台电脑距离超过 3 秒，故答案为 3。\n\n**提示**\n\n- 先任选一台电脑（如 1 号）做一次 BFS，找到离它最远的电脑 u\n- 再从 u 出发做一次 BFS，u 到最远电脑的距离即为答案\n- 为什么两步就够？想想：树上离任意点最远的点，一定是直径的端点\n\n**数据范围**\n\n对于 30% 的数据，1 ≤ n ≤ 100。\n对于 60% 的数据，1 ≤ n ≤ 10³。\n对于 100% 的数据，1 ≤ n ≤ 10⁵。",
+      "question_type": "programming",
+      "pid": "P9864",
+      "url": "https://fslong.iok.la/problem/P9864",
+      "title": "校园网最远传递",
+      "correct_answer": "参考代码见解析",
+      "score": 100,
+      "explanation": "参考代码（两遍 BFS 求树的直径）：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 100005;\nvector<int> g[N];\nint dist[N];\n\nint bfs(int start) {\n    memset(dist, -1, sizeof(dist));\n    queue<int> q;\n    q.push(start);\n    dist[start] = 0;\n    int far = start;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        if (dist[u] > dist[far]) far = u;\n        for (int v : g[u]) {\n            if (dist[v] == -1) {\n                dist[v] = dist[u] + 1;\n                q.push(v);\n            }\n        }\n    }\n    return far;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n;\n    cin >> n;\n    for (int i = 1; i < n; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n        g[v].push_back(u);\n    }\n    int u = bfs(1);        // 第一遍：找离 1 最远的点\n    bfs(u);                // 第二遍：u 到最远点的距离即答案\n    int ans = 0;\n    for (int i = 1; i <= n; i++)\n        ans = max(ans, dist[i]);\n    cout << ans << '\\n';\n    return 0;\n}\n```\n\n**原理说明**：树的直径 = 树上最长路径。任取一点 BFS 找到最远点 u，u 必为直径一端点；再从 u BFS，最远距离即直径。两次 BFS 复杂度 O(n+m)。"
+    }
+  ]
+}

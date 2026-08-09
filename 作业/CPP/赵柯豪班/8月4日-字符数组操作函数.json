@@ -1,0 +1,263 @@
+{
+	"title": "字符数组操作函数",
+	"description": "赵柯豪班 8月4日作业 - strlen、strcpy、strcat、strcmp、toupper、atoi、字符数组操作函数",
+	"time_limit": 90,
+	"pass_score": 60,
+	"questions": [
+		{
+			"content": "妈妈用 `char s[] = \"hello\";` 存了一个单词，调用 `strlen(s)` 得到的值是？",
+			"question_type": "single",
+			"title": "妈妈记账",
+			"options": {
+				"A": "6",
+				"B": "5",
+				"C": "4",
+				"D": "7"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "`strlen` 统计字符串有效字符个数，不含结尾的 '\\0'。\"hello\" 共 5 个字符，故返回 5。"
+		},
+		{
+			"content": "王叔叔的便利店换招牌，定义 `char a[20] = \"abc\", b[20] = \"xyz\";`，执行 `strcpy(a, b);` 后，数组 `a` 中的内容是？",
+			"question_type": "single",
+			"title": "店铺换招牌",
+			"options": {
+				"A": "\"abcxyz\"",
+				"B": "\"xyzabc\"",
+				"C": "\"xyz\"",
+				"D": "\"abc\""
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "`strcpy(a, b)` 把 b 的内容连同结尾 '\\0' 整体复制到 a，覆盖 a 原有内容。a 中 \"abc\" 被 \"xyz\" 覆盖，结果为 \"xyz\"。"
+		},
+		{
+			"content": "妈妈拼快递单号，定义 `char a[20] = \"abc\", b[20] = \"xyz\";`，执行 `strcat(a, b);` 后，数组 `a` 中的内容是？",
+			"question_type": "single",
+			"title": "拼接快递单号",
+			"options": {
+				"A": "\"abc\"",
+				"B": "\"xyz\"",
+				"C": "\"xyzabc\"",
+				"D": "\"abcxyz\""
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "`strcat(a, b)` 从 a 原来的结尾 '\\0' 处开始写入 b 的内容，拼接结果为 \"abcxyz\"。"
+		},
+		{
+			"content": "侯老师用 `strcmp(\"abc\", \"abd\")` 比较两个单词，返回的值是？",
+			"question_type": "single",
+			"title": "单词比大小",
+			"options": {
+				"A": "负数",
+				"B": "正数",
+				"C": "0",
+				"D": "无法确定"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "`strcmp` 逐字符比较 ASCII 码，前两个字符相同，第三个字符 'c'(99) 小于 'd'(100)，故第一个字符串较小，返回负数。"
+		},
+		{
+			"content": "王叔叔给游戏账号排序，调用 `strcmp(\"hello\", \"Hello\")`，返回值是？",
+			"question_type": "single",
+			"title": "账号排序",
+			"options": {
+				"A": "负数",
+				"B": "正数",
+				"C": "0",
+				"D": "不确定"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "`strcmp` 逐字符比较：首字符 'h'(ASCII 104) 大于 'H'(ASCII 72)，比较立即分出大小，故返回正数。"
+		},
+		{
+			"content": "冯老师写程序把验证码字母统一转成大写，调用 `toupper('b')`，返回值是？",
+			"question_type": "single",
+			"title": "验证码统一大写",
+			"options": {
+				"A": "'b'",
+				"B": "98",
+				"C": "'B'",
+				"D": "66"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "`toupper('b')` 把小写字母转成大写，返回 'B'。98 是 'b' 的 ASCII 码，66 是 'B' 的 ASCII 码，选项 B、D 均为数值而非字符返回值。"
+		},
+		{
+			"content": "侯老师写代码用了 `strlen`、`strcpy` 等函数，但编译报错说找不到这些函数。它们声明在哪个头文件中？",
+			"question_type": "single",
+			"title": "忘了头文件",
+			"options": {
+				"A": "cmath",
+				"B": "cstdio",
+				"C": "cctype",
+				"D": "cstring"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "`strlen`、`strcpy`、`strcat`、`strcmp` 等字符串函数声明在 `<cstring>` 头文件中。`cctype` 提供字符判断与转换（如 toupper），`cmath` 是数学函数，`cstdio` 是输入输出函数。"
+		},
+		{
+			"content": "定义 `char s[] = \"hello\";`，那么 `strlen(s)` 和 `sizeof(s)` 的值分别是？",
+			"question_type": "single",
+			"title": "内存占用",
+			"options": {
+				"A": "5 和 6",
+				"B": "6 和 5",
+				"C": "5 和 5",
+				"D": "6 和 6"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "`strlen` 在运行时数到 '\\0' 停止，返回 5；`sizeof` 在编译期求整个数组占用的字节数，含结尾的 '\\0'，为 6。"
+		},
+		{
+			"content": "妈妈收到订单号字符串 `\"123\"`，用 `atoi(\"123\")` 转换后，返回值是？",
+			"question_type": "single",
+			"title": "订单号转数字",
+			"options": {
+				"A": "\"123\"",
+				"B": "123",
+				"C": "'1'",
+				"D": "乱码"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "`atoi` 把数字字符串转成整数，返回 int 类型 123。选项 A 是字符串字面量，类型不符。"
+		},
+		{
+			"content": "冯老师写了个函数 `int mylen(char s[])` 来统计字符串长度。把字符数组 `s` 传给这个函数时，实际传递的是？",
+			"question_type": "single",
+			"title": "传数组给函数",
+			"options": {
+				"A": "整个数组的一份完整副本",
+				"B": "数组的长度",
+				"C": "数组的首地址",
+				"D": "数组的第一个字符"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "数组作为函数参数时退化为指针，实际传递的是数组首地址。函数内通过该地址访问原数组，不会产生副本，因此在函数里修改元素会改变原数组。"
+		},
+		{
+			"content": "用 `strcmp(s1, s2)` 比较两个字符串，如果它们完全相同，返回值为 0。",
+			"question_type": "judge",
+			"title": "第 11 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "两字符串每个字符都相同且同时到结尾时，strcmp 返回 0。说法正确。"
+		},
+		{
+			"content": "用 `strcat(a, b)` 把 `b` 拼到 `a` 末尾后，会自动在结果末尾补上字符串结束符 `'\\0'`。",
+			"question_type": "judge",
+			"title": "第 12 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "strcat 拼接后会自动在结果末尾补 '\\0'，保证结果仍是完整字符串。说法正确。"
+		},
+		{
+			"content": "`char s[100] = \"hi\";` 执行 `strcpy(s, \"hello\");` 后，`strlen(s)` 的值为 5。",
+			"question_type": "judge",
+			"title": "第 13 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "strcpy 把 \"hello\" 连同结尾 '\\0' 复制到 s，覆盖原内容。strlen 数到 '\\0' 止，返回 5。说法正确。"
+		},
+		{
+			"content": "使用 `strcpy` 时，目标字符数组的空间比源字符串小，也不会出错。",
+			"question_type": "judge",
+			"title": "第 14 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "strcpy 不检查目标空间大小，空间不足会越界写入，可能覆盖其他数据甚至导致程序崩溃。说法错误。"
+		},
+		{
+			"content": "`strcmp` 比较两个字符串时，只看长度，不比较每个字符的内容。",
+			"question_type": "judge",
+			"title": "第 15 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "strcmp 逐字符按 ASCII 码比较内容，直到分出大小或同时遇到 '\\0'，并非只看长度。说法错误。"
+		},
+		{
+			"content": "### 第 16 题 消息长度检查（100 分）\n\n**题目描述**\n\n王叔叔的游戏服务器规定，一条聊天消息最长 20 个字符。输入一个字符串，用 `strlen` 求出它的长度并输出。\n\n**输入格式**\n\n一行，一个不含空格的字符串 s（长度 ≤ 100）。\n\n**输出格式**\n\n一行，一个整数，表示 s 的长度。\n\n**样例输入**\n```\nhello\n```\n\n**样例输出**\n```\n5\n```\n\n**提示**\n\n`strlen(s)` 会返回字符串有效字符的个数，不含结尾的 `'\\0'`。",
+			"question_type": "programming",
+			"pid": "zkh16",
+			"url": "https://fslong.iok.la/problem/ZKH16",
+			"title": "消息长度检查",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "直接用 strlen 求字符串长度输出。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char s[105];\n    cin >> s;\n    cout << strlen(s) << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 17 题 拼接头像昵称（100 分）\n\n**题目描述**\n\n妈妈要给快递单生成收件人信息，把\"收件人\"和\"电话\"两段文字拼成一行。输入两个字符串 a 和 b，用 `strcpy` 和 `strcat` 把 b 拼接到 a 的末尾，输出拼接结果。\n\n**输入格式**\n\n第一行，字符串 a（不含空格，长度 ≤ 100）。\n\n第二行，字符串 b（不含空格，长度 ≤ 100）。\n\n**输出格式**\n\n一行，拼接后的字符串。\n\n**样例输入**\n```\nZhang\n13800138000\n```\n\n**样例输出**\n```\nZhang13800138000\n```\n\n**提示**\n\n`strcat(a, b)` 会把 b 的内容接到 a 后面，并自动补上 `'\\0'`。拼接时注意数组 a 要开足够大的空间。",
+			"question_type": "programming",
+			"pid": "zkh17",
+			"url": "https://fslong.iok.la/problem/ZKH17",
+			"title": "拼接头像昵称",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "用 strcat(a, b) 将 b 拼接到 a 末尾，再输出 a。a 需开足够大的空间（如 205）。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char a[205], b[105];\n    cin >> a >> b;\n    strcat(a, b);\n    cout << a << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 18 题 会员码全大写（100 分）\n\n**题目描述**\n\n王叔叔的便利店给会员发会员码，需要把里面的小写字母全部转成大写。输入一个字符串（可能含大小写字母和数字），把其中的小写字母转成大写后输出。\n\n**输入格式**\n\n一行，一个字符串 s（长度 ≤ 100，可能含字母和数字）。\n\n**输出格式**\n\n一行，转换后的字符串。\n\n**样例输入**\n```\nHello123\n```\n\n**样例输出**\n```\nHELLO123\n```\n\n**提示**\n\n小写字母 ASCII 码比对应大写字母大 32，小写转大写可 `s[i] -= 32;`，也可以用 `toupper(s[i])`。",
+			"question_type": "programming",
+			"pid": "zkh18",
+			"url": "https://fslong.iok.la/problem/ZKH18",
+			"title": "会员码全大写",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "遍历字符串，若字符是小写字母则 ASCII 码减 32 转成大写，然后输出。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char s[105];\n    cin >> s;\n    for (int i = 0; s[i] != '\\0'; i++)\n        if (s[i] >= 'a' && s[i] <= 'z') s[i] -= 32;\n    cout << s << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 19 题 字典顺序（100 分）\n\n**题目描述**\n\n侯老师整理班级花名册，需要按字典序比较两个名字。输入两个字符串，用 `strcmp` 比较：如果第一个字符串比第二个小，输出 -1；两个相等，输出 0；第一个比第二个大，输出 1。\n\n**输入格式**\n\n第一行，字符串 a（长度 ≤ 100）。\n\n第二行，字符串 b（长度 ≤ 100）。\n\n**输出格式**\n\n一行，一个整数，为 -1、0 或 1。\n\n**样例输入**\n```\nabc\nabd\n```\n\n**样例输出**\n```\n-1\n```\n\n**提示**\n\n`strcmp(a, b)` 返回负数、0、正数三种情况，对应 a 比 b 小、相等、比 b 大。",
+			"question_type": "programming",
+			"pid": "zkh19",
+			"url": "https://fslong.iok.la/problem/ZKH19",
+			"title": "字典顺序",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "调用 strcmp(a, b) 得返回值 t，按 t 的正负零分别输出 -1、1、0。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char a[105], b[105];\n    cin >> a >> b;\n    int t = strcmp(a, b);\n    if (t < 0) cout << -1 << endl;\n    else if (t > 0) cout << 1 << endl;\n    else cout << 0 << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 20 题 名单核对（100 分）\n\n**题目描述**\n\n侯老师手上有两份作业名单，他想确认两份名单是否完全一致。输入两个字符串，用 `strcmp` 判断：完全相同输出 `SAME`，否则输出 `DIFFERENT`。\n\n**输入格式**\n\n第一行，字符串 a（长度 ≤ 100）。\n\n第二行，字符串 b（长度 ≤ 100）。\n\n**输出格式**\n\n一行，`SAME` 或 `DIFFERENT`。\n\n**样例输入**\n```\nZhang\nZhang\n```\n\n**样例输出**\n```\nSAME\n```\n\n**提示**\n\n`strcmp(a, b) == 0` 表示两个字符串完全相同。",
+			"question_type": "programming",
+			"pid": "zkh20",
+			"url": "https://fslong.iok.la/problem/ZKH20",
+			"title": "名单核对",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "strcmp(a, b) == 0 时输出 SAME，否则输出 DIFFERENT。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    char a[105], b[105];\n    cin >> a >> b;\n    if (strcmp(a, b) == 0) cout << \"SAME\" << endl;\n    else cout << \"DIFFERENT\" << endl;\n    return 0;\n}\n```"
+		}
+	]
+}

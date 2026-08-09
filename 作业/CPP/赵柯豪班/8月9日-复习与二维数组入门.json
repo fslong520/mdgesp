@@ -1,0 +1,263 @@
+{
+	"title": "复习与二维数组初探",
+	"description": "赵柯豪班 8月9日作业 - 知识点复习（输出语句、取余、自增、逻辑非、switch、bool输出、if赋值陷阱、long long、printf格式符、变量交换）、二维数组创建与输入输出",
+	"time_limit": 40,
+	"pass_score": 60,
+	"questions": [
+		{
+			"content": "爸爸在奶茶店看到价目屏由程序生成，程序里写着：\n\n```cpp\ncout << \"5+5\";\n```\n\n屏幕上显示什么？",
+			"question_type": "single",
+			"title": "奶茶店价目屏",
+			"options": {
+				"A": "10",
+				"B": "`5+5`",
+				"C": "报错",
+				"D": "`5+5` 和 10 都显示"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "引号里的是字符串字面量，`cout` 原样输出 `5+5` 这串字符，不做加法；要算加法须去掉引号写 `cout << 5 + 5;`。"
+		},
+		{
+			"content": "王叔叔找给顾客 123 元，他想知道零钱里有多少个 1 元硬币，也就是 123 的个位数。表达式 `123 % 10` 的结果是？",
+			"question_type": "single",
+			"title": "找零的个位",
+			"options": {
+				"A": "123",
+				"B": "12",
+				"C": "3",
+				"D": "1"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "`%` 取余数，123 除以 10 商 12 余 3，`123 % 10` 得 3，即个位数。同理十位是 `123 / 10 % 10`。"
+		},
+		{
+			"content": "刘伯伯在健身房打卡，代码里有一句：\n\n```cpp\nint i = 3;\nint x = i++;\n```\n\n执行完后，`x` 和 `i` 的值分别是？",
+			"question_type": "single",
+			"title": "健身打卡",
+			"options": {
+				"A": "x=3，i=4",
+				"B": "x=4，i=4",
+				"C": "x=3，i=3",
+				"D": "x=4，i=5"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "`i++` 是\"先用后加\"：先把 i 当前值 3 赋给 x，再让 i 自增为 4。所以 x=3、i=4。若是 `++i` 则 x=4、i=4。"
+		},
+		{
+			"content": "小区门禁系统判断 `!(5 > 3 && 10 < 2)`，这个表达式的值是多少？（`true` 输出 1，`false` 输出 0）",
+			"question_type": "single",
+			"title": "门禁取反",
+			"options": {
+				"A": "0",
+				"B": "2",
+				"C": "报错",
+				"D": "1"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "先算括号内：5>3 得 true，10<2 得 false，`&&` 一假即假，整个括号为 false；`!` 取反得 true，输出 1。"
+		},
+		{
+			"content": "自动售货机选饮料代码：\n\n```cpp\nint x = 1;\nswitch (x) {\n    case 1: cout << \"A\";\n    case 2: cout << \"B\"; break;\n    default: cout << \"C\";\n}\n```\n\n屏幕上输出什么？",
+			"question_type": "single",
+			"title": "自动售货机",
+			"options": {
+				"A": "A",
+				"B": "AB",
+				"C": "B",
+				"D": "什么都不输出"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "x=1 进入 case 1 输出 A，case 1 末尾没有 break，会\"穿透\"继续执行 case 2 输出 B，遇 break 才停。所以输出 AB。忘写 break 是 switch 最常见的坑。"
+		},
+		{
+			"content": "代码 `cout << (5 > 3);` 执行后，屏幕上显示什么？",
+			"question_type": "single",
+			"title": "红绿灯显示",
+			"options": {
+				"A": "5 > 3",
+				"B": "true",
+				"C": "1",
+				"D": "0"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "关系表达式结果是 bool 类型，`cout` 输出 bool 时显示 1（true）或 0（false）。5>3 为真，显示 1。"
+		},
+		{
+			"content": "王叔叔在快递柜取件，程序里写着：\n\n```cpp\nint code = 0;\nif (code = 6)\n    cout << \"柜门已开\";\nelse\n    cout << \"请重试\";\n```\n\n屏幕上输出什么？",
+			"question_type": "single",
+			"title": "快递柜取件",
+			"options": {
+				"A": "柜门已开",
+				"B": "请重试",
+				"C": "报错",
+				"D": "什么都不输出"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "`code = 6` 是赋值不是比较，把 6 赋给 code 后表达式的值就是 6（非 0 即真），条件恒成立，输出\"柜门已开\"。判断相等应写 `code == 6`。"
+		},
+		{
+			"content": "妈妈帮赵柯豪存压岁钱，今年一共存了 `12345678901` 元（11 位数）。要定义变量存这个数，应该用哪个类型？",
+			"question_type": "single",
+			"title": "巨额压岁钱",
+			"options": {
+				"A": "`int`",
+				"B": "`char`",
+				"C": "`bool`",
+				"D": "`long long`"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "`int` 最大约 21 亿（10 位数），存不下 11 位的 12345678901，会溢出出错。`long long` 能存到约 9×10^18，用 `long long` 才保险。"
+		},
+		{
+			"content": "侯老师给体温计写显示程序，用 `printf(\"%.2f\", 3.14159);` 输出体温。屏幕上显示什么？",
+			"question_type": "single",
+			"title": "体温显示",
+			"options": {
+				"A": "3.14",
+				"B": "3.14159",
+				"C": "3.1",
+				"D": "3"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "`%.2f` 表示按浮点数输出并保留两位小数，3.14159 四舍五入得 3.14。"
+		},
+		{
+			"content": "妈妈手里拿着橙汁（a=3）和可乐（b=7），要把两个杯子换一下：让 a 拿可乐、b 拿橙汁。正确做法是？",
+			"question_type": "single",
+			"title": "换饮料",
+			"options": {
+				"A": "直接写 `a = b; b = a;` 两行就够了",
+				"B": "用第三个临时变量：`int t = a; a = b; b = t;`",
+				"C": "用循环交换",
+				"D": "用数组交换"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "直接 `a = b; b = a;` 第二步时 a 已经是 7，b 再赋 7 就两个都是 7。必须用临时变量先存下 a 的原值：t=3，a=7，b=3。"
+		},
+		{
+			"content": "用 `int a[3][4];` 声明二维数组，表示一个 3 行 4 列的电影院座位表。",
+			"question_type": "judge",
+			"title": "电影院座位",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "二维数组声明 `int a[行数][列数];`，`a[3][4]` 是 3 行 4 列，说法正确。"
+		},
+		{
+			"content": "用 `int a[3][4];` 声明后，访问 `a[3][0]` 是合法的。",
+			"question_type": "judge",
+			"title": "座位越界",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "3 行的下标是 0、1、2，行号最大到 2；`a[3][0]` 第 3 行已越界。合法范围是行 0~2、列 0~3。"
+		},
+		{
+			"content": "用双层循环给二维数组输入数据时，习惯上外层循环控制行、内层循环控制列。",
+			"question_type": "judge",
+			"title": "逐排录入",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "双层循环读二维数组的标准写法：外层 i 跑行、内层 j 跑列，与二维数组\"先第 0 行全部、再第 1 行全部\"的存储顺序一致，说法正确。"
+		},
+		{
+			"content": "输出二维数组时，一行元素之间要加空格、每输出完一行要换行，否则所有数字会挤成一团。",
+			"question_type": "judge",
+			"title": "座位表输出",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "不加空格和换行，输出会变成一长串连在一起的数字（如 123456789），无法辨认。列间加空格、行尾换行，说法正确。"
+		},
+		{
+			"content": "执行 `int a[2][3] = {1, 2, 3, 4, 5, 6};` 后，`a[0][1]` 的值是 4。",
+			"question_type": "judge",
+			"title": "一排铺满",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "初始化按行优先填充：第 0 行是 1、2、3，第 1 行是 4、5、6。`a[0][1]` 是第 0 行第 1 列，值为 2，不是 4。"
+		},
+		{
+			"content": "### 1、<a href=\"https://fslong.iok.la/problem/ZKH41\" target=\"_blank\">三袋零食</a>(100分)\n\n**题目描述**\n\n三个好朋友各买了一袋零食，放在一起称重，重量分别是 a、b、c 克。如果恰好有两袋重量相同（剩下的一袋不同），他们就说\"中奖了\"。请判断是否中奖。\n\n**输入格式**\n\n一行，三个整数 a、b、c（1 ≤ a, b, c ≤ 1000）。\n\n**输出格式**\n\n一行，若能组成\"恰好两袋相同\"，输出 `Yes`，否则输出 `No`。\n\n**样例输入 1**\n```\n3 3 2\n```\n\n**样例输出 1**\n```\nYes\n```\n\n**样例输入 2**\n```\n2 2 2\n```\n\n**样例输出 2**\n```\nNo\n```\n\n**样例输入 3**\n```\n5 6 7\n```\n\n**样例输出 3**\n```\nNo\n```\n\n**提示**\n\n\"恰好两袋相同\"要排除三袋全同的情况。可以这样判断：`(a == b && b != c) || (a == c && a != b) || (b == c && a != b)`。",
+			"question_type": "programming",
+			"pid": "zkh41",
+			"url": "https://fslong.iok.la/problem/ZKH41",
+			"title": "三袋零食",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int a, b, c;\n    cin >> a >> b >> c;\n    if ((a == b && b != c) || (a == c && a != b) || (b == c && a != b))\n        cout << \"Yes\" << endl;\n    else\n        cout << \"No\" << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 2、<a href=\"https://fslong.iok.la/problem/ZKH42\" target=\"_blank\">烘焙温度</a>(100分)\n\n**题目描述**\n\n妈妈做蛋糕，烤箱上的温度表只显示华氏度，可食谱写的是摄氏度。她需要把摄氏温度换算成华氏温度。换算公式为：`F = C × 9 ÷ 5 + 32`。帮她写个换算程序。\n\n**输入格式**\n\n一行，一个两位小数，表示摄氏温度 C（-100.00 ≤ C ≤ 1000.00）。\n\n**输出格式**\n\n一行，输出换算后的华氏温度，保留两位小数。\n\n**样例输入 1**\n```\n0.00\n```\n\n**样例输出 1**\n```\n32.00\n```\n\n**样例输入 2**\n```\n100.00\n```\n\n**样例输出 2**\n```\n212.00\n```\n\n**提示**\n\n用 `double` 存温度，公式算完后用 `printf(\"%.2f\", f)` 保留两位小数，或 `cout << fixed << setprecision(2)`。",
+			"question_type": "programming",
+			"pid": "zkh42",
+			"url": "https://fslong.iok.la/problem/ZKH42",
+			"title": "烘焙温度",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    double c;\n    cin >> c;\n    printf(\"%.2f\\n\", c * 9 / 5 + 32);\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 3、<a href=\"https://fslong.iok.la/problem/ZKH43\" target=\"_blank\">储物柜核对</a>(100分)\n\n**题目描述**\n\n地铁站的储物柜按 n 行 m 列排列，管理员把每个柜子的编号记成一张表格，想核对一遍。输入这张 n 行 m 列的编号表，原样输出出来。\n\n**输入格式**\n\n第一行，两个整数 n 和 m（1 ≤ n, m ≤ 100）。\n接下来 n 行，每行 m 个整数，表示柜子编号。\n\n**输出格式**\n\nn 行，每行 m 个整数，与原表一致。同一行的数字之间用一个空格隔开。\n\n**样例输入**\n```\n3 3\n1 2 3\n4 5 6\n7 8 9\n```\n\n**样例输出**\n```\n1 2 3\n4 5 6\n7 8 9\n```\n\n**提示**\n\n双层循环读入：外层循环控制行，内层循环控制列。输出时注意：一行中除了第一个数，每个数前面加一个空格；每行结束换行。",
+			"question_type": "programming",
+			"pid": "zkh43",
+			"url": "https://fslong.iok.la/problem/ZKH43",
+			"title": "储物柜核对",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[105][105];\nint main() {\n    int n, m;\n    cin >> n >> m;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < m; j++)\n            cin >> a[i][j];\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < m; j++) {\n            if (j > 0) cout << ' ';\n            cout << a[i][j];\n        }\n        cout << endl;\n    }\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 4、<a href=\"https://fslong.iok.la/problem/ZKH44\" target=\"_blank\">货架盘点</a>(100分)\n\n**题目描述**\n\n超市货架有 n 层，每层放 m 个格子，货架编号记成一张 n 行 m 列的表格。店长要盘点编号大于 k 的格子有多少个，好安排补货。请统计这张表格里编号大于 k 的元素个数。\n\n**输入格式**\n\n第一行，两个整数 n 和 m（1 ≤ n, m ≤ 100）。\n接下来 n 行，每行 m 个整数，表示货架编号（1 ≤ 编号 ≤ 10000）。\n最后一行，一个整数 k（1 ≤ k ≤ 10000）。\n\n**输出格式**\n\n一行，一个整数，为编号大于 k 的格子总数。\n\n**样例输入**\n```\n3 3\n1 2 3\n4 5 6\n7 8 9\n5\n```\n\n**样例输出**\n```\n4\n```\n\n**样例解释**\n\n大于 5 的编号有 6、7、8、9，共 4 个。\n\n**提示**\n\n先用双层循环把整张表读进二维数组，再双层循环遍历：只要 `a[i][j] > k` 就让计数器加 1。",
+			"question_type": "programming",
+			"pid": "zkh44",
+			"url": "https://fslong.iok.la/problem/ZKH44",
+			"title": "货架盘点",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[105][105];\nint main() {\n    int n, m, k;\n    cin >> n >> m;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < m; j++)\n            cin >> a[i][j];\n    cin >> k;\n    int cnt = 0;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < m; j++)\n            if (a[i][j] > k) cnt++;\n    cout << cnt << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 5、<a href=\"https://fslong.iok.la/problem/ZKH45\" target=\"_blank\">偶数出列</a>(100分)\n\n**题目描述**\n\n班主任把全班 n 个同学的学号按座位顺序记了下来，现在让学号为偶数的同学出列站到一边。请按座位的先后顺序，把学号是偶数的同学挑出来。\n\n**输入格式**\n\n第一行，一个整数 n（1 ≤ n ≤ 100）。\n第二行，n 个整数，表示按座位顺序记录的学号（1 ≤ 学号 ≤ 1000）。\n\n**输出格式**\n\n一行，按原顺序输出所有偶数学号，数字之间用一个空格隔开。如果一个偶数都没有，输出 `0`。\n\n**样例输入**\n```\n6\n1 4 7 8 10 3\n```\n\n**样例输出**\n```\n4 8 10\n```\n\n**样例解释**\n\n学号 1、4、7、8、10、3 中，偶数是 4、8、10，按原顺序输出。\n\n**提示**\n\n读进一维数组后遍历，`a[i] % 2 == 0` 就输出。输出时用一个标志记着\"是不是第一个输出的数\"，不是第一个就在前面加空格。遍历完一个偶数都没输出过，就输出 `0`。",
+			"question_type": "programming",
+			"pid": "zkh45",
+			"url": "https://fslong.iok.la/problem/ZKH45",
+			"title": "偶数出列",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint a[105];\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 0; i < n; i++) cin >> a[i];\n    bool first = true;\n    for (int i = 0; i < n; i++) {\n        if (a[i] % 2 == 0) {\n            if (!first) cout << ' ';\n            cout << a[i];\n            first = false;\n        }\n    }\n    if (first) cout << 0;\n    cout << endl;\n    return 0;\n}\n```"
+		}
+	]
+}

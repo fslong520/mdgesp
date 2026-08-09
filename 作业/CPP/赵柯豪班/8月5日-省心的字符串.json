@@ -1,0 +1,263 @@
+{
+	"title": "省心的字符串",
+	"description": "赵柯豪班 8月5日作业 - string类型、C风格字符串、字符串构造、cin与getline、字符串索引、字符串拼接",
+	"time_limit": 40,
+	"pass_score": 60,
+	"questions": [
+		{
+			"content": "妈妈整理旧代码，发现 `char s[] = \"Hello\";` 这种写法。关于 C 风格字符串，下列说法正确的是？",
+			"question_type": "single",
+			"title": "妈妈的旧代码",
+			"options": {
+				"A": "是以 `'\\0'` 结尾的一维字符数组",
+				"B": "是以空格结尾的数组",
+				"C": "是以换行符结尾的数组",
+				"D": "结尾不需要任何标记"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "C 风格字符串用字符数组存储，末尾必有 `'\\0'` 作为结束标记，表示字符串到此结束。"
+		},
+		{
+			"content": "妈妈给新养的小猫取名，写了 `string s(4, 'a');`，那么 `s` 的值是？",
+			"question_type": "single",
+			"title": "给小猫起名",
+			"options": {
+				"A": "`\"aaaa\"`",
+				"B": "`\"a\"`",
+				"C": "`\"4a\"`",
+				"D": "`\"aaa\"`"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "`string s(4, 'a')` 表示用 4 个 `'a'` 字符构造字符串，结果为 `\"aaaa\"`。"
+		},
+		{
+			"content": "王叔叔写 `string s = \"便利店\";`，想用 `printf` 打印出 `s`，正确写法是？",
+			"question_type": "single",
+			"title": "用printf打印",
+			"options": {
+				"A": "`printf(\"%s\", s);`",
+				"B": "`printf(\"%c\", s);`",
+				"C": "`printf(\"%s\", &s);`",
+				"D": "`printf(\"%s\", s.c_str());`"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "`printf` 只能接收 C 风格字符串（char*），`string` 对象需用 `s.c_str()` 取得底层字符数组首地址后才能打印。"
+		},
+		{
+			"content": "妈妈网购填地址，输入 `幸福路 12号`，用 `string s; getline(cin, s);` 读入后，`s` 的值是？",
+			"question_type": "single",
+			"title": "填收货地址",
+			"options": {
+				"A": "`\"幸福路\"`",
+				"B": "`\"幸福路 12号\"`",
+				"C": "`\"12号\"`",
+				"D": "空字符串"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "`getline` 读取一整行直到换行符，空格也一并读入，故 `s` 为 `\"幸福路 12号\"`。"
+		},
+		{
+			"content": "王叔叔写了下面的代码：`int n; cin >> n; string s; getline(cin, s);` 先输入 `5` 并回车，再输入 `hello`，此时 `s` 的值是？",
+			"question_type": "single",
+			"title": "cin与getline的恩怨",
+			"options": {
+				"A": "`\"5\"`",
+				"B": "`\"hello\"`",
+				"C": "空字符串",
+				"D": "`\"\\n\"`"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "`cin >> n` 读走数字后换行符残留在输入流中，`getline` 直接读到这个残留换行符，故 `s` 为空字符串。需用 `cin.ignore()` 清掉。"
+		},
+		{
+			"content": "侯老师发朋友圈，用 `string s = \"hello world\";` 存下文案，`s.size()` 的值是？",
+			"question_type": "single",
+			"title": "朋友圈字数",
+			"options": {
+				"A": "10",
+				"B": "11",
+				"C": "12",
+				"D": "9"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "`\"hello world\"` 含 5 个字母 + 1 个空格 + 5 个字母 = 11 个字符，`s.size()` 返回字符总数 11。"
+		},
+		{
+			"content": "冯老师的程序里有 `string s = \"abc\";`，执行 `s.at(5)` 会发生什么？",
+			"question_type": "single",
+			"title": "取词越界",
+			"options": {
+				"A": "程序报错 `out_of_range`",
+				"B": "返回空字符",
+				"C": "返回 `'c'`",
+				"D": "返回 `'\\0'`"
+			},
+			"correct_answer": "A",
+			"score": 10,
+			"explanation": "`s.at(i)` 会检查下标是否越界，`s` 长度 3，`at(5)` 越界，抛出 `out_of_range` 异常。"
+		},
+		{
+			"content": "奶茶店拼单，`string a = \"123\", b = \"456\";` 执行 `a += b;` 后，`a` 的值是？",
+			"question_type": "single",
+			"title": "奶茶拼单号",
+			"options": {
+				"A": "`\"456\"`",
+				"B": "`\"123\"`",
+				"C": "`\"456123\"`",
+				"D": "`\"123456\"`"
+			},
+			"correct_answer": "D",
+			"score": 10,
+			"explanation": "`a += b` 把 b 拼接到 a 末尾，`\"123\"` 后接 `\"456\"` 得 `\"123456\"`。"
+		},
+		{
+			"content": "王叔叔发现 `string s = \"HELLO\";` 的 `sizeof(s)` 是 32，而 `s.size()` 是 5，原因是？",
+			"question_type": "single",
+			"title": "管家之谜",
+			"options": {
+				"A": "`size()` 只统计大写字母",
+				"B": "`string` 最多只能存 5 个字符",
+				"C": "`s` 只是管理字符的\"管家\"，字符数据存在别处，`sizeof` 量的是管家自身",
+				"D": "`sizeof` 计算出错了"
+			},
+			"correct_answer": "C",
+			"score": 10,
+			"explanation": "`string` 对象内部存放指针等管理信息（本机 32 字节），字符数据在堆中；`sizeof` 量的是对象本身大小，`size()` 量的是字符个数。"
+		},
+		{
+			"content": "冯老师写 `string s = \"abc\"; s.push_back('d');` 后，`s` 的值是？",
+			"question_type": "single",
+			"title": "给字符串补字",
+			"options": {
+				"A": "`\"abd\"`",
+				"B": "`\"abcd\"`",
+				"C": "`\"abc\"`",
+				"D": "`\"dabc\"`"
+			},
+			"correct_answer": "B",
+			"score": 10,
+			"explanation": "`push_back` 在字符串末尾追加一个字符，`\"abc\"` 末尾加 `'d'` 得 `\"abcd\"`。"
+		},
+		{
+			"content": "C 风格字符串是使用 `'\\0'` 结尾的一维字符数组，`char s[] = \"Hello\";` 中的数组共有 6 个元素位置。",
+			"question_type": "judge",
+			"title": "第 11 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "C 风格字符串末尾含隐藏的 `'\\0'`，`\"Hello\"` 占 6 个元素位置（5 字符 + 1 结束符），说法正确。"
+		},
+		{
+			"content": "用 `cin` 读入 string 类型时，遇到空格、制表符或换行符都会停止读取。",
+			"question_type": "judge",
+			"title": "第 12 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "`cin >>` 以空白字符（空格/制表/换行）为分隔符，读到就停止，说法正确。"
+		},
+		{
+			"content": "`string s; getline(cin, s);` 会读取一整行，包括其中的空格。",
+			"question_type": "judge",
+			"title": "第 13 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "T",
+			"score": 10,
+			"explanation": "`getline` 读到换行符才停，行内空格全部读入，说法正确。"
+		},
+		{
+			"content": "使用 `s.at(5)` 访问越界字符时，程序不会报错，会正常返回空字符。",
+			"question_type": "judge",
+			"title": "第 14 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "`s.at(5)` 越界会抛出 `out_of_range` 异常而非静默返回，说法错误。"
+		},
+		{
+			"content": "`string a = \"123\", b = \"456\";` 执行 `cout << a + b;` 后，`a` 的值会变成 `\"123456\"`。",
+			"question_type": "judge",
+			"title": "第 15 题",
+			"options": {
+				"T": "正确",
+				"F": "错误"
+			},
+			"correct_answer": "F",
+			"score": 10,
+			"explanation": "`a + b` 生成临时新串，`a` 本身不变；只有 `a += b` 才会修改 `a`，说法错误。"
+		},
+		{
+			"content": "### 第 16 题 密保口令 [zkh21]（100 分）\n\n**题目描述**\n\n游戏账号的密保口令由前后两段组成，需要拼在一起才是完整口令。输入两段口令，把第二段拼接到第一段末尾，输出完整口令。\n\n**输入格式**\n\n第一行，字符串 a（不含空格）。\n第二行，字符串 b（不含空格）。\n\n**输出格式**\n\n一行，拼接后的完整口令。\n\n**样例输入**\n```\nabc\nbcd\n```\n\n**样例输出**\n```\nabcbcd\n```\n\n**提示**\n\n`string` 用 `+` 可以直接拼接：`cout << a + b;`，也可以用 `a += b;` 或 `a.append(b);`。",
+			"question_type": "programming",
+			"pid": "zkh21",
+			"url": "https://fslong.iok.la/problem/ZKH21",
+			"title": "密保口令",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string a, b;\n    cin >> a >> b;\n    cout << a + b << endl;  // 或 a += b; 或 a.append(b);\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 17 题 隔位读取件码 [zkh22]（100 分）\n\n**题目描述**\n\n快递站取的取件码是一串字符，站长规定只看第 2、4、6、8……位（从 1 开始数）。输入一个字符串，请输出这些位置的字符。\n\n**输入格式**\n\n一行，一个不含空格的字符串 s。\n\n**输出格式**\n\n一行，s 中第 2、4、6、8……位（从 1 开始数）的字符。\n\n**样例输入**\n```\nHelloWorld\n```\n\n**样例输出**\n```\nelWrd\n```\n\n**提示**\n\n字符串下标从 0 开始，第 2 位对应 `s[1]`。用 `for (int i = 1; i < s.size(); i += 2)` 输出 `s[i]`。",
+			"question_type": "programming",
+			"pid": "zkh22",
+			"url": "https://fslong.iok.la/problem/ZKH22",
+			"title": "隔位读取件码",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string s;\n    cin >> s;\n    for (int i = 1; i < s.size(); i += 2)\n        cout << s[i];\n    cout << endl;\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 18 题 拆分单词 [zkh23]（100 分）\n\n**题目描述**\n\n英语老师把一篇短文发给学生，短文里全是空格分隔的单词。她想把每个单词单独一行打印出来，方便学生逐个背诵。输入一行若干个单词，请把每个单词分行输出。\n\n**输入格式**\n\n一行，若干个由空格分隔的单词。\n\n**输出格式**\n\n若干行，每行一个单词。\n\n**样例输入**\n```\nI am learning English\n```\n\n**样例输出**\n```\nI\nam\nlearning\nEnglish\n```\n\n**提示**\n\n`cin >>` 读 string 时遇到空格就停止，所以 `while (cin >> w)` 可以一次读入一个单词，读到输入结束为止。",
+			"question_type": "programming",
+			"pid": "zkh23",
+			"url": "https://fslong.iok.la/problem/ZKH23",
+			"title": "拆分单词",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    string w;\n    while (cin >> w) {\n        cout << w << endl;\n    }\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 19 题 句子长度 [zkh24]（100 分）\n\n**题目描述**\n\n妈妈发朋友圈，想知道每句话有多少个字（含空格）。输入若干行句子，请输出每行句子的长度。\n\n**输入格式**\n\n第一行，一个整数 T，表示句子的行数。\n接下来 T 行，每行一个字符串（含空格）。\n\n**输出格式**\n\nT 行，每行一个整数，依次为每行字符串的长度。\n\n**样例输入**\n```\n2\nHello World\nC++ is fun\n```\n\n**样例输出**\n```\n11\n10\n```\n\n**提示**\n\n读入 T 后要先用 `cin.ignore()` 吃掉换行符，再循环调用 `getline(cin, s)`，最后用 `s.size()` 求长度。",
+			"question_type": "programming",
+			"pid": "zkh24",
+			"url": "https://fslong.iok.la/problem/ZKH24",
+			"title": "句子长度",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int T;\n    cin >> T;\n    cin.ignore();  // 吃掉换行符\n    while (T--) {\n        string s;\n        getline(cin, s);\n        cout << s.size() << endl;\n    }\n    return 0;\n}\n```"
+		},
+		{
+			"content": "### 第 20 题 群公告复读机 [zkh25]（100 分）\n\n**题目描述**\n\n冯老师在群里发公告，要求复读机模式输出：第 1 行原样输出，之后每行开头多一个空格。输入复读次数和一句公告，按要求输出。\n\n**输入格式**\n\n第一行，一个整数 n（1 ≤ n ≤ 100），表示复读次数。\n第二行，一句公告，含空格。\n\n**输出格式**\n\nn 行，第 i 行开头有 i-1 个空格，后面跟上公告内容。\n\n**样例输入**\n```\n3\nI am happy\n```\n\n**样例输出**\n```\nI am happy\n I am happy\n  I am happy\n```\n\n**提示**\n\n读入 n 后先 `cin.ignore()`，再用 `getline(cin, s)` 读整行公告。输出时第 i 行先打印 i 个空格再输出 s。",
+			"question_type": "programming",
+			"pid": "zkh25",
+			"url": "https://fslong.iok.la/problem/ZKH25",
+			"title": "群公告复读机",
+			"options": {},
+			"correct_answer": "参考代码见解析",
+			"score": 100,
+			"explanation": "参考代码：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    string s;\n    cin >> n;\n    cin.ignore();\n    getline(cin, s);\n    for (int i = 0; i < n; ++i) {\n        for (int j = 0; j < i; ++j) cout << ' ';\n        cout << s << endl;\n    }\n    return 0;\n}\n```"
+		}
+	]
+}
