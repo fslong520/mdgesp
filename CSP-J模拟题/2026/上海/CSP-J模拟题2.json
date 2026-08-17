@@ -1,0 +1,748 @@
+{
+  "title": "CSP-J/S 模拟（二）",
+  "description": "2026年8月17日 CSP-J/S 初赛模拟题",
+  "date": "2026-08-17",
+  "time_limit": null,
+  "pass_score": null,
+  "sections": [
+    {
+      "name": "单项选择题",
+      "question_count": 15,
+      "score_per_question": 2,
+      "total_score": 30
+    },
+    {
+      "name": "阅读程序",
+      "question_count": 22,
+      "subsections": [
+        {
+          "type": "判断题",
+          "count": 12,
+          "score_per_question": 1,
+          "subtotal": 12
+        },
+        {
+          "type": "选择题",
+          "count": 10,
+          "score_per_question": 3,
+          "subtotal": 28
+        }
+      ],
+      "total_score": 40
+    },
+    {
+      "name": "完善程序",
+      "question_count": 10,
+      "score_per_question": 3,
+      "total_score": 30
+    },
+    {
+      "name": "附加题",
+      "question_count": 12,
+      "subsections": [
+        {
+          "type": "判断题",
+          "count": 3,
+          "score_per_question": 1,
+          "subtotal": 3
+        },
+        {
+          "type": "选择题",
+          "count": 9,
+          "score_per_question": 3,
+          "subtotal": 27
+        }
+      ],
+      "total_score": 30
+    }
+  ],
+  "questions": [
+    {
+      "title": "第1题",
+      "content": "以下哪个序列对应数字 0 至 7 的 4 位二进制格雷码（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "0000, 0001, 0011, 0010, 0110, 0111, 0101, 1000",
+        "B": "0000, 0001, 0011, 0010, 0110, 0111, 0101, 0100",
+        "C": "0000, 0001, 0011, 0010, 0100, 0101, 0111, 0110",
+        "D": "0000, 0001, 0011, 0010, 0110, 0111, 0100, 0101"
+      },
+      "correct_answer": "B",
+      "score": 2
+    },
+    {
+      "title": "第2题",
+      "content": "以下判断一个正整数 n 是否是偶数的代码中，错误的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "if (n % 2 == 0)",
+        "B": "if (!(n % 2))",
+        "C": "if (n & 1)",
+        "D": "if (n % 2 != 1)"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第3题",
+      "content": "在 C++ 中，5 ^ -5 和 5 & -5 的值分别为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "-10, 5",
+        "B": "-2, -5",
+        "C": "-2, 1",
+        "D": "-10, 1"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第4题",
+      "content": "一棵哈夫曼树，拥有 13 个叶结点。则该哈夫曼树的结点总数为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "25",
+        "B": "26",
+        "C": "27",
+        "D": "无法确定"
+      },
+      "correct_answer": "A",
+      "score": 2
+    },
+    {
+      "title": "第5题",
+      "content": "下列关于树的描述中正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "有 n 个结点的树，边数只能是 n - 1 条。",
+        "B": "在哈夫曼树中，叶子结点的比非叶子结点多 1 或 2 个。",
+        "C": "完全二叉树是二叉排序树。",
+        "D": "在二叉树的后序遍历序列中，若结点 u 在结点 v 之前，则 u 一定是 v 的祖先"
+      },
+      "correct_answer": "A",
+      "score": 2
+    },
+    {
+      "title": "第6题",
+      "content": "下面代码构成的是（ ）类型的数据结构。",
+      "question_type": "single",
+      "options": {
+        "A": "双向链表",
+        "B": "栈",
+        "C": "循环链表",
+        "D": "队列"
+      },
+      "correct_answer": "B",
+      "score": 2
+    },
+    {
+      "title": "第7题",
+      "content": "以下代码调用 F(n) 的时间复杂度为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "Θ(1)",
+        "B": "Θ(n)",
+        "C": "Θ(n²)",
+        "D": "Θ(2ⁿ)"
+      },
+      "correct_answer": "D",
+      "score": 2
+    },
+    {
+      "title": "第8题",
+      "content": "在简单图中，有 n 个顶点的强连通图最少有（ ）条边，最多有（ ）条边。",
+      "question_type": "single",
+      "options": {
+        "A": "n - 1, n",
+        "B": "n - 1, n(n - 1)",
+        "C": "n, n(n - 1)",
+        "D": "n, n(n - 1)/2"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第9题",
+      "content": "以下关于强连通图的说法中，正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "图中一定有环",
+        "B": "每个顶点的度数都大于 0",
+        "C": "对于大于 1 个点的强连通图，任意两个顶点之间都有路径相连",
+        "D": "每个顶点至少都连有一条边"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第10题",
+      "content": "用线性探测法把 k 个关键字相同但内容不同的数据存入哈希表中，至少要进行（ ）次探测。",
+      "question_type": "single",
+      "options": {
+        "A": "k + 1",
+        "B": "k - 1",
+        "C": "(k + 1) · k/2",
+        "D": "(k - 1) · k/2"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第11题",
+      "content": "求 a,b,c,d,e,f 六个字母的全排列中不允许出现 ace 和 df 子串的排列数（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "177",
+        "B": "377",
+        "C": "477",
+        "D": "582"
+      },
+      "correct_answer": "D",
+      "score": 2
+    },
+    {
+      "title": "第12题",
+      "content": "一堆卡片共 2025 张，设定一个数量，不断从牌堆中取该数量的牌，记 A 表示该数量为素数的方案数，记 B 为该数量为奇数的方案数。则 A + B =（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "16",
+        "B": "17",
+        "C": "18",
+        "D": "19"
+      },
+      "correct_answer": "B",
+      "score": 2
+    },
+    {
+      "title": "第13题",
+      "content": "正整数 n ≥ 3 称为理想数，若存在正整数 k(1 ≤ k ≤ n - 1) 使得 C(n, k - 1)、C(n, k)、C(n, k + 1) 构成等差数列（其中 C(n, k) 为组合数，且 C(n, k) = n! / (k!(n - k)!)），则不超过 2026 的理想数的个数为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "43",
+        "B": "44",
+        "C": "45",
+        "D": "46"
+      },
+      "correct_answer": "A",
+      "score": 2
+    },
+    {
+      "title": "第14题",
+      "content": "已知一棵二叉树有 2026 个结点，则其中至多有（ ）个结点有 2 个子结点。",
+      "question_type": "single",
+      "options": {
+        "A": "1010",
+        "B": "1011",
+        "C": "1012",
+        "D": "1013"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第15题",
+      "content": "从乘法算式 1 × 2 × 3 × 4 × ··· × 24 × 25 中，最少要删掉（ ）个数才能使剩下的数的乘积是完全平方数。",
+      "question_type": "single",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第16题",
+      "content": "以下第16-23题基于以下程序：\n\n```cpp\nbool check(int n, int a[])\n{\n    bool found = false;\n    for (int i = 0; i + 1 < n; ++i) {\n        if (a[i] > a[i+1]) {\n            found = true;\n            auto temp = a[i];\n            a[i] = a[i+1];\n            a[i+1] = temp;\n        }\n    }\n    return found;\n}\n\nvoid solve(int n, int a[])\n{\n    while (check(n, a))\n        ;\n}\n```\n\nsolve 函数的 while 语句只写一份分号会产生语法错误（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第17题",
+      "content": "当输入参数 n ∈ [0,1024] 时，solve 可能会进入死循环（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第18题",
+      "content": "当 n=5，a = [1, 2, 3, 4, 5] 时，while 循环只运行一次（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第19题",
+      "content": "当 n=5，a = [5, 4, 3, 2, 1] 时，while 循环运行两次（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第20题",
+      "content": "当 solve 结束后，a 数组以降序排列（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第21题",
+      "content": "当输入为 n=5，a = [3, 1, 4, 1, 5] 时，程序结束时，a =（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "[1, 3, 1, 4, 5]",
+        "B": "[5, 4, 3, 1, 1]",
+        "C": "[1, 1, 3, 4, 5]",
+        "D": "[3, 1, 4, 1, 5]"
+      },
+      "correct_answer": "C",
+      "score": 3
+    },
+    {
+      "title": "第22题",
+      "content": "程序交换 a[i] 与 a[i+1] 的次数（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "小于数组 a 的逆序对数量",
+        "B": "等于数组 a 的逆序对数量",
+        "C": "大于数组 a 的逆序对数量",
+        "D": "与数组 a 的逆序对数量无关"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第23题",
+      "content": "程序的最坏时间复杂度是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "Θ(n log n)",
+        "B": "Θ(log n)",
+        "C": "Θ(n)",
+        "D": "Θ(n²)"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第24题",
+      "content": "以下第24-30题基于以下程序：\n\n```cpp\nbool move(int b[], int n)\n{\n    for (int i = 0; i < n; ++i) {\n        if (b[i] == 1) {\n            b[i] = 0;\n        }\n        else {\n            b[i] = 1;\n            return true;\n        }\n    }\n    return false;\n}\n\nvoid print(int n)\n{\n    int b[n];\n    for (int i = 0; i < n; ++i) b[i] = 0;\n    do {\n        for (int i = 0; i < n; ++i) std::cout << b[i];\n        std::cout << \"\\n\";\n    }\n    while (move(b, n));\n}\n\nint count(int n)\n{\n    int b[100];\n    for (int i = 0; i < n; ++i) b[i] = 0;\n    int c = 0;\n    do {\n        c++;\n    }\n    while (move(b, n));\n    return c;\n}\n```\n\n当输入参数 n ∈ (0,20) 时，count 可能会陷入无尽的循环（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第25题",
+      "content": "print 输出的 0 与 1 必然一样多（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第26题",
+      "content": "print(6) 输出的第 5 行第 4 列的字符为 0（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第27题",
+      "content": "print(16) 输出的第 523 行第 14 列的字符为 1（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第28题",
+      "content": "count(2) 的返回值为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第29题",
+      "content": "print(n) 与 count(n) 的时间复杂度为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "Θ(2ⁿ), Θ(2ⁿ)",
+        "B": "Θ(n · 2ⁿ), Θ(2ⁿ)",
+        "C": "Θ(n · 2ⁿ), Θ(n · 2ⁿ)",
+        "D": "Θ(4ⁿ), Θ(2ⁿ)"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第30题",
+      "content": "以下说法错误的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "print(n) 前一半输出全是偶数，后一半输出全是奇数",
+        "B": "若将 print(n) 输出的每行内容看成一个数字，则他们是依次递增的",
+        "C": "print(n) 输出的每一行内容都是不同的",
+        "D": "print(n) 输出的每一列内容都是不同的"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第31题",
+      "content": "以下第31-37题基于以下程序：\n\n```cpp\nconst int mod = 1'000'000'007;\nbool filled[maxn][maxn];\nint mem[maxn][maxn];\n\nint solve(int i, int j, int a[], int b[])\n{\n    if (i == 0 || j == 0) {\n        return 1;\n    }\n    if (filled[i][j]) {\n        return mem[i][j];\n    }\n    filled[i][j] = true;\n    int sum = (solve(i-1, j, a, b) + solve(i, j-1, a, b)) % mod;\n    if (a[i] == b[j]) {\n        return mem[i][j] = sum;\n    }\n    else {\n        return mem[i][j] = (sum - solve(i-1, j-1, a, b)) % mod;\n    }\n}\n```\n\n若 a[1] = 1, a[2] = 3, b[1] = 3, b[2] = 1, solve(2, 2, a, b) 返回 3（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第32题",
+      "content": "solve(0, 0, a, b) 返回 1（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第33题",
+      "content": "solve(n, n, a, a) 返回 2ⁿ。（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第34题",
+      "content": "函数 solve 的返回值可能小于 0（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第35题",
+      "content": "该程序的主要功能是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "计算两个序列的最长公共子序列的长度",
+        "B": "计算两个序列的公共子序列的数量",
+        "C": "计算两个序列的公共子串的数量",
+        "D": "计算两个序列的相同元素个数"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第36题",
+      "content": "solve(n, m, a, b) 的最坏时间复杂度为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "Θ(n + m)",
+        "B": "Θ(n · m)",
+        "C": "Θ(2ᵐ⁺ⁿ)",
+        "D": "Θ(n log m)"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第37题",
+      "content": "当 a[i] != b[j] 时，返回值需要减去 solve(i-1, j-1, ...) 的原因是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "排除重复情况",
+        "B": "排除错误情况",
+        "C": "优化程序的空间效率",
+        "D": "优化程序的时间效率"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第38题",
+      "content": "以下第38-42题基于以下程序：\n\n套餐限价：有一家快餐店，出售 N 种主食，其价格以数组 A[0..N) 表示，出售 M 种饮料，其价格以数组 B[0..M) 表示。现推出一种促销活动：顾客可以任选主食及饮料各一份形成套餐，若套餐价格超过一个给定的最高价格 L，则这份套餐只收取 L 元。请计算，若顾客购买所有食物与饮料的搭配（共有 N × M 种），需要花多少钱。\n\n```cpp\nlong long S[MAXN];\nlong long solve(int N, int M, int L, int A[], int B[])\n{\n    std::sort(A, A + __(1)__);\n    std::sort(B, B + M);\n    S[0] = 0;\n    for (int i = 0; i < M; ++i) {\n        S[i+1] = S[i] + B[i];\n    }\n    long long j = __(2)__;\n    long long sum = 0;\n    for (int i = 0; i < N; ++i)\n    {\n        while (__(3)__ && A[i] + B[j-1] > L)\n        {\n            j--;\n        }\n        sum += (A[i] * __(4)__);\n        sum += S[__(5)__];\n        sum += (M - j) * L;\n    }\n    return sum;\n}\n```\n\n(1)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "N-1",
+        "B": "N",
+        "C": "N+1",
+        "D": "M"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第39题",
+      "content": "(2)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "M-1",
+        "B": "M",
+        "C": "M+1",
+        "D": "N"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第40题",
+      "content": "(3)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "j > 0",
+        "B": "j >= 0",
+        "C": "j > 1",
+        "D": "j < M"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第41题",
+      "content": "(4)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "j - 1",
+        "B": "j",
+        "C": "j + 1",
+        "D": "i"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第42题",
+      "content": "(5)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "i - 1",
+        "B": "i",
+        "C": "j - 1",
+        "D": "j"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第43题",
+      "content": "以下第43-47题基于以下程序：\n\n简单路径：给定 N 个点，M 条边，构成一个图。请统计从 1 号出发，有多少条简单路径。所谓简单路径，就是路径上的所有点及所有边不会重复出现两次。如果路径超过 1024 条，则输出 -1。\n\n```cpp\n#include<iostream>\n#include<vector>\nint N, M;\nstd::vector<int> adj[200001];\nbool visited[200001];\nconst int limit = 1024;\nint cnt = 0;\nvoid dfs(int node)\n{\n    __(1)__;\n    if (cnt > limit) return;\n    visited[node] = __(2)__;\n    for (auto v : __(3)__)\n    {\n        if (not visited[v])\n        {\n            dfs(__(4)__);\n        }\n    }\n    visited[node] = __(5)__;\n}\nint main() {\n    std::cin >> N >> M;\n    for (int i = 0; i < M; ++i) {\n        int A, B;\n        std::cin >> A >> B;\n        adj[A].push_back(B);\n        adj[B].push_back(A);\n    }\n    dfs(__(6)__);\n    if (cnt > limit) {\n        std::cout << -1 << \"\\n\";\n    }\n    else {\n        std::cout << cnt << \"\\n\";\n    }\n}\n```\n\n(1)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "cnt += 1",
+        "B": "cnt -= 1",
+        "C": "cnt *= 2",
+        "D": "cnt += 2"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第44题",
+      "content": "(2)(5)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "true 与 true",
+        "B": "true 与 false",
+        "C": "false 与 true",
+        "D": "false 与 false"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第45题",
+      "content": "(3)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "visited[v]",
+        "B": "adj[v]",
+        "C": "visited[node]",
+        "D": "adj[node]"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第46题",
+      "content": "(4)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "node",
+        "B": "cnt",
+        "C": "v",
+        "D": "limit"
+      },
+      "correct_answer": "C",
+      "score": 3
+    },
+    {
+      "title": "第47题",
+      "content": "(6)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "N",
+        "D": "cnt"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第48题",
+      "content": "以下第48-54题基于以下程序：\n\n```cpp\n#include<iostream>\nvoid solve(int r, int b)\n{\n    int mem[1024] = {0};\n    int q[1024] = {0};\n    int step = 0;\n    while (r != 0) {\n        step++;\n        if (mem[r] > 0) {\n            break;\n        }\n        else {\n            mem[r] = step;\n        }\n        q[step] = r * 2 / b;\n        r = r * 2 % b;\n    }\n    std::cout << \".\";\n    if (r == 0) {\n        for (int i = 1; i <= step; ++i) std::cout << q[i];\n    }\n    else {\n        int begin = mem[r];\n        for (int i = 1; i < begin; ++i)\n            std::cout << q[i];\n        std::cout << \"(\";\n        for (int i = begin; i < step; ++i)\n            std::cout << q[i];\n        std::cout << \")\";\n    }\n}\n```\n\n若输入参数 r = 0，程序会输出一个 0。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第49题",
+      "content": "若输入参数满足 0 ≤ r < b < 1024，程序输出数字总长度（不含括号）不会超过 b。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第50题",
+      "content": "程序不会输出比 1 更大的数字。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第51题",
+      "content": "当 r = 1, b = 2 时，程序输出（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": ".0",
+        "B": ".1",
+        "C": ".(0)",
+        "D": ".(1)"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第52题",
+      "content": "当 r = 1, b = 5 时，程序输出（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": ".0011",
+        "B": ".0101",
+        "C": ".(0011)",
+        "D": ".(0101)"
+      },
+      "correct_answer": "C",
+      "score": 3
+    },
+    {
+      "title": "第53题",
+      "content": "数组 mem 的作用是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "存储每一步的商",
+        "B": "记录余数首次出现的位置",
+        "C": "标记循环节的结束位置",
+        "D": "缓存输入数据"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第54题",
+      "content": "该程序的最坏时间复杂度为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "Θ(b)",
+        "B": "Θ(r)",
+        "C": "Θ(log b)",
+        "D": "Θ(b log b)"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第55题",
+      "content": "以下第55-59题基于以下程序：\n\n给定一个整数序列 a₁,a₂,...,aₙ，对该序列的所有子区间，分别算出它们的中位数，并且将这些中位数组成一个新序列，输出这个新序列的中位数。\n\n```cpp\n#include<iostream>\nusing i64 = long long;\nconst int maxn = 1000000;\nint a[maxn];\nint b[maxn];\nint s[maxn + 1];\nint n;\ni64 total;\nint buffer[maxn];\n\ni64 merge(int begin, int mid, int end) {\n    // 代码需要从PDF完整复制\n}\n```\n\n(1)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "0.(011011)",
+        "B": "0.(01)",
+        "C": "0.0(11011)",
+        "D": "0.(011)"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第56题",
+      "content": "solve(1, 17) 的输出有（ ）位循环节。",
+      "question_type": "single",
+      "options": {
+        "A": "16",
+        "B": "8",
+        "C": "4",
+        "D": "2"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第57题",
+      "content": "solve(1, 19) 的输出有（ ）位循环节。",
+      "question_type": "single",
+      "options": {
+        "A": "18",
+        "B": "9",
+        "C": "6",
+        "D": "3"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第58题",
+      "content": "solve(1, 97) 的输出有（ ）位循环节。",
+      "question_type": "single",
+      "options": {
+        "A": "48",
+        "B": "32",
+        "C": "16",
+        "D": "8"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第59题",
+      "content": "以下说法正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "solve(1, p) 的循环节长度一定是 p-1（p为质数）",
+        "B": "solve(1, p) 的循环节长度一定是 p 的因数（p为质数）",
+        "C": "solve(1, p) 的循环节长度一定小于 p（p为质数）",
+        "D": "solve(1, p) 的循环节长度无法确定（p为质数）"
+      },
+      "correct_answer": "A",
+      "score": 3
+    }
+  ]
+}
