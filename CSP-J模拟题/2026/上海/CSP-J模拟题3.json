@@ -1,0 +1,739 @@
+{
+  "title": "CSP-J/S 模拟（三）",
+  "description": "2026年7月26日 CSP-J/S 初赛模拟题",
+  "date": "2026-07-26",
+  "time_limit": 120,
+  "pass_score": null,
+  "sections": [
+    {
+      "name": "单项选择题",
+      "question_count": 15,
+      "score_per_question": 2,
+      "total_score": 30
+    },
+    {
+      "name": "阅读程序",
+      "question_count": 20,
+      "subsections": [
+        {
+          "type": "判断题",
+          "count": 10,
+          "score_per_question": 1,
+          "subtotal": 10
+        },
+        {
+          "type": "选择题",
+          "count": 10,
+          "score_per_question": 3,
+          "subtotal": 30
+        }
+      ],
+      "total_score": 40
+    },
+    {
+      "name": "完善程序",
+      "question_count": 10,
+      "score_per_question": 3,
+      "total_score": 30
+    },
+    {
+      "name": "附加题",
+      "question_count": 12,
+      "subsections": [
+        {
+          "type": "判断题",
+          "count": 3,
+          "score_per_question": 1,
+          "subtotal": 3
+        },
+        {
+          "type": "选择题",
+          "count": 9,
+          "score_per_question": 3,
+          "subtotal": 27
+        }
+      ],
+      "total_score": 30
+    }
+  ],
+  "questions": [
+    {
+      "title": "第1题",
+      "content": "(2025)₈ + (2025)₁₆ 和以下哪个选项相等（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "(9244)₁₀",
+        "B": "(2100222)₄",
+        "C": "(10010000111010)₂",
+        "D": "(234A)₁₆"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第2题",
+      "content": "以下（ ）函数声明是合法的。",
+      "question_type": "single",
+      "options": {
+        "A": "int Bubblesort(char a[][],int n)",
+        "B": "int Bubblesort(char a[10][],int n)",
+        "C": "int Bubblesort(char a[][20],int n)",
+        "D": "int Bubblesort(char [,] a,int n)"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第3题",
+      "content": "设循环队列中数组的下标范围是0~n-1，其头尾指针分别为f和r，则其元素个数为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "r-f",
+        "B": "r-f+1",
+        "C": "(r-f)%n+1",
+        "D": "(r-f+n)%n"
+      },
+      "correct_answer": "D",
+      "score": 2
+    },
+    {
+      "title": "第4题",
+      "content": "后缀表达式 1 2 + 3 * 14 7 / - 对应的前缀表达式为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "1 + 2 * 3 - 14 / 7",
+        "B": "- * 1 + 2 3 / 14 7",
+        "C": "- * + 1 2 3 / 14 7",
+        "D": "- 1 + 2 * 3 14 / 7"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第5题",
+      "content": "给定一棵二叉树，其前序遍历结果为abdecfg，中序遍历结果为debacfg，则这棵树的后序遍历结果为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "edbgfca",
+        "B": "edgbfca",
+        "C": "debgfca",
+        "D": "dbegfca"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第6题",
+      "content": "下列是关于数据结构的说法不正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "数据结构是带有结构的数据元素的集合",
+        "B": "线性表的线性存储结构优于链式存储结构",
+        "C": "队列是一个先进先出的线性表",
+        "D": "队列是只能在一端插入，另一端删除的线性表"
+      },
+      "correct_answer": "B",
+      "score": 2
+    },
+    {
+      "title": "第7题",
+      "content": "已知无向图G含有16条边,其中度为4的顶点个数为3,度为3的顶点个数为4,其他顶点的度均小于3。G所含的顶点个数至少是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "13",
+        "D": "15"
+      },
+      "correct_answer": "B",
+      "score": 2
+    },
+    {
+      "title": "第8题",
+      "content": "下面关于指针的说法正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "在64位计算机中一个指针变量占4字节",
+        "B": "指针运算实际上是地址操作、只能取地址和间接访问，不能进行加减运算",
+        "C": "数组名不是指向数组元素的指针变量",
+        "D": "指针只可以静态申请内存空间"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第9题",
+      "content": "方程 a × b = (a or b)×(a and b)，在a,b都取[0,31]中的整数时，共有（ ）组解。",
+      "question_type": "single",
+      "options": {
+        "A": "32",
+        "B": "256",
+        "C": "454",
+        "D": "512"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第10题",
+      "content": "双向链表中有两个指针域，llink和rlink，分别指向前驱及后继，设p指向链表中的一个结点，q指向一待插入结点，现要求在p前插入q，则正确的插入为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "p->llink = q; q->rlink = p; p->llink->rlink = q;q->llink = p->llink;",
+        "B": "q->llink = p->llink; p->llink->rlink = q; q->rlink = p;p->llink = q->rlink;",
+        "C": "p->llink->rlink = q; q->rlink = p;q->llink = p->llink; p->llink = q;",
+        "D": "q->rlink = p; p->rlink = q;p->llink->rlink = q; q->rlink = p;"
+      },
+      "correct_answer": "C",
+      "score": 2
+    },
+    {
+      "title": "第11题",
+      "content": "将2,6,10,17分别存储到某个地址区间为0-10的哈希表中，如果哈希函数 h(x) =（ ）将不会产生冲突，其中a mod b表示a除以b的余数。",
+      "question_type": "single",
+      "options": {
+        "A": "x mod 11",
+        "B": "x² mod 11",
+        "C": "(2x) mod 11",
+        "D": "⌊√x⌋ mod 11"
+      },
+      "correct_answer": "D",
+      "score": 2
+    },
+    {
+      "title": "第12题",
+      "content": "输入时n个不等的数构成的数组a，输出a中第二小的数。在最坏的情况下，该算法需要做（ ）次比较。",
+      "question_type": "single",
+      "options": {
+        "A": "2n - 1",
+        "B": "2n - 2",
+        "C": "2n - 3",
+        "D": "2n"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "code": "if (a[1] < a[2])\n{\n    min1 = a[1];\n    min2 = a[2];\n}\nelse\n{\n    min1 = a[2];\n    min2 = a[1];\n}\nfor(int i = 3; i <= n; i++)\n    if (a[i] < min2)\n        if (a[i] < min1)\n        {\n            min2 = min1;\n            min1 = a[i];\n        }\n        else\n        {\n            min2 = a[i];\n        }"
+    },
+    {
+      "title": "第13题",
+      "content": "整型数组 a 中有 n 个元素，能计算 a 中有多少个数字大于 lower 且小于 upper 的函数，应该将下划线依次替换为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "lower_bound、lower_bound",
+        "B": "lower_bound、upper_bound",
+        "C": "upper_bound、lower_bound",
+        "D": "upper_bound、upper_bound"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "code": "int solve(int a[], int n, int lower, int upper)\n{\n    std::sort(a, a + n);\n    auto begin = std::________(a, a + n, lower);\n    auto end = std::________(a, a + n, upper);\n    return end - begin;\n}"
+    },
+    {
+      "title": "第14题",
+      "content": "若 f₀ = 0, f₁ = 1, fₙ₊₁ = (fₙ + fₙ₋₁)/2，则随着 i 的增大，fᵢ 将接近于（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "1/2",
+        "B": "2/3",
+        "C": "(√5 - 1)/2",
+        "D": "1"
+      },
+      "correct_answer": "B",
+      "score": 2
+    },
+    {
+      "title": "第15题",
+      "content": "由四个没有区别的点构成的简单无向连通图的个数是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      },
+      "correct_answer": "A",
+      "score": 2
+    },
+    {
+      "title": "第16题",
+      "content": "以下第16-21题基于以下程序：\n\n```cpp\nusing i64 = long long;\ni64 f(i64 n)\n{\n    i64 s = 1;\n    i64 i = 2;\n    while (i * i < n)\n    {\n        if (n % i == 0) {\n            s += i;\n            s += n / i;\n        }\n        ++i;\n    }\n    if (i * i == n) s += i;\n    return s;\n}\n```\n\n当 n = 1 时，函数返回 1（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第17题",
+      "content": "当 n 是质数时，函数返回 n+1（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第18题",
+      "content": "存在两个数 m、n，且 f(m) = f(n)（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第19题",
+      "content": "程序的时间复杂度为 Θ(√n)（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第20题",
+      "content": "f(100) 会进入 while 循环次数是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第21题",
+      "content": "运行 f(1024) 时，返回值是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "512",
+        "B": "1023",
+        "C": "1024",
+        "D": "2047"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第22题",
+      "content": "以下第22-28题基于以下程序：\n\n```cpp\nint solve(int n, int a[])\n{\n    int ret = 0;\n    for (int i = 0; i < n; ++i) {\n        for (int j = 0; j < i; ++j) {\n            int sum = 0;\n            for (int k = j; k <= i; ++k) {\n                sum += a[k];\n            }\n            ret += sum;\n        }\n    }\n    return ret;\n}\n```\n\n若在进入solve函数执行其他操作之前，先对a[]排序，返回值不变（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第23题",
+      "content": "当 n = 1 时，函数返回值为 a[0]（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第24题",
+      "content": "若数组a[]中所有元素均为0，则当n取1到100之间的整数时，函数一定返回0（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第25题",
+      "content": "若 n = 10 且a = {1,1,...,1,1}，程序的返回值是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "10",
+        "B": "100",
+        "C": "165",
+        "D": "210"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第26题",
+      "content": "若 n = 5，且a = {3,1,4,1,5}，则程序返回（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "14",
+        "B": "75",
+        "C": "78",
+        "D": "80"
+      },
+      "correct_answer": "C",
+      "score": 3
+    },
+    {
+      "title": "第27题",
+      "content": "该程序的时间复杂度为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "Θ(n)",
+        "B": "Θ(n²)",
+        "C": "Θ(n²·log n)",
+        "D": "Θ(n³)"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第28题",
+      "content": "如果打算用更好的算法实现 solve 函数，那么最好的算法可以达到的时间复杂度为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "Θ(n)",
+        "B": "Θ(n²)",
+        "C": "Θ(n²·log n)",
+        "D": "Θ(log n)"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第29题",
+      "content": "以下第29-35题基于以下程序：\n\n```cpp\nusing i64 = long long;\n\ni64 solve1(i64 n)\n{\n    std::vector<i64> c(n);\n    c[0] = 0;\n    i64 sum = 0;\n    for (i64 i = 1; i < n; ++i)\n    {\n        c[i] = c[i / 2] + (i % 2);\n        sum += c[i];\n    }\n    return sum;\n}\n\nstd::pair<i64,i64> solve2(i64 n)\n{\n    if (n == 0)\n        return {0, 0};\n    auto r = n % 2;\n    auto q = n / 2;\n    auto [s, c] = solve2(q);\n    if (r == 1)\n        return {s*2 + q + c, c + 1};\n    else\n        return {s*2 + q, c};\n}\n```\n\nsolve1(5) 返回 5（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第30题",
+      "content": "solve2(8) 返回 {10, 1}（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第31题",
+      "content": "若输入参数n在0到1024之间，则solve1(n)的返回值与solve2(n)的第一项返回值必定相等（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第32题",
+      "content": "solve1(n) 计算的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "0到n-1之间，全体二进制数的零出现的数量",
+        "B": "0到n-1之间，全体二进制数的一出现的数量",
+        "C": "0到n之间，全体二进制数的零出现的数量",
+        "D": "0到n之间，全体二进制数的一出现的数量"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第33题",
+      "content": "solve2(n) 的第二个返回值，计算的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "参数n的二进制长度",
+        "B": "参数n的十进制长度",
+        "C": "参数n的在二进制表示下，0的数量",
+        "D": "参数n的在二进制表示下，1的数量"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第34题",
+      "content": "solve1及solve2的时间复杂度是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "Θ(n)、Θ(n)",
+        "B": "Θ(n)、Θ(log n)",
+        "C": "Θ(log n)、Θ(n)",
+        "D": "Θ(log n)、Θ(log n)"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第35题",
+      "content": "solve1(4096) 的返回值等于（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "4096 × 5",
+        "B": "4096 × 6",
+        "C": "2048 × 5",
+        "D": "2048 × 6"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第36题",
+      "content": "以下第36-40题基于以下程序：\n\n```cpp\n#include<iostream>\nint score(int a,int b){\n    if(____(1)____) return 0;\n    else if(a=='R' and b=='S')return 1;\n    else if(____(2)____)return 1;\n    else if(a=='P' and b=='R')return 1;\n    else return -10000000;\n}\n\nint main(){\n    ____(3)____\n    int n;\n    std::cin>>n;\n    while(n-->0){\n        char c;\n        std::cin>>c;\n        int newR = ____(4)____;\n        int newS = ____(5)____;\n        int newP = ____(6)____;\n        R=newR;\n        S=newS;\n        P=newP;\n    }\n    std::cout<< ____(7)____;\n}\n```\n\n(1)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "a != b",
+        "B": "a < b",
+        "C": "a > b",
+        "D": "a == b"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第37题",
+      "content": "(2)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "a=='S' and b=='P'",
+        "B": "a=='S' and b=='R'",
+        "C": "a=='P' and b=='S'",
+        "D": "a=='R' and b=='P'"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第38题",
+      "content": "(3)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "char R,S,P",
+        "B": "char R = 'R',S = 'S',P = 'P'",
+        "C": "int R = 0,S = 0,P = 0",
+        "D": "int R = 'R',S = 'S',P = 'P'"
+      },
+      "correct_answer": "C",
+      "score": 3
+    },
+    {
+      "title": "第39题",
+      "content": "(4)(5)(6)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "score(R,c)、score(S,c)、score(P,c)",
+        "B": "score('R',c)、score('S',c)、score('P',c)",
+        "C": "R + score('R',c)、S + score('S',c)、P + score('P',c)",
+        "D": "std::max(S,P)+score('R',c)、std::max(R,P)+score('S',c)、std::max(R,S)+score('P',c)"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第40题",
+      "content": "(7)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "std::min(std::min(R,S),P)",
+        "B": "std::max(std::max(R,S),P)",
+        "C": "n - std::min(std::min(R,S),P)",
+        "D": "n - std::max(std::max(R,S),P)"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第41题",
+      "content": "以下第41-45题基于以下程序：\n\n给定 n 根火柴的长度 a₁,a₂,...,aₙ，请用这些火柴围成一个面积最大的三角形。注意所有的火柴都必须用上，不得丢弃。输出最大三角形的面积。假设最大面积为 s，则输出 16s²。1 ≤ aᵢ ≤ 40，数据保证至少有一种方案可以围成三角形。\n\n```cpp\n#include<iostream>\nusing i64 = long long;\nint n;\nint a[40];\nbool mem[40][40*40][40*40];\ni64 value[40][40*40][40*40];\n\ni64 solve(int i, int x, int y, int z) {\n    if (i < n) {\n        if (mem[____(1)____] > 0) return value[____(2)____];\n        auto s1 = solve(i+1, x + a[i], y, z);\n        auto s2 = solve(i+1, x, y + a[i], z);\n        auto s3 = solve(i+1, x, y, z + a[i]);\n        mem[____(3)____] = true;\n        return value[____(4)____] = ____(5)____;\n    }\n    else {\n        if (____(6)____) return 0;\n        i64 p = ____(7)____;\n        return ____(8)____;\n    }\n}\n```\n\n(1)、(2)、(3)、(4)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "[i][x][y],[i][x][y],[i][x][y],[i][x][y]",
+        "B": "[i][x][y],[x][y][z],[i][x][y],[x][y][z]",
+        "C": "[x][y][z],[i][x][y],[x][y][z],[i][x][y]",
+        "D": "[x][y][z],[x][y][z],[x][y][z],[x][y][z]"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第42题",
+      "content": "(5)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "s1 + s2 + s3",
+        "B": "*std::max_element({s1, s2, s3}.begin(), {s1, s2, s3}.end())",
+        "C": "std::max(std::max(s1, s2), std::max(s3, z))",
+        "D": "std::max(std::max(s1, s2), s3)"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第43题",
+      "content": "(6)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "x + y <= z && x + z <= y && y + z <= x",
+        "B": "x + y <= z || x + z <= y || y + z <= x",
+        "C": "x + y > z || x + z > y || y + z > x",
+        "D": "x + y >= z && x + z >= y && y + z >= x"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第44题",
+      "content": "(7)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "x * y * z",
+        "B": "x + y + z",
+        "C": "(x * y) / 2",
+        "D": "(x + y + z) / 2"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第45题",
+      "content": "(8)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "p * (p - 2 * x) * (p - 2 * y)",
+        "B": "(p / 2) * (p / 2 - x) * (p / 2 - y) * (p / 2 - z)",
+        "C": "p * (p - 2 * x) * (p - 2 * y) * (p - 2 * z)",
+        "D": "p + (p - 2 * x) + (p - 2 * y) + (p - 2 * z)"
+      },
+      "correct_answer": "C",
+      "score": 3
+    },
+    {
+      "title": "第46题",
+      "content": "以下第46-52题基于以下程序：\n\n```cpp\nint exp();\n\nint term()\n{\n    char begin, end;\n    std::cin >> begin;\n    int t = exp();\n    std::cin >> end;\n    if (t == 0)\n        return 1;\n    else\n        return t * 2;\n}\n\nint exp()\n{\n    if (std::cin.peek() == '(')\n    {\n        return term() + exp();\n    }\n    else\n    {\n        return 0;\n    }\n}\n\nint main()\n{\n    std::cout << exp() << \"\\n\";\n}\n```\n\n输入(())()，程序运行结果输出3（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第47题",
+      "content": "输入((()))输出3（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "F",
+      "score": 1
+    },
+    {
+      "title": "第48题",
+      "content": "输出15的最短输入序列之一是(((())())())()（ ）。",
+      "question_type": "true_false",
+      "options": {},
+      "correct_answer": "T",
+      "score": 1
+    },
+    {
+      "title": "第49题",
+      "content": "若输入是((())(()())(()()))，输出（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "16",
+        "B": "18",
+        "C": "20",
+        "D": "22"
+      },
+      "correct_answer": "C",
+      "score": 3
+    },
+    {
+      "title": "第50题",
+      "content": "以下哪个输入对应的输出为10（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "((())())",
+        "B": "((())()())()",
+        "C": "((())()(())())",
+        "D": "((())()())(())"
+      },
+      "correct_answer": "D",
+      "score": 3
+    },
+    {
+      "title": "第51题",
+      "content": "若输入字符串(()(())())，代码执行过程中term()函数被调用的次数是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "score": 3
+    },
+    {
+      "title": "第52题",
+      "content": "若输入(()())(())()，则exp()函数总共被调用的次数是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "7",
+        "B": "9",
+        "C": "13",
+        "D": "15"
+      },
+      "correct_answer": "C",
+      "score": 3
+    },
+    {
+      "title": "第53题",
+      "content": "以下第53-57题基于以下程序：\n\n某个投资者有m元钱，有n个项目等待他的投资，每个项目只能投资一次。代码中的一个pair表示一个项目。其中第i个项目要求先支出成本cᵢ元，待项目完成后，可以收回全部成本，且获得pᵢ元利润，若投资者的钱不足cᵢ，就没法投资这个项目了。可以用老项目收回的成本及利润支付新项目的成本。若只能投资k个项目，那么投资者最终可以积累多少钱呢。\n\n```cpp\nstruct pair\n{\n    int c;\n    int p;\n};\n\nint solve(int n, int k, int m, pair a[])\n{\n    auto compare = [] (pair first, pair second) {\n        return ____(1)____;\n    };\n    std::sort(a, a + n, compare);\n    std::priority_queue<int> Q;\n    int size = 0;\n    while (k > 0) {\n        while (____(2)____) {\n            Q.push(____(3)____);\n        }\n        if (____(4)____) {\n            ____(5)____;\n        }\n        k--;\n    }\n    return m;\n}\n```\n\n(1)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "first.c < second.c",
+        "B": "first.c > second.c",
+        "C": "first.p < second.p",
+        "D": "first.p > second.p"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第54题",
+      "content": "(2)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "size < n && a[size].c <= m",
+        "B": "size < n && a[size].c < m",
+        "C": "size <= n && a[size].c <= m",
+        "D": "size < n || a[size].c <= m"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第55题",
+      "content": "(3)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "a[size++].p",
+        "B": "a[++size].p",
+        "C": "a[size++].c",
+        "D": "a[++size].c"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第56题",
+      "content": "(4)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "!Q.empty()",
+        "B": "Q.empty()",
+        "C": "size > 0",
+        "D": "k > 0"
+      },
+      "correct_answer": "A",
+      "score": 3
+    },
+    {
+      "title": "第57题",
+      "content": "(5)处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "m += Q.top(); Q.pop();",
+        "B": "m += Q.front(); Q.pop();",
+        "C": "m += Q.front().p - Q.front().c;",
+        "D": "Q.pop(); m += Q.top();"
+      },
+      "correct_answer": "A",
+      "score": 3
+    }
+  ]
+}
