@@ -68,7 +68,8 @@
         "D": "0000, 0001, 0011, 0010, 0110, 0111, 0100, 0101"
       },
       "correct_answer": "B",
-      "score": 2
+      "score": 2,
+      "explanation": "标准4位二进制格雷码相邻码仅1位不同；选项B满足，A、C、D存在相邻码差2位以上。"
     },
     {
       "title": "第2题",
@@ -81,7 +82,8 @@
         "D": "if (n % 2 != 1)"
       },
       "correct_answer": "C",
-      "score": 2
+      "score": 2,
+      "explanation": "A、B、D均为判断偶数；C中n&1对奇数得真，判断的是奇数。"
     },
     {
       "title": "第3题",
@@ -94,7 +96,8 @@
         "D": "-10, 1"
       },
       "correct_answer": "C",
-      "score": 2
+      "score": 2,
+      "explanation": "-5补码为111...1011；5^-5=11111110=-2，5&-5=00000001=1。"
     },
     {
       "title": "第4题",
@@ -107,7 +110,8 @@
         "D": "无法确定"
       },
       "correct_answer": "A",
-      "score": 2
+      "score": 2,
+      "explanation": "哈夫曼树无1度结点，叶结点比内结点多1；13叶则12内，共25。"
     },
     {
       "title": "第5题",
@@ -120,7 +124,8 @@
         "D": "在二叉树的后序遍历序列中，若结点 u 在结点 v 之前，则 u 一定是 v 的祖先"
       },
       "correct_answer": "A",
-      "score": 2
+      "score": 2,
+      "explanation": "A为树定义恒成立；B哈夫曼树叶恒比内多1；C完全二叉树不保证有序；D后序在前未必是祖先。"
     },
     {
       "title": "第6题",
@@ -133,7 +138,8 @@
         "D": "队列"
       },
       "correct_answer": "B",
-      "score": 2
+      "score": 2,
+      "explanation": "add头插、del删头，后进先出，为栈。"
     },
     {
       "title": "第7题",
@@ -146,7 +152,8 @@
         "D": "Θ(2ⁿ)"
       },
       "correct_answer": "D",
-      "score": 2
+      "score": 2,
+      "explanation": "F(n)递归计算斐波那契，调用树指数增长，为Θ(2^n)。"
     },
     {
       "title": "第8题",
@@ -159,7 +166,8 @@
         "D": "n, n(n - 1)/2"
       },
       "correct_answer": "C",
-      "score": 2
+      "score": 2,
+      "explanation": "有向强连通图最少n条边成环，最多n(n-1)条成有向完全图。"
     },
     {
       "title": "第9题",
@@ -172,7 +180,8 @@
         "D": "每个顶点至少都连有一条边"
       },
       "correct_answer": "C",
-      "score": 2
+      "score": 2,
+      "explanation": "A单点强连通可无环；B单点度数为0；D同B；C恰为强连通定义。"
     },
     {
       "title": "第10题",
@@ -185,7 +194,8 @@
         "D": "(k - 1) · k/2"
       },
       "correct_answer": "C",
-      "score": 2
+      "score": 2,
+      "explanation": "线性探测依次探测1+2+...+k=k(k+1)/2次。"
     },
     {
       "title": "第11题",
@@ -198,7 +208,8 @@
         "D": "582"
       },
       "correct_answer": "D",
-      "score": 2
+      "score": 2,
+      "explanation": "容斥：6!-4!-5!+3!=720-24-120+6=582。"
     },
     {
       "title": "第12题",
@@ -211,7 +222,8 @@
         "D": "19"
       },
       "correct_answer": "B",
-      "score": 2
+      "score": 2,
+      "explanation": "2025=3^4*5^2；素数因数2个，因数全为奇数共15个，A+B=17。"
     },
     {
       "title": "第13题",
@@ -224,7 +236,8 @@
         "D": "46"
       },
       "correct_answer": "A",
-      "score": 2
+      "score": 2,
+      "explanation": "等差条件化简为(2k-n)^2=n+2，n+2为平方数，m取3..45共43个。"
     },
     {
       "title": "第14题",
@@ -237,7 +250,8 @@
         "D": "1013"
       },
       "correct_answer": "C",
-      "score": 2
+      "score": 2,
+      "explanation": "设n2个2度点，n=2*n2+n1+1，n1最小取1，n2=(2026-2)/2=1012。"
     },
     {
       "title": "第15题",
@@ -250,7 +264,8 @@
         "D": "6"
       },
       "correct_answer": "C",
-      "score": 2
+      "score": 2,
+      "explanation": "25!质因数中奇次幂为7、13、17、19、23共5个，删去即得完全平方数。"
     },
     {
       "title": "第16题",
@@ -258,7 +273,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "while循环体为一条空语句（仅一个分号），语法合法，不会报错。"
     },
     {
       "title": "第17题",
@@ -266,7 +282,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "该程序等价于冒泡排序，任何输入有限步结束，n∈[0,1024]不死循环。"
     },
     {
       "title": "第18题",
@@ -274,7 +291,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "[1,2,3,4,5]已升序，check一趟无交换即返回false，循环运行0次。"
     },
     {
       "title": "第19题",
@@ -282,7 +300,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "[5,4,3,2,1]逆序，冒泡需4趟才有序，非2次。"
     },
     {
       "title": "第20题",
@@ -290,7 +309,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "冒泡排序结束为升序，非降序。"
     },
     {
       "title": "第21题",
@@ -303,7 +323,8 @@
         "D": "[3, 1, 4, 1, 5]"
       },
       "correct_answer": "C",
-      "score": 3
+      "score": 3,
+      "explanation": "[3,1,4,1,5]冒泡升序为[1,1,3,4,5]。"
     },
     {
       "title": "第22题",
@@ -316,7 +337,8 @@
         "D": "与数组 a 的逆序对数量无关"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "每交换一次恰好消去一个逆序对，总交换次数等于逆序对数。"
     },
     {
       "title": "第23题",
@@ -329,7 +351,8 @@
         "D": "Θ(n²)"
       },
       "correct_answer": "D",
-      "score": 3
+      "score": 3,
+      "explanation": "冒泡排序最坏O(n^2)。"
     },
     {
       "title": "第24题",
@@ -337,7 +360,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "count从全0逐次进位至全1，共2^n次后move返回false，循环有限。"
     },
     {
       "title": "第25题",
@@ -345,15 +369,17 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "T",
-      "score": 1
+      "score": 1,
+      "explanation": "0..2^n-1每一位0与1各出现2^(n-1)次，n位总0、1各n*2^(n-1)次，一样多。"
     },
     {
       "title": "第26题",
-      "content": "print(6) 输出的第 5 行第 4 列的字符为 0（ ）。",
+      "content": "print(6) 输出的第 5 行第 4 列（从左往右数）的字符为 0（ ）。",
       "question_type": "true_false",
       "options": {},
-      "correct_answer": "T",
-      "score": 1
+      "correct_answer": "F",
+      "score": 1,
+      "explanation": "print(6)第5行对应000100，从左数第4列字符为1，非0。"
     },
     {
       "title": "第27题",
@@ -361,7 +387,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "print(16)第523行对应522=0000001000001010，左数第14位为0，非1。"
     },
     {
       "title": "第28题",
@@ -374,7 +401,8 @@
         "D": "4"
       },
       "correct_answer": "D",
-      "score": 3
+      "score": 3,
+      "explanation": "count(2)共输出并计数2^2=4行，返回4。"
     },
     {
       "title": "第29题",
@@ -387,7 +415,8 @@
         "D": "Θ(4ⁿ), Θ(2ⁿ)"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "print输出n*2^n个字符为O(n*2^n)；count循环2^n次为O(2^n)。"
     },
     {
       "title": "第30题",
@@ -399,8 +428,9 @@
         "C": "print(n) 输出的每一行内容都是不同的",
         "D": "print(n) 输出的每一列内容都是不同的"
       },
-      "correct_answer": "B",
-      "score": 3
+      "correct_answer": "A",
+      "score": 3,
+      "explanation": "A前一半行对应0..2^(n-1)-1有奇有偶非全偶，说法错误；B、C、D均正确。"
     },
     {
       "title": "第31题",
@@ -408,7 +438,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "T",
-      "score": 1
+      "score": 1,
+      "explanation": "a=[1,3]、b=[3,1]的公共子序列为{}、{1}、{3}共3个。"
     },
     {
       "title": "第32题",
@@ -416,7 +447,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "T",
-      "score": 1
+      "score": 1,
+      "explanation": "i==0或j==0直接返回1。"
     },
     {
       "title": "第33题",
@@ -424,7 +456,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "a含重复元素时公共子序列数非2^n，如a全相同则仅n+1个。"
     },
     {
       "title": "第34题",
@@ -432,7 +465,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "T",
-      "score": 1
+      "score": 1,
+      "explanation": "(sum-solve(i-1,j-1))%mod在C++中可为负数，返回值可小于0。"
     },
     {
       "title": "第35题",
@@ -445,7 +479,8 @@
         "D": "计算两个序列的相同元素个数"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "递推统计两序列的公共子序列个数。"
     },
     {
       "title": "第36题",
@@ -458,7 +493,8 @@
         "D": "Θ(n log m)"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "状态数n*m个，最坏时间复杂度O(n*m)。"
     },
     {
       "title": "第37题",
@@ -471,7 +507,8 @@
         "D": "优化程序的时间效率"
       },
       "correct_answer": "A",
-      "score": 3
+      "score": 3,
+      "explanation": "两路来源均包含solve(i-1,j-1)部分，减去以排除重复计数。"
     },
     {
       "title": "第38题",
@@ -484,7 +521,8 @@
         "D": "M"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "sort(A,A+N)对全部N个主食排序。"
     },
     {
       "title": "第39题",
@@ -497,7 +535,8 @@
         "D": "N"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "j初始为M，指向饮料区间末端。"
     },
     {
       "title": "第40题",
@@ -510,7 +549,8 @@
         "D": "j < M"
       },
       "correct_answer": "A",
-      "score": 3
+      "score": 3,
+      "explanation": "while需先判j>0，防止j减到0后访问B[-1]越界。"
     },
     {
       "title": "第41题",
@@ -523,7 +563,8 @@
         "D": "i"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "A[i]与B[0..j-1]共j种搭配合法，sum累加A[i]*j。"
     },
     {
       "title": "第42题",
@@ -536,7 +577,8 @@
         "D": "j"
       },
       "correct_answer": "D",
-      "score": 3
+      "score": 3,
+      "explanation": "S[j]为前j杯饮料价格前缀和。"
     },
     {
       "title": "第43题",
@@ -549,7 +591,8 @@
         "D": "cnt += 2"
       },
       "correct_answer": "A",
-      "score": 3
+      "score": 3,
+      "explanation": "dfs每进入一个节点即新增一条以该点为终点的路径，cnt+=1。"
     },
     {
       "title": "第44题",
@@ -562,7 +605,8 @@
         "D": "false 与 false"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "进入时标记visited[node]=true，回溯恢复为false。"
     },
     {
       "title": "第45题",
@@ -575,7 +619,8 @@
         "D": "adj[node]"
       },
       "correct_answer": "D",
-      "score": 3
+      "score": 3,
+      "explanation": "遍历节点node的邻接表adj[node]。"
     },
     {
       "title": "第46题",
@@ -588,7 +633,8 @@
         "D": "limit"
       },
       "correct_answer": "C",
-      "score": 3
+      "score": 3,
+      "explanation": "对未访问邻点v递归调用dfs(v)。"
     },
     {
       "title": "第47题",
@@ -601,7 +647,8 @@
         "D": "cnt"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "从1号点出发，dfs(1)。"
     },
     {
       "title": "第48题",
@@ -609,7 +656,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "F",
-      "score": 1
+      "score": 1,
+      "explanation": "r=0时while不执行，直接输出一个小数点，不会输出0。"
     },
     {
       "title": "第49题",
@@ -617,7 +665,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "T",
-      "score": 1
+      "score": 1,
+      "explanation": "余数至多b种，商位数不超过b-1，总长度不含括号不超过b。"
     },
     {
       "title": "第50题",
@@ -625,7 +674,8 @@
       "question_type": "true_false",
       "options": {},
       "correct_answer": "T",
-      "score": 1
+      "score": 1,
+      "explanation": "q=r*2/b且r<b，故q只可能为0或1。"
     },
     {
       "title": "第51题",
@@ -638,7 +688,8 @@
         "D": ".(1)"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "r=1,b=2时第一步商1余0，输出.1。"
     },
     {
       "title": "第52题",
@@ -651,7 +702,8 @@
         "D": ".(0101)"
       },
       "correct_answer": "C",
-      "score": 3
+      "score": 3,
+      "explanation": "r=1,b=5时1/5二进制循环为0011，输出.(0011)。"
     },
     {
       "title": "第53题",
@@ -664,7 +716,8 @@
         "D": "缓存输入数据"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "mem[r]记录余数r首次出现的步数，用于定位循环节起点。"
     },
     {
       "title": "第54题",
@@ -677,7 +730,8 @@
         "D": "Θ(b log b)"
       },
       "correct_answer": "A",
-      "score": 3
+      "score": 3,
+      "explanation": "余数空间为b，循环至多b步，最坏O(b)。"
     },
     {
       "title": "第55题",
@@ -690,7 +744,8 @@
         "D": "end - j"
       },
       "correct_answer": "D",
-      "score": 3
+      "score": 3,
+      "explanation": "s[i]<=s[j]时右半从j到end-1共end-j个元素皆不小于s[i]，计入sum。"
     },
     {
       "title": "第56题",
@@ -703,7 +758,8 @@
         "D": "length <= 1，front + back - cross"
       },
       "correct_answer": "B",
-      "score": 3
+      "score": 3,
+      "explanation": "归并排序基例为length<=1返回0；总数为front+back+cross。"
     },
     {
       "title": "第57题",
@@ -716,7 +772,8 @@
         "D": "a[i] > key，merge_sort(0, n + 1)"
       },
       "correct_answer": "D",
-      "score": 3
+      "score": 3,
+      "explanation": "a[i]>key记1否则-1；s共n+1个前缀和，统计正序对用merge_sort(0,n+1)。"
     },
     {
       "title": "第58题",
@@ -729,7 +786,8 @@
         "D": "num >= (total + 1) / 2"
       },
       "correct_answer": "D",
-      "score": 3
+      "score": 3,
+      "explanation": "num为满足条件的子区间数，过半即num>=(total+1)/2判定中位数大于key。"
     },
     {
       "title": "第59题",
@@ -742,7 +800,8 @@
         "D": "end - begin，begin + length / 2，end"
       },
       "correct_answer": "D",
-      "score": 3
+      "score": 3,
+      "explanation": "主循环为半开区间[begin,end)，length=end-begin，mid=begin+length/2，收敛后输出end。"
     }
   ]
 }
