@@ -478,67 +478,147 @@ void solve(int r, int b)
 
 判断题
 
-48. 若 solve(r, b) 中 r < b 且 r > 0，则输出的第一个字符一定是 0（ ）。
+48. 若输入参数 r = 0，程序会输出一个 0（ ）。
 
-49. 若 solve(r, b) 中 r = 0，则程序输出 0。（ ）。
+49. 若输入参数满足 0 ≤ r < b < 1024，程序输出数字总长度（不含括号）不会超过 b（ ）。
 
-50. solve(1, 3) 的输出为 0.(0)（ ）。
+50. 程序不会输出比 1 更大的数字（ ）。
 
 选择题
 
-51. 该程序的功能是（ ）。
-   A. 将分数 r/b 转换成二进制
-   B. 将分数 r/b 转换成 b 进制
-   C. 将整数 r 转换成 b 进制
-   D. 将整数 r 转换成二进制
+51. 当 r = 1, b = 2 时，程序输出（ ）。
+   A. .0
+   B. .1
+   C. .(0)
+   D. .(1)
 
-52. solve(5, 8) 的输出为（ ）。
-   A. 0.1
-   B. 0.011
-   C. 0.(011)
-   D. 0.1(011)
+52. 当 r = 1, b = 5 时，程序输出（ ）。
+   A. .0011
+   B. .0101
+   C. .(0011)
+   D. .(0101)
 
-53. solve(1, 6) 的输出为（ ）。
-   A. 0.(10)
-   B. 0.0(1)
-   C. 0.01
-   D. 0.(01)
+53. 数组 mem 的作用是（ ）。
+   A. 存储每一步的商
+   B. 记录余数首次出现的位置
+   C. 标记循环节的结束位置
+   D. 缓存输入数据
 
-54. solve(1, 13) 的输出为（ ）。
-   A. 0.(0011100111001)
-   B. 0.(001110011101)
-   C. 0.0(01110011101)
-   D. 0.(00111001110)
+54. 该程序的最坏时间复杂度为（ ）。
+   A. Θ(b)
+   B. Θ(r)
+   C. Θ(log b)
+   D. Θ(b log b)
 
-55. solve(3, 7) 的输出为（ ）。
-   A. 0.(011011)
-   B. 0.(01)
-   C. 0.0(11011)
-   D. 0.(011)
+### 第2题
 
-56. solve(1, 17) 的输出有（ ）位循环节。
-   A. 16
-   B. 8
-   C. 4
-   D. 2
+给定一个整数序列 a₁, a₂, ..., aₙ，对该序列的所有子区间，分别算出它们的中位数，并且将这些中位数组成一个新序列，输出这个新序列的中位数。
 
-57. solve(1, 19) 的输出有（ ）位循环节。
-   A. 18
-   B. 9
-   C. 6
-   D. 3
+所谓一个序列的中位数，就是将这个序列排序后，排名在最中间的数字，如果序列的长度是偶数，规定中位数是排名最居中的两个数之中偏大的数。
 
-58. solve(1, 97) 的输出有（ ）位循环节。
-   A. 48
-   B. 32
-   C. 16
-   D. 8
+```cpp
+#include<iostream>
+using i64 = long long;
+const int maxn = 1000000;
+int a[maxn];
+int b[maxn];
+int s[maxn + 1];
+int n;
+i64 total;
+int buffer[maxn];
 
-59. 以下说法正确的是（ ）。
-   A. solve(1, p) 的循环节长度一定是 p-1（p为质数）
-   B. solve(1, p) 的循环节长度一定是 p 的因数（p为质数）
-   C. solve(1, p) 的循环节长度一定小于 p（p为质数）
-   D. solve(1, p) 的循环节长度无法确定（p为质数）
+i64 merge(int begin, int mid, int end) {
+    auto i = begin;
+    auto j = mid;
+    auto k = 0;
+    i64 sum = 0;
+    while (i < mid and j < end) {
+        if (s[i] <= s[j]) {
+            buffer[k++] = s[i++];
+            sum += __(1)__;
+        }
+        else {
+            buffer[k++] = s[j++];
+        }
+    }
+    while (i < mid) buffer[k++] = s[i++];
+    while (j < end) buffer[k++] = s[j++];
+    for (int x = begin, k = 0; x < end; ++x, ++k)
+        s[x] = buffer[k];
+    return sum;
+}
+
+i64 merge_sort(int begin, int end) {
+    auto length = end - begin;
+    if (__(2)__) return 0;
+    auto mid = begin + length / 2;
+    auto front = merge_sort(begin, mid);
+    auto back = merge_sort(mid, end);
+    auto cross = merge(begin, mid, end);
+    return __(3)__;
+}
+
+bool predicate(int key) {
+    for (int i = 0; i < n; ++i) {
+        if (__(4)__)
+            b[i] = 1;
+        else
+            b[i] = -1;
+        s[i+1] = s[i] + b[i];
+    }
+    auto num = __(5)__;
+    return __(6)__;
+}
+
+int main() {
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) std::cin >> a[i];
+    total = i64(n) * (n + 1) / 2;
+    i64 begin = 0;
+    i64 end = 1000000001;
+    while (true)
+    {
+        auto length = __(7)__;
+        if (length == 1) break;
+        auto mid = __(8)__;
+        if (predicate(mid))
+            begin = mid;
+        else
+            end = mid;
+    }
+    std::cout << __(9)__ << "\n";
+}
+```
+
+55. (1)处应填（ ）。
+   A. k
+   B. end - k
+   C. end - i + 1
+   D. end - j
+
+56. (2)(3)处应填（ ）。
+   A. length == 0，front + back - cross
+   B. length <= 1，front + back + cross
+   C. length == 0，front + back + cross
+   D. length <= 1，front + back - cross
+
+57. (4)(5)处应填（ ）。
+   A. a[i] > key，merge_sort(0, n)
+   B. a[i] < key，merge_sort(0, n + 1)
+   C. a[i] < key，merge_sort(0, n)
+   D. a[i] > key，merge_sort(0, n + 1)
+
+58. (6)处应填（ ）。
+   A. num < total
+   B. num < (total + 1) / 2
+   C. num >= total
+   D. num >= (total + 1) / 2
+
+59. (7)(8)(9)处应填（ ）。
+   A. end - begin，(end + begin) / 2，begin
+   B. end - begin + 1，begin + length / 2，begin
+   C. end - begin + 1，(end + begin) / 2，end
+   D. end - begin，begin + length / 2，end
 
 ---
 
@@ -553,11 +633,11 @@ void solve(int r, int b)
 | 17. | F | 18. | F | 19. | F | 20. | F |
 | 21. | C | 22. | B | 23. | D | 24. | F |
 | 25. | T | 26. | T | 27. | F | 28. | D |
-| 29. | B | 30. | B | 31. | T | 32. | T |
+| 29. | B | 30. | A | 31. | T | 32. | T |
 | 33. | F | 34. | T | 35. | B | 36. | B |
 | 37. | A | 38. | B | 39. | B | 40. | A |
 | 41. | B | 42. | D | 43. | A | 44. | B |
 | 45. | D | 46. | C | 47. | B | 48. | F |
 | 49. | T | 50. | T | 51. | B | 52. | C |
 | 53. | B | 54. | A | 55. | D | 56. | B |
-| 57. | D | 58. | D | 59. | A |
+| 57. | D | 58. | D | 59. | D |

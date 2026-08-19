@@ -681,67 +681,67 @@
     },
     {
       "title": "第55题",
-      "content": "以下第55-59题基于以下程序：\n\n给定一个整数序列 a₁,a₂,...,aₙ，对该序列的所有子区间，分别算出它们的中位数，并且将这些中位数组成一个新序列，输出这个新序列的中位数。\n\n```cpp\n#include<iostream>\nusing i64 = long long;\nconst int maxn = 1000000;\nint a[maxn];\nint b[maxn];\nint s[maxn + 1];\nint n;\ni64 total;\nint buffer[maxn];\n\ni64 merge(int begin, int mid, int end) {\n    // 代码需要从PDF完整复制\n}\n```\n\n(1)处应填（ ）。",
+      "content": "以下第55-59题基于以下程序：\n\n给定一个整数序列 a₁,a₂,...,aₙ，对该序列的所有子区间，分别算出它们的中位数，并且将这些中位数组成一个新序列，输出这个新序列的中位数。\n\n```cpp\n#include<iostream>\nusing i64 = long long;\nconst int maxn = 1000000;\nint a[maxn];\nint b[maxn];\nint s[maxn + 1];\nint n;\ni64 total;\nint buffer[maxn];\n\ni64 merge(int begin, int mid, int end) {\n    auto i = begin;\n    auto j = mid;\n    auto k = 0;\n    i64 sum = 0;\n    while (i < mid and j < end) {\n        if (s[i] <= s[j]) {\n            buffer[k++] = s[i++];\n            sum += __(1)__;\n        }\n        else {\n            buffer[k++] = s[j++];\n        }\n    }\n    while (i < mid) buffer[k++] = s[i++];\n    while (j < end) buffer[k++] = s[j++];\n    for (int x = begin, k = 0; x < end; ++x, ++k)\n        s[x] = buffer[k];\n    return sum;\n}\n\ni64 merge_sort(int begin, int end) {\n    auto length = end - begin;\n    if (__(2)__) return 0;\n    auto mid = begin + length / 2;\n    auto front = merge_sort(begin, mid);\n    auto back = merge_sort(mid, end);\n    auto cross = merge(begin, mid, end);\n    return __(3)__;\n}\n\nbool predicate(int key) {\n    for (int i = 0; i < n; ++i) {\n        if (__(4)__)\n            b[i] = 1;\n        else\n            b[i] = -1;\n        s[i+1] = s[i] + b[i];\n    }\n    auto num = __(5)__;\n    return __(6)__;\n}\n\nint main() {\n    std::cin >> n;\n    for (int i = 0; i < n; ++i) std::cin >> a[i];\n    total = i64(n) * (n + 1) / 2;\n    i64 begin = 0;\n    i64 end = 1000000001;\n    while (true)\n    {\n        auto length = __(7)__;\n        if (length == 1) break;\n        auto mid = __(8)__;\n        if (predicate(mid))\n            begin = mid;\n        else\n            end = mid;\n    }\n    std::cout << __(9)__ << \"\\n\";\n}\n```\n\n(1)处应填（ ）。",
       "question_type": "single",
       "options": {
-        "A": "0.(011011)",
-        "B": "0.(01)",
-        "C": "0.0(11011)",
-        "D": "0.(011)"
+        "A": "k",
+        "B": "end - k",
+        "C": "end - i + 1",
+        "D": "end - j"
       },
       "correct_answer": "D",
       "score": 3
     },
     {
       "title": "第56题",
-      "content": "solve(1, 17) 的输出有（ ）位循环节。",
+      "content": "(2)(3)处应填（ ）。",
       "question_type": "single",
       "options": {
-        "A": "16",
-        "B": "8",
-        "C": "4",
-        "D": "2"
+        "A": "length == 0，front + back - cross",
+        "B": "length <= 1，front + back + cross",
+        "C": "length == 0，front + back + cross",
+        "D": "length <= 1，front + back - cross"
       },
       "correct_answer": "B",
       "score": 3
     },
     {
       "title": "第57题",
-      "content": "solve(1, 19) 的输出有（ ）位循环节。",
+      "content": "(4)(5)处应填（ ）。",
       "question_type": "single",
       "options": {
-        "A": "18",
-        "B": "9",
-        "C": "6",
-        "D": "3"
+        "A": "a[i] > key，merge_sort(0, n)",
+        "B": "a[i] < key，merge_sort(0, n + 1)",
+        "C": "a[i] < key，merge_sort(0, n)",
+        "D": "a[i] > key，merge_sort(0, n + 1)"
       },
       "correct_answer": "D",
       "score": 3
     },
     {
       "title": "第58题",
-      "content": "solve(1, 97) 的输出有（ ）位循环节。",
+      "content": "(6)处应填（ ）。",
       "question_type": "single",
       "options": {
-        "A": "48",
-        "B": "32",
-        "C": "16",
-        "D": "8"
+        "A": "num < total",
+        "B": "num < (total + 1) / 2",
+        "C": "num >= total",
+        "D": "num >= (total + 1) / 2"
       },
       "correct_answer": "D",
       "score": 3
     },
     {
       "title": "第59题",
-      "content": "以下说法正确的是（ ）。",
+      "content": "(7)(8)(9)处应填（ ）。",
       "question_type": "single",
       "options": {
-        "A": "solve(1, p) 的循环节长度一定是 p-1（p为质数）",
-        "B": "solve(1, p) 的循环节长度一定是 p 的因数（p为质数）",
-        "C": "solve(1, p) 的循环节长度一定小于 p（p为质数）",
-        "D": "solve(1, p) 的循环节长度无法确定（p为质数）"
+        "A": "end - begin，(end + begin) / 2，begin",
+        "B": "end - begin + 1，begin + length / 2，begin",
+        "C": "end - begin + 1，(end + begin) / 2，end",
+        "D": "end - begin，begin + length / 2，end"
       },
-      "correct_answer": "A",
+      "correct_answer": "D",
       "score": 3
     }
   ]
