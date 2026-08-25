@@ -1,0 +1,331 @@
+{
+  "title": "C++等级考试 2025年12月 真题",
+  "description": "GESP C++六级 202512 真题",
+  "time_limit": 40,
+  "pass_score": 60,
+  "questions": [
+    {
+      "content": "在面向对象编程中，下列关于虚函数的描述中，错误的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "虚函数用于支持运行时多态",
+        "B": "通过基类指针调用虚函数时，会根据对象实际类型决定调用版本",
+        "C": "构造函数可以声明为虚函数以支持多态",
+        "D": "基类析构函数常声明为虚函数以避免资源泄漏"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "虚函数用于运行时多态，通过基类指针调用时按实际类型动态绑定，基类析构函数声明为虚函数可避免资源泄漏，均正确。构造函数在对象构造阶段调用，此时对象尚未完整构造，无法实现动态绑定，故构造函数不能声明为虚函数，C 错误。"
+    },
+    {
+      "content": "执行如下代码，会输出「钢琴：叮咚叮咚」和「吉他：咚咚当当」。这体现了面向对象编程的（ ）特性。\n```cpp\nclass Instrument {\npublic:\n    virtual void play() { cout << \"乐器在演奏声音\" << endl; }\n    virtual ~Instrument() {}\n};\nclass Piano : public Instrument {\npublic:\n    void play() override { cout << \"钢琴：叮咚叮咚\" << endl; }\n};\nclass Guitar : public Instrument {\npublic:\n    void play() override { cout << \"吉他：咚咚当当\" << endl; }\n};\nint main() {\n    Instrument* instruments[2];\n    instruments[0] = new Piano();\n    instruments[1] = new Guitar();\n    for (int i = 0; i < 2; ++i) instruments[i]->play();\n    for (int i = 0; i < 2; ++i) delete instruments[i];\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "继承",
+        "B": "封装",
+        "C": "多态",
+        "D": "链接"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "通过基类指针调用虚函数，根据对象实际类型（Piano/Guitar）输出不同结果，正是运行时多态（动态绑定）的体现。"
+    },
+    {
+      "content": "关于以下代码，说法正确的是（ ）。\n```cpp\nclass Instrument {\npublic:\n    void play() { cout << \"乐器在演奏声音\" << endl; }\n    virtual ~Instrument() {}\n};\nclass Piano : public Instrument {\npublic:\n    void play() override { cout << \"钢琴：叮咚叮咚\" << endl; }\n};\nclass Guitar : public Instrument {\npublic:\n    void play() override { cout << \"吉他：咚咚当当\" << endl; }\n};\nint main() {\n    Instrument* instruments[2];\n    instruments[0] = new Piano();\n    instruments[1] = new Guitar();\n    for (int i = 0; i < 2; ++i) instruments[i]->play();\n    for (int i = 0; i < 2; ++i) delete instruments[i];\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "执行代码会输出两行，内容分别为：钢琴：叮咚叮咚 和 吉他：咚咚当当",
+        "B": "执行代码会输出两行，内容分别为：乐器在演奏声音 和 乐器在演奏声音",
+        "C": "代码编译出现错误",
+        "D": "代码运行出现错误"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "基类中 play() 非虚函数，通过 Instrument* 调用 play() 采用静态绑定，始终调用基类版本；而派生类 play() 声明 override 但基类无虚函数，编译器报错（override 要求基类有对应虚函数），故选 C。"
+    },
+    {
+      "content": "某文本编辑器把用户输入的字符依次压入栈 S。用户依次输入 A, B, C, D 后，用户按了两次撤销（每次撤销，弹出栈顶一个字符）。此时栈从栈底到栈顶的内容是：（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "A B",
+        "B": "A B C",
+        "C": "A B D",
+        "D": "B C"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "依次压入 A,B,C,D 后栈中为 A,B,C,D（栈顶 D）。两次撤销弹出 D、C，栈中剩 A,B，故从栈底到栈顶为 A B。"
+    },
+    {
+      "content": "假设循环队列数组长度为 N，其中队空判断条件为：front == rear，队满判断条件为：(rear + 1) % N == front，出队对应的操作为：front = (front + 1) % N，入队对应的操作为：rear = (rear + 1) % N。循环队列长度 N = 6，初始 front = 1, rear = 1，执行操作序列为：入队, 入队, 入队, 出队, 入队, 入队，则最终 (front, rear) 的值是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "(2, 5)",
+        "B": "(2, 0)",
+        "C": "(3, 5)",
+        "D": "(3, 0)"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "初始 front=1,rear=1。三次入队 rear 变 4；一次出队 front 变 2；两次入队 rear 依次变 5、0。最终 front=2, rear=0，即 (2,0)。"
+    },
+    {
+      "content": "以下函数 check() 用于判断一棵二叉树是否为（ ）。\n```cpp\nbool check(TreeNode* root) {\n    if (!root) return true;\n    queue<TreeNode*> q;\n    q.push(root);\n    bool hasNull = false;\n    while (!q.empty()) {\n        TreeNode* cur = q.front(); q.pop();\n        if (!cur) { hasNull = true; }\n        else {\n            if (hasNull) return false;\n            q.push(cur->left);\n            q.push(cur->right);\n        }\n    }\n    return true;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "满二叉树",
+        "B": "完全二叉树",
+        "C": "二叉搜索树",
+        "D": "平衡二叉树"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "层序遍历过程中，一旦出现空节点（hasNull=true），其后若再出现非空节点则返回 false，即空节点之后不允许再有非空节点，这是完全二叉树的层序判定标准。"
+    },
+    {
+      "content": "以下代码实现了二叉树的（ ）。\n```cpp\nvoid traverse(TreeNode* root) {\n    if (!root) return;\n    traverse(root->left);\n    traverse(root->right);\n    cout << root->val << \" \";\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "前序遍历",
+        "B": "中序遍历",
+        "C": "后序遍历",
+        "D": "层序遍历"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "后序遍历：先访问左子树、再访问右子树、最后输出根节点（左-右-根）。对结点 1 输出顺序为 4, 5, 2, 3, 1，符合后序定义，故选 C。"
+    },
+    {
+      "content": "下面代码实现了哈夫曼编码，则横线处应填写的代码是（ ）。\n```cpp\nstruct Symbol { char ch; long long freq; string code; };\nstruct Node {\n    long long w; int l, r; int sym;\n    Node(long long _w=0, int _l=-1, int _r=-1, int _sym=-1)\n        : w(_w), l(_l), r(_r), sym(_sym) {}\n};\nstatic int PopMinNode(const vector<Node>& nodes, const vector<int>& leafIdx, int n, int& pA, const vector<int>& internalIdx, int& pB) {\n    if (pA < n && (pB >= (int)internalIdx.size() || nodes[leafIdx[pA]].w <= nodes[internalIdx[pB]].w))\n        return leafIdx[pA++];\n    else return internalIdx[pB++];\n}\nstatic void DFSBuildCodes(int u, const vector<Node>& nodes, Symbol sym[], string& path) {\n    if (u == -1) return;\n    if (nodes[u].sym != -1) { sym[nodes[u].sym].code = path; return; }\n    path.push_back('0'); DFSBuildCodes(nodes[u].l, nodes, sym, path); path.pop_back();\n    path.push_back('1'); DFSBuildCodes(nodes[u].r, nodes, sym, path); path.pop_back();\n}\nint BuildHuffmanCodes(Symbol sym[], int n) {\n    for (int i = 0; i < n; i++) sym[i].code.clear();\n    if (n <= 0) return -1;\n    if (n == 1) { sym[0].code = \"0\"; return 0; }\n    vector<Node> nodes; nodes.reserve(2 * n);\n    vector<int> leafIdx(n);\n    for (int i = 0; i < n; i++) { leafIdx[i] = (int)nodes.size(); nodes.push_back(Node(sym[i].freq, -1, -1, i)); }\n    sort(leafIdx.begin(), leafIdx.end(), [&](int a, int b) {\n        if (nodes[a].w != nodes[b].w) return nodes[a].w < nodes[b].w;\n        return nodes[a].sym < nodes[b].sym;\n    });\n    vector<int> internalIdx; internalIdx.reserve(n);\n    int pA = 0, pB = 0;\n    for (int k = 1; k < n; k++) {\n        int x = PopMinNode(nodes, leafIdx, n, pA, internalIdx, pB);\n        int y = PopMinNode(nodes, leafIdx, n, pA, internalIdx, pB);\n        int z = (int)nodes.size();\n        ________________________\n    }\n    int root = internalIdx.back();\n    string path;\n    DFSBuildCodes(root, nodes, sym, path);\n    return root;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "nodes.push_back(Node(nodes[x].w + nodes[y].w, x, y, -1)); internalIdx.push_back(z);",
+        "B": "nodes.push_back(Node(nodes[x].w + nodes[y].w, x, y, -1)); leafIdx.push_back(z);",
+        "C": "internalIdx.push_back(z); nodes.push_back(Node(nodes[x].w + nodes[y].w, x, y, x+y));",
+        "D": "nodes.push_back(Node(nodes[x].w + nodes[y].w, x, y, x+y)); leafIdx.push_back(z);"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "合并 x、y 两节点：新节点权值为二者之和，左右孩子为 x、y，sym 为 -1（内部节点），故 nodes.push_back(Node(nodes[x].w+nodes[y].w, x, y, -1))；z 为新内部节点下标，应加入 internalIdx 队列，故 internalIdx.push_back(z)。"
+    },
+    {
+      "content": "以下关于哈夫曼编码的说法，正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "哈夫曼编码是定长编码",
+        "B": "哈夫曼编码中，没有任何一个字符的编码是另一个字符编码的前缀",
+        "C": "哈夫曼编码一定唯一",
+        "D": "哈夫曼编码不能用于数据压缩"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "哈夫曼编码是变长前缀编码，任一编码都不是另一编码的前缀（前缀码性质），用于数据压缩。编码树结构可能不唯一（权值相同时），故 A、C、D 均错。"
+    },
+    {
+      "content": "以下函数实现了二叉排序树（BST）的（ ）操作。\n```cpp\nTreeNode* op(TreeNode* root, int x) {\n    if (!root) return new TreeNode(x);\n    if (x < root->val) root->left = op(root->left, x);\n    else root->right = op(root->right, x);\n    return root;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "查找",
+        "B": "插入",
+        "C": "删除",
+        "D": "遍历"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "空树则新建节点；否则按 x 与根值比较递归进入左/右子树插入，返回根，是 BST 的插入操作。"
+    },
+    {
+      "content": "下列代码实现了树的深度优先遍历，则横线处应填入（ ）。\n```cpp\nstruct TreeNode { int val; TreeNode* left; TreeNode* right; TreeNode(int x): val(x), left(nullptr), right(nullptr) {} };\nvoid dfs(TreeNode* root) {\n    if (!root) return;\n    stack<TreeNode*> st;\n    st.push(root);\n    while (!st.empty()) {\n        TreeNode* node = st.top(); st.pop();\n        cout << node->val << \" \";\n        if (node->right) st.push(node->right);\n        ________________________\n    }\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "if (node->left) st.push(node->left);",
+        "B": "if (node->left) st.pop(node->left);",
+        "C": "if (node->left) st.front(node->left);",
+        "D": "if (node->left) st.push(node->right);"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "栈模拟 DFS：弹出节点后先压右子再压左子（先左后右访问），故横线处应把左子入栈，选 A。"
+    },
+    {
+      "content": "给定一棵普通二叉树（节点值没有大小规律），下面代码判断是否存在值为 x 的结点，则横线处应填入（ ）。\n```cpp\nstruct TreeNode { int val; TreeNode* left; TreeNode* right; TreeNode(int x): val(x), left(nullptr), right(nullptr) {} };\nTreeNode* bfsFind(TreeNode* root, int x) {\n    if (!root) return nullptr;\n    queue<TreeNode*> q;\n    q.push(root);\n    while (!q.empty()) {\n        TreeNode* cur = q.front(); q.pop();\n        if (cur->val == x) return cur;\n        ________________________\n    }\n    return nullptr;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "q.push(cur);",
+        "B": "if (cur->right) q.push(cur->right);",
+        "C": "if (cur->left) q.push(cur->left); if (cur->right) q.push(cur->right);",
+        "D": "q.push(cur->left); q.push(cur->right);"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "BFS 需把当前节点的左、右孩子依次入队（需判空），选 C。D 未判空会入队空指针；A、B 不完整。"
+    },
+    {
+      "content": "在二叉排序树（BST）中，假设节点值互不相同。给定如下搜索函数，以下说法一定正确的是（ ）。\n```cpp\nbool find(Node* root, int x) {\n    while (root) {\n        if (root->val == x) return true;\n        root = (x < root->val) ? root->left : root->right;\n    }\n    return false;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "最坏情况下，访问结点数是 O(log n)",
+        "B": "最坏情况下，访问结点数是 O(n)",
+        "C": "无论如何，访问结点数都不超过树高的一半",
+        "D": "一定比在普通二叉树中搜索快"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "BST 查找最坏情况为树退化为链，此时需遍历所有结点，故访问结点数为 O(n)，选 B。"
+    },
+    {
+      "content": "0/1 背包（每件物品最多选一次）问题通常可用一维动态规划求解，核心代码如下。则下面说法正确的是（ ）。\n```cpp\nfor each item (w, v):\n    for (int j = W; j >= w; --j)\n        dp[j] = max(dp[j], dp[j-w] + v);\n```",
+      "question_type": "single",
+      "options": {
+        "A": "内层 j 必须从小到大，否则会漏解",
+        "B": "内层 j 必须从大到小，否则同一件物品会被用多次",
+        "C": "j 从大到小或从小到大都一样",
+        "D": "只要 dp 初始为 0，方向无所谓"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "0/1 背包一维优化中，内层 j 必须从大到小（逆序）遍历容量，否则 dp[j-w] 可能已被本件物品更新过，导致同一物品被多次选取。"
+    },
+    {
+      "content": "以下关于动态规划的说法中，错误的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "动态规划方法通常能够列出递推公式。",
+        "B": "动态规划方法的时间复杂度通常为状态的个数。",
+        "C": "动态规划方法有递推和递归两种实现形式。",
+        "D": "对很多问题，递推实现和递归实现动态规划方法的时间复杂度相当。"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "动态规划时间复杂度通常为状态数 × 每个状态转移代价，而不只是状态个数；A、C、D 说法正确，故选 B。"
+    },
+    {
+      "content": "以下代码中，构造函数被调用的次数是 1 次。\n```cpp\nclass Test {\npublic:\n    Test() { cout << \"T \"; }\n};\nint main() {\n    Test a;\n    Test b = a;\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "Test a 调用一次构造函数；Test b = a 调用复制构造函数（默认生成，也属构造函数）。共调用 2 次，非 1 次。"
+    },
+    {
+      "content": "面向对象编程中，封装是指将数据和操作数据的方法绑定在一起，并对外隐藏实现细节。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "封装把数据和操作数据的方法绑定在一起，并通过访问控制隐藏实现细节，正是封装的经典定义。"
+    },
+    {
+      "content": "以下代码能够正确统计二叉树中叶子结点的数量。\n```cpp\nint countLeaf(TreeNode* root) {\n    if (!root) return 0;\n    if (!root->left && !root->right) return 1;\n    return countLeaf(root->left) + countLeaf(root->right);\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "空节点返回 0（无叶子）；左右孩子皆空返回 1（自身即叶子）；否则递归累加左右子树叶子数。该实现完整覆盖三种情形，逻辑正确，故 T。"
+    },
+    {
+      "content": "广度优先遍历二叉树可用栈来实现。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "广度优先遍历须按层依次访问，需先进先出结构——队列；栈是后进先出，用于深度优先遍历（DFS）。断言\"用栈实现 BFS\"错误，故 F。"
+    },
+    {
+      "content": "函数调用管理可用栈来管理。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "函数调用依赖调用栈：调用时压栈保存返回地址与局部变量，返回时弹栈恢复现场。C++ 中每次函数调用（含递归）均如此管理，断言正确，故 T。"
+    },
+    {
+      "content": "在二叉排序树（BST）中，若某结点的左子树为空，则该结点一定是整棵树中的最小值结点。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "左子树为空只说明该结点无左后代，但整棵树的最小值结点是沿最左路径走到叶子；该结点可能不是最左结点（如根在中间），故不一定是最小值结点。"
+    },
+    {
+      "content": "下面的函数能正确判断一棵树是不是二叉排序树。\n```cpp\nbool isBST(TreeNode* root, int minVal, int maxVal) {\n    if (!root) return true;\n    if (root->val <= minVal || root->val >= maxVal) return false;\n    return isBST(root->left, minVal, root->val) && isBST(root->right, root->val, maxVal);\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "递归维护 (minVal, maxVal) 值域约束：左子树须落在 (minVal, val)、右子树落在 (val, maxVal)，能正确判断 BST。"
+    },
+    {
+      "content": "格雷编码相邻两个编码之间必须有多位不同，以避免数据传输错误。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "格雷编码（Gray Code）的相邻两个编码之间恰有一位不同（如 00→01→11→10）。断言\"必须有多位不同\"错误，故 F。"
+    },
+    {
+      "content": "小杨在玩一个闯关游戏，从第 1 关走到第 4 关。每一关的体力消耗如下：cost = [0, 3, 5, 2, 4]，其中 cost[i] 表示到达第 i 关需要消耗的体力。小杨每次可以从当前关卡前进 1 步或 2 步。按照上述规则，从第 1 关到第 4 关所需消耗的最小体力为 7。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "官方答案：错误（F）。题目断言\"最小体力为 7\"，按 cost=[0,3,5,2,4] 计算，从第 1 关出发（不计 cost[1]），最优路径 1→3→4 消耗 cost[3]+cost[4]=2+4=6，并非 7。官方答案表判定为 F。"
+    },
+    {
+      "content": "假定只有一个根节点的树的深度为 1，则一棵有 n 个节点的完全二叉树，则树的深度为 ⌊log₂(n)⌋ + 1。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "官方答案：正确（T）。题目断言\"从第 1 关到第 4 关所需消耗的最小体力为 7\"，官方参考答案判定该说法为真（T）。"
+    },
+    {
+      "content": "给定一棵有 n 个结点的有根树，结点依次以 1, 2, ..., n 编号，根结点编号为 1。方便起见，编号为 i 的结点称为结点 i。\n\n初始时树中的结点均为白色。你需要将树中的若干个结点染为黑色，使得所有叶子到根的路径上至少有一个黑色结点。将结点 i 染为黑色需要代价 c[i]，你需要在满足以上条件的情况下，最小化染色代价之和。\n\n叶子是指树中没有子结点的结点。\n\n**输入格式**\n\n第一行，一个正整数 n，表示结点数量。\n\n第二行，n-1 个正整数 f[2], f[3], ..., f[n]，其中 f[i] 表示结点 i 的父结点的编号，保证 f[i] < i。\n\n第三行，n 个正整数 c[1], c[2], ..., c[n]，其中 c[i] 表示将结点 i 染为黑色所需的代价。\n\n**输出格式**\n\n一行，一个整数，表示在满足所有叶子到根的路径上至少有一个黑色结点的前提下，染色代价之和的最小值。\n\n**输入样例 1**\n```\n4\n1 2 3\n5 6 2 3\n```\n\n**输出样例 1**\n```\n2\n```\n\n**输入样例 2**\n```\n7\n1 1 2 2 3 3\n64 16 15 4 3 2 1\n```\n\n**输出样例 2**\n```\n10\n```\n\n**数据范围**\n\n对于 40% 的测试点，保证 2 ≤ n ≤ 16。\n\n对于另外 20% 的测试点，保证 f[i] = i-1。\n\n对于所有测试点，保证 2 ≤ n ≤ 10⁵，1 ≤ c[i] ≤ 10⁹。",
+      "question_type": "program",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 25,
+      "explanation": "树形DP：对每个结点维护 ans[i] = 使以 i 为根的子树内所有叶到根路径均有黑点的最小代价。若 i 为叶子，ans[i]=c[i]；否则 ans[i]=min(c[i], Σans[子结点])（自己染黑或让子结点覆盖）。自底向上（按编号倒序）累加到父结点，最后 ans[1] 即答案。参考程序用 cnt 统计子结点数，从 n 到 1 逆序处理：叶子 ans[i]=c[i]，再取 min(c[i])，累加至 f[i]。复杂度 O(n)。",
+      "url": "https://fslong.iok.la/problem/GESP202512-L6-1"
+    },
+    {
+      "content": "道具商店里有 n 件道具可供挑选。第 i 件道具可为玩家提升 a[i] 点攻击力，需要 c[i] 枚金币才能购买，每件道具只能购买一次。现在你有 k 枚金币，请问你最多可以提升多少点攻击力？\n\n**输入格式**\n\n第一行，两个正整数 n, k，表示道具数量以及你所拥有的金币数量。\n\n接下来 n 行，每行两个正整数 a[i], c[i]，表示道具所提升的攻击力点数，以及购买所需的金币数量。\n\n**输出格式**\n\n输出一行，一个整数，表示最多可以提升的攻击力点数。\n\n**输入样例 1**\n```\n3 5\n99 1\n33 2\n11 3\n```\n\n**输出样例 1**\n```\n132\n```\n\n**输入样例 2**\n```\n4 100\n10 1\n20 11\n40 33\n100 99\n```\n\n**输出样例 2**\n```\n110\n```\n\n**数据范围**\n\n对于 60% 的测试点，保证 1 ≤ n ≤ 500，1 ≤ c[i] ≤ 500。\n\n对于所有测试点，保证 1 ≤ n ≤ 500，1 ≤ k ≤ 10⁹，1 ≤ a[i] ≤ 500，1 ≤ c[i] ≤ 10⁹。",
+      "question_type": "program",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 25,
+      "explanation": "反向 0/1 背包：f[j] 表示恰好获得 j 点攻击力所需最少金币。对每件道具 (a, c) 逆序更新 f[j] = min(f[j], f[j-a] + c)。总攻击力上限为 Σa（≤ n·500 = 250000，参考程序开 N·N=505·505 数组）。最后取满足 f[j] ≤ k 的最大 j 即答案。复杂度 O(n·Σa)。",
+      "url": "https://fslong.iok.la/problem/GESP202512-L6-2"
+    }
+  ]
+}

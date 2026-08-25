@@ -1,0 +1,356 @@
+{
+  "title": "【GESP】C++等级考试4级 2026年06月 真题",
+  "description": "GESP C++四级真题",
+  "time_limit": 40,
+  "pass_score": 60,
+  "questions": [
+    {
+      "title": "第 1 题",
+      "content": "小杨正在编写一个\"数字交换器\"程序，他希望通过函数交换两个变量的值。请问运行以下代码后，屏幕上输出的是（ ）。\n```cpp\nvoid exchange(int *a, int &b) {\n    int t = *a;\n    *a = b;\n    b = t;\n}\nint main() {\n    int x = 100, y = 200;\n    exchange(&x, y);\n    cout << x << \" \" << y;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "100 200",
+        "B": "200 100",
+        "C": "200 200",
+        "D": "编译错误"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "exchange接收int*与int&。*a与b引用实参，交换逻辑正确：x和y的值互换，x=200, y=100，输出\"200 100\"。"
+    },
+    {
+      "title": "第 2 题",
+      "content": "下面程序想通过函数计算三门课总分，横线处应填入的是（ ）。\n```cpp\nint sumScore(int a, int b, int c) {\n    return a + b + c;\n}\nint main() {\n    int chinese = 88, math = 95, english = 90;\n    int total = __________;\n    cout << total;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "sumScore",
+        "B": "sumScore(chinese, math, english)",
+        "C": "sumScore(int chinese, int math, int english)",
+        "D": "sumScore(a, b, c)"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "调用函数需传入实参变量名。B传递chinese/math/english三个变量正确；A缺括号与实参；C在实参位置重复写类型非法；D实参a/b/c未定义。"
+    },
+    {
+      "title": "第 3 题",
+      "content": "下面程序输出结果是（ ）。\n```cpp\nint addOne(int x) {\n    return x + 1;\n}\nint main() {\n    int a = 6;\n    cout << addOne(a) + addOne(3);\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "12"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "addOne(6)=7，addOne(3)=4，7+4=11。"
+    },
+    {
+      "title": "第 4 题",
+      "content": "关于下面程序，说法正确的是（ ）。\n```cpp\nvoid show() {\n    int stars = 5;\n}\nint main() {\n    cout << stars;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "程序输出 5",
+        "B": "程序可以通过编译，但输出随机值",
+        "C": "程序不能通过编译，因为 stars 只在 show 函数中有效",
+        "D": "程序不能通过编译，因为 cout 不能输出变量"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "stars为show内的局部变量，main中不可见，编译报错。cout本身能输出变量，D错误；A、B均因编译失败不能成立。"
+    },
+    {
+      "title": "第 5 题",
+      "content": "小杨在调试一个\"等级提升\"系统，代码逻辑如下，执行后 `*p` 的值是（ ）。\n```cpp\nint lv = 5, next_lv = 6;\nint *p = &lv;\n*p = *p + 1;\np = &next_lv;\n```",
+      "question_type": "single",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "lv 的地址",
+        "D": "next_lv 的地址"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "p先指向lv，*p=*p+1将lv改为6。之后p指向next_lv，故*p值为next_lv=6。"
+    },
+    {
+      "title": "第 6 题",
+      "content": "小杨正在开发一款名为\"星际网格\"的游戏，他用二维数组 `int map[5][4];` 来表示地图。已知 int 占 4 字节，如果 map 的内存地址是 0x2000 ，则表达式 `&map + 1` 的地址值是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "0x204c",
+        "B": "0x205c",
+        "C": "0x2050",
+        "D": "0x2058"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "&map指向整个二维数组，&map+1后移sizeof(map)=5×4×4=80字节=0x50，故0x2000+0x50=0x2050。"
+    },
+    {
+      "title": "第 7 题",
+      "content": "执行完下面代码后，变量 `val` 的值是（ ）。\n```cpp\nint data[] = {10, 20, 30, 40, 50};\nint *ptr = data + 2;\nint val = *(ptr - 1) + *(ptr + 1);\n```",
+      "question_type": "single",
+      "options": {
+        "A": "50",
+        "B": "60",
+        "C": "70",
+        "D": "80"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "ptr指向data[2]=30，*(ptr-1)=data[1]=20，*(ptr+1)=data[3]=40，20+40=60。"
+    },
+    {
+      "title": "第 8 题",
+      "content": "某班 3 个小组、每组 4 名同学的分数存入下面的二维数组 `score` ，则 `score[1][2]` 的值是（ ）。\n```cpp\nint score[3][4] = {\n    {80, 81, 82, 83},\n    {90, 91, 92, 93},\n    {70, 71, 72, 73}\n};\n```",
+      "question_type": "single",
+      "options": {
+        "A": "81",
+        "B": "90",
+        "C": "92",
+        "D": "72"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "score[1]为第二行{90,91,92,93}，score[1][2]即第二行第三列=92。"
+    },
+    {
+      "title": "第 9 题",
+      "content": "小杨定义了一个结构体 `Hero` 来表示游戏角色，下面哪种初始化方式会由于语法错误导致编译失败？（ ）。\n```cpp\nstruct Hero {\n    string name;\n    int hp;\n};\n```",
+      "question_type": "single",
+      "options": {
+        "A": "Hero h = {\"Arthur\", 100};",
+        "B": "Hero h; h.name = \"Arthur\"; h.hp = 100;",
+        "C": "Hero h = new Hero{\"Arthur\", 100};",
+        "D": "Hero *p = new Hero{\"Arthur\", 100};"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "C错：new返回指针，不能赋给值对象Hero h（类型不匹配），编译失败。A列表初始化正确；B逐成员赋值正确；D指针用new正确。"
+    },
+    {
+      "title": "第 10 题",
+      "content": "下面程序输出结果是（ ）。\n```cpp\nstruct Book {\n    string title;\n    int pages;\n};\nint main() {\n    Book books[2] = {{\"Math\", 120}, {\"Science\", 150}};\n    cout << books[1].title;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "Math",
+        "B": "Science",
+        "C": "120",
+        "D": "150"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "books[1]为第二个元素{Science,150}，books[1].title输出字符串\"Science\"。"
+    },
+    {
+      "title": "第 11 题",
+      "content": "小杨在对\"能量晶石\"按亮度进行排序。如果两块晶石亮度相同，他希望保持它们在原始序列中的相对顺序。下列关于排序算法稳定性的说法，**错误**的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "冒泡排序是稳定的，因为只有在左边比右边大时才交换。",
+        "B": "插入排序是稳定的，因为它将元素插入到相等元素的右侧。",
+        "C": "选择排序是稳定的，因为它每次选出最小元素放在前面。",
+        "D": "稳定性是指排序后相等元素的相对位置不发生改变。"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "C错误：选择排序通常不稳定，选出最小元素放到前面时会破坏等值元素相对顺序。A、B、D描述正确。"
+    },
+    {
+      "title": "第 12 题",
+      "content": "小杨的机器人正在能量踏板上跳跃，踏板编号为 1, 2, 3, …。跳到第 n 块踏板的方案数满足递推式 f(n)=f(n-1)+f(n-2)。若 f(1)=1, f(2)=2 ，则运行以下代码计算 `jump(5)` 的结果是（ ）。\n```cpp\nint jump(int n) {\n    if (n <= 2)\n        return n;\n    int a = 1, b = 2, c = 0;\n    for (int i = 3; i <= n; i++) {\n        c = a + b;\n        a = b;\n        b = c;\n    }\n    return c;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "5",
+        "B": "8",
+        "C": "13",
+        "D": "21"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "f(1)=1,f(2)=2，f(3)=3,f(4)=5,f(5)=8。代码循环递推得c=8，返回8。"
+    },
+    {
+      "title": "第 13 题",
+      "content": "在\"模拟实验室\"程序中，为了防止除以 0 导致崩溃，小杨使用了异常处理机制。执行以下代码将输出（ ）。\n```cpp\ntry {\n    int x = 10, y = 0;\n    if (y == 0) throw \"Zero Error\";\n    cout << x / y;\n} catch (int e) {\n    cout << \"Error Code: \" << e;\n} catch (const char* msg) {\n    cout << \"Caught: \" << msg;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "0",
+        "B": "Error Code: 0",
+        "C": "Caught: Zero Error",
+        "D": "程序直接崩溃"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "y==0时throw字符串\"Zero Error\"，其类型为const char*，匹配第二个catch，输出\"Caught: Zero Error\"。int型的catch不匹配。"
+    },
+    {
+      "title": "第 14 题",
+      "content": "下面代码使用某种排序算法，将数组中的元素按从小到大排序。这段代码使用的排序算法是（ ）。\n```cpp\nvoid mystery_sort(double arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        int minPos = i;\n        for (int j = i + 1; j < n; j++) {\n            if (arr[j] < arr[minPos]) {\n                minPos = j;\n            }\n        }\n        double temp = arr[i];\n        arr[i] = arr[minPos];\n        arr[minPos] = temp;\n    }\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "冒泡排序",
+        "B": "插入排序",
+        "C": "选择排序",
+        "D": "非典型排序"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "每轮先找最小值下标minPos再与arr[i]交换，符合选择排序特征。"
+    },
+    {
+      "title": "第 15 题",
+      "content": "小杨正在读取\"冒险日志\"文件 `quest.txt` 。若文件内容为 `Level 10` ，执行以下程序后输出为（ ）。\n```cpp\nifstream fin(\"quest.txt\");\nstring s;\nint v;\nfin >> s >> v;\ncout << s.length() * v;\n```",
+      "question_type": "single",
+      "options": {
+        "A": "50",
+        "B": "15",
+        "C": "70",
+        "D": "5"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "fin先读字符串s=\"Level\"，再读整数v=10。s.length()=5，5×10=50。"
+    },
+    {
+      "title": "第 16 题",
+      "content": "运行以下程序后，变量 `a` 的值最终会变为 20 。\n```cpp\nvoid modify(int *p) {\n    *p = *p + 10;\n}\nint main() {\n    int a = 10;\n    modify(&a);\n    return 0;\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "modify(&a)传入a的地址，*p即a，*p=*p+10使a由10变为20。"
+    },
+    {
+      "title": "第 17 题",
+      "content": "在 C++ 中，引用一旦初始化并绑定到某个变量后，可以通过赋值语句将其重新绑定到另一个变量。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "引用初始化后不可重新绑定。对其赋值只会修改所引用变量的值，而非改变绑定对象。"
+    },
+    {
+      "title": "第 18 题",
+      "content": "下面程序可以正确计算并输出 3 名学生的平均成绩。\n```cpp\nstruct Student {\n    int id;\n    int score;\n};\nint main() {\n    Student students[3] = {\n        {1, 90},\n        {2, 80},\n        {3, 100}\n    };\n    int sum = 0;\n    for (int i = 0; i < 3; i++) {\n        sum += students[i].score;\n    }\n    double average = sum / 3.0;\n    cout << average << endl;\n    return 0;\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "sum累加90+80+100=270，除以3.0得90.0，正确输出平均成绩。"
+    },
+    {
+      "title": "第 19 题",
+      "content": "选择排序算法在寻找每一轮最小值时，如果遇到相等的元素不进行交换，则选择排序是一种稳定的排序算法。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "若比较用严格小于且相等时不交换，相等元素相对顺序得以保持，此条件下的选择排序稳定。"
+    },
+    {
+      "title": "第 20 题",
+      "content": "如果使用带 flag 的冒泡排序，且待排序数组一开始就是有序的，那么算法只需一轮扫描即可结束，时间复杂度为 O(n)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "带flag冒泡在一轮扫描无交换即跳出，有序数组只需一轮n次比较，复杂度O(n)。"
+    },
+    {
+      "title": "第 21 题",
+      "content": "在 C++ 中定义二维数组并初始化时，可以省略第一维，但不能省略第二维。因此 `int a[][2] = {{1, 2}, {3, 4}};` 是合法的，而 `int a[][] = {{1, 2}, {3, 4}};` 是不合法的。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "二维数组初始化时第一维可根据初值推导，第二维必须显式给出。a[][2]合法，a[][]非法。"
+    },
+    {
+      "title": "第 22 题",
+      "content": "下面代码的时间复杂度是 O(2ⁿ)。\n```cpp\nint cnt = 0;\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cnt++;\n    }\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "内层j从1到i，总次数1+2+…+n=n(n+1)/2，时间复杂度O(n²)，不是O(2ⁿ)。"
+    },
+    {
+      "title": "第 23 题",
+      "content": "假设文件 `output.txt` 能正常打开，下面代码通过 rdbuf 将 cout 的输出重定向到了文件中。\n```cpp\nofstream fout(\"output.txt\");\nstreambuf* old_buf = cout.rdbuf();\ncout.rdbuf(fout.rdbuf());\ncout << \"GESP Exam\";\ncout.rdbuf(old_buf);\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "cout.rdbuf(fout.rdbuf())将cout缓冲替换为文件流缓冲，其后续输出写入output.txt，最后还原缓冲。"
+    },
+    {
+      "title": "第 24 题",
+      "content": "小杨想通过下面程序给饭卡充值，程序会输出 70 。\n```cpp\nvoid recharge(int money) {\n    money += 20;\n}\nint main() {\n    int card = 50;\n    recharge(card);\n    cout << card;\n    return 0;\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "money按值传递，+20只改副本不影响实参card，card仍为50，输出50而非70。"
+    },
+    {
+      "title": "第 25 题",
+      "content": "下面代码可以通过编译。\n```cpp\nint a[5];\na++;\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "数组名a是常量指针，不能被赋值或自增，a++编译出错。"
+    },
+    {
+      "title": "扫雷",
+      "content": "**试题名称：** 扫雷\n**时间限制：** 1.0 s\n**内存限制：** 512.0 MB\n\n### 题面描述\n小杨同学正在游玩经典游戏「扫雷」，他想自己生成一个「扫雷」的地图。\n\n小杨同学希望生成的地图大小为 n 行 m 列，一共 n×m 个区块。区块行号为 1, 2, …, n ，列号为 1, 2, …, m 。其中一些区块为雷区，其它区块不为雷区。\n\n小杨同学指定了 q 个区块为雷区，而其它区块均不为雷区。小杨同学希望你帮忙计算非雷区的区块，每个区块与多少个雷区相邻？\n\n我们定义区块相邻，当且仅当两个区块至少有一个公共顶点（也就是说对于不在地图边缘的区块，周围 8 个区块均与其相邻）。\n\n### 输入格式\n输入包含 q+1 行。第一行三个正整数 n，m 和 q，表示地图行数、列数和雷区数量。接下来 q 行，每行 2 个整数，表示雷区行号和列号。保证输入的雷区不重复。\n\n### 输出格式\n输出 n 行，每行 m 个字符（空格分割）。雷区输出 *，非雷区输出其相邻雷区数量（0 到 8 的数字）。\n\n### 样例\n**输入样例**\n```\n3 4 4\n1 1\n1 3\n2 4\n3 2\n```\n**输出样例**\n```\n* 2 * 2\n2 3 3 *\n1 * 2 1\n```\n\n### 数据范围\n1 ≤ n, m ≤ 500，1 ≤ q ≤ n×m。输入的雷区必定在地图内且不重复，注意行号和列号均从 1 开始。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/GESP202606L4T1",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": "用二维数组标记雷区（-1），对每个非雷区遍历周围8个方向统计相邻雷数。n,m≤500，O(n×m)足够。"
+    },
+    {
+      "title": "身高体重指数",
+      "content": "**试题名称：** 身高体重指数\n**时间限制：** 1.0 s\n**内存限制：** 512.0 MB\n\n### 题面描述\n一个人的身高体重指数（BMI）等于其体重（千克为单位）除以其身高（米为单位）的平方。例如，一个体重为 50 kg，身高为 1.6 m 的人的身高体重指数为 50/1.6/1.6 = 19.53125 kg/m²。\n\n现在有 n 个小朋友，第 i 个小朋友的编号为 i，体重为 wᵢ，身高为 hᵢ。\n\n请按照身高体重指数从高到低为小朋友们排序，数据保证不存在两个小朋友的身高体重指数完全相同。输出排序后小朋友的编号。\n\n### 输入格式\n输入 3 行。第一行为一个正整数 n，表示小朋友的个数；第二行为 n 个整数 w₁, …, wₙ 表示小朋友们的体重，单位为 kg；第三行为 n 个浮点数 h₁, …, hₙ 表示小朋友们的身高，单位为 m。\n\n### 输出格式\n输出一行 n 个数，表示按照身高体重指数从高到低排序后的编号。\n\n### 样例\n**输入样例**\n```\n3\n45 33 39\n1.55 1.33 1.44\n```\n**输出样例**\n```\n3 1 2\n```\n\n### 样例解释\n三个小朋友（编号依次为 1，2，3）的身高体重指数分别为（保留两位小数的结果）：18.73，18.66，18.81，故排序后输出的编号为 3 1 2。\n\n### 数据范围\n1 ≤ n ≤ 1000，10 ≤ wᵢ ≤ 100，0.8 ≤ hᵢ ≤ 1.9，hᵢ 均恰有两位小数。",
+      "question_type": "programming",
+      "url": "https://fslong.iok.la/problem/GESP202606L4T2",
+      "correct_answer": "参考代码见解析",
+      "score": 25,
+      "explanation": "结构体存编号、体重、身高，计算BMI=w/h/h，按BMI从高到低排序输出编号。n≤1000，冒泡或sort皆可。"
+    }
+  ]
+}

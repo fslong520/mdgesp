@@ -208,26 +208,7 @@ int solve(int n, int a[])
 
 判断题
 
-22. 以下第22-28题基于以下程序：
-
-```cpp
-int solve(int n, int a[])
-{
-    int ret = 0;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < i; ++j) {
-            int sum = 0;
-            for (int k = j; k <= i; ++k) {
-                sum += a[k];
-            }
-            ret += sum;
-        }
-    }
-    return ret;
-}
-```
-
-若在进入solve函数执行其他操作之前，先对a[]排序，返回值不变（ ）。
+22. 若在进入 solve 函数执行其他操作之前，先对 a[] 排序，返回值不变（ ）。
 
 23. 当 n = 1 时，函数返回值为 a[0]（ ）。
 
@@ -293,39 +274,7 @@ std::pair<i64,i64> solve2(i64 n)
 
 判断题
 
-29. 以下第29-35题基于以下程序：
-
-```cpp
-using i64 = long long;
-
-i64 solve1(i64 n)
-{
-    std::vector<i64> c(n);
-    c[0] = 0;
-    i64 sum = 0;
-    for (i64 i = 1; i < n; ++i)
-    {
-        c[i] = c[i / 2] + (i % 2);
-        sum += c[i];
-    }
-    return sum;
-}
-
-std::pair<i64,i64> solve2(i64 n)
-{
-    if (n == 0)
-        return {0, 0};
-    auto r = n % 2;
-    auto q = n / 2;
-    auto [s, c] = solve2(q);
-    if (r == 1)
-        return {s*2 + q + c, c + 1};
-    else
-        return {s*2 + q, c};
-}
-```
-
-solve1(5) 返回 5（ ）。
+29. solve1(5) 返回 5（ ）。
 
 30. solve2(8) 返回 {10, 1}（ ）。
 
@@ -457,6 +406,15 @@ i64 solve(int i, int x, int y, int z) {
         return ____(8)____;
     }
 }
+
+int main()
+{
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        std::cin >> a[i];
+    }
+    std::cout << solve(0, 0, 0, 0);
+}
 ```
 
 41. (1)、(2)、(3)、(4)处应填（ ）。
@@ -533,42 +491,7 @@ int main()
 
 判断题
 
-46. 以下第46-52题基于以下程序：
-
-```cpp
-int exp();
-
-int term()
-{
-    char begin, end;
-    std::cin >> begin;
-    int t = exp();
-    std::cin >> end;
-    if (t == 0)
-        return 1;
-    else
-        return t * 2;
-}
-
-int exp()
-{
-    if (std::cin.peek() == '(')
-    {
-        return term() + exp();
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-int main()
-{
-    std::cout << exp() << "\n";
-}
-```
-
-输入(())()，程序运行结果输出3（ ）。
+46. 输入(())()，程序运行结果输出3（ ）。
 
 47. 输入((()))输出3（ ）。
 
@@ -602,40 +525,6 @@ int main()
 
 ### 第2题
 
-```cpp
-struct pair
-{
-    int c;
-    int p;
-};
-
-int solve(int n, int k, int m, pair a[])
-{
-    auto compare = [] (pair first, pair second) {
-        return first.c < second.c;
-    };
-    std::sort(a, a + n, compare);
-    std::priority_queue<int> Q;
-    int size = 0;
-    while (k > 0) {
-        while (size < n && a[size].c <= m) {
-            Q.push(a[size++].p);
-        }
-        if (!Q.empty()) {
-            m += Q.top(); Q.pop();
-        }
-        k--;
-    }
-    return m;
-}
-```
-
-判断题
-
-选择题
-
-53. 以下第53-57题基于以下程序：
-
 某个投资者有m元钱，有n个项目等待他的投资，每个项目只能投资一次。代码中的一个pair表示一个项目。其中第i个项目要求先支出成本cᵢ元，待项目完成后，可以收回全部成本，且获得pᵢ元利润，若投资者的钱不足cᵢ，就没法投资这个项目了。可以用老项目收回的成本及利润支付新项目的成本。若只能投资k个项目，那么投资者最终可以积累多少钱呢。
 
 ```cpp
@@ -648,17 +537,17 @@ struct pair
 int solve(int n, int k, int m, pair a[])
 {
     auto compare = [] (pair first, pair second) {
-        return first.c < second.c;
+        return ____(1)____;
     };
     std::sort(a, a + n, compare);
     std::priority_queue<int> Q;
     int size = 0;
     while (k > 0) {
-        while (size < n && a[size].c <= m) {
-            Q.push(a[size++].p);
+        while (____(2)____) {
+            Q.push(____(3)____);
         }
-        if (!Q.empty()) {
-            m += Q.top(); Q.pop();
+        if (____(4)____) {
+            ____(5)____;
         }
         k--;
     }
@@ -666,7 +555,7 @@ int solve(int n, int k, int m, pair a[])
 }
 ```
 
-(1)处应填（ ）。
+53. (1)处应填（ ）。
     A. first.c < second.c
     B. first.c > second.c
     C. first.p < second.p
@@ -703,7 +592,7 @@ int solve(int n, int k, int m, pair a[])
 | 题号 | 答案 | 题号 | 答案 | 题号 | 答案 | 题号 | 答案 |
 |------|------|------|------|------|------|------|------|
 | 1. | C | 2. | C | 3. | D | 4. | C |
-| 5. | C | 6. | B | 7. | B | 8. | C |
+| 5. | A | 6. | B | 7. | B | 8. | C |
 | 9. | C | 10. | C | 11. | D | 12. | C |
 | 13. | C | 14. | B | 15. | A | 16. | T |
 | 17. | F | 18. | T | 19. | T | 20. | B |
@@ -717,3 +606,8 @@ int solve(int n, int k, int m, pair a[])
 | 49. | C | 50. | D | 51. | B | 52. | C |
 | 53. | A | 54. | A | 55. | A | 56. | A |
 | 57. | A |
+
+> **审计注记（2026-08-22）**：
+> - 第5题：原表给 C 有误。前序 abdecfg + 中序 debacfg 推得树为 a(b(d(−,e)), c(−,f(−,g)))，后序 **edbgfca = A**（官方答案图亦 A，已更正）。
+> - 第19题：官方答案图给 F，但循环 `while (i*i<n)` 恰执行 ⌊√n⌋−1 次、每趟 O(1)（64 位乘除为硬件操作），时间复杂度**确为 Θ(√n)，T 才对**；官方键疑误，本表维持 T。
+> - 第51/52题：程序中 `term() + exp()` 的求值顺序在 C++ 中未定义，函数调用次数依赖编译器实现。主流 g++ 实测：51 题 term 被调 **5** 次（B）、52 题 exp 被调 **13** 次（C），与本表一致；教学时宜向学生说明此点。

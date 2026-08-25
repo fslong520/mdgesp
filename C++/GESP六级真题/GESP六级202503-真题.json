@@ -1,0 +1,331 @@
+{
+  "title": "C++等级考试 2025年03月 真题",
+  "description": "GESP C++六级 202503 真题",
+  "time_limit": 40,
+  "pass_score": 60,
+  "questions": [
+    {
+      "content": "在面向对象编程中，类是一种重要的概念。下面关于类的描述中，不正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "类是一个抽象的概念，用于描述具有相同属性和行为的对象集合",
+        "B": "类可以包含属性和方法，属性用于描述对象的状态，方法用于描述对象的行为",
+        "C": "类可以被实例化，生成具体的对象",
+        "D": "类一旦定义后，其属性和方法不能被修改或扩展"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "类定义后可通过继承被扩展（派生类增加新成员或重写方法），并非\"不能被修改或扩展\"。D 说法错误，故选 D。A/B/C 均正确描述类的特性。"
+    },
+    {
+      "content": "哈夫曼编码是一种数据压缩算法。以下关于哈夫曼编码的描述中，不正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "哈夫曼编码是一种变长编码，频率高的字符使用较短的编码，频率低的字符使用较长的编码",
+        "B": "在构造哈夫曼树时，频率越低的字符离根节点越近，频率越高的字符离根节点越远",
+        "C": "哈夫曼编码的生成过程基于贪心算法，每次选择频率最低的两个节点进行合并",
+        "D": "哈夫曼编码是一种前缀编码，任何一个字符的编码都不会是另一个字符编码的前缀，因此可以实现唯一解码"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "哈夫曼树中频率越低的字符离根越远（编码越长）、频率越高离根越近（编码越短），B 说反了。"
+    },
+    {
+      "content": "以下代码实现了树的哪种遍历方式？\n```cpp\nvoid traverse(TreeNode* root) {\n    if (root == nullptr) return;\n    cout << root->val << \" \";\n    traverse(root->left);\n    traverse(root->right);\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "前序遍历",
+        "B": "中序遍历",
+        "C": "后序遍历",
+        "D": "层次遍历"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "前序遍历顺序：根 → 左子树 → 右子树。代码先输出根节点值，再递归左、右子树，符合前序遍历定义，故 A 正确。"
+    },
+    {
+      "content": "以下关于完全二叉树的代码描述，正确的是（ ）。\n```cpp\nbool isCompleteTree(TreeNode* root) {\n    if (root == nullptr) return true;\n    queue<TreeNode*> q; q.push(root);\n    bool hasNull = false;\n    while (!q.empty()) {\n        TreeNode* node = q.front(); q.pop();\n        if (node == nullptr) hasNull = true;\n        else {\n            if (hasNull) return false;\n            q.push(node->left); q.push(node->right);\n        }\n    }\n    return true;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "该代码用于判断一棵树是否为满二叉树",
+        "B": "该代码用于判断一棵树是否为完全二叉树",
+        "C": "该代码用于判断一棵树是否为二叉搜索树",
+        "D": "该代码用于计算树的高度"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "层序遍历中出现空节点后若再出现非空节点则非完全二叉树，是标准完全二叉树判定。"
+    },
+    {
+      "content": "以下代码实现了二叉排序树的哪种操作？\n```cpp\nTreeNode* op(TreeNode* root, int val) {\n    if (root == nullptr) return new TreeNode(val);\n    if (val < root->val) root->left = op(root->left, val);\n    else root->right = op(root->right, val);\n    return root;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "查找",
+        "B": "插入",
+        "C": "删除",
+        "D": "遍历"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "空树新建节点，否则按值比较递归插入左右子树，是 BST 插入操作。"
+    },
+    {
+      "content": "给定字符集 {A, B, C, D} 的出现频率分别为 {5, 1, 6, 2}，则正确的哈夫曼编码是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "A: 0, B: 100, C: 11, D: 101",
+        "B": "A: 11, B: 100, C: 0, D: 101",
+        "C": "A: 0, B: 101, C: 11, D: 100",
+        "D": "A: 10, B: 101, C: 0, D: 100"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "合并：1,2 合并 3；3,5 合并 8；6,8 合并 14。B 频率1→100，D 频率2→101，A 频率5→11，C 频率6→0，为合法前缀码。"
+    },
+    {
+      "content": "关于动态规划的描述，正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "动态规划算法的时间复杂度总是低于贪心算法",
+        "B": "动态规划要求问题必须具有最优子结构和重叠子问题两个性质",
+        "C": "动态规划通过递归实现时不需要存储中间结果",
+        "D": "动态规划的核心思想是将问题分解为互不重叠的子问题"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "动态规划两大核心性质：最优子结构（全局最优由子问题最优组合而成）与重叠子问题（子问题被反复求解）。B 正确描述这两性质；A/C/D 说法有误。"
+    },
+    {
+      "content": "以下代码中，类的构造函数被调用了（ ）次。\n```cpp\nclass MyClass {\npublic:\n    MyClass() { cout << \"Constructor called!\" << endl; }\n};\nint main() {\n    MyClass obj1;\n    MyClass obj2 = obj1;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "0"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "obj1 调用一次构造函数；obj2 = obj1 调用复制构造函数（编译器自动生成，非用户定义的 MyClass()），用户自定义构造函数只调用 1 次。"
+    },
+    {
+      "content": "以下代码实现了循环队列的哪种操作？\n```cpp\nclass CircularQueue {\n    int* arr; int front, rear, size;\npublic:\n    CircularQueue(int k) { size = k; arr = new int[k]; front = rear = -1; }\n    bool enQueue(int value) {\n        if (isFull()) return false;\n        if (isEmpty()) front = 0;\n        rear = (rear + 1) % size;\n        arr[rear] = value;\n        return true;\n    }\n};\n```",
+      "question_type": "single",
+      "options": {
+        "A": "入队",
+        "B": "出队",
+        "C": "查看队首元素",
+        "D": "判断队列是否为空"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "enQueue 将元素存入 rear 指向的位置，并令 rear=(rear+1)%capacity 推进指针（模运算循环利用空间），是循环队列的入队操作，故 A 正确。"
+    },
+    {
+      "content": "以下代码实现了二叉树的深度优先搜索（DFS），并统计叶子结点的数量，则横线上应填写（ ）。\n```cpp\nint countLeafNodes(TreeNode* root) {\n    if (root == nullptr) return 0;\n    stack<TreeNode*> s; s.push(root);\n    int count = 0;\n    while (!s.empty()) {\n        TreeNode* node = s.top(); s.pop();\n        if (node->left == nullptr && node->right == nullptr) count++;\n        if (node->right) s.push(node->right);\n        ————————————————————————\n    }\n    return count;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "if (node->left) s.push(node->left);",
+        "B": "if (node->left) s.pop(node->left);",
+        "C": "if (node->left) s.front(node->left);",
+        "D": "if (node->left) s.push(node->right);"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "DFS 用栈实现先序遍历：节点出栈后先压右孩子、再压左孩子（保证左先访问）。横线处应补充压入左孩子的语句，故 A 正确。"
+    },
+    {
+      "content": "以下代码实现了二叉树的广度优先搜索（BFS），并查找特定值的节点，则横线上应填写（ ）。\n```cpp\nTreeNode* findNode(TreeNode* root, int target) {\n    if (root == nullptr) return nullptr;\n    queue<TreeNode*> q; q.push(root);\n    while (!q.empty()) {\n        TreeNode* current = q.front(); q.pop();\n        if (current->val == target) return current;\n        ————————————————————————\n    }\n    return nullptr;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "if (current->left) q.push(current->left); if (current->right) q.push(current->right);",
+        "B": "if (current->left) q.pop(current->left); if (current->right) q.pop(current->right);",
+        "C": "if (current->left) q.front(current->left); if (current->right) q.front(current->right);",
+        "D": "if (current->left) q.push(current->right); if (current->right) q.push(current->left);"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "BFS 用队列实现层序遍历：出队节点后，将其左右孩子（判空后）依次入队。横线处应补充入队左右孩子的代码，故 A 正确。"
+    },
+    {
+      "content": "以下代码用于生成 n 位格雷编码。横线上应填写（ ）。\n```cpp\nvector<string> generateGrayCode(int n) {\n    if (n == 0) return {\"0\"};\n    if (n == 1) return {\"0\", \"1\"};\n    vector<string> prev = generateGrayCode(n - 1);\n    vector<string> result;\n    for (string s : prev) result.push_back(\"0\" + s);\n    for (int i = prev.size() - 1; i >= 0; i--) {\n        ————————————————————————\n    }\n    return result;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "result.push_back(\"1\" + prev[i]);",
+        "B": "result.push_back(\"0\" + prev[i]);",
+        "C": "result.push_back(prev[i] + \"1\");",
+        "D": "result.push_back(prev[i] + \"0\");"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "格雷码构造：前半部分每个编码前加 0 前缀，后半部分按逆序每个编码前加 1 前缀，相邻编码恰一位不同。横线处应填\"前半加 0、后半逆序加 1\"，故 A 正确。"
+    },
+    {
+      "content": "以下代码实现了 0/1 背包问题的动态规划解法。假设物品重量为 weights[]，价值为 values[]，背包容量为 W，横线上应填写（ ）。\n```cpp\nint knapsack(int W, vector<int>& weights, vector<int>& values) {\n    int n = weights.size();\n    vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0));\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= W; j++) {\n            if (weights[i-1] > j) dp[i][j] = dp[i-1][j];\n            else dp[i][j] = max(_________________________);\n        }\n    }\n    return dp[n][W];\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "dp[i-1][j], values[i-1]",
+        "B": "dp[i-1][j], dp[i-1][j - weights[i-1]] + values[i-1]",
+        "C": "dp[i][j-1], values[i-1]",
+        "D": "dp[i-1][j - weights[i-1]] + values[i-1], dp[i][j-1]"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "0/1 背包二维 DP 转移：dp[i][j] = max(不选 dp[i-1][j], 选 dp[i-1][j-weights[i-1]] + values[i-1])，选 B。"
+    },
+    {
+      "content": "以下代码用于检查字符串中的括号是否匹配，横线上应填写（ ）。\n```cpp\nbool isBalanced(string s) {\n    stack<char> st;\n    for (char c : s) {\n        if (c == '(' || c == '[' || c == '{') st.push(c);\n        else {\n            if (st.empty()) return false;\n            char top = st.top(); st.pop();\n            if ((c == ')' && top != '(') || (c == ']' && top != '[') || (c == '}' && top != '{')) return false;\n        }\n    }\n    return ________________;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "st.empty()",
+        "D": "!st.empty()"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "括号匹配用栈：遇左括号入栈，遇右括号时若栈空则不匹配，否则弹出栈顶左括号配对。扫描完所有字符后，若栈为空则全部匹配，返回 st.empty()，故 C 正确。"
+    },
+    {
+      "content": "关于下面代码，说法错误的是（ ）。\n```cpp\nclass Shape {\nprotected:\n    string name;\npublic:\n    Shape(const string& n) : name(n) {}\n    virtual double area() const { return 0.0; }\n};\nclass Circle : public Shape {\nprivate:\n    double radius;\npublic:\n    Circle(const string& n, double r) : Shape(n), radius(r) {}\n    double area() const override { return 3.14159 * radius * radius; }\n};\nclass Rectangle : public Shape {\nprivate:\n    double width, height;\npublic:\n    Rectangle(const string& n, double w, double h) : Shape(n), width(w), height(h) {}\n    double area() const override { return width * height; }\n};\nint main() {\n    Circle circle(\"MyCircle\", 5.0);\n    Rectangle rectangle(\"MyRectangle\", 4.0, 6.0);\n    Shape* shapePtr = &circle;\n    cout << \"Area: \" << shapePtr->area() << endl;\n    shapePtr = &rectangle;\n    cout << \"Area: \" << shapePtr->area() << endl;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "语句 Shape* shapePtr = &circle; 和 shapePtr = &rectangle; 出现编译错误",
+        "B": "Shape 为基类，Circle 和 Rectangle 是派生类",
+        "C": "通过继承，Circle 和 Rectangle 复用了 Shape 的属性和方法，并扩展了新的功能",
+        "D": "Circle 和 Rectangle 通过重写（override）基类的虚函数 area 和基类指针，实现了运行时多态"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "基类指针可指向派生类对象（向上转型合法），虚函数通过动态绑定调用实际类型版本，输出正确面积。A 说法（\"出现编译错误\"）错误，故选 A。"
+    },
+    {
+      "content": "哈夫曼树在构造过程中，每次合并权值最小的两个节点，最终生成的树带权路径长度最小。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "哈夫曼算法每次选取权值最小的两个节点合并，贪心策略保证最终生成的树带权路径长度（WPL）最小。断言正确，故 T。"
+    },
+    {
+      "content": "格雷编码的相邻两个编码之间必须有多位不同，以避免数据传输错误。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "格雷编码相邻两个编码之间恰有一位不同（如 00→01→11→10），而非多位不同。断言错误，故 F。"
+    },
+    {
+      "content": "在树的深度优先搜索（DFS）中，使用队列作为辅助数据结构以实现\"先进后出\"的访问顺序。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "DFS 用栈（先进后出，含递归调用栈）实现；队列（先进先出）用于 BFS。断言\"DFS 使用队列实现先进后出\"错误，故 F。"
+    },
+    {
+      "content": "以下代码实现的是二叉树的中序遍历：\n```cpp\nvoid traverse(TreeNode* root) {\n    if (root == nullptr) return;\n    traverse(root->left);\n    cout << root->val << \" \";\n    traverse(root->right);\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "代码按 左子树→根→右子树 顺序访问，即中序遍历。断言正确，故 T。"
+    },
+    {
+      "content": "C++ 支持构造函数重载，但默认无参数的构造函数只能有一个。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "C++ 支持构造函数重载（参数列表不同即可）；但默认无参构造函数（默认构造）只能有一个——多个无参构造签名相同无法重载。断言正确，故 T。"
+    },
+    {
+      "content": "二叉排序树（BST）中，若某节点的左子树为空，则该节点一定是树中的最小值节点。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "左子树为空只说明该节点没有左后代；整棵树的最小值是最左路径上的叶子节点，该节点本身不一定是全局最小（其祖先可能更小）。断言错误，故 F。"
+    },
+    {
+      "content": "在动态规划解决一维硬币找零问题时，若硬币面额为 [1, 3, 4]，目标金额为 6，则最少需要 2 枚硬币（3+3）。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "硬币面额 [1,3,4] 凑 6：3+3 用 2 枚；1+1+4 用 3 枚。最少 2 枚，断言正确，故 T。"
+    },
+    {
+      "content": "面向对象编程中，封装是指将数据和行为绑定在一起，并对外隐藏实现细节。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "封装指将数据（成员变量）与操作数据的行为（成员函数）绑定在一起，并通过访问控制（private/protected）对外隐藏实现细节。断言正确，故 T。"
+    },
+    {
+      "content": "以下代码创建的树是一棵完全二叉树：\n```cpp\nTreeNode* root = new TreeNode{1};\nroot->left = new TreeNode{2};\nroot->right = new TreeNode{3};\nroot->left->left = new TreeNode{4};\n```",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "官方答案：正确（T）。代码创建树：根1（左子2、右子3），节点2之左子4，层序1,2,3,4。PDF官方答案表判定该树为完全二叉树（F→T，按官方答案表修正）。"
+    },
+    {
+      "content": "栈和队列均可以用双向链表实现，插入和删除操作的时间复杂度为 O(1)。",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "双向链表每个节点含前驱/后继指针，在表头、表尾插入或删除仅需调整相邻节点指针，时间复杂度 O(1)。栈与队列均可用其实现（栈用表头操作，队列一头入另一头出）。断言正确，故 T。"
+    },
+    {
+      "content": "小 A 有一棵 n 个结点的树，这些结点依次以 1, 2, ..., n 标号。\n\n小 A 想在这棵树上漫步。具体来说，小 A 会从树上的某个结点出发，每一步可以移动到与当前结点相邻的结点，并且小 A 只会在偶数步（可以是零步）后结束漫步。\n\n现在小 A 想知道，对于树上的每个结点，从这个结点出发开始漫步，经过偶数步能结束漫步的结点有多少个（可以经过重复的节点）。\n\n**输入格式**\n\n第一行，一个正整数 n。\n\n接下来 n-1 行，每行两个整数 u, v，表示树上有一条连接结点 u 和结点 v 的边。\n\n**输出格式**\n\n一行，n 个整数，第 i 个整数表示从结点 i 出发开始漫步，能结束漫步的结点数量。\n\n**输入样例 1**\n```\n3\n1 3\n2 3\n```\n\n**输出样例 1**\n```\n2 2 1\n```\n\n**输入样例 2**\n```\n4\n1 3\n3 2\n4 3\n```\n\n**输出样例 2**\n```\n3 3 1 3\n```\n\n**数据范围**\n\n对于 40% 的测试点，保证 1 ≤ n ≤ 10³。\n\n对于所有测试点，保证 1 ≤ n ≤ 2×10⁵。",
+      "question_type": "program",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 25,
+      "explanation": "树是二分图：相邻结点必属不同颜色类。偶数步可达的结点与起点同色（含零步起点自身），故从结点 i 出发能结束的结点数 = 与 i 同色的结点总数。DFS/染色：bel[u]=c，cnt[c]++，答案输出 cnt[bel[i]]。参考程序按二染色统计。复杂度 O(n)。",
+      "url": "https://fslong.iok.la/problem/GESP202503-L6-1"
+    },
+    {
+      "content": "小 A 喜欢坐地铁。地铁环线有 n 个车站，依次以 1, 2, ..., n 标号。车站 i（1 ≤ i < n）的下一个车站是车站 i+1。特殊地，车站 n 的下一个车站是车站 1。\n\n小 A 会从某个车站出发，乘坐地铁环线到某个车站结束行程，这意味着小 A 至少会经过一个车站。小 A 不会经过一个车站多次。当小 A 乘坐地铁环线经过车站 i 时，小 A 会获得 a[i] 点快乐值。请你安排小 A 的行程，选择出发车站与结束车站，使得获得的快乐值总和最大。\n\n**输入格式**\n\n第一行，一个正整数 n，表示车站的数量。\n\n第二行，n 个整数 a[1], a[2], ..., a[n]，分别表示经过每个车站时获得的快乐值。\n\n**输出格式**\n\n一行，一个整数，表示小 A 能获得的最大快乐值。\n\n**输入样例 1**\n```\n4\n-1 2 3 0\n```\n\n**输出样例 1**\n```\n5\n```\n\n**输入样例 2**\n```\n5\n-3 4 -5 1 3\n```\n\n**输出样例 2**\n```\n5\n```\n\n**数据范围**\n\n对于 20% 的测试点，保证 1 ≤ n ≤ 200。\n\n对于 40% 的测试点，保证 1 ≤ n ≤ 2000。\n\n对于所有测试点，保证 1 ≤ n ≤ 2×10⁵，-10⁹ ≤ a[i] ≤ 10⁹。",
+      "question_type": "program",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 25,
+      "explanation": "环形最大子段和：破环成链（数组复制一倍 a[n+i]=a[i]），前缀和 pre，问题化为求 i-n ≤ j < i 中 pre[i]-pre[j] 最大值（区间长度 ≤ n）。用单调队列维护窗口内最小前缀和：滑动窗口去队头过期元素，更新答案，再按前缀和单调性维护队尾。参考程序 q 为单调递增队列，ans 初值 -1e18。复杂度 O(n)。",
+      "url": "https://fslong.iok.la/problem/GESP202503-L6-2"
+    }
+  ]
+}
