@@ -1,0 +1,349 @@
+{
+  "title": "GESP六级模拟卷1",
+  "description": "覆盖树、哈夫曼编码、格雷码、搜索、动态规划、面向对象、栈队列等六级核心考点；编程题四道（划分型DP×2、树上DP、树的搜索）",
+  "time_limit": 180,
+  "pass_score": 90,
+  "questions": [
+    {
+      "question_type": "single",
+      "content": "下列关于虚函数的说法中，**正确**的是（ ）。\n\nA. 虚函数只能实现编译期静态绑定\nB. 构造函数可以声明为虚函数\nC. 基类析构函数声明为虚函数，可保证通过基类指针删除派生类对象时正确调用派生类析构函数\nD. 虚函数的调用与普通成员函数完全相同，没有任何额外开销",
+      "options": {
+        "A": "虚函数只能实现编译期静态绑定",
+        "B": "构造函数可以声明为虚函数",
+        "C": "基类析构函数声明为虚函数，可保证通过基类指针删除派生类对象时正确调用派生类析构函数",
+        "D": "虚函数的调用与普通成员函数完全相同，没有任何额外开销"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "基类析构函数声明为虚函数，通过基类指针删除派生类对象时会先调用派生类析构函数再调用基类析构函数，资源释放完整；构造函数在对象构造阶段执行，无法动态绑定，不能声明为虚函数；虚函数是运行时绑定而非编译期静态绑定；虚函数调用有动态绑定开销。"
+    },
+    {
+      "question_type": "single",
+      "content": "以下代码输出\"小狗汪汪叫 小猫喵喵叫\"（各输出末尾带一个空格），这体现了面向对象编程的（ ）特性。\n\n```cpp\nclass Animal {\npublic:\n    virtual void speak() { cout << \"动物叫 \"; }\n};\nclass Dog : public Animal {\npublic:\n    void speak() override { cout << \"小狗汪汪叫 \"; }\n};\nclass Cat : public Animal {\npublic:\n    void speak() override { cout << \"小猫喵喵叫 \"; }\n};\nint main() {\n    Animal* a1 = new Dog();\n    Animal* a2 = new Cat();\n    a1->speak();\n    a2->speak();\n    return 0;\n}\n```\n\nA. 封装\nB. 继承\nC. 多态\nD. 抽象",
+      "options": {
+        "A": "封装",
+        "B": "继承",
+        "C": "多态",
+        "D": "抽象"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "同一基类指针 Animal* 指向不同派生类对象，调用 speak() 得到不同结果——运行时多态。"
+    },
+    {
+      "question_type": "single",
+      "content": "在 public（公有）继承方式下，基类的 protected 成员在派生类中的访问级别是（ ）。\n\nA. protected\nB. public\nC. private\nD. 不可访问",
+      "options": {
+        "A": "protected",
+        "B": "public",
+        "C": "private",
+        "D": "不可访问"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "公有继承下，基类 public 成员仍 public，protected 成员仍 protected，private 成员不可访问。"
+    },
+    {
+      "question_type": "single",
+      "content": "一个空栈依次压入 1、2、3、4，连续弹出两次后，再压入 5。此时栈顶元素是（ ）。\n\nA. 2\nB. 3\nC. 5\nD. 1",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "5",
+        "D": "1"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "压入 1,2,3,4 后栈顶为 4；弹两次弹出 4、3；再压入 5 后栈顶为 5。"
+    },
+    {
+      "question_type": "single",
+      "content": "循环队列容量 N=6（最多存放 5 个元素，留一个位置区分空与满）。front 指向队头元素，rear 指向队尾的下一个位置。初始 front=0、rear=0，依次入队 1、2、3，出队一次，再依次入队 4、5、6。此时 front 和 rear 的值分别是（ ）。\n\nA. front=1, rear=0\nB. front=2, rear=5\nC. front=1, rear=5\nD. front=0, rear=1",
+      "options": {
+        "A": "front=1, rear=0",
+        "B": "front=2, rear=5",
+        "C": "front=1, rear=5",
+        "D": "front=0, rear=1"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "入队 1、2、3 后元素落在位置 0、1、2，rear=3；出队一次 front=1；继续入队 4、5、6 依次填位置 3、4、5，rear 回到 0。故 front=1, rear=0。"
+    },
+    {
+      "question_type": "single",
+      "content": "一棵完全二叉树按层序从 1 开始编号（根节点编号为 1）。编号为 6 的节点的左孩子编号是（ ）。\n\nA. 12\nB. 10\nC. 11\nD. 13",
+      "options": {
+        "A": "12",
+        "B": "10",
+        "C": "11",
+        "D": "13"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "完全二叉树按层序编号，节点 i 的左孩子编号为 2i，故 2×6=12。"
+    },
+    {
+      "question_type": "single",
+      "content": "某二叉树的前序遍历序列为 `ABDECF`，中序遍历序列为 `DBEAFC`，则其后序遍历序列为（ ）。\n\nA. `DEBFCA`\nB. `DBEAFC`\nC. `ABDECF`\nD. `DEBCFA`",
+      "options": {
+        "A": "DEBFCA",
+        "B": "DBEAFC",
+        "C": "ABDECF",
+        "D": "DEBCFA"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "前序 ABDECF 根为 A；中序 DBEAFC 分左子树 DBE、右子树 FC。左子树根 B（左 D、右 E），右子树根 C（左 F）。后序：左右根 → DEBFCA。"
+    },
+    {
+      "question_type": "single",
+      "content": "字符集 {a, b, c, d} 的出现频率分别为 {7, 5, 2, 4}，构造哈夫曼树后，其带权路径长度 WPL 为（ ）。\n\nA. 30\nB. 33\nC. 40\nD. 35",
+      "options": {
+        "A": "30",
+        "B": "33",
+        "C": "40",
+        "D": "35"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "频率 {7,5,2,4}，合并 2+4=6，再合并 5+6=11，最后 7+11=18。深度：7 在第 1 层，5 在第 2 层，2、4 在第 3 层。WPL=7×1+5×2+2×3+4×3=35。"
+    },
+    {
+      "question_type": "single",
+      "content": "三位格雷码序列为 `000, 001, 011, 010, 110, 111, 101, 100`。编码 `110` 之后的下一个编码是（ ）。\n\nA. 100\nB. 101\nC. 010\nD. 111",
+      "options": {
+        "A": "100",
+        "B": "101",
+        "C": "010",
+        "D": "111"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "三位格雷码序列中 110 之后是 111（恰一位不同）。"
+    },
+    {
+      "question_type": "single",
+      "content": "实现广度优先搜索（BFS）时，辅助使用的数据结构通常是（ ）。\n\nA. 递归\nB. 栈\nC. 队列\nD. 链表",
+      "options": {
+        "A": "递归",
+        "B": "栈",
+        "C": "队列",
+        "D": "链表"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "BFS 逐层访问，先入先出，需队列；DFS 才用栈/递归。"
+    },
+    {
+      "question_type": "single",
+      "content": "在二叉排序树（BST）中查找元素 50，当前节点值为 45，则下一步应（ ）。\n\nA. 去左子树继续查找\nB. 去右子树继续查找\nC. 停止，已找到\nD. 无法确定",
+      "options": {
+        "A": "去左子树继续查找",
+        "B": "去右子树继续查找",
+        "C": "停止，已找到",
+        "D": "无法确定"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "BST 左子树值均小于根、右子树均大于根；50>45，去右子树。"
+    },
+    {
+      "question_type": "single",
+      "content": "用一维滚动数组求解 0-1 背包（每种物品最多选一次），内层容量循环必须（ ）。\n\nA. 从小到大遍历\nB. 从大到小遍历\nC. 顺序任意\nD. 只遍历能用到的部分即可，方向无要求",
+      "options": {
+        "A": "从小到大遍历",
+        "B": "从大到小遍历",
+        "C": "顺序任意",
+        "D": "只遍历能用到的部分即可，方向无要求"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "一维滚动数组必须倒序遍历容量，防止同一件物品被重复使用（正序会变成完全背包）。"
+    },
+    {
+      "question_type": "single",
+      "content": "动态规划能高效求解的问题，通常需要满足的两个性质是（ ）。\n\nA. 贪心选择性和无后效性\nB. 最优子结构和重叠子问题\nC. 可分治性和递归性\nD. 单调性和凸性",
+      "options": {
+        "A": "贪心选择性和无后效性",
+        "B": "最优子结构和重叠子问题",
+        "C": "可分治性和递归性",
+        "D": "单调性和凸性"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "最优子结构 + 重叠子问题是动态规划的两大性质。"
+    },
+    {
+      "question_type": "single",
+      "content": "用栈检查括号是否匹配，扫描完整个字符串后，判断匹配成功的标准是（ ）。\n\nA. 栈为空\nB. 栈非空\nC. 栈顶是右括号\nD. 无法判断",
+      "options": {
+        "A": "栈为空",
+        "B": "栈非空",
+        "C": "栈顶是右括号",
+        "D": "无法判断"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "遇左括号入栈，遇右括号弹出配对；扫描完毕栈空说明全部匹配。"
+    },
+    {
+      "question_type": "single",
+      "content": "下列关于哈夫曼编码的说法，**正确**的是（ ）。\n\nA. 哈夫曼编码是唯一的\nB. 哈夫曼编码不一定是前缀码\nC. 哈夫曼编码是前缀码，且出现频率越高的字符编码越短\nD. 哈夫曼编码的所有编码长度都相同",
+      "options": {
+        "A": "哈夫曼编码是唯一的",
+        "B": "哈夫曼编码不一定是前缀码",
+        "C": "哈夫曼编码是前缀码，且出现频率越高的字符编码越短",
+        "D": "哈夫曼编码的所有编码长度都相同"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "哈夫曼编码是最优前缀码，频率越高编码越短；编码不唯一（可交换左右子树），故 A/B/D 错。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "以下代码中，构造函数一共被调用了 2 次。（ ）\n\n```cpp\nclass Test {\npublic:\n    Test() { cout << \"T \"; }\n    Test(const Test&) { cout << \"C \"; }\n};\nint main() {\n    Test a;\n    Test b = a;\n    Test c;\n    return 0;\n}\n```",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "构造调用了 3 次：Test a（默认构造）、Test b = a（拷贝构造）、Test c（默认构造）。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "面向对象编程中，封装是指将数据和对数据的操作（方法）绑定在一起，并对外隐藏实现细节。（ ）",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "封装 = 数据 + 操作绑定 + 隐藏实现细节。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "规定空树高度为 0、只有一个节点的树高度为 1。以下函数能正确计算二叉树的高度。（ ）\n\n```cpp\nint height(TreeNode* root) {\n    if (!root) return 0;\n    return max(height(root->left), height(root->right)) + 1;\n}\n```",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "空树高度 0，非空树取左右子树高度较大者再加 1——正确。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "广度优先遍历一棵二叉树，可以用栈来实现。（ ）",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "BFS 应用队列实现；栈用于 DFS。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "函数调用（包括递归）由系统维护的栈管理：调用时压栈保存返回地址与局部变量，返回时弹栈。（ ）",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "函数调用由调用栈管理，递归过深会栈溢出。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "二叉排序树（BST）的查找、插入、删除操作的时间复杂度**总是** $O(\\log n)$。（ ）",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "BST 操作平均为 O(log n)，但退化（如按序插入成链）时最坏为 O(n)，并非总是 O(log n)。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "以下函数能在二叉排序树（BST）中查找值为 key 的节点，找到返回该节点指针，否则返回空。（ ）\n\n```cpp\nTreeNode* search(TreeNode* root, int key) {\n    if (!root || root->val == key) return root;\n    if (key < root->val) return search(root->left, key);\n    return search(root->right, key);\n}\n```",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "按 key 与根值比较决定进入左子树或右子树，直到空或找到——正确。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "n 位格雷码一共有 $2^n$ 个不同的编码。（ ）",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "n 位格雷码与 n 位二进制码一一对应，共有 2^n 个。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "给定一组字符及出现频率，构造出的哈夫曼树是唯一的。（ ）",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "权值相等或合并顺序不同时，哈夫曼树不唯一（WPL 相同）。"
+    },
+    {
+      "question_type": "true_false",
+      "content": "满二叉树一定是完全二叉树，但完全二叉树不一定是满二叉树。（ ）",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "满二叉树每层都满，必为完全二叉树；完全二叉树只要求最后一层靠左连续，不一定是满二叉树。"
+    },
+    {
+      "question_type": "program",
+      "content": "### 划段得分\n\n小杨拿到一个由小写字母组成的字符串 $s$，长度是 $n$。他可以把字符串划分成若干个连续的子串（段），要求每一段内的任意两个字符都互不相同（即段内没有重复字符）。\n\n若某一段的长度为 $len$，则该段的得分为 $a[len]$。请问：在所有合法的划分方案中，各段得分之和的最大值是多少？\n\n**输入格式**：第一行一个正整数 $n$，表示字符串长度。第二行 $n$ 个整数 $a[1], a[2], ..., a[n]$，$a[i]$ 表示长度为 $i$ 的段的得分。第三行一个长度为 $n$ 的字符串 $s$，仅含小写字母。\n\n**输出格式**：输出一行，一个整数，表示最大总得分。\n\n**样例输入 #1**\n```\n5\n1 10 10 10 10\nababa\n```\n**样例输出 #1**\n```\n21\n```\n**样例解释**：划分为 ab + ab + a，三段长度 2、2、1，得分 10+10+1=21。\n\n**数据范围**：$1 \\le n \\le 1000$，$1 \\le a[i] \\le 10^4$。段内字符互不相同，故每段长度至多 26，$a$ 中实际只用得到 $a[1..26]$。",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 15,
+      "explanation": "线性DP+位掩码：f[i] 表示前缀 s[1..i] 的最大总分，枚举最后一段起点 j，段内字符互异则 f[i]=max(f[i], f[j-1]+a[i-j+1])；从 i 向左扩展并维护 mask，遇重复字符即停。O(26n)。",
+      "url": "https://fslong.iok.la/problem/GESP202608L6S1T1"
+    },
+    {
+      "question_type": "program",
+      "content": "### 分组积分\n\n$n$ 名同学参加研学活动，需要分成若干个小组，每组人数必须不少于 $L$ 且不多于 $R$。若某小组恰好有 $i$ 名同学，则该组的研学效果为 $a[i]$。\n\n请计算：将 $n$ 名同学全部划分完毕后，研学效果总和的最大值。\n\n**输入格式**：第一行三个正整数 $n, L, R$。第二行 $n$ 个整数 $a[1], a[2], ..., a[n]$，$a[i]$ 表示小组人数为 $i$ 时的研学效果。\n\n**输出格式**：输出一行，一个整数，表示最大总效果。\n\n**样例输入 #1**\n```\n5 2 3\n0 5 4 0 0\n```\n**样例输出 #1**\n```\n9\n```\n**样例解释**：5 = 2 + 3（或 3+2），效果 a[2]+a[3]=5+4=9。\n\n**数据范围**：$1 \\le n \\le 1000$，$1 \\le L \\le R \\le n$，$0 \\le a[i] \\le 10^4$。",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 15,
+      "explanation": "线性DP：f[i] 表示 i 名同学的最大总效果，枚举最后一组人数 j（L≤j≤R），f[i]=max(f[i], f[i-j]+a[j])，仅可达状态转移。O(n(R-L+1))。",
+      "url": "https://fslong.iok.la/problem/GESP202608L6S1T2"
+    },
+    {
+      "question_type": "program",
+      "content": "### 森林派对\n\n一棵树有 $n$ 个结点，编号 $1 \\sim n$，根结点为 1。第 $i$ 个结点的快乐值为 $w[i]$（可以为负）。\n\n现在要选出若干个结点参加森林派对，要求任意一条边连接的两个结点不能同时被选（即不能同时选父与子）。求选出的结点快乐值总和的最大值。\n\n**输入格式**：第一行一个正整数 $n$。第二行 $n$ 个整数 $w[1], w[2], ..., w[n]$。接下来 $n-1$ 行，每行两个整数 $u, v$，表示一条边。\n\n**输出格式**：输出一行，一个整数，表示最大快乐值总和。\n\n**样例输入 #1**\n```\n3\n5 1 1\n1 2\n1 3\n```\n**样例输出 #1**\n```\n5\n```\n**样例解释**：选根结点 1，快乐值 5；不能同时选 2、3。若选 2 和 3，快乐值 1+1=2。故最大为 5。\n\n**数据范围**：$1 \\le n \\le 10^5$，$-10^4 \\le w[i] \\le 10^4$。",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 15,
+      "explanation": "树形DP（最大权独立集）：f[u][0] 不选 u（孩子可任意）=sum max(f[v][0],f[v][1])，f[u][1] 选 u（孩子都不能选）=w[u]+sum f[v][0]。答案 max(f[1][0],f[1][1])。vector 邻接表建图，DFS 自底向上。O(n)。",
+      "url": "https://fslong.iok.la/problem/GESP202608L6S1T3"
+    },
+    {
+      "question_type": "program",
+      "content": "### 树的直径\n\n一棵树有 $n$ 个结点（编号 $1 \\sim n$）。树中两个结点的距离定义为连接它们的最短路径经过的边数。\n\n求树中距离最远的两个结点之间的距离——这称为树的直径。\n\n**输入格式**：第一行一个正整数 $n$。接下来 $n-1$ 行，每行两个整数 $u, v$，表示一条边。\n\n**输出格式**：输出一行，一个整数，表示树的直径。\n\n**样例输入 #1**\n```\n5\n1 2\n2 3\n3 4\n2 5\n```\n**样例输出 #1**\n```\n3\n```\n**样例解释**：距离最远的两个结点为 4 和 5，路径 4-3-2-5 共 3 条边。\n\n**数据范围**：$1 \\le n \\le 10^5$。",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 15,
+      "explanation": "树的直径经典做法：任选一点出发 DFS 找到最远点 a，再从 a 出发 DFS 找到最远点 b，a 到 b 的距离即直径。vector 邻接表建图，两遍递归 DFS。O(n)。",
+      "url": "https://fslong.iok.la/problem/GESP202608L6S1T4"
+    }
+  ]
+}

@@ -1,0 +1,527 @@
+{
+  "title": "CSP-J 入门级第一轮模拟试卷（第1套）",
+  "description": "老九 CSP-J 第一轮模拟试卷第一套",
+  "date": null,
+  "time_limit": 120,
+  "pass_score": null,
+  "questions": [
+    {
+      "title": "第1题",
+      "content": "十进制数 45 转换成二进制数是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "(101101)₂",
+        "B": "(110101)₂",
+        "C": "(101011)₂",
+        "D": "(110011)₂"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "十进制 45 = 32+8+4+1 = 2⁵+2³+2²+2⁰，二进制为 101101₂。"
+    },
+    {
+      "title": "第2题",
+      "content": "在计算机中，通常用一个字节表示（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "2个二进制位",
+        "B": "4个二进制位",
+        "C": "8个二进制位",
+        "D": "16个二进制位"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "1 字节 = 8 bit，是计算机基本存储单位。"
+    },
+    {
+      "title": "第3题",
+      "content": "下列设备中，主要用作输出设备的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "键盘",
+        "B": "鼠标",
+        "C": "扫描仪",
+        "D": "显示器"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "显示器为输出设备；键盘、鼠标、扫描仪皆为输入设备。"
+    },
+    {
+      "title": "第4题",
+      "content": "在 C++中，表达式 17 / 5 + 17 % 5 的值是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "5.4"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "C++ 整数除法 17/5 = 3，取余 17%5 = 2，3+2 = 5。"
+    },
+    {
+      "title": "第5题",
+      "content": "执行下面的代码后，变量 x 的值是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "6",
+        "B": "9",
+        "C": "12",
+        "D": "15"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "x = 3，x += x*2 即 x = 3 + 6 = 9。"
+    },
+    {
+      "title": "第6题",
+      "content": "int x = 3;\nx += x * 2;\n\n若 int a[10];，则数组 a 的合法下标范围是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "1 到 10",
+        "B": "0 到 10",
+        "C": "0 到 9",
+        "D": "1 到 9"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "int a[10] 合法下标为 0 到 9，共 10 个元素。"
+    },
+    {
+      "title": "第7题",
+      "content": "一个栈按顺序压入元素 1, 2, 3, 4。在压入过程中可以随时弹出，则下列序列中不可能成为完整弹出序列的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "4, 3, 2, 1",
+        "B": "2, 1, 4, 3",
+        "C": "3, 1, 2, 4",
+        "D": "1, 2, 3, 4"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "栈后进先出。要弹出 3 须先弹出 1、2，此后栈中只剩 4，1 已出无可再出，故 3,1,2,4 不可能。"
+    },
+    {
+      "title": "第8题",
+      "content": "一个队列当前从队首到队尾依次为 2, 5, 7。依次执行\"入队 9、出队一次、入队 4\"后，队首元素是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "2",
+        "B": "5",
+        "C": "7",
+        "D": "9"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "队列先进先出：入 9 → 2,5,7,9；出队一次 → 5,7,9；入 4 → 5,7,9,4。队首为 5。"
+    },
+    {
+      "title": "第9题",
+      "content": "对长度为 n 的有序数组进行二分查找，其最坏时间复杂度是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "O(1)",
+        "B": "O(log n)",
+        "C": "O(n)",
+        "D": "O(n log n)"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "二分查找每次比较折半区间，最坏比较 log₂n 次，复杂度 O(log n)。"
+    },
+    {
+      "title": "第10题",
+      "content": "对序列 5, 1, 4, 2, 3 进行一趟从左到右的冒泡排序（相邻逆序时交换），得到的序列是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "1, 4, 2, 3, 5",
+        "B": "1, 2, 3, 4, 5",
+        "C": "5, 1, 2, 3, 4",
+        "D": "1, 5, 2, 3, 4"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "一趟冒泡从左到右：5>1 换 → 1,5,4,2,3；5>4 换 → 1,4,5,2,3；5>2 换 → 1,4,2,5,3；5>3 换 → 1,4,2,3,5。"
+    },
+    {
+      "title": "第11题",
+      "content": "一棵具有 20 个结点的树共有（ ）条边。",
+      "question_type": "single",
+      "options": {
+        "A": "18",
+        "B": "19",
+        "C": "20",
+        "D": "21"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "树中边数 = 结点数 − 1，20 个结点共 19 条边。"
+    },
+    {
+      "title": "第12题",
+      "content": "无向完全图 K6 共有（ ）条边。",
+      "question_type": "single",
+      "options": {
+        "A": "6",
+        "B": "12",
+        "C": "15",
+        "D": "30"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "无向完全图 K6 边数 = C(6,2) = 6×5/2 = 15。"
+    },
+    {
+      "title": "第13题",
+      "content": "从 1, 2, 3, 4, 5 中选出两个不同的数，不考虑选择顺序，共有（ ）种选法。",
+      "question_type": "single",
+      "options": {
+        "A": "5",
+        "B": "8",
+        "C": "10",
+        "D": "20"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "从 5 个数中选 2 个，组合数 C(5,2) = 5×4/2 = 10 种。"
+    },
+    {
+      "title": "第14题",
+      "content": "设命题 P 为\"所有质数都是奇数\"，命题 Q 为\"存在一个偶数是质数\"。下列说法正确的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "P真，Q真",
+        "B": "P真，Q假",
+        "C": "P假，Q真",
+        "D": "P假，Q假"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "2 是唯一偶质数：故 P『所有质数都是奇数』为假，Q『存在一个偶数是质数』为真。"
+    },
+    {
+      "title": "第15题",
+      "content": "有 8 个外观相同的小球，其中恰有 1 个较轻。使用没有砝码的天平，保证找出较轻小球至少需要称量（ ）次。",
+      "question_type": "single",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "称 3v3：若平，轻球在剩余 2 个中，再称一次即可；若不平，轻球在较轻 3 个中，取 2 个再称。保证 2 次找出。"
+    },
+    {
+      "title": "第16题",
+      "content": "以下第16-19题基于以下程序：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    int ans = 0;\n    for (int i = 1; i <= n; i++) {\n        int x = i;\n        while (x > 0) {\n            ans += x % 10;\n            x /= 10;\n        }\n    }\n    cout << ans << endl;\n    return 0;\n}\n```\n\n当输入为 5 时，输出为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "5",
+        "B": "10",
+        "C": "15",
+        "D": "20"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "程序求 1 到 n 所有整数各位数字之和：1+2+3+4+5 = 15。"
+    },
+    {
+      "title": "第17题",
+      "content": "当输入为 12 时，输出为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "48",
+        "B": "51",
+        "C": "54",
+        "D": "78"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "1..9 数字和为 45；10→1，11→2，12→3；共 45+1+2+3 = 51。"
+    },
+    {
+      "title": "第18题",
+      "content": "该程序的功能是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "计算 1 到 n 的整数之和",
+        "B": "计算 n 的各位数字之和",
+        "C": "计算 1 到 n 中所有整数的各位数字之和",
+        "D": "统计 1 到 n 中十进制数字的总个数"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "外层 i 从 1 到 n，内层 while 循环拆 i 的各位数字累加进 ans，故功能为计算 1 到 n 中所有整数的各位数字之和。"
+    },
+    {
+      "title": "第19题",
+      "content": "若 n 是一个不超过 10⁹ 的正整数，该程序的时间复杂度最接近（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "O(log n)",
+        "B": "O(n)",
+        "C": "O(n log n)",
+        "D": "O(n²)"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "外层循环 n 次，内层 while 执行次数不超过十进制位数（≤10 次，常数），总复杂度 O(n)。"
+    },
+    {
+      "title": "第20题",
+      "content": "以下第20-23题基于以下程序：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    vector<int> a(n);\n    for (int &x : a) cin >> x;\n\n    int best = 1, len = 1;\n    for (int i = 1; i < n; i++) {\n        if (a[i] > a[i - 1]) len++;\n        else len = 1;\n        best = max(best, len);\n    }\n    cout << best << endl;\n    return 0;\n}\n```\n\n输入如下：\n\n```\n7\n1 2 2 3 5 4 6\n```\n\n输出为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "求最长严格上升连续子段：1,2（长2），2,3,5（长3），4,6（长2），最长 = 3。"
+    },
+    {
+      "title": "第21题",
+      "content": "若输入序列严格递减，程序输出为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "n−1",
+        "D": "n"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "严格递减序列中任意相邻 a[i] > a[i-1] 均不成立，len 每次重置为 1，best 恒为 1。"
+    },
+    {
+      "title": "第22题",
+      "content": "程序计算的是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "最长严格上升子序列的长度",
+        "B": "最长非下降连续子段的长度",
+        "C": "最长严格上升连续子段的长度",
+        "D": "所有严格上升连续子段的数量"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "len 记录当前连续上升段长度，遇不上升则重置 1，best 取最大值，即最长严格上升连续子段的长度。"
+    },
+    {
+      "title": "第23题",
+      "content": "若将判断条件 a[i] > a[i - 1] 改为 a[i] >= a[i - 1]，程序将计算（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "最长严格上升连续子段长度",
+        "B": "最长非下降连续子段长度",
+        "C": "最长非上升连续子段长度",
+        "D": "最长非下降子序列长度"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "改为 a[i] >= a[i-1] 后，相等元素也能延续当前段，程序计算最长非下降连续子段长度。"
+    },
+    {
+      "title": "第24题",
+      "content": "以下第24-27题基于以下程序：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    vector<vector<int>> g(n + 1);\n    vector<int> deg(n + 1, 0);\n\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        g[u].push_back(v);\n        deg[v]++;\n    }\n\n    priority_queue<int, vector<int>, greater<int>> q;\n    for (int i = 1; i <= n; i++)\n        if (deg[i] == 0) q.push(i);\n\n    vector<int> ans;\n    while (!q.empty()) {\n        int u = q.top();\n        q.pop();\n        ans.push_back(u);\n        for (int v : g[u]) {\n            deg[v]--;\n            if (deg[v] == 0) q.push(v);\n        }\n    }\n\n    if ((int)ans.size() < n) cout << -1 << endl;\n    else {\n        for (int x : ans) cout << x << ' ';\n        cout << endl;\n    }\n    return 0;\n}\n```\n\n该程序使用的核心算法是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "深度优先搜索求连通块",
+        "B": "Dijkstra最短路",
+        "C": "Kahn算法求拓扑序",
+        "D": "Kruskal最小生成树"
+      },
+      "correct_answer": "C",
+      "score": 4,
+      "explanation": "程序维护入度数组，入度为 0 的结点入队，出队时减少其邻居入度、再次入度为 0 者入队——此为 Kahn 算法求拓扑序。"
+    },
+    {
+      "title": "第25题",
+      "content": "输入如下：\n\n```\n4 4\n1 2\n1 3\n2 4\n3 4\n```\n\n程序输出为（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "1234",
+        "B": "1324",
+        "C": "4231",
+        "D": "-1"
+      },
+      "correct_answer": "A",
+      "score": 4,
+      "explanation": "初始入度：1=0，2=1，3=1，4=2。出 1 后 2、3 入度变 0 入堆；小根堆依次出 2、3（各自减 4 入度），4 入度变 0 最后出。输出 1 2 3 4。"
+    },
+    {
+      "title": "第26题",
+      "content": "4 4\n1 2\n1 3\n2 4\n3 4\n\n使用小根堆 priority_queue<int, vector<int>, greater<int>> 的主要作用是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "保证每次选择编号最小的当前入度为 0 的结点",
+        "B": "保证每次选择出度最小的结点",
+        "C": "将所有边按权值排序",
+        "D": "判断图是否连通"
+      },
+      "correct_answer": "A",
+      "score": 4,
+      "explanation": "小根堆保证每次取出编号最小的入度为 0 的结点，从而输出字典序最小的拓扑序。"
+    },
+    {
+      "title": "第27题",
+      "content": "若输入图含有有向环，则（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "程序一定陷入死循环",
+        "B": "ans 中一定会出现重复结点",
+        "C": "最终 ans.size() < n，程序输出 −1",
+        "D": "程序仍会输出字典序最小的结点排列"
+      },
+      "correct_answer": "C",
+      "score": 4,
+      "explanation": "若存在有向环，环上结点入度永远无法减为 0，队列提前为空，ans.size() < n，程序输出 −1。"
+    },
+    {
+      "title": "第28题",
+      "content": "下面的程序读入正整数 n，判断它是否为质数。若是，输出 Yes；否则输出 No。\n\n以下第28-32题基于以下程序：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    long long n;\n    cin >> n;\n\n    bool prime = true;\n    if (____①____) prime = false;\n    for (long long i = 2; ____②____ && prime; i++) {\n        if (____③____) {\n            prime = false;\n        }\n    }\n\n    if (____④____) cout << ____⑤____ << endl;\n    else cout << \"No\" << endl;\n    return 0;\n}\n```\n\n①处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "n < 0",
+        "B": "n <= 1",
+        "C": "n == 2",
+        "D": "n % 2 == 0"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "n ≤ 1（即 0 和 1）不是质数，故 ① 处填 n <= 1 提前判否。"
+    },
+    {
+      "title": "第29题",
+      "content": "②处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "i < n",
+        "B": "i * i <= n",
+        "C": "i + i <= n",
+        "D": "i <= n / 2 + 1"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "判断质数只需试除到 √n：i*i <= n 等价于 i ≤ √n。"
+    },
+    {
+      "title": "第30题",
+      "content": "③处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "n / i == 0",
+        "B": "i % n == 0",
+        "C": "n % i == 0",
+        "D": "n % i != 0"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "n % i == 0 说明 i 能整除 n，n 存在真因子，非质数。"
+    },
+    {
+      "title": "第31题",
+      "content": "④处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "n",
+        "B": "i",
+        "C": "prime",
+        "D": "!prime"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "④ 处用 prime 判断是否质数，为真输出 Yes，为假输出 No。"
+    },
+    {
+      "title": "第32题",
+      "content": "⑤处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "\"Yes\"",
+        "B": "\"No\"",
+        "C": "prime",
+        "D": "n"
+      },
+      "correct_answer": "A",
+      "score": 3,
+      "explanation": "质数时输出 \"Yes\"。"
+    },
+    {
+      "title": "第33题",
+      "content": "给定一个 n 行 m 列的网格，字符 . 表示可以通过，字符 # 表示障碍。程序计算从左上角 (0, 0) 到右下角 (n − 1, m − 1) 最少需要走多少步。每一步可以向上、下、左、右移动一格；若无法到达，输出 −1。保证起点和终点不是障碍。\n\n以下第33-37题基于以下程序：\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n    vector<string> s(n);\n    for (auto &row : s) cin >> row;\n\n    vector<vector<int>> dis(n, vector<int>(m, -1));\n    queue<pair<int, int>> q;\n    q.push({0, 0});\n    ____①____;\n\n    int dx[4] = {1, -1, 0, 0};\n    int dy[4] = {0, 0, 1, -1};\n\n    while (____②____) {\n        auto [x, y] = q.front();\n        ____③____;\n        for (int k = 0; k < 4; k++) {\n            int nx = x + dx[k];\n            int ny = y + dy[k];\n            if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;\n            if (s[nx][ny] == '#') continue;\n            if (____④____) continue;\n            dis[nx][ny] = ____⑤____;\n            q.push({nx, ny});\n        }\n    }\n\n    cout << dis[n - 1][m - 1] << endl;\n    return 0;\n}\n```\n\n①处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "dis[0][0] = -1",
+        "B": "dis[0][0] = 0",
+        "C": "dis[n - 1][m - 1] = 0",
+        "D": "s[0][0] = '#'"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "BFS 起点 (0,0) 距离应置 0：dis[0][0] = 0。"
+    },
+    {
+      "title": "第34题",
+      "content": "②处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "q.empty()",
+        "B": "q.size() == 1",
+        "C": "!q.empty()",
+        "D": "dis[n - 1][m - 1] == -1"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "BFS 循环条件为队列非空：!q.empty()。"
+    },
+    {
+      "title": "第35题",
+      "content": "③处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "q.push(x, y)",
+        "B": "q.pop()",
+        "C": "q.clear()",
+        "D": "dis[x][y]++"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "取队首后须弹出：q.pop()，否则死循环。"
+    },
+    {
+      "title": "第36题",
+      "content": "④处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "dis[nx][ny] == -1",
+        "B": "dis[nx][ny] != -1",
+        "C": "dis[x][y] == -1",
+        "D": "nx == x && ny == y"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "dis[nx][ny] != -1 表示已访问过，跳过，防止重复入队。"
+    },
+    {
+      "title": "第37题",
+      "content": "⑤处应填（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "dis[x][y]",
+        "B": "dis[x][y] - 1",
+        "C": "dis[x][y] + 1",
+        "D": "dis[nx][ny] + 1"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "新位置距离 = 当前位置距离 + 1：dis[x][y] + 1。"
+    }
+  ]
+}
