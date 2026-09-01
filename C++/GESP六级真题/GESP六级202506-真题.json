@@ -1,0 +1,358 @@
+{
+  "title": "【GESP】C++等级考试6级 2025年06月 真题",
+  "description": "GESP C++六级真题",
+  "time_limit": 90,
+  "pass_score": 60,
+  "questions": [
+    {
+      "title": "第 1 题",
+      "content": "下列哪一项不是面向对象编程的基本特征？（ ）\n\n- A. 继承\n- B. 封装\n- C. 多态\n- D. 链接",
+      "question_type": "single",
+      "options": {
+        "A": "继承",
+        "B": "封装",
+        "C": "多态",
+        "D": "链接"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "面向对象三大基本特征是封装、继承、多态。链接是编译/链接期的概念，与 OOP 特征无关，故选 D。"
+    },
+    {
+      "title": "第 2 题",
+      "content": "为了让 Dog 类的构造函数能正确地调用其父类 Animal 的构造方法，横线处应填入（ ）。\n```cpp\nclass Animal {\npublic:\n    std::string name;\n\n    Animal(std::string str) : name(str) {\n        std::cout << \"Animal created\\n\";\n    }\n    virtual void speak() {\n        cout << \"Animal speaks\" << endl;\n    }\n};\n\nclass Dog : public Animal {\n    std::string breed;\npublic:\n    Dog(std::string name, std::string b) : _________________, breed(b) {\n        std::cout << \"Dog created\\n\";\n    }\n    void speak() override {\n        cout << \"Dog barks\" << endl;\n    }\n};\n\nint main() {\n    Animal* p = new Dog(\"Rex\", \"Labrador\");\n    p->speak();\n    delete p;\n    return 0;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "Animal(name)",
+        "B": "super(name)",
+        "C": "Animal::Animal(name)",
+        "D": "Animal()"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "派生类构造函数在初始化列表中直接写基类名并传参：Animal(name) 调用 Animal(std::string) 构造基类子对象。C++ 没有 super 关键字（B 是 Java/Python 语法）；C 是成员函数作用域调用写法；D 匹配不到无参构造函数。"
+    },
+    {
+      "title": "第 3 题",
+      "content": "代码同上一题，代码执行结果是（ ）。",
+      "question_type": "single",
+      "options": {
+        "A": "输出 Animal speaks",
+        "B": "输出 Dog barks",
+        "C": "编译错误",
+        "D": "程序崩溃"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "speak() 是虚函数，p 虽声明为 Animal* 但实际指向 Dog 对象，运行期动态绑定调用 Dog::speak()，输出 Dog barks。这是运行时多态。"
+    },
+    {
+      "title": "第 4 题",
+      "content": "以下关于栈和队列的代码，执行后输出是（ ）。\n```cpp\nstack<int> s;\nqueue<int> q;\n\nfor (int i = 1; i <= 3; ++i) {\n    s.push(i);\n    q.push(i);\n}\ncout << s.top() << \" \" << q.front() << endl;\n```",
+      "question_type": "single",
+      "options": {
+        "A": "1 3",
+        "B": "3 1",
+        "C": "3 3",
+        "D": "1 1"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "栈后进先出：依次压入 1,2,3 后栈顶 s.top() 为 3；队列先进先出：队首 q.front() 为最先入队的 1。输出 3 1。"
+    },
+    {
+      "title": "第 5 题",
+      "content": "在一个循环队列中，front 是指向队头的指针，rear 指向队尾的指针，队列最大容量为 maxSize。判断队列已满的条件是（ ）。\n\n- A. `rear == front`\n- B. `(rear + 1) % maxSize == front`\n- C. `(rear - 1 + maxSize) % maxSize == front`\n- D. `(rear - 1) == front`",
+      "question_type": "single",
+      "options": {
+        "A": "rear == front",
+        "B": "(rear + 1) % maxSize == front",
+        "C": "(rear - 1 + maxSize) % maxSize == front",
+        "D": "(rear - 1) == front"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "循环队列牺牲一个存储单元区分队满与队空：rear 的下一位置追上 front 即满，判满条件为 (rear + 1) % maxSize == front。rear == front 通常表示队空。"
+    },
+    {
+      "title": "第 6 题",
+      "content": "（ ）只有最底层的节点未被填满，且最底层节点尽量靠左填充。\n\n- A. 完美二叉树\n- B. 完全二叉树\n- C. 完满二叉树\n- D. 平衡二叉树",
+      "question_type": "single",
+      "options": {
+        "A": "完美二叉树",
+        "B": "完全二叉树",
+        "C": "完满二叉树",
+        "D": "平衡二叉树"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "完全二叉树：除最后一层外每层都满，最后一层结点从左到右连续排列（可不满但必须靠左）。完美二叉树（满二叉树）每层全满；平衡二叉树只要求左右子树高度差受限。"
+    },
+    {
+      "title": "第 7 题",
+      "content": "在使用数组表示完全二叉树时，如果一个节点的索引为 i（从 0 开始计数），那么其左子节点的索引通常是（ ）。\n\n- A. `(i - 1) / 2`\n- B. `i + 1`\n- C. `i * 2`\n- D. `2 * i + 1`",
+      "question_type": "single",
+      "options": {
+        "A": "(i - 1) / 2",
+        "B": "i + 1",
+        "C": "i * 2",
+        "D": "2 * i + 1"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "0 起下标的层序存储：结点 i 的左孩子为 2i+1，右孩子为 2i+2，父结点为 (i−1)/2。A 是求父结点的公式。"
+    },
+    {
+      "title": "第 8 题",
+      "content": "已知一棵二叉树的前序遍历序列为 GDAFEMHZ，中序遍历序列为 ADFGEHMZ，则其后序遍历序列为（ ）。\n\n- A. ADFGEHMZ\n- B. ADFGHMEZ\n- C. AFDGEMZH\n- D. AFDHZMEG",
+      "question_type": "single",
+      "options": {
+        "A": "ADFGEHMZ",
+        "B": "ADFGHMEZ",
+        "C": "AFDGEMZH",
+        "D": "AFDHZMEG"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "前序首字母 G 为根；中序中 G 左侧 ADF 为左子树、右侧 EHMZ 为右子树。递归重建：左子树（前序 DAF，中序 ADF）根为 D，左 A 右 F，后序 AFD；右子树（前序 EMHZ，中序 EHMZ）根为 E，右子树 H M Z 再分解得 H 为 M 左、Z 为 M 右，后序 HZME。整体后序 = AFD + HZME + G = AFDHZMEG。"
+    },
+    {
+      "title": "第 9 题",
+      "content": "设有字符集 {a, b, c, d, e}，其出现频率分别为 {5, 8, 12, 15, 20}，得到的哈夫曼编码为（ ）。\n\n- A.\n```\na: 010\nb: 011\nc: 00\nd: 10\ne: 11\n```\n- B.\n```\na: 00\nb: 10\nc: 011\nd: 100\ne: 111\n```\n- C.\n```\na: 10\nb: 01\nc: 011\nd: 100\ne: 111\n```\n- D.\n```\na: 100\nb: 01\nc: 011\nd: 100\ne: 00\n```",
+      "question_type": "single",
+      "options": {
+        "A": "a: 010, b: 011, c: 00, d: 10, e: 11",
+        "B": "a: 00, b: 10, c: 011, d: 100, e: 111",
+        "C": "a: 10, b: 01, c: 011, d: 100, e: 111",
+        "D": "a: 100, b: 01, c: 011, d: 100, e: 00"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "合并过程：a(5)+b(8)=13 → c(12)+13=25 → d(15)+e(20)=35 → 25+35=60。d、e 频率大深度浅得 2 位码（10、11），a、b 在最深处分支得 3 位码（010、011），c 得 2 位码 00，且互为前缀码。A 符合。"
+    },
+    {
+      "title": "第 10 题",
+      "content": "3位格雷编码中，编码 101 之后的下一个编码不可能是（ ）。\n\n- A. 100\n- B. 111\n- C. 110\n- D. 001",
+      "question_type": "single",
+      "options": {
+        "A": "100",
+        "B": "111",
+        "C": "110",
+        "D": "001"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "格雷码相邻码必须恰有一位不同。101 与 100、111、001 均只差一位；而 101→110 第 2、3 两位同时改变，违反格雷码定义，不可能相邻。"
+    },
+    {
+      "title": "第 11 题",
+      "content": "请将下列 C++ 实现的深度优先搜索（DFS）代码补充完整，横线处应填入（ ）。\n```cpp\nstruct TreeNode {\n    int val;\n    TreeNode* left;\n    TreeNode* right;\n    TreeNode(int x): val(x), left(nullptr), right(nullptr) {}\n};\n\nvoid dfs(TreeNode* root, vector<int>& result) {\n    if (root == nullptr) return;\n\n    __________________________\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "result.push_back(root->val);\ndfs(root->left);\ndfs(root->right);",
+        "B": "result.push_back(root->left->val);\ndfs(root->right);\ndfs(root->left);",
+        "C": "result.push_back(root->left->val);\ndfs(root->left);\ndfs(root->right);",
+        "D": "result.push_back(root->right->val);\ndfs(root->right);\ndfs(root->left);"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "标准前序 DFS：先记录当前结点值，再递归左子树、右子树（根—左—右）。B/C/D 直接解引用 root->left 或 root->right 可能是空指针，且访问顺序也不对。"
+    },
+    {
+      "title": "第 12 题",
+      "content": "给定一个二叉树，返回每一层中最大的节点值，结果以数组形式返回，横线处应填入（ ）。\n```cpp\n#include <vector>\n#include <queue>\n#include <algorithm>\n\nstruct TreeNode {\n    int val;\n    TreeNode* left;\n    TreeNode* right;\n    TreeNode(int x): val(x), left(nullptr), right(nullptr) {}\n};\n\nvector<int> largestValues(TreeNode* root) {\n    vector<int> result;\n    if (!root) return result;\n\n    queue<TreeNode*> q;\n    q.push(root);\n\n    while (!q.empty()) {\n        int sz = q.size();\n        int maxVal = INT_MIN;\n        for (int i = 0; i < sz; ++i) {\n            TreeNode* node;\n            _______________________________\n            maxVal = max(maxVal, node->val);\n            if (node->left) q.push(node->left);\n            if (node->right) q.push(node->right);\n        }\n        result.push_back(maxVal);\n    }\n\n    return result;\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "node = q.end();",
+        "B": "node = q.front();",
+        "C": "q.pop();\nnode = q.front();",
+        "D": "node = q.front();\nq.pop();"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "BFS 逐层处理：先取队首元素 node = q.front()，再将其出队 q.pop()，随后统计并扩展孩子。顺序颠倒（C）会取到下一个元素；q.end() 不是元素访问接口。"
+    },
+    {
+      "title": "第 13 题",
+      "content": "下面代码实现一个二叉排序树的插入函数（没有相同的数值），横线处应填入（ ）。\n```cpp\nstruct TreeNode {\n    int val;\n    TreeNode* left;\n    TreeNode* right;\n    TreeNode(int x): val(x), left(nullptr), right(nullptr) {}\n};\n\nvoid insert(TreeNode*& root, int key) {\n    if (!root) {\n        root = new TreeNode(key);\n        return;\n    }\n    _______________________________\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "if (key < root->val)\n    insert(root->left, key);\nelse if (key > root->val)\n    insert(root->right, key);",
+        "B": "if (key < root->val)\n    insert(root->right, key);\nelse if (key > root->val)\n    insert(root->left, key);",
+        "C": "insert(root->left, key);\ninsert(root->right, key);",
+        "D": "insert(root->right, key);\ninsert(root->left, key);"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "BST 性质：左子树所有结点小于根、右子树大于根。key 小于根值递归插左子树，大于则插右子树，引用参数保证空位处新结点正确挂接。B 方向颠倒。"
+    },
+    {
+      "title": "第 14 题",
+      "content": "以下关于动态规划算法特性的描述，正确的是（ ）。\n\n- A. 子问题相互独立，不重叠\n- B. 问题包含重叠子问题和最优子结构\n- C. 只能从底至顶迭代求解\n- D. 必须使用递归实现，不能使用迭代",
+      "question_type": "single",
+      "options": {
+        "A": "子问题相互独立，不重叠",
+        "B": "问题包含重叠子问题和最优子结构",
+        "C": "只能从底至顶迭代求解",
+        "D": "必须使用递归实现，不能使用迭代"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "动态规划适用的两大前提：最优子结构（问题的最优解由子问题最优解构成）与重叠子问题（递归中反复求解相同子问题，故需记忆化/制表）。子问题独立不重叠是分治的特征；DP 既可递推也可递归+记忆化。"
+    },
+    {
+      "title": "第 15 题",
+      "content": "给定 n 个物品和一个最大承重为 W 的背包，每个物品有一个重量 `wt[i]` 和价值 `val[i]`，每个物品只能选择放或不放。目标是选择若干个物品放入背包，使得总价值最大，且总重量不超过 W。关于下面代码，说法正确的是（ ）。\n```cpp\nint knapsack1D(int W, vector<int>& wt, vector<int>& val, int n) {\n    vector<int> dp(W+1, 0);\n    for (int i = 0; i < n; ++i) {\n        for (int w = W; w >= wt[i]; --w) {\n            dp[w] = max(dp[w], dp[w - wt[i]] + val[i]);\n        }\n    }\n    return dp[W];\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "该算法不能处理背包容量为 0 的情况",
+        "B": "外层循环 i 遍历背包容量，内层遍历物品",
+        "C": "从大到小遍历 w 是为了避免重复使用同一物品",
+        "D": "这段代码计算的是最小重量而非最大价值"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "0/1 背包一维优化中，容量 w 必须从大到小遍历：这样更新 dp[w] 时 dp[w−wt[i]] 还是上一轮（未考虑物品 i）的值，保证每件物品至多用一次；若从小到大则同一物品可能被重复选取（变成完全背包）。外层是物品、内层是容量（B 反了）；W=0 时 dp 只有 dp[0]=0，代码正常（A 错）；代码最大化的是价值（D 错）。"
+    },
+    {
+      "title": "第 16 题",
+      "content": "构造函数可以被声明为 virtual。（ ）",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "虚函数机制依赖运行期虚表按对象实际类型绑定，而构造函数执行时对象尚未完全构造完成，故 C++ 规定构造函数不能是虚函数；析构函数可以且在多态基类中应当声明为虚。"
+    },
+    {
+      "title": "第 17 题",
+      "content": "给定一组字符及其出现的频率，构造出的哈夫曼树是唯一的。（ ）",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "哈夫曼树不唯一：若构造过程中出现频率相同的节点，选取哪两个合并、合并后新节点放在左还是右都有多种选择，得到不同形态的哈夫曼树（WPL 相同）。只有各频率互不相同且约定左右次序时结果才唯一。"
+    },
+    {
+      "title": "第 18 题",
+      "content": "为了实现一个队列，使其出队操作（pop）的时间复杂度为 O(1)，并且避免数组删除首元素的 O(n) 问题，一种常见且有效的方法是使用环形数组，通过调整队首和队尾指针来实现。（ ）",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "普通数组删除首元素需整体前移 O(n)。环形数组让 front/rear 指针循环前进，元素不动，出队只移动指针，O(1) 完成，说法正确。"
+    },
+    {
+      "title": "第 19 题",
+      "content": "对一棵二叉排序树进行中序遍历，可以得到一个递增的有序序列。（ ）",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "BST 性质：左子树 < 根 < 右子树。中序遍历顺序为左—根—右，输出恰好按关键值递增排列，说法正确。"
+    },
+    {
+      "title": "第 20 题",
+      "content": "如果二叉搜索树在连续的插入和删除操作后，所有节点都偏向一侧，导致其退化为类似于链表的结构，这时其查找、插入、删除操作的时间复杂度会从理想情况下的 O(log n) 退化到 O(n log n)。（ ）",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "BST 退化为链表时树高等于结点数 n，查找、插入、删除沿单链进行，复杂度退化为 O(n)，而不是 O(n log n)，说法错误。"
+    },
+    {
+      "title": "第 21 题",
+      "content": "执行下列代码，`my_dog.name` 的最终值是 Charlie。（ ）\n```cpp\nclass Dog {\npublic:\n    std::string name;\n    Dog(std::string str) : name(str) {}\n};\n\nint main() {\n    Dog my_dog(\"Buddy\");\n    my_dog.name = \"Charlie\";\n    return 0;\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "构造时 name 初始化为 Buddy，随后赋值语句 my_dog.name = \"Charlie\" 将其覆盖，最终值为 Charlie，说法正确。"
+    },
+    {
+      "title": "第 22 题",
+      "content": "下列 C++ 代码可以成功编译，并且子类 Child 的实例能通过其成员函数访问父类 Parent 的属性 value。（ ）\n```cpp\nclass Parent {\nprivate:\n    int value = 100;\n};\nclass Child : public Parent {\npublic:\n    int get_private_val() {\n        return value; // 尝试访问父类的私有成员\n    }\n};\n```",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "private 成员仅对本类成员函数可见，即使 public 继承，派生类也不能直接访问父类的私有成员，该代码编译报错。若想允许访问应改为 protected。"
+    },
+    {
+      "title": "第 23 题",
+      "content": "下列代码中的 tree 向量，表示的是一棵完全二叉树（-1 代表空节点）按照层序遍历的结果。（ ）\n```cpp\n#include <vector>\nstd::vector<int> tree = {1, 2, 3, 4, -1, 6, 7};\n```",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "F",
+      "score": 2,
+      "explanation": "层序 {1,2,3,4,−1,6,7}：结点 2 的右孩子为空（−1），但其后同层仍有结点 6、7。完全二叉树要求空位之后不能再有结点，此树不满足，故不是完全二叉树。"
+    },
+    {
+      "title": "第 24 题",
+      "content": "在树的深度优先搜索（DFS）中，使用栈作为辅助数据结构以实现\"先进后出\"的访问顺序。（ ）",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "DFS 沿一条路径深入到底再回溯，借助栈（递归调用栈或显式栈）保存待访问结点，后进先出/先进后出的特性正是回溯的基础，说法正确。"
+    },
+    {
+      "title": "第 25 题",
+      "content": "下面代码采用动态规划求解零钱兑换问题：给定多种硬币，第 i 种硬币的面值为 `coins[i - 1]`，目标金额为 amt，每种硬币可以重复选取，求能够凑出目标金额的最少硬币数量；如果不能凑出目标金额，返回 -1。（ ）\n```cpp\nint coinChangeDPComp(vector<int> &coins, int amt) {\n    int n = coins.size();\n    int MAX = amt + 1;\n\n    vector<int> dp(amt + 1, MAX);\n    dp[0] = 0;\n\n    for (int i = 1; i <= n; i++) {\n        for (int a = 1; a <= amt; a++) {\n            if (coins[i - 1] > a)\n                dp[a] = dp[a];\n            else\n                dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);\n        }\n    }\n    return dp[amt] != MAX ? dp[amt] : -1;\n}\n```",
+      "question_type": "true_false",
+      "options": {
+        "T": "正确",
+        "F": "错误"
+      },
+      "correct_answer": "T",
+      "score": 2,
+      "explanation": "完全背包型零钱兑换：dp[a] 表示凑出金额 a 的最少硬币数，转移 dp[a] = min(dp[a], dp[a−coins[i−1]]+1)，硬币可重复选取（金额维度正序遍历）；MAX=amt+1 充当无穷大，最终仍为 MAX 则无解返回 −1。代码逻辑正确。"
+    },
+    {
+      "title": "学习小组",
+      "content": "**题目描述**\n\n班主任计划将班级里的 n 名同学划分为若干个学习小组，每名同学都需要分入某一个学习小组中。观察发现，如果一个学习小组中恰好包含 k 名同学，则该学习小组的讨论积极度为 aₖ。\n\n给定讨论积极度 a₁, a₂, ..., aₙ，请你计算将这 n 名同学划分为学习小组的所有可能方案中，讨论积极度之和的最大值。\n\n**输入格式**\n\n第一行，一个正整数 n，表示班级人数。\n\n第二行，n 个非负整数 a₁, a₂, ..., aₙ，表示不同人数学习小组的讨论积极度。\n\n**输出格式**\n\n输出共一行，一个整数，表示所有划分方案中，学习小组讨论积极度之和的最大值。\n\n**样例输入 1**\n```\n4\n1 5 6 3\n```\n\n**样例输出 1**\n```\n10\n```\n\n**样例输入 2**\n```\n8\n0 2 5 6 4 3 3 4\n```\n\n**样例输出 2**\n```\n12\n```\n\n**数据范围**\n\n对于 40% 的测试点，保证 1 ≤ n ≤ 10。\n\n对于所有测试点，保证 1 ≤ n ≤ 1000，0 ≤ aᵢ ≤ 10⁴。",
+      "question_type": "programming",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 25,
+      "explanation": "划分方案只与各组人数有关，是有序/无序均可的完全背包计数型 DP。设 f[i] 为划分 i 人的最大积极度和，转移 f[i] = max(f[i−k] + a[k])（1 ≤ k ≤ i）。因为 a[k] 可重复取（多个同人数组），按人数从 1 到 n 递推即可。样例 1：3+3+... 分成 {3,3,...}? 实为 3+3+2+2? 最优 {3,3,2,2}: a3+a3+a2+a2=3+3+5+5? 官方样例 4→10 即 5+5（两个 2 人组）。样例 2：{3,3,2} 5+5+2=12。时间复杂度 O(n²)。\n\n参考程序：\n```cpp\n#include <cstdio>\n#include <algorithm>\nusing namespace std;\n\nconst int N = 1005;\n\nint n;\nint a[N];\n\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++) {\n        scanf(\"%d\", &a[i]);\n        for (int j = 1; j < i; j++)\n            a[i] = max(a[i], a[j] + a[i - j]);\n    }\n    printf(\"%d\\n\", a[n]);\n    return 0;\n}\n```",
+      "url": "https://fslong.iok.la/problem/GESP202506-6-T1"
+    },
+    {
+      "title": "最大因数",
+      "content": "**题目描述**\n\n给定一棵有 10⁶ 个结点的有根树，这些结点依次以 1, 2, ..., 10⁶ 编号，根结点的编号为 1。对于编号为 k（2 ≤ k ≤ 10⁶）的结点，其父结点的编号为 k 的因数中除 k 以外最大的因数。\n\n现在有 q 组询问，第 t（1 ≤ t ≤ q）组询问给定 xₜ, yₜ，请你求出编号分别为 xₜ, yₜ 的两个结点在这棵树上的距离。\n\n两个结点之间的距离是连接这两个结点的简单路径所包含的边数。\n\n**输入格式**\n\n第一行，一个正整数 q，表示询问组数。\n\n接下来 q 行，每行两个正整数 xₜ, yₜ，表示询问结点的编号。\n\n**输出格式**\n\n输出共 q 行，每行一个整数，表示结点 xₜ, yₜ 之间的距离。\n\n**样例输入 1**\n```\n3\n1 3\n2 5\n4 8\n```\n\n**样例输出 1**\n```\n1\n2\n1\n```\n\n**样例输入 2**\n```\n1\n120 650\n```\n\n**样例输出 2**\n```\n9\n```\n\n**数据范围**\n\n对于 60% 的测试点，保证 1 ≤ xₜ, yₜ ≤ 1000。\n\n对于所有测试点，保证 1 ≤ q ≤ 1000，1 ≤ xₜ, yₜ ≤ 10⁶。",
+      "question_type": "programming",
+      "options": {},
+      "correct_answer": "cpp",
+      "score": 25,
+      "explanation": "结点 k 的父结点是其最大真因数 k/p（p 为 k 的最小质因子）。把每个数除质因数到 1 的链视为树上路径：结点链为 x, x/p₁, x/(p₁p₂), ..., 1。两结点的最近公共祖先即两条除因子链首次相同的数，距离 = 各自步数之和（链上每除一次恰走一条边），双指针在两条因子链上同步推进即可。样例 2：120→60→30→15→5→1 与 650→325→65→13→1，公共祖先为 1，距离 = 5+4 = 9。单次询问 O(log x + log y)。\n\n参考程序：\n```cpp\n#include <cstdio>\n#include <algorithm>\nusing namespace std;\n\nconst int N = 50;\n\nint q;\nint a[N], cnta;\nint b[N], cntb;\nint f[N], t;\n\nvoid factorize(int x, int a[], int &cnt) {\n    a[0] = x;\n    t = 0;\n    for (int i = 2; i * i <= x; i++)\n        while (x % i == 0) {\n            f[++t] = i;\n            x /= i;\n        }\n    if (x > 1)\n        f[++t] = x;\n    for (int i = 1; i <= t; i++)\n        a[i] = a[i - 1] / f[i];\n    cnt = t;\n}\n\nint main() {\n    scanf(\"%d\", &q);\n    while (q--) {\n        int x, y;\n        scanf(\"%d%d\", &x, &y);\n        factorize(x, a, cnta);\n        factorize(y, b, cntb);\n        int px = 0, py = 0;\n        while (a[px] != b[py]) {\n            if (a[px] > b[py])\n                px++;\n            else\n                py++;\n        }\n        printf(\"%d\\n\", px + py);\n    }\n    return 0;\n}\n```",
+      "url": "https://fslong.iok.la/problem/GESP202506-6-T2"
+    }
+  ]
+}
