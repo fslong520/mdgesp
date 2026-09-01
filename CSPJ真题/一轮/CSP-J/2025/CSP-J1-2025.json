@@ -1,0 +1,594 @@
+{
+  "title": "CSP-J/S 第一轮认证 2025年9月 真题",
+  "description": "CCF CSP-J 2025年第一轮认证（入门级）初赛真题，认证时间2025-09-20 09:30~11:30",
+  "date": "2025-09-20",
+  "time_limit": 120,
+  "pass_score": 60,
+  "source": "https://bitworld.xin/p/CSPJ202501",
+  "questions": [
+    {
+      "title": "第1题",
+      "content": "一个32位无符号整数可以表示的最大值，最接近下列哪个选项？（）",
+      "question_type": "single",
+      "options": {
+        "A": "4×10⁹",
+        "B": "3×10¹⁰",
+        "C": "2×10⁹",
+        "D": "2×10¹⁰"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "32位无符号整数最大值 2³²-1 ≈ 4.29×10⁹，最接近 4×10⁹"
+    },
+    {
+      "title": "第2题",
+      "content": "在C++中，执行 `int x=255; cout<<(x&(x-1));` 后，输出的结果是？（）",
+      "question_type": "single",
+      "options": {
+        "A": "255",
+        "B": "254",
+        "C": "128",
+        "D": "0"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "x=255(11111111₂)，x&(x-1) 消除最右1得 11111110₂=254"
+    },
+    {
+      "title": "第3题",
+      "content": "函数calc(n)的定义如下，则calc(5)的返回值是多少？（）\n```c++\nint calc(int n){\nif(n<=1) return 1;\nif(n%2==0) return calc(n/2)+1;\nelse return calc(n-1)+calc(n-2);\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "calc(5)=calc(4)+calc(3)=[calc(2)+1]+[calc(2)+calc(1)]=[2+1]+[2+1]=6"
+    },
+    {
+      "title": "第4题",
+      "content": "用5个权值10、12、15、20、25构造哈夫曼树，该树的带权路径长度是多少？（）",
+      "question_type": "single",
+      "options": {
+        "A": "176",
+        "B": "186",
+        "C": "196",
+        "D": "206"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "WPL=3×(10+12)+2×(15+20+25)=66+120=186"
+    },
+    {
+      "title": "第5题",
+      "content": "在一个有向图中，所有顶点的入度之和等于所有顶点的出度之和，这个总和等于？（）",
+      "question_type": "single",
+      "options": {
+        "A": "顶点数",
+        "B": "边数",
+        "C": "顶点数+边数",
+        "D": "顶点数²"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "有向图中每条边贡献一个出度一个入度，故入度和=出度和=边数"
+    },
+    {
+      "title": "第6题",
+      "content": "从5位男生和4位女生中选出4人组成一个学习小组，要求学习小组中男生和女生都有。有多少种不同的选举方法？（）",
+      "question_type": "single",
+      "options": {
+        "A": "126",
+        "B": "121",
+        "C": "120",
+        "D": "100"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "总选法 C(9,4)=126，减全男 C(5,4)=5 减全女 C(4,4)=1 → 120"
+    },
+    {
+      "title": "第7题",
+      "content": "假设a、b、c都是布尔变量，逻辑表达式 `(a&&b)||(!c&&a)` 的值与下列哪个表达式不始终相等？（）",
+      "question_type": "single",
+      "options": {
+        "A": "`a&&(b||!c)`",
+        "B": "`(a||!c)&&(b||!c)&&(a||a)`",
+        "C": "`a&&(!b||c)`",
+        "D": "`!(a||!b)||(a&&!c)`"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "原式化简 = a&&(b‖!c)。C 选项 a&&(!b‖c) 在 a=b=true,c=false 时不等"
+    },
+    {
+      "title": "第8题",
+      "content": "已知 f[0]=1，f[1]=1，并且对于所有 n≥2 有 f[n]=(f[n-1]+f[n-2])%7，那么 f[2025] 的值是多少？（）",
+      "question_type": "single",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "D",
+      "score": 2,
+      "explanation": "模7周期16，f[0]=1,f[1]=1,⋯,f[15]=0,f[16]=1 循环，2025%16=9，f[9]=6"
+    },
+    {
+      "title": "第9题",
+      "content": "下列关于C++ string类的说法，正确的是？（）",
+      "question_type": "single",
+      "options": {
+        "A": "string对象的长度在创建后不能改变",
+        "B": "可以使用+运算符直接连接一个string对象和一个char类型的字符",
+        "C": "string的 length()和 size()方法返回的值可能不同",
+        "D": "string对象必须以\\0结尾，且这个结尾符计入 length()"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "string 可改变(A错)，length()=size()(C错)，不计\\0(D错)。+可连char(B对)"
+    },
+    {
+      "title": "第10题",
+      "content": "考虑以下C++函数，在 main函数调用solve后，x和y的值分别是？（）\n```c++\nvoid solve(int&a, int b){\na=a+b;\nb=a-b;\na=a-b;\n}\nint main(){\nint x=5, y=10;\nsolve(x, y);\n}\n```",
+      "question_type": "single",
+      "options": {
+        "A": "5, 10",
+        "B": "10, 5",
+        "C": "10, 10",
+        "D": "5, 5"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "引用传x，值传y。最终 x=10, y=10"
+    },
+    {
+      "title": "第11题",
+      "content": "一个 8×8 的棋盘，左上角坐标为(1,1)，右下角为(8,8)。一个机器人从(1,1)出发，每次只能向右或向下走一格。要到达(4,5)，有多少种不同的路径？（）",
+      "question_type": "single",
+      "options": {
+        "A": "20",
+        "B": "35",
+        "C": "56",
+        "D": "70"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "右移3格+下移4格共7步，选3步右移 → C(7,3)=35"
+    },
+    {
+      "title": "第12题",
+      "content": "某同学用冒泡排序对数组 [6,1,5,2,4] 进行升序排序，请问需要进行多少次元素交换？（）",
+      "question_type": "single",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "score": 2,
+      "explanation": "逆序对：(6,1)(6,5)(6,2)(6,4)(5,2)(5,4) 共6次"
+    },
+    {
+      "title": "第13题",
+      "content": "十进制数 720₁₀ 和八进制数 270₈ 的和用十六进制表示是多少？（）",
+      "question_type": "single",
+      "options": {
+        "A": "388₁₆",
+        "B": "3DE₁₆",
+        "C": "288₁₆",
+        "D": "990₁₆"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "270₈=184，720+184=904 → 十六进制 388₁₆"
+    },
+    {
+      "title": "第14题",
+      "content": "一棵包含1000个结点的完全二叉树，其叶子结点的数量是多少？（）",
+      "question_type": "single",
+      "options": {
+        "A": "499",
+        "B": "512",
+        "C": "500",
+        "D": "501"
+      },
+      "correct_answer": "C",
+      "score": 2,
+      "explanation": "完全二叉树叶子 = ceil(n/2) = 500"
+    },
+    {
+      "title": "第15题",
+      "content": "给定一个初始为空的整数栈S和一个空的队列P。按顺序处理输入的整数队列A：7、5、8、3、1、4、2。处理规则：\n①若该数是奇数，压入栈S；\n②若该数是偶数且栈S非空，弹出栈顶元素加入队列P；\n③若该数是偶数且栈S为空，不操作。\n当队列A处理完毕后，队列P的内容是什么？（）",
+      "question_type": "single",
+      "options": {
+        "A": "5, 1, 3",
+        "B": "7, 5, 3",
+        "C": "3, 1, 5",
+        "D": "5, 1, 3, 7"
+      },
+      "correct_answer": "A",
+      "score": 2,
+      "explanation": "模拟栈队列操作得 P=[5,1,3]"
+    },
+    {
+      "title": "第16题",
+      "content": "```cpp\n01 #include <algorithm>\n02 #include <cstdio>\n03 #include <cstring>\n04 inline int gcd(int a, int b) {\n05   if (b == 0)\n06     return a;\n07   return gcd(b, a % b);\n08 }\n09 int main() {\n10   int n;\n11   scanf(\"%d\", &n);\n12   int ans = 0;\n13   for (int i = 1; i <= n; ++i) {\n14     for (int j = i + 1; j <= n; ++j) {\n15       for (int k = j + 1; k <= n; ++k) {\n16         if (gcd(i, j) == 1 && gcd(j, k) == 1\n17             && gcd(i, k) == 1) {\n18           ++ans;\n19         }\n20       }\n21     }\n22   }\n23   printf(\"%d\\n\", ans);\n24   return 0;\n25 }\n```\n\n当输入为2时，程序并不会执行第16行的判断语句。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 1.5,
+      "explanation": "n=2 时 k 循环不执行，第16行不触发"
+    },
+    {
+      "title": "第17题",
+      "content": "将第16行中的 `&& gcd(i，k)==1` 删去不会影响程序运行结果。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 1.5,
+      "explanation": "i,k 互质不一定成立，如 i=2,j=3,k=4"
+    },
+    {
+      "title": "第18题",
+      "content": "当输入的 n≥3 的时候，程序总是输出一个正整数。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 1.5,
+      "explanation": "n=3 时 (1,2,3) 两两互质，ans≥1"
+    },
+    {
+      "title": "第19题",
+      "content": "将第7行的 `gcd(b, a%b)` 改为 `gcd(a, a%b)` 后，程序可能出现的问题是（）",
+      "question_type": "single",
+      "options": {
+        "A": "输出的答案大于原答案",
+        "B": "输出的答案小于原答案",
+        "C": "程序有可能陷入死循环",
+        "D": "可能发生整型溢出问题"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "gcd(a,a%b) 参数不交换，递归无法正确归约，答案变小"
+    },
+    {
+      "title": "第20题",
+      "content": "当输入为8的时候，输出为（）",
+      "question_type": "single",
+      "options": {
+        "A": "37",
+        "B": "42",
+        "C": "35",
+        "D": "25"
+      },
+      "correct_answer": "D",
+      "score": 3,
+      "explanation": "n=8 时手动模拟得 25"
+    },
+    {
+      "title": "第21题",
+      "content": "调用gcd(36,42)会返回（）",
+      "question_type": "single",
+      "options": {
+        "A": "6",
+        "B": "252",
+        "C": "3",
+        "D": "2"
+      },
+      "correct_answer": "A",
+      "score": 3,
+      "explanation": "gcd(36,42)=6"
+    },
+    {
+      "title": "第22题",
+      "content": "```cpp\n01 #include <algorithm>\n02 #include <cstdio>\n03 #include <cstring>\n04 #define ll long long\n05 int n, k;\n06 int a[200007];\n07 int ans[200007];\n08 int main() {\n09   scanf(\"%d%d\", &n, &k);\n10   for (int i = 1; i <= n; ++i) {\n11     scanf(\"%d\", &a[i]);\n12   }\n13   std::sort(a + 1, a + n + 1);\n14   n = std::unique(a + 1, a + n + 1) - a - 1;\n15   for (int i = 1, j = 0; i <= n; ++i) {\n16     for (; j < i && a[i] - a[j + 1] > k; ++j)\n17       ;\n18     ans[i] = ans[j] + 1;\n19   }\n20   printf(\"%d\\n\", ans[n]);\n}\n```\n\n当输入为\"3 1 3 2 1\"时，输出结果为2。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 1.5,
+      "explanation": "排序去重得 1 2 3，极差≤1 最少分组 2"
+    },
+    {
+      "title": "第23题",
+      "content": "假设输入的n为正整数，输出的答案一定小于等于n，大于等于1。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 1.5,
+      "explanation": "ans 每轮至少+1，最多+n"
+    },
+    {
+      "title": "第24题",
+      "content": "将第14行的 `n=std::unique(a+1,a+n+1)-a-1;` 删去后，有可能出现与原本代码不同的输出结果。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 1.5,
+      "explanation": "重复元素极差0不影响分组"
+    },
+    {
+      "title": "第25题",
+      "content": "假设输入的a数组和k均为正整数，执行第18行代码时，一定满足的条件不包括（）",
+      "question_type": "single",
+      "options": {
+        "A": "j≤i",
+        "B": "a[i]-a[j]>k",
+        "C": "j≤n",
+        "D": "a[j]<a[i]"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "j 循环结束后 a[i]-a[j+1]≤k，a[i]-a[j] 不一定>k"
+    },
+    {
+      "title": "第26题",
+      "content": "当输入的 n=100、k=2、a={1,2,…,100} 时，输出为（）",
+      "question_type": "single",
+      "options": {
+        "A": "34",
+        "B": "100",
+        "C": "50",
+        "D": "33"
+      },
+      "correct_answer": "A",
+      "score": 3,
+      "explanation": "100个数，极差≤2 每3个一组 → ceil(100/3)=34"
+    },
+    {
+      "title": "第27题",
+      "content": "假设输入的a数组和k均为正整数，但a数组不一定有序，若误删去第13行的 `std::sort(a+1,a+n+1);`，程序有可能出现的问题有（）",
+      "question_type": "single",
+      "options": {
+        "A": "输出的答案比原本答案更大",
+        "B": "输出的答案比原本答案更小",
+        "C": "出现死循环行为",
+        "D": "以上均可能发生"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "乱序导致 j 提前停止，答案可能变小"
+    },
+    {
+      "title": "第28题",
+      "content": "```cpp\n01 #include <algorithm>\n02 #include <cstdio>\n03 #include <cstring>\n04 #define ll long long\n05 int f[5007][5007];\n06 int a[5007], b[5007];\n07 int n;\n08 int main() {\n09   scanf(\"%d\", &n);\n10   for (int i = 1; i <= n; ++i) {\n11     scanf(\"%d\", &a[i]);\n12   }\n13   for (int i = 1; i <= n; ++i) {\n14     scanf(\"%d\", &b[i]);\n15   }\n16   for (int i = 1; i <= n; ++i) {\n17     for (int j = 1; j <= n; ++j) {\n18       if (a[i] == b[j]) {\n19         f[i][j] = f[i-1][j-1] + 1;\n20       } else {\n21         f[i][j] = std::max(f[i-1][j], f[i][j-1]);\n22       }\n23     }\n24   }\n25   printf(\"%d\\n\", f[n][n]);\n26   return 0;\n}\n```\n\n当输入\"4 1 2 3 4 1 3 2 2\"时，输出为2。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 1.5,
+      "explanation": "a=1234, b=1322, LCS=2（\"13\"或\"12\"）"
+    },
+    {
+      "title": "第29题",
+      "content": "当程序运行完毕后，对于所有的 1≤i,j≤n，都一定有 f[i][j]≤f[n][n]。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "T",
+      "score": 1.5,
+      "explanation": "f[i][j] ≤ f[n][n] 恒成立"
+    },
+    {
+      "title": "第30题",
+      "content": "将第18行的 `f[i][j]=std::max(f[i][j],std::max(f[i-1][j],f[i][j-1]));` 删去后，并不影响程序运行结果。（）",
+      "question_type": "true_false",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "correct_answer": "F",
+      "score": 1,
+      "explanation": "删去则丢失 f[i-1][j] 和 f[i][j-1] 的继承，答案可能变小"
+    },
+    {
+      "title": "第31题",
+      "content": "输出的答案满足的性质有（）",
+      "question_type": "single",
+      "options": {
+        "A": "小于等于n",
+        "B": "大于等于0",
+        "C": "不一定大于等于1",
+        "D": "以上均是"
+      },
+      "correct_answer": "D",
+      "score": 3,
+      "explanation": "f[n][n]≤n、≥0、不一定≥1（无公共元素时为0）"
+    },
+    {
+      "title": "第32题",
+      "content": "如果在16行的循环前加上以下两行：`std::sort(a+1,a+n+1); std::sort(b+1,b+n+1);`，则答案会（）",
+      "question_type": "single",
+      "options": {
+        "A": "变大或不变",
+        "B": "变小或不变",
+        "C": "一定变大",
+        "D": "不变"
+      },
+      "correct_answer": "A",
+      "score": 3,
+      "explanation": "排序后 LCS 可能不变或变大（变成交集大小）"
+    },
+    {
+      "title": "第33题",
+      "content": "如果输入的a数组是1,2,...,n，而且b数组中数字均为1~n中的正整数，则上述代码等价于下面哪个问题：（）",
+      "question_type": "single",
+      "options": {
+        "A": "求b数组去重后的长度",
+        "B": "求b数组的最长上升子序列",
+        "C": "求b数组的长度",
+        "D": "求b数组的最大值"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "a={1..n}递增时，LCS 等价于 b 的 LIS"
+    },
+    {
+      "title": "第34题",
+      "content": "\"行程长度编码\"（Run-Length Encoding）是一种无损压缩算法，常用于压缩重复字符较多的数据，以减少存储空间。假设原始字符串不包含数字字符。压缩规则如下：\n1. 如果原始字符串中一个字符连续出现N次（N≥2），在压缩字符串中它被表示为\"字符\\*N\"。例如，编码\"A12\"代表12个连续的字符A。\n2. 如果原始字符串中一个字符只出现1次，在压缩字符串中它就表示为该字符本身。例如，编码\"B\"代表1个字符B。\n以下程序实现读取压缩字符串并输出其原始的、解压后的形式。试补全程序。\n\n```cpp\n#include<cctype>\n#include<iostream>\n#include<string>\nusing namespace std;\n\nint main(){\n    string z;\n    cin>> z;\n    string s=\"\";\n    for(int i=0;;){\n        char ch= z[i];\n        if( ①  &&isdigit(z[i+1])){\n            int count=0;\n            i++;\n            while(i<z.length()&& isdigit(z[i])){\n                count= ②;\n                i++;\n            }\n            for(int j=0; j< ③ ;++j){\n                s+= ch;\n            }\n        }else{\n              s+=④;\n            ⑤;\n        }\n    }\n    cout<< s<< endl;\n    return 0;\n}\n```\n\n①处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "i<z.length()",
+        "B": "i-1≥0",
+        "C": "i+1<z.length()",
+        "D": "isdigit(z[i])"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "i+1 < z.length() 检查不越界"
+    },
+    {
+      "title": "第35题",
+      "content": "②处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "count+(z[i]-'0')",
+        "B": "count\\*10+(z[i]-'0')",
+        "C": "z[i]-'0'",
+        "D": "count+1"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "count = count*10 + (z[i]-'0') 累计多位数字"
+    },
+    {
+      "title": "第36题",
+      "content": "③处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "count-1",
+        "B": "count",
+        "C": "10",
+        "D": "z[i]-'0'"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "循环 count 次添加字符"
+    },
+    {
+      "title": "第37题",
+      "content": "④处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "z[i+1]",
+        "B": "ch",
+        "C": "z.back()",
+        "D": "(char)z[i]+1"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "单字符直接添加 ch"
+    },
+    {
+      "title": "第38题",
+      "content": "⑤处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "i--",
+        "B": "i=i+2",
+        "C": "i++",
+        "D": "不执行任何操作"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "i++ 移动到下一个字符"
+    },
+    {
+      "title": "第39题",
+      "content": "有N个人，分为两类：(i) 精明人：永远能正确判断其他人是精明还是糊涂；(ii) 糊涂人：判断不可靠，会给出随机的判断。已知精明人严格占据多数，即如果精明人有k个，则满足k＞N/2。\n你只能通过函数 query(i, j) 让第i个人判断第j个人：返回true表示判断结果为\"精明人\"；返回false表示判断结果为\"糊涂人\"。你的目标是，通过这些互相判断，找出至少一个百分之百能确定的精明人。同时，你无需关心query(i, j)的内部实现。\n以下程序利用\"精明人占多数\"的优势。设想一个\"消除\"的过程，让人们互相判断并进行抵消。经过若干轮抵消后，最终留下的候选者必然属于多数派，即精明人。\n例如，假设有三个人0、1、2。如果0说1是糊涂人，而1也说0是糊涂人，则0和1至少有一个是糊涂人。程序将同时淘汰0和1。由于三人里至少有两个精明人，我们确定2是精明人。\n试补全程序。\n\n```cpp\n#include <iostream>\n#include <vector>\nusing namespace std;\n\nint N;\nbool query(int i, int j);\n\nint main() {\n    cin >> N;\n    int candidate = 0;\n    int count = ①;\n    \n    for (int i = 1; i < N; ++i) {\n        if (②) {\n            candidate = i;\n            count = 1;\n        } else {\n            if (③) {\n                ④;\n            } else {\n                count++;\n            }\n        }\n    }\n    \n    cout << ⑤ << endl;\n    return 0;\n}\n```\n\n①处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "N",
+        "D": "-1"
+      },
+      "correct_answer": "B",
+      "score": 3,
+      "explanation": "count 初始化为 1（candidate=0 计数为1）"
+    },
+    {
+      "title": "第40题",
+      "content": "②处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "count<0",
+        "B": "count==1",
+        "C": "count==0",
+        "D": "query(candidate,i)==false"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "count==0 时换候选人"
+    },
+    {
+      "title": "第41题",
+      "content": "③处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "query(candidate,i)==false",
+        "B": "query(i,candidate)==true",
+        "C": "query(candidate,i)==false&&query(i,candidate)==false",
+        "D": "query(candidate,i)==false||query(i,candidate)==false"
+      },
+      "correct_answer": "D",
+      "score": 3,
+      "explanation": "query(candidate,i)==false‖query(i,candidate)==false 互相指认为糊涂"
+    },
+    {
+      "title": "第42题",
+      "content": "④处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "count--",
+        "B": "break",
+        "C": "count++",
+        "D": "candidate = i"
+      },
+      "correct_answer": "A",
+      "score": 3,
+      "explanation": "count-- 抵消一票"
+    },
+    {
+      "title": "第43题",
+      "content": "⑤处应填（）",
+      "question_type": "single",
+      "options": {
+        "A": "N-1",
+        "B": "count",
+        "C": "candidate",
+        "D": "0"
+      },
+      "correct_answer": "C",
+      "score": 3,
+      "explanation": "输出 candidate（最终确定的精明人）"
+    }
+  ]
+}
