@@ -201,10 +201,10 @@
     },
     {
       "content": "以下代码中，构造函数被调用的次数是 1 次。\n```cpp\nclass Test {\npublic:\n    Test() { cout << \"T \"; }\n};\nint main() {\n    Test a;\n    Test b = a;\n}\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -212,10 +212,10 @@
     },
     {
       "content": "面向对象编程中，封装是指将数据和操作数据的方法绑定在一起，并对外隐藏实现细节。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -223,10 +223,10 @@
     },
     {
       "content": "以下代码能够正确统计二叉树中叶子结点的数量。\n```cpp\nint countLeaf(TreeNode* root) {\n    if (!root) return 0;\n    if (!root->left && !root->right) return 1;\n    return countLeaf(root->left) + countLeaf(root->right);\n}\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -234,10 +234,10 @@
     },
     {
       "content": "广度优先遍历二叉树可用栈来实现。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -245,10 +245,10 @@
     },
     {
       "content": "函数调用管理可用栈来管理。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -256,10 +256,10 @@
     },
     {
       "content": "在二叉排序树（BST）中，若某结点的左子树为空，则该结点一定是整棵树中的最小值结点。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -267,10 +267,10 @@
     },
     {
       "content": "下面的函数能正确判断一棵树是不是二叉排序树。\n```cpp\nbool isBST(TreeNode* root, int minVal, int maxVal) {\n    if (!root) return true;\n    if (root->val <= minVal || root->val >= maxVal) return false;\n    return isBST(root->left, minVal, root->val) && isBST(root->right, root->val, maxVal);\n}\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -278,10 +278,10 @@
     },
     {
       "content": "格雷编码相邻两个编码之间必须有多位不同，以避免数据传输错误。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -289,10 +289,10 @@
     },
     {
       "content": "小杨在玩一个闯关游戏，从第 1 关走到第 4 关。每一关的体力消耗如下：cost = [0, 3, 5, 2, 4]，其中 cost[i] 表示到达第 i 关需要消耗的体力。小杨每次可以从当前关卡前进 1 步或 2 步。按照上述规则，从第 1 关到第 4 关所需消耗的最小体力为 7。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -300,10 +300,10 @@
     },
     {
       "content": "假定只有一个根节点的树的深度为 1，则一棵有 n 个节点的完全二叉树，则树的深度为 ⌊log₂(n)⌋ + 1。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -311,21 +311,23 @@
     },
     {
       "content": "给定一棵有 n 个结点的有根树，结点依次以 1, 2, ..., n 编号，根结点编号为 1。方便起见，编号为 i 的结点称为结点 i。\n\n初始时树中的结点均为白色。你需要将树中的若干个结点染为黑色，使得所有叶子到根的路径上至少有一个黑色结点。将结点 i 染为黑色需要代价 c[i]，你需要在满足以上条件的情况下，最小化染色代价之和。\n\n叶子是指树中没有子结点的结点。\n\n**输入格式**\n\n第一行，一个正整数 n，表示结点数量。\n\n第二行，n-1 个正整数 f[2], f[3], ..., f[n]，其中 f[i] 表示结点 i 的父结点的编号，保证 f[i] < i。\n\n第三行，n 个正整数 c[1], c[2], ..., c[n]，其中 c[i] 表示将结点 i 染为黑色所需的代价。\n\n**输出格式**\n\n一行，一个整数，表示在满足所有叶子到根的路径上至少有一个黑色结点的前提下，染色代价之和的最小值。\n\n**输入样例 1**\n```\n4\n1 2 3\n5 6 2 3\n```\n\n**输出样例 1**\n```\n2\n```\n\n**输入样例 2**\n```\n7\n1 1 2 2 3 3\n64 16 15 4 3 2 1\n```\n\n**输出样例 2**\n```\n10\n```\n\n**数据范围**\n\n对于 40% 的测试点，保证 2 ≤ n ≤ 16。\n\n对于另外 20% 的测试点，保证 f[i] = i-1。\n\n对于所有测试点，保证 2 ≤ n ≤ 10⁵，1 ≤ c[i] ≤ 10⁹。",
-      "question_type": "program",
+      "question_type": "programming",
       "options": {},
       "correct_answer": "cpp",
       "score": 25,
       "explanation": "树形DP：对每个结点维护 ans[i] = 使以 i 为根的子树内所有叶到根路径均有黑点的最小代价。若 i 为叶子，ans[i]=c[i]；否则 ans[i]=min(c[i], Σans[子结点])（自己染黑或让子结点覆盖）。自底向上（按编号倒序）累加到父结点，最后 ans[1] 即答案。参考程序用 cnt 统计子结点数，从 n 到 1 逆序处理：叶子 ans[i]=c[i]，再取 min(c[i])，累加至 f[i]。复杂度 O(n)。",
-      "url": "https://fslong.iok.la/problem/GESP202512-L6-1"
+      "url": "https://fslong.iok.la/problem/GESP202512L6T1",
+      "pid": "GESP202512L6T1"
     },
     {
       "content": "道具商店里有 n 件道具可供挑选。第 i 件道具可为玩家提升 a[i] 点攻击力，需要 c[i] 枚金币才能购买，每件道具只能购买一次。现在你有 k 枚金币，请问你最多可以提升多少点攻击力？\n\n**输入格式**\n\n第一行，两个正整数 n, k，表示道具数量以及你所拥有的金币数量。\n\n接下来 n 行，每行两个正整数 a[i], c[i]，表示道具所提升的攻击力点数，以及购买所需的金币数量。\n\n**输出格式**\n\n输出一行，一个整数，表示最多可以提升的攻击力点数。\n\n**输入样例 1**\n```\n3 5\n99 1\n33 2\n11 3\n```\n\n**输出样例 1**\n```\n132\n```\n\n**输入样例 2**\n```\n4 100\n10 1\n20 11\n40 33\n100 99\n```\n\n**输出样例 2**\n```\n110\n```\n\n**数据范围**\n\n对于 60% 的测试点，保证 1 ≤ n ≤ 500，1 ≤ c[i] ≤ 500。\n\n对于所有测试点，保证 1 ≤ n ≤ 500，1 ≤ k ≤ 10⁹，1 ≤ a[i] ≤ 500，1 ≤ c[i] ≤ 10⁹。",
-      "question_type": "program",
+      "question_type": "programming",
       "options": {},
       "correct_answer": "cpp",
       "score": 25,
       "explanation": "反向 0/1 背包：f[j] 表示恰好获得 j 点攻击力所需最少金币。对每件道具 (a, c) 逆序更新 f[j] = min(f[j], f[j-a] + c)。总攻击力上限为 Σa（≤ n·500 = 250000，参考程序开 N·N=505·505 数组）。最后取满足 f[j] ≤ k 的最大 j 即答案。复杂度 O(n·Σa)。",
-      "url": "https://fslong.iok.la/problem/GESP202512-L6-2"
+      "url": "https://fslong.iok.la/problem/GESP202512-L6-2",
+      "pid": "GESP202512-L6-2"
     }
   ]
 }

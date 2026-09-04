@@ -201,10 +201,10 @@
     },
     {
       "content": "哈夫曼树在构造过程中，每次合并权值最小的两个节点，最终生成的树带权路径长度最小。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -212,10 +212,10 @@
     },
     {
       "content": "格雷编码的相邻两个编码之间必须有多位不同，以避免数据传输错误。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -223,10 +223,10 @@
     },
     {
       "content": "在树的深度优先搜索（DFS）中，使用队列作为辅助数据结构以实现\"先进后出\"的访问顺序。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -234,10 +234,10 @@
     },
     {
       "content": "以下代码实现的是二叉树的中序遍历：\n```cpp\nvoid traverse(TreeNode* root) {\n    if (root == nullptr) return;\n    traverse(root->left);\n    cout << root->val << \" \";\n    traverse(root->right);\n}\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -245,10 +245,10 @@
     },
     {
       "content": "C++ 支持构造函数重载，但默认无参数的构造函数只能有一个。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -256,10 +256,10 @@
     },
     {
       "content": "二叉排序树（BST）中，若某节点的左子树为空，则该节点一定是树中的最小值节点。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -267,10 +267,10 @@
     },
     {
       "content": "在动态规划解决一维硬币找零问题时，若硬币面额为 [1, 3, 4]，目标金额为 6，则最少需要 2 枚硬币（3+3）。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -278,10 +278,10 @@
     },
     {
       "content": "面向对象编程中，封装是指将数据和行为绑定在一起，并对外隐藏实现细节。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -289,10 +289,10 @@
     },
     {
       "content": "以下代码创建的树是一棵完全二叉树：\n```cpp\nTreeNode* root = new TreeNode{1};\nroot->left = new TreeNode{2};\nroot->right = new TreeNode{3};\nroot->left->left = new TreeNode{4};\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -300,10 +300,10 @@
     },
     {
       "content": "栈和队列均可以用双向链表实现，插入和删除操作的时间复杂度为 O(1)。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -311,21 +311,23 @@
     },
     {
       "content": "小 A 有一棵 n 个结点的树，这些结点依次以 1, 2, ..., n 标号。\n\n小 A 想在这棵树上漫步。具体来说，小 A 会从树上的某个结点出发，每一步可以移动到与当前结点相邻的结点，并且小 A 只会在偶数步（可以是零步）后结束漫步。\n\n现在小 A 想知道，对于树上的每个结点，从这个结点出发开始漫步，经过偶数步能结束漫步的结点有多少个（可以经过重复的节点）。\n\n**输入格式**\n\n第一行，一个正整数 n。\n\n接下来 n-1 行，每行两个整数 u, v，表示树上有一条连接结点 u 和结点 v 的边。\n\n**输出格式**\n\n一行，n 个整数，第 i 个整数表示从结点 i 出发开始漫步，能结束漫步的结点数量。\n\n**输入样例 1**\n```\n3\n1 3\n2 3\n```\n\n**输出样例 1**\n```\n2 2 1\n```\n\n**输入样例 2**\n```\n4\n1 3\n3 2\n4 3\n```\n\n**输出样例 2**\n```\n3 3 1 3\n```\n\n**数据范围**\n\n对于 40% 的测试点，保证 1 ≤ n ≤ 10³。\n\n对于所有测试点，保证 1 ≤ n ≤ 2×10⁵。",
-      "question_type": "program",
+      "question_type": "programming",
       "options": {},
       "correct_answer": "cpp",
       "score": 25,
       "explanation": "树是二分图：相邻结点必属不同颜色类。偶数步可达的结点与起点同色（含零步起点自身），故从结点 i 出发能结束的结点数 = 与 i 同色的结点总数。DFS/染色：bel[u]=c，cnt[c]++，答案输出 cnt[bel[i]]。参考程序按二染色统计。复杂度 O(n)。",
-      "url": "https://fslong.iok.la/problem/GESP202503-L6-1"
+      "url": "https://fslong.iok.la/problem/P7013",
+      "pid": "P7013"
     },
     {
       "content": "小 A 喜欢坐地铁。地铁环线有 n 个车站，依次以 1, 2, ..., n 标号。车站 i（1 ≤ i < n）的下一个车站是车站 i+1。特殊地，车站 n 的下一个车站是车站 1。\n\n小 A 会从某个车站出发，乘坐地铁环线到某个车站结束行程，这意味着小 A 至少会经过一个车站。小 A 不会经过一个车站多次。当小 A 乘坐地铁环线经过车站 i 时，小 A 会获得 a[i] 点快乐值。请你安排小 A 的行程，选择出发车站与结束车站，使得获得的快乐值总和最大。\n\n**输入格式**\n\n第一行，一个正整数 n，表示车站的数量。\n\n第二行，n 个整数 a[1], a[2], ..., a[n]，分别表示经过每个车站时获得的快乐值。\n\n**输出格式**\n\n一行，一个整数，表示小 A 能获得的最大快乐值。\n\n**输入样例 1**\n```\n4\n-1 2 3 0\n```\n\n**输出样例 1**\n```\n5\n```\n\n**输入样例 2**\n```\n5\n-3 4 -5 1 3\n```\n\n**输出样例 2**\n```\n5\n```\n\n**数据范围**\n\n对于 20% 的测试点，保证 1 ≤ n ≤ 200。\n\n对于 40% 的测试点，保证 1 ≤ n ≤ 2000。\n\n对于所有测试点，保证 1 ≤ n ≤ 2×10⁵，-10⁹ ≤ a[i] ≤ 10⁹。",
-      "question_type": "program",
+      "question_type": "programming",
       "options": {},
       "correct_answer": "cpp",
       "score": 25,
       "explanation": "环形最大子段和：破环成链（数组复制一倍 a[n+i]=a[i]），前缀和 pre，问题化为求 i-n ≤ j < i 中 pre[i]-pre[j] 最大值（区间长度 ≤ n）。用单调队列维护窗口内最小前缀和：滑动窗口去队头过期元素，更新答案，再按前缀和单调性维护队尾。参考程序 q 为单调递增队列，ans 初值 -1e18。复杂度 O(n)。",
-      "url": "https://fslong.iok.la/problem/GESP202503-L6-2"
+      "url": "https://fslong.iok.la/problem/P7035",
+      "pid": "P7035"
     }
   ]
 }

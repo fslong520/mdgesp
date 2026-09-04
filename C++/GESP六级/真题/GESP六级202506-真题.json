@@ -201,10 +201,10 @@
     },
     {
       "content": "构造函数可以被声明为 virtual。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -212,10 +212,10 @@
     },
     {
       "content": "给定一组字符及其出现的频率，构造出的哈夫曼树是唯一的。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -223,10 +223,10 @@
     },
     {
       "content": "为了实现一个队列，使其出队操作（pop）的时间复杂度为 O(1)，并且避免数组删除首元素的问题，一种常见且有效的方法是使用环形数组，通过调整队首和队尾指针来实现。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -234,10 +234,10 @@
     },
     {
       "content": "对一棵二叉排序树进行中序遍历，可以得到一个递增的有序序列。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -245,10 +245,10 @@
     },
     {
       "content": "如果二叉搜索树在连续的插入和删除操作后，所有节点都偏向一侧，导致其退化为类似于链表的结构，这时其查找、插入、删除操作的时间复杂度会从理想情况下的 O(log n) 退化到 O(n)。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -256,10 +256,10 @@
     },
     {
       "content": "执行下列代码，my_dog.name 的最终值是 Charlie。\n```cpp\nclass Dog {\npublic:\n    std::string name;\n    Dog(std::string str) : name(str) {}\n};\nint main() {\n    Dog my_dog(\"Buddy\");\n    my_dog.name = \"Charlie\";\n    return 0;\n}\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -267,10 +267,10 @@
     },
     {
       "content": "下列 C++ 代码可以成功编译，并且子类 Child 的实例能通过其成员函数访问父类 Parent 的属性 value。\n```cpp\nclass Parent {\nprivate:\n    int value = 100;\n};\nclass Child : public Parent {\npublic:\n    int get_private_val() { return value; }\n};\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -278,10 +278,10 @@
     },
     {
       "content": "下列代码中的 tree 向量，表示的是棵完全二叉树（-1 代表空节点）按照层序遍历的结果。\n```cpp\nstd::vector<int> tree = {1, 2, 3, 4, -1, 6, 7};\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "F",
       "score": 2,
@@ -289,10 +289,10 @@
     },
     {
       "content": "在树的深度优先搜索（DFS）中，使用栈作为辅助数据结构以实现\"先进后出\"的访问顺序。",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -300,10 +300,10 @@
     },
     {
       "content": "下面代码采用动态规划求解零钱兑换问题：给定 n 种硬币，第 i 种硬币的面值为 coins[i-1]，目标金额为 amt，每种硬币可以重复选取，求能够凑出目标金额的最少硬币数量；如果不能凑出目标金额，返回 -1。\n```cpp\nint coinChangeDPComp(vector<int> &coins, int amt) {\n    int n = coins.size();\n    int MAX = amt + 1;\n    vector<int> dp(amt + 1, MAX);\n    dp[0] = 0;\n    for (int i = 1; i <= n; i++) {\n        for (int a = 1; a <= amt; a++) {\n            if (coins[i - 1] > a) dp[a] = dp[a];\n            else dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);\n        }\n    }\n    return dp[amt] != MAX ? dp[amt] : -1;\n}\n```",
-      "question_type": "true_false",
+      "question_type": "judge",
       "options": {
-        "A": "正确",
-        "B": "错误"
+        "T": "正确",
+        "F": "错误"
       },
       "correct_answer": "T",
       "score": 2,
@@ -311,21 +311,23 @@
     },
     {
       "content": "班主任计划将班级里的 n 名同学划分为若干个学习小组，每名同学都需要分入某一个学习小组中。观察发现，如果一个学习小组中恰好包含 i 名同学，则该学习小组的讨论积极度为 a[i]。\n\n给定讨论积极度 a[i]，请你计算将这 n 名同学划分为学习小组的所有可能方案中，讨论积极度之和的最大值。\n\n**输入格式**\n\n第一行，一个正整数 n，表示班级人数。\n\n第二行，n 个非负整数 a[1], a[2], ..., a[n]，表示不同人数学习小组的讨论积极度。\n\n**输出格式**\n\n输出共一行，一个整数，表示所有划分方案中，学习小组讨论积极度之和的最大值。\n\n**输入样例 1**\n```\n4\n1 5 6 3\n```\n\n**输出样例 1**\n```\n10\n```\n\n**输入样例 2**\n```\n8\n0 2 5 6 4 3 3 4\n```\n\n**输出样例 2**\n```\n12\n```\n\n**数据范围**\n\n对于 40% 的测试点，保证 1 ≤ n ≤ 10。\n\n对于所有测试点，保证 1 ≤ n ≤ 1000，0 ≤ a[i] ≤ 10⁴。",
-      "question_type": "program",
+      "question_type": "programming",
       "options": {},
       "correct_answer": "cpp",
       "score": 25,
       "explanation": "完全背包/整数划分 DP：a[i] 表示长度为 i 的小组积极度，初始读入；对每个 i，枚举最后一次划分 j（j<i），a[i] = max(a[i], a[j] + a[i-j])。最终 a[n] 即最大积极度之和。参考程序在读入时同步转移，复杂度 O(n²)。",
-      "url": "https://fslong.iok.la/problem/GESP202506-L6-1"
+      "url": "https://fslong.iok.la/problem/GESP202506-6-T1",
+      "pid": "GESP202506-6-T1"
     },
     {
       "content": "给定一棵有 n 个结点的有根树，这些结点依次以 1, 2, ..., n 编号，根结点的编号为 1。对于编号为 i（1 < i ≤ n）的结点，其父结点的编号为 i 的因数中除 i 以外最大的因数。\n\n现在有 q 组询问，第 j（1 ≤ j ≤ q）组询问给定 u, v，请你求出编号分别为 u 和 v 的两个结点在这棵树上的距离。两个结点之间的距离是连接这两个结点的简单路径所包含的边数。\n\n**输入格式**\n\n第一行，一个正整数 q，表示询问组数。\n\n接下来 q 行，每行两个正整数 u, v，表示询问结点的编号。\n\n**输出格式**\n\n输出共 q 行，每行一个整数，表示结点 u, v 之间的距离。\n\n**输入样例 1**\n```\n3\n1 3\n2 5\n4 8\n```\n\n**输出样例 1**\n```\n1\n2\n1\n```\n\n**输入样例 2**\n```\n1\n120 650\n```\n\n**输出样例 2**\n```\n9\n```\n\n**数据范围**\n\n对于 60% 的测试点，保证 1 ≤ u, v ≤ 1000。\n\n对于所有测试点，保证 1 ≤ q ≤ 1000，1 ≤ u, v ≤ 10⁹。",
-      "question_type": "program",
+      "question_type": "programming",
       "options": {},
       "correct_answer": "cpp",
       "score": 25,
       "explanation": "质因数分解求路径：结点 i 的父结点为 i 除以最小质因数。对 x 分解质因数得路径序列（根到 x），对 y 同理；两序列从头对齐到公共前缀（LCA），答案 = (x 路径长度 - 公共长度) + (y 路径长度 - 公共长度)。参考程序 factorize 记录各步质因数 f，a[k]=a[k-1]/f[k] 生成路径，双指针找第一个公共结点，输出 px+py。复杂度 O(q·√max(u,v))。",
-      "url": "https://fslong.iok.la/problem/GESP202506-L6-2"
+      "url": "https://fslong.iok.la/problem/GESP202506-6-T2",
+      "pid": "GESP202506-6-T2"
     }
   ]
 }
